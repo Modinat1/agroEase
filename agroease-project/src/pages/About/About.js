@@ -5,6 +5,7 @@ const About = () => {
   return (
     <div>
         <Navbar1 />
+        
     </div>
   )
 }

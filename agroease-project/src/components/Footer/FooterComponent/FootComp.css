@@ -1,0 +1,9 @@
+.contact-foot-width {
+    display: flex;
+    gap: 3rem;
+    width: 100%
+}
+
+.widths {
+    width: 40%;
+}

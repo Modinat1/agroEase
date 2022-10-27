@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,700&family=Poppins:ital,wght@0,300;0,400;1,300&family=Roboto:wght@100;300;400&family=Rubik:ital,wght@0,300;0,400;1,300&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Mobile screen */
+.agroedu-container {
+    display: grid;
+    place-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.agroedu-card {
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+
+.agroedu-card img {
+    display: block;
+    width: 100%;
+}
+.agro-subcard h3 {
+    background-color: #097C0D;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem;
+}
+
+.agronews-body {
+    border: 1.5px solid grey;
+    padding: 0.5rem 0.8rem 1.5rem;
+}
+.agronews-body h3, h5{
+    font-weight: 900;
+}
+.agronews-body p {
+    font-size: 0.7rem;
+    line-height: 1.2;
+}
+.news-flex{
+    display: flex;
+    align-items: center;
+}
+.play-icon{
+    background-color: #097C0D;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1rem;
+    width: 35px;
+    height: 35px;
+}
+
+/* Tab screen */
+@media (min-width: 600px) {
+    .agroedu-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+    }
+}
+
+/* Laptop screen */
+@media (min-width: 764px) {
+    .agroedu-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 70%;
+    }
+}

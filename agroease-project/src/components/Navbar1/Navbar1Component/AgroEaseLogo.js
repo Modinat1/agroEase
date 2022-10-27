@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import agrologo from "../../../images/agrologo.png"
 
 const AgroEaseLogo = () => {
   return (
     <div>
-        <img src={agrologo} alt="logo"/>
+        <Link to="/"><img src={agrologo} alt="logo"/></Link>
     </div>
   )
 }

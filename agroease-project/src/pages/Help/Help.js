@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../components/Footer/Footer'
 import Navbar1 from '../../components/Navbar1/Navbar1'
 import './Help.css'
 
@@ -99,6 +100,10 @@ const Help = () => {
         </section>
       </section>
       {/* END OF MAIN */}
+
+
+
+        <Footer />
 
     </div>
   )

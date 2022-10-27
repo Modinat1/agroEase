@@ -194,6 +194,13 @@
   background-color: #097c0d;
   border: #097c0d;
 }
+i {
+  color: tomato !important;
+}
+del {
+  color: tomato !important;
+  text-decoration: line-through;
+}
 
 /* BROKER SCTION
 .broker-man {

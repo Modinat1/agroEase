@@ -7,6 +7,7 @@ import { HomePageCard } from "./HomePageCard";
 import { Broker } from "./Broker";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
+import { TopPicks } from "./TopPicks";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
       <Categories />
       <HomePageCard />
       <Broker />
-      <HomePageCard />
+      <TopPicks />
       <Seller />
       <Payment />
     </div>

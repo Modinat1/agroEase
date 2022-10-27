@@ -7,6 +7,7 @@ import { HomePageCard } from "./HomePageCard";
 import { Broker } from "./Broker";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <HomePageCard />
       <Seller />
       <Payment />
+      <Footer/>
     </div>
   );
 };

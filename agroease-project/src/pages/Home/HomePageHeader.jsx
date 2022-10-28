@@ -1,8 +1,8 @@
 import React from "react"
-
-
 // import agrologo from "../../../images/agrologo.png"
 import agrologo from "../../images/farming.jpg"
+// import fruits from "../../images/fruits.jpg"
+
 
 export const HomepageHeader = () => {
   return (
@@ -48,4 +48,8 @@ export const HomepageHeader = () => {
 
   )
 }
+
+
+
+
 

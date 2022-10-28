@@ -5,9 +5,9 @@ import { HomepageHeader } from "./HomePageHeader";
 import { Categories } from "./Categories";
 import { HomePageCard } from "./HomePageCard";
 import { Broker } from "./Broker";
+import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
-import { TopPicks } from "./TopPicks";
 
 const Home = () => {
   return (

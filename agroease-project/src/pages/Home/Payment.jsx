@@ -19,10 +19,18 @@ export const Payment = () => {
       <img src={paystack} alt="pastack" />
     </div>
     <div className="pay">
+      <div className=" visa">
       <img src={visa}alt="visa" />
+      </div>
+      <div className="mastercard">
       <img src={mastercard} alt ="mastercard"/>
+      </div>
+      <div className="verve">
       <img src={verve} alt= "verve"  />
+      </div>
+      <div className="electron">
       <img src={electron} alt="electron" />
+    </div>
     </div>
   </div>
   <div className="partner-with">

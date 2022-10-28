@@ -1,7 +1,9 @@
 
 #the-main{
     width: var(--container-width-lg);
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin: 0 160px;
+
     
 }
 
@@ -77,17 +79,17 @@ padding: 30px;
     
 }
 
-.hr {
+/* .hr {
     display: flex;
     align-items: center;
-}
+} */
 
-hr {
+/* hr {
     width: 30px;
     height: 1px;
     background: rgb(2, 71, 24);
     margin: 0 15px;
-}
+} */
 
 .about-us-h3 {
     color: green;
@@ -114,14 +116,10 @@ hr {
     margin-top: 0;
 }
 
-div img {
+/* div img {
     width: 150px;
     
-}
-
-p {
-    text-align: justify;
-}
+} */
 
 .faculties {
     display: flex;
@@ -149,7 +147,7 @@ p {
     
 }
 
-.unit img {
+.unit .About-img {
     border-radius: 100px;
     width: 170px;
     height: 170px;
@@ -159,12 +157,12 @@ p {
     padding-top: 10px;
 }
 
-.unit p {
+.unit .team-menbers-names{
     text-align: left;
     margin: 2px;
 }
 
-.unit p:first-of-type {
+.unit .team-menbers-names:first-of-type {
     font-weight: bolder;
     margin-bottom: 5px;
 }
@@ -186,25 +184,6 @@ p {
         gap: 2rem;
         width: 100%;
     }
+
 }
-
-/* *************MEDIA QUERIES (MEDIUM DEVICES)
-
-@media screen and (max-width: 1024px) {
-    .container {
-      width: var(--container-width-md);
-    }  
-  
-    
-  }
-  
-  /* *************MEDIA QUERIES (SMALL DEVICE)*********** */
-  
-  /* @media  screen and (max-width: 600px) {
-    .container {
-      width: var(--container-width-sm);
-    }  
-  
-    
-  } */
 

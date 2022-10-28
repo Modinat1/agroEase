@@ -1,10 +1,10 @@
 import React from "react"
-
+import "./HomePage.css"
 import rice from "../../images/rice.png"
 import garri from "../../images/garri.jpg"
 import beans from "../../images/beans.jpg"
 
-export const HomePageCard = () =>{
+export const TopPicks = () =>{
 
   const products = [
     {id: 1,
@@ -25,29 +25,12 @@ export const HomePageCard = () =>{
       price: "N29, 000",
       image: rice,
     },
-    {id: 4,
-      name: "Rice",
-      desc: "Better than Foreing Rice",
-      price: "N29, 000",
-      image: beans,
-    },
-    {id: 5,
-      name: "Rice",
-      desc: "Better than Foreing Rice",
-      price: "N29, 000",
-      image: garri,
-    },
-    {id: 6,
-      name: "Rice",
-      desc: "Better than Foreing Rice",
-      price: "N29, 000",
-      image: rice,
-    },
+  
   ]
   return(
     <section>
         <div className="card-title">
-        <h3>Products</h3>
+        <h3>Top Picks</h3>
     <div className="buyer-product-card-container">
    
   <div className="Buyers-product-card-container">
@@ -59,14 +42,17 @@ export const HomePageCard = () =>{
         <div className="buyer-product-image"  >
         <img src={data.image} alt="beans" /> 
         </div>
+
+    
      {/* image ends */} 
-        <p>Price:{data.price}</p>
+        <p>Price:<del>{data.price}</del></p>
       </div>
       <div className="buyer-product-card-info">
         <div className="card-info">
           <h2>{data.name}</h2>
           <p>{data.desc}</p>
-          <p>Seller: AgroEase</p>
+         <p><span>Seller: <i>Sold</i></span></p>
+
         </div>
          {/* Carte and button comes in here  */}
         <div className="cart-and-button">

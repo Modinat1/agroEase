@@ -16,11 +16,11 @@
   padding-top: 2em;
   padding-bottom: 2em;
 }
-.faq-head-text h3{
+.faq-head-text h4{
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 33.18px;
+  font-size: 26.18px;
   line-height: 39px;
   text-align: center;
 }
@@ -44,12 +44,12 @@
 .faq-question-text{
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
-  font-size: 1.4375rem;
+  font-weight: 800;
+  /* font-size: 1.4375rem; */
   line-height: 1.6875rem;
   color: var(--color-black);
 }
-.faq-question-text h6:hover{
+.faq-question-text p:hover{
   cursor: pointer;
 }
 .faq-question-icon .fa-solid .fa-plus{
@@ -62,11 +62,11 @@
   background: #339236;
 }
 
-.faq-answer-text h6{
+.faq-answer-text p{
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   line-height: 1.5rem;
   color: #ffffff;
 }

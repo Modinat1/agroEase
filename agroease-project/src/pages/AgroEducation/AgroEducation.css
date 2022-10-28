@@ -48,13 +48,16 @@ body{
     display: flex;
     align-items: center;
 }
-.play-icon{
+.agroedu-play-icon{
     background-color: #097C0D;
     border-radius: 50%;
     color: #fff;
-    font-size: 1rem;
-    width: 35px;
-    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 55px;
+    height: 30px;
 }
 
 /* Tab screen */

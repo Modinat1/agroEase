@@ -11,7 +11,9 @@ export const Agroeducation = () => {
   return (
     <React.Fragment>
       <Navbar1 />
+      <h4 className='text-center font-bold text-2xl pt-5'>AgroEducation</h4>
       <section className='agroedu-container pt-8'>
+        
     {agroNews.map((agronew)=>{
       const {id, image, title, subtitle, body} = agronew
       return(
@@ -27,7 +29,7 @@ export const Agroeducation = () => {
 
         <div className='news-flex'>
          <p>{body}</p>
-        <AiOutlineCaretRight className='play-icon'/>
+        <div className='agroedu-play-icon'><AiOutlineCaretRight className="text-2xl"/></div>
         </div>
 
         </div>

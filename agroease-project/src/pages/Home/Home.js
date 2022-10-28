@@ -5,6 +5,7 @@ import { HomepageHeader } from "./HomePageHeader";
 import { Categories } from "./Categories";
 import { HomePageCard } from "./HomePageCard";
 import { Broker } from "./Broker";
+import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
 import Footer from "../../components/Footer/Footer";
@@ -17,7 +18,7 @@ const Home = () => {
       <Categories />
       <HomePageCard />
       <Broker />
-      <HomePageCard />
+      <TopPicks />
       <Seller />
       <Payment />
       <Footer/>

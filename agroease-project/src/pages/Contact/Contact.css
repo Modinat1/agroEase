@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f5f6f7;
+}
+
+.contact-container {
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-top: 7rem;
+}
+
+.contact-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 32.4px;
+}
+
+.contact-findUs {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-location {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* border: 2px solid red; */
+}
+/* .Wuse-Zone-6 {
+    width: 220px;
+    border: 2px solid red;
+  }  */
+
+.contact-number {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.contact-email {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+/* form */
+.form-container {
+  margin-top: 5rem;
+  text-align: center;
+  border: 1px solid #7a8699;
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
+.contactRequest-form {
+  color: #097c0d;
+  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+}
+
+.contact-form {
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.contact-page-input[type='text'],
+.contact-page-input[type='email'],
+.contact-page-input[type='tel'] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 1px solid #7a8699;
+  background: white;
+  outline: none;
+}
+
+#contact-textarea {
+  resize: none;
+  outline: none;
+  border: 1px solid #7a8699;
+}
+
+#contact-textarea::-webkit-input-placeholder {
+  font-size: 15px;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+}
+
+.contact-button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: white;
+  background-color: #097c0d;
+  outline: none;
+  border: 1px solid #7a8699;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-container {
+    width: 100%;
+    margin: auto;
+    padding-top: 30%;
+  }
+
+  .contact-heading {
+    width: 90%;
+  }
+
+  .contact-findUs {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+  }
+
+  .contact-location {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-number {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-email {
+    width: 62%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#contact-textarea {
+  width: 100%;
+}
+
+.contact-us-email {
+  color: #097c0d;
+  font-size: 2rem;
+}
+
+.contact-us-email {
+  color: #097c0d;
+  font-size: 2rem;
+}
+
+.contact-us-page-phone{
+  color: #097c0d;
+  font-size: 2rem;
+}
+
+
+.contact-us-page-marker{
+  color: #097c0d;
+  font-size: 2rem;
+}

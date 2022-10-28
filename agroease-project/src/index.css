@@ -3,7 +3,7 @@
 
 /* font-family: 'Roboto', sans-serif; */
 /* ************GENERAL SETTINGS */
-* {
+/* * {
   margin: 0;
   padding: 0;
   border: none;
@@ -33,4 +33,17 @@
   --container-width-lg: 87%;
   --container-width-md: 90%;
   --container-width-sm: 95%;
+} */
+
+
+/* *************MEDIA QUERIES (MEDIUM DEVICES) */
+
+@media screen and (max-width: 1024px) {
+  
 }
+
+/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
+
+/* @media  screen and (max-width: 600px) {
+  
+} */

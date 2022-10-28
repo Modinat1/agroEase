@@ -1,9 +1,69 @@
 .contact-foot-width {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    width: 100%
+    align-items: center;
+    max-width: 100%;
 }
 
 .widths {
-    width: 40%;
+  padding-left: 9rem;
+  padding-top: 3rem;
+}
+
+.wid {
+  padding-left: 9rem;
+  padding-top: 1rem;
+}
+
+.main-green {
+    color: #097C0D;
+}
+
+.mid {
+    font-size: 1.14rem;
+}
+
+.social-cover {
+    width: 25px;
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grays {
+    color: gray;
+}
+
+.newsletter-width {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.newsletter-flex-email {
+    display: flex;
+    gap: 7rem;
+    padding-top: 3rem;
+}
+
+.footer-email-input-set {
+    position: relative;
+}
+
+.adjust {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+}
+
+.light-green {
+    background-color: #E6F2E7;
 }

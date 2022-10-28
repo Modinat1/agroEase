@@ -8,6 +8,7 @@ import { Broker } from "./Broker";
 import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <TopPicks />
       <Seller />
       <Payment />
+      <Footer/>
     </div>
   );
 };

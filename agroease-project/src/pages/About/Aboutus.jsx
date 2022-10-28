@@ -32,8 +32,9 @@ const Aboutus = () => {
                 <div>
                    
                     <p>Agroease is an online agricultural store and marketplace htmlFor farm input, agricultural equipments, agro processed products etc. you can conveniently and safely shop high quality, fresh and organic agricultural commodities and safely receive your order at your location. On agroease getting value for your money is guaranteed.
+                
                         You can book product ahead of time, both on large and small quantities. Get freshly harvested products direct from the farm all at very affordable rate.
-                        As an online market place of agricultural product we are entirely committed to providing high quality products, excellent <br/> customer experience and safe transactions to agro-traders, consumers, agro-industries and all agro-users. 
+                        As an online market place of agricultural product we are entirely committed to providing high quality products, excellent gitcustomer experience and safe transactions to agro-traders, consumers, agro-industries and all agro-users. 
                         We supply in tonnages and large quantities to exporters of any demanded agro commodities and respond swiftly to bulk orders.
                         </p>
                 </div> 
@@ -67,69 +68,69 @@ const Aboutus = () => {
                     <div className="faculties">
                         <div className="unit">
                             <div>
-                                <img src={nneoma} alt="Oma"/>
+                                <img src={nneoma}  className ="About-img" alt="Oma"/>
                             </div>
-                            <p>Oma Raymond</p>
+                            <p className="team-menbers-names">Oma Raymond</p>
                         </div>
                         <div className="unit">
                             <div>
-                                <img src={confidence} alt=" Confidence"/>
+                                <img src={confidence} className ="About-img" alt=" Confidence"/>
                             </div>
-                            <p>Chidi Confidence</p>
+                            <p className="team-menbers-names">Chidi Confidence</p>
                         </div>
                         <div className="unit">
                             <div>
-                                <img src={ebuka} alt="Ebuka"/>
+                                <img src={ebuka}  className ="About-img" alt="Ebuka"/>
                             </div>
-                            <p>Nwoporo Chukwuebuka</p>
+                            <p className="team-menbers-names">Nwoporo Chukwuebuka</p>
                         </div>
                         <div className="unit">
                             <div>
-                                <img src={modinat} alt="Modinat"/>
+                                <img src={modinat} className ="About-img" alt="Modinat"/>
                             </div>
-                            <p>Modinat Adenike</p>
+                            <p className="team-menbers-names">Modinat Adenike</p>
                         </div>
                     </div>
                     <div className = "faculties">
                         <div className="unit">
                             <div>
-                                <img src={emeka} alt="Emeka"/>
+                                <img src={emeka} className ="About-img" alt="Emeka"/>
                             </div>
-                            <p>Odezulu Chukuemeka</p>
+                            <p className="team-menbers-names">Odezulu Chukuemeka</p>
                         </div>
                         <div className="unit">
                             <div>
-                                <img src={tola} alt="Tola"/>
+                                <img src={tola} className ="About-img" alt="Tola"/>
                             </div>
-                            <p>Adetola Adeyeye</p>
+                            <p className="team-menbers-names">Adetola Adeyeye</p>
                         </div>
                         <div className= "unit">
                             <div>
-                                <img src={susan} alt="Susan"/>
+                                <img src={susan} className ="About-img" alt="Susan"/>
                             </div>
-                            <p>Odii Susan</p>
-                        </div>
-                    </div>
-                    <div  className = "faculties">
-                        <div className= "unit">
-                            <div>
-                                <img src={godswill} alt="Godswill"/>
-                            </div>
-                            <p>Godswill Chibuzo</p>
-                        </div>
-                        <div className= "unit">
-                            <div>
-                                <img src={gbenga} alt="Gbenga"/>
-                            </div>
-                            <p> Akinukawe Gbenga</p>
+                            <p className="team-menbers-names">Odii Susan</p>
                         </div>
                     </div>
                     <div  className = "faculties">
                         <div className= "unit">
                             <div>
-                                <img src={cynthia} alt="Cynthia"/>
+                                <img src={godswill} className ="About-img" alt="Godswill"/>
                             </div>
-                            <p>Nwankwo Cynthia</p>
+                            <p className="team-menbers-names">Godswill Chibuzo</p>
+                        </div>
+                        <div className= "unit">
+                            <div>
+                                <img src={gbenga} className ="About-img" alt="Gbenga"/>
+                            </div>
+                            <p className="team-menbers-names"> Akinukawe Gbenga</p>
+                        </div>
+                    </div>
+                    <div  className = "faculties">
+                        <div className= "unit">
+                            <div>
+                                <img src={cynthia} className ="About-img" alt="Cynthia"/>
+                            </div>
+                            <p className="team-menbers-names">Nwankwo Cynthia</p>
                         </div>
                     </div>
                 </div>

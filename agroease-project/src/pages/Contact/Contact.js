@@ -1,6 +1,7 @@
 import ContactUs from './ContactUs'
 import Footer from '../../components/Footer/Footer'
 import Navbar1 from '../../components/Navbar1/Navbar1'
+import ContactUsModal from './ContactUsModal'
 import React from 'react'
 
 const Contact = () => {
@@ -12,6 +13,7 @@ const Contact = () => {
 
         <ContactUs/>
         <Footer />
+        <ContactUsModal/>
     </div>
   )
 }

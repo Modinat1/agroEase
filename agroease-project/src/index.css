@@ -3,11 +3,11 @@
 
 /* font-family: 'Roboto', sans-serif; */
 /* ************GENERAL SETTINGS */
-/* * {
+* {
   margin: 0;
   padding: 0;
-  border: none;
-  outline: none;
+  /* border: none;
+  outline: none; */
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
@@ -33,7 +33,7 @@
   --container-width-lg: 87%;
   --container-width-md: 90%;
   --container-width-sm: 95%;
-} */
+} 
 
 
 /* *************MEDIA QUERIES (MEDIUM DEVICES) */
@@ -44,6 +44,6 @@
 
 /* *************MEDIA QUERIES (SMALL DEVICE)*********** */
 
-/* @media  screen and (max-width: 600px) {
+@media  screen and (max-width: 600px) {
   
-} */
+}

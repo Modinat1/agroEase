@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     align-items: center;
+    text-align: center;
     max-width: 100%;
 }
 
@@ -66,4 +67,17 @@
 
 .light-green {
     background-color: #E6F2E7;
+}
+
+
+/* *************MEDIA QUERIES (MEDIUM DEVICES) */
+
+@media screen and (max-width: 1024px) {
+  
+}
+
+/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
+
+@media  screen and (max-width: 600px) {
+  
 }

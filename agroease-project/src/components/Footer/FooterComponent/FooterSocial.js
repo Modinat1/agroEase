@@ -18,11 +18,11 @@ const FooterSocial = () => {
             </div>
         </div>
         <div>
-            <h2>Social Page</h2>
-            <div>
-                <div><FaFacebookF /></div>
-                <div><BsTwitter /></div>
-                <div><FaLinkedinIn /></div>
+            <h2 className='main-green pt-4 font-bold pb-2 '>Our Social Page</h2>
+            <div className='flex gap-3'>
+                <div className='social-cover'><FaFacebookF className='grays'/></div>
+                <div className='social-cover'><BsTwitter className='grays'/></div>
+                <div className='social-cover'><FaLinkedinIn className='grays'/></div>
             </div>
         </div>
     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar1 from "../../components/Navbar1/Navbar1";
 import nneoma from '../../images/nneoma.png'
 import confidence from '../../images/confidence.jpeg'
 import ebuka from '../../images/ebuka.png'
@@ -14,17 +13,16 @@ import cynthia from '../../images/cynthia.png'
 // import Navbar from "../../Navbar";
 import "./About.css"
 
-export const Aboutus = () => {
+const Aboutus = () => {
 	return (
 		<>
-		<Navbar1/>
-		<main id="the-main">
+		<main id="the-main ">
        
 	   <div>
     
-        <div>
+        <div className="container mx-auto">
             <div>
-                <div className="searchresults">
+                <div className="searchresults ">
                     <ul id ="searchlist">
             
                     </ul>
@@ -145,3 +143,5 @@ export const Aboutus = () => {
 	)
 
 };
+
+export default Aboutus;

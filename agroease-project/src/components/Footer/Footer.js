@@ -6,8 +6,8 @@ import NewsletterFooter from './FooterComponent/NewsletterFooter'
 
 const Footer = () => {
   return (
-    <div className=' footer-width'>
-        <div className='container mx-auto'>
+    <div className=' footer-width '>
+        <div className='container mx-auto max-wid'>
         `   <ContactFooter />
         </div>
         <div className='mt-5 pt-5 light-green'>

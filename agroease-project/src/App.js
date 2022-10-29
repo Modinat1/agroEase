@@ -6,6 +6,10 @@ import Contact from './pages/Contact/Contact';
 import Help from './pages/Help/Help';
 import Home from './pages/Home/Home';
 import { Agroeducation } from './pages/AgroEducation/AgroEducation';
+import FarmerSigninForm from './users/Farmer/FarmerSignupPage/FarmerSigninForm';
+import BrokerSigninForm from './users/Broker/BrokerSignupPage/BrokerSigninForm';
+import BuyerSigninForm from './users/Buyer/BuyerSignupPage/BuyerSigninForm';
+import Account from './pages/Account/Account';
 
 function App() {
   return (
@@ -17,7 +21,10 @@ function App() {
       <Route exact path="/contact" element={<Contact />}/>
       <Route exact path="/blog" element={<Agroeducation />}/>
       <Route exact path="/help" element={<Help />}/>
-      {/* <Route exact path="/account" element={<Account />}/> */}
+      <Route exact path="/" element={<Account />} />
+      <Route exact path="/buyer" element={<BuyerSigninForm />}/>
+      <Route exact path="/farmer" element={<FarmerSigninForm />}/>
+      <Route exact path="/broker" element={<BrokerSigninForm />}/>
     </Routes>
 
     </div>

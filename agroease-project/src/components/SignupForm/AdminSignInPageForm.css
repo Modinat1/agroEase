@@ -1,0 +1,42 @@
+.admin-signup-cover {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    padding: 4rem;
+}
+
+.admin-signup-form-inner {
+    width: 400px;
+    height: 550px;
+    z-index: 4;
+    left: 50px;
+    border-radius: 2rem;
+    bottom: -234px;
+    position: absolute;
+    background-color: #FAFBFB;
+    padding: 2.5rem 3rem 1.5rem 3rem;
+    border: 1px solid #D9D9D9;
+}
+
+.admin-signup-form-outer {
+    width: 400px;
+    position: absolute;
+    height: 550px;
+    background-color: white;
+    border-top: 1px solid #D9D9D9;
+    border-right: 1px solid #D9D9D9;
+    border-radius: 2rem;
+   
+}
+
+.signin-welcome-text {
+    padding-bottom: 2rem;
+    display: flex;
+    font-size: 1.3rem;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.green {
+    color: #097C0D;
+}

@@ -20,7 +20,7 @@ const Aboutus = () => {
        
 	   <div>
     
-        <div className="container mx-auto">
+        <div className="md:container md:mx-auto max-wid">
             <div>
                 <div className="searchresults ">
                     <ul id ="searchlist">
@@ -31,7 +31,7 @@ const Aboutus = () => {
 
                 <div>
                    
-                    <p>Agroease is an online agricultural store and marketplace htmlFor farm input, agricultural equipments, agro processed products etc. you can conveniently and safely shop high quality, fresh and organic agricultural commodities and safely receive your order at your location. On agroease getting value for your money is guaranteed.
+                    <p className="text-justify">Agroease is an online agricultural store and marketplace htmlFor farm input, agricultural equipments, agro processed products etc. you can conveniently and safely shop high quality, fresh and organic agricultural commodities and safely receive your order at your location. On agroease getting value for your money is guaranteed.
                 
                         You can book product ahead of time, both on large and small quantities. Get freshly harvested products direct from the farm all at very affordable rate.
                         As an online market place of agricultural product we are entirely committed to providing high quality products, excellent gitcustomer experience and safe transactions to agro-traders, consumers, agro-industries and all agro-users. 

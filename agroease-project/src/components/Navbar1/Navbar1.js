@@ -7,7 +7,7 @@ import Navbar2SearchInput from './Navbar1Component/Navbar2SearchInput'
 
 const Navbar1 = () => {
   return (
-        <div className='navbar1-style container mx-auto'>
+        <div className='navbar1-style md:container md:mx-auto'>
         <AgroEaseLogo />
         <section className='navbar-input-menu'>
             <div className='navbar-input-button'>

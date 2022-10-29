@@ -4,14 +4,14 @@ import {AiOutlineMail} from "react-icons/ai";
 
 const FooterAddress = () => {
   return (
-    <div className='widths mt-7'>
+    <div className='widths mt-7 push-center'>
         <div >
             <h4 className='main-green mid pb-2 font-bold'>Abuja</h4>
             <p>Tech Specialist, <br />
                 Wuse Zone 6
             </p>
         </div>
-        <div>
+        <div className=''>
             <h4 className='main-green mid py-2 font-bold'>Lagos</h4>
             <p>Tech Specialist, <br />
                 Wuse Zone 6

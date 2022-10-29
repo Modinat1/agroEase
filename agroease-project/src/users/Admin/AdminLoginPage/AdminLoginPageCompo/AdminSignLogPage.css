@@ -1,0 +1,11 @@
+.signin-image-and-form {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 8rem;
+    
+}
+
+.bg-signinform {
+    background-color: #E6F2E7;
+}

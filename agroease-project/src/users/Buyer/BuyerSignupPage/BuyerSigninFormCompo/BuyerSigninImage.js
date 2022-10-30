@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../../Admin/AdminSignupPage/AdminSigninPageCompo/AdminSigninImage.css"
 import blackgirl from "../../../../images/blackgirl.png"
 
 const BuyerSigninImage = () => {

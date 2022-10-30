@@ -6,7 +6,11 @@ const GeneralSignupFormInput = () => {
     <div>
       <form>
         <div  className='flex-col'>
-          <label>Full Name</label>
+          <label>Firstname</label>
+          <input type="text"/>
+        </div>
+        <div  className='flex-col'>
+          <label>Lastname</label>
           <input type="text"/>
         </div>
         <div className='flex-col'>

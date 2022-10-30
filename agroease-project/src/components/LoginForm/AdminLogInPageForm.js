@@ -1,7 +1,7 @@
 import React from 'react'
 import LogInAccountButton from '../Button/LogInAccountButton'
 import GeneralLoginForm from '../GeneralFormInput/GeneralLoginForm'
-import LogInFormFooter from './AdminLogInPageFormCompo/LogInFormFooter'
+// import LogInFormFooterBuyer from './AdminLogInPageFormCompo/LogInFormFooterBuyer'
 import LogInText from './AdminLogInPageFormCompo/LogInText'
 
 
@@ -13,7 +13,7 @@ const AdminLogInPageForm = () => {
                 <LogInText />
                 <GeneralLoginForm />
                 <LogInAccountButton />
-                <LogInFormFooter />
+                {/* <LogInFormFooterBuyer /> */}
             </div>
             <div className='admin-signup-form-outer'></div>
         </div>

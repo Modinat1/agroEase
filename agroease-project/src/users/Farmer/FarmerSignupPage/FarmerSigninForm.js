@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar1 from '../../../components/Navbar1/Navbar1'
-import AdminSignInPageForm from '../../../components/SignupForm/AdminSignInPageForm'
+import AdminSignInPageForm from '../../../components/SignupForm/AdminSignInPageFormBroker'
+
 import "./FarmerSigninForm.css"
 import FarmerSigninImage from './FarmerSigninFormCompo/FarmerSigninImage'
 

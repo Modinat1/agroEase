@@ -10,6 +10,7 @@ import FarmerSigninForm from './users/Farmer/FarmerSignupPage/FarmerSigninForm';
 import BrokerSigninForm from './users/Broker/BrokerSignupPage/BrokerSigninForm';
 import BuyerSigninForm from './users/Buyer/BuyerSignupPage/BuyerSigninForm';
 import Account from './pages/Account/Account';
+import BrokerLoginForm from './users/Broker/BrokerLoginPage/BrokerLoginForm';
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
       <Route exact path="/blog" element={<Agroeducation />}/>
       <Route exact path="/help" element={<Help />}/>
       <Route exact path="/" element={<Account />} />
-      <Route exact path="/buyer" element={<BuyerSigninForm />}/>
-      <Route exact path="/farmer" element={<FarmerSigninForm />}/>
-      <Route exact path="/broker" element={<BrokerSigninForm />}/>
+      <Route exact path="/buyersignup" element={<BuyerSigninForm />}/>
+      <Route exact path="/farmersignup" element={<FarmerSigninForm />}/>
+      <Route exact path="/brokersignup" element={<BrokerSigninForm />}/>
+      <Route exact path="/brokerlogin" element={<BrokerLoginForm />} />
     </Routes>
 
     </div>

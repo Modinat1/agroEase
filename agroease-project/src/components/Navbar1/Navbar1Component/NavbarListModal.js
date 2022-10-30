@@ -35,19 +35,19 @@ export const accountDropdown = [
     {
         id: 1,
         title: "Buyer",
-        path: "/buyer",
+        path: "/buyersignup",
         cName: "account-submenu"
     },
     {
         id: 2,
         title: "Farmer",
-        path: "/farmer",
+        path: "/farmersignup",
         cName: "account-submenu"
     },
     {
         id: 3,
         title: "Broker",
-        path: "/broker",
+        path: "/brokersignup",
         cName: "account-submenu"
     }
 ]

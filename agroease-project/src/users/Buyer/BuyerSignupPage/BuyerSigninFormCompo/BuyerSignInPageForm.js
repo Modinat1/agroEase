@@ -1,9 +1,9 @@
 import React from 'react'
-import "../../../Admin/AdminSignupPage/AdminSigninPage.css"
+import "../../../Admin/AdminSignupPage/"
 import CreateAccountBotton from '../../../../components/Button/CreateAccountBotton'
 import GeneralSignupFormInput from '../../../../components/GeneralFormInput/GeneralSignupFormInput'
 import SigninText from '../../../../components/SignupForm/AdminSignInPageFormCompo/SigninText'
-import SignInFormFooterBroker from '../../../../components/SignupForm/AdminSignInPageFormCompo/SignInFormFooterBroker'
+import SignInFormFooterBuyer from '../../../../components/SignupForm/AdminSignInPageFormCompo/SignInFormFooterBuyer'
 
 
 const BrokerSignInPageForm = () => {
@@ -14,7 +14,7 @@ const BrokerSignInPageForm = () => {
                 <SigninText />
                 <GeneralSignupFormInput />
                 <CreateAccountBotton />
-                <SignInFormFooterBroker />
+                <SignInFormFooterBuyer />
             </div>
             <div className='admin-signup-form-outer'></div>
         </div>

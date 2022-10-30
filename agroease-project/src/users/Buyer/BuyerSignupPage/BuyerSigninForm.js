@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar1 from '../../../components/Navbar1/Navbar1'
-import AdminSignInPageForm from '../../../components/SignupForm/AdminSignInPageForm'
+import "../../Admin/AdminSignupPage/AdminSigninPage.css"
+import BrokerSignInPageForm from '../../Broker/BrokerSignupPage/BrokerSigninFormCompo/BrokerSignInPageForm'
 import BuyerSigninImage from './BuyerSigninFormCompo/BuyerSigninImage'
 
 
@@ -12,7 +13,7 @@ const BuyerSigninForm = () => {
         <div className='bg-signinform'>
         <div className='signin-image-and-form '>
           <BuyerSigninImage />
-          <AdminSignInPageForm />
+          <BrokerSignInPageForm />
         </div>
       </div>
     </div>

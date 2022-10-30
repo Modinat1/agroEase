@@ -1,12 +1,12 @@
 import React from 'react'
-import "../../../Admin/AdminSignupPage/AdminSigninPage.css"
+import "../../../Admin/AdminSignupPage/"
 import CreateAccountBotton from '../../../../components/Button/CreateAccountBotton'
 import GeneralSignupFormInput from '../../../../components/GeneralFormInput/GeneralSignupFormInput'
 import SigninText from '../../../../components/SignupForm/AdminSignInPageFormCompo/SigninText'
-import SignInFormFooterBroker from '../../../../components/SignupForm/AdminSignInPageFormCompo/SignInFormFooterBroker'
+import SignInFormFooterFarmer from '../../../../components/SignupForm/AdminSignInPageFormCompo/SignInFormFooterFarmer'
 
 
-const BrokerSignInPageForm = () => {
+const FarmerSignInPageForm = () => {
   return (
     <div>
         <div className='admin-signup-cover'>
@@ -14,7 +14,7 @@ const BrokerSignInPageForm = () => {
                 <SigninText />
                 <GeneralSignupFormInput />
                 <CreateAccountBotton />
-                <SignInFormFooterBroker />
+                <SignInFormFooterFarmer />
             </div>
             <div className='admin-signup-form-outer'></div>
         </div>
@@ -22,4 +22,4 @@ const BrokerSignInPageForm = () => {
   )
 }
 
-export default BrokerSignInPageForm
+export default FarmerSignInPageForm

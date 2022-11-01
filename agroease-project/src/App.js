@@ -7,10 +7,10 @@ import Help from './pages/Help/Help';
 import Home from './pages/Home/Home';
 import { Agroeducation } from './pages/AgroEducation/AgroEducation';
 import FarmerSigninForm from './users/Farmer/FarmerSignupPage/FarmerSigninForm';
-import BrokerSigninForm from './users/Broker/BrokerSignupPage/BrokerSigninForm';
 import BuyerSigninForm from './users/Buyer/BuyerSignupPage/BuyerSigninForm';
 import Account from './pages/Account/Account';
 import BrokerLoginForm from './users/Broker/BrokerLoginPage/BrokerLoginForm';
+import BrokerSigninForm from './users/Broker/BrokerSignupPage/BrokerSigninForm';
 
 function App() {
   return (

@@ -3,7 +3,7 @@ import Navbar1 from "../../components/Navbar1/Navbar1";
 import "./HomePage.css";
 import { HomepageHeader } from "./HomePageHeader";
 import { Categories } from "./Categories";
-import { HomePageCard } from "./HomePageCard";
+import PaginatedItems from "./HomePageCard";
 import { Broker } from "./Broker";
 import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
@@ -16,12 +16,12 @@ const Home = () => {
       <Navbar1 />
       <HomepageHeader />
       <Categories />
-      <HomePageCard />
+      <PaginatedItems itemsPerPage={6} />
       <Broker />
       <TopPicks />
       <Seller />
       <Payment />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

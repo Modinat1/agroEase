@@ -3,10 +3,8 @@
 .categories-home-section {
   width: 94%;
   gap: 15px;
-  /* margin: 2% 6.5% 0 6%; */
   margin: 2rem 3rem 2rem 4rem;
   height: 90vh;
-  /* margin-left: 6rem; */
 }
 
 .home-page-article {
@@ -26,10 +24,7 @@
   top: 0;
   left: 0;
   color: #ffffff;
-  /* background-color: blue; */
   padding: 12rem 45rem 0 4rem;
-  /* opacity: 0.4;
-  z-index: -1; */
   z-index: 1;
 }
 .wrapper-article .wrapper-writeup {
@@ -160,7 +155,7 @@
   font-size: 16px;
 }
 
-.cart-and-button {
+.homepage-cart-and-button {
   display: flex;
   padding-top: 3.3rem;
 }
@@ -207,59 +202,15 @@
   background-color: #097c0d;
   border: #097c0d;
 }
-i {
+span i {
   color: tomato !important;
 }
-del {
+span del {
   color: tomato !important;
   text-decoration: line-through;
 }
 
-/* BROKER SCTION
-.broker-man {
-  margin-top: 2rem;
-  display: flex;
- 
-}
-.broker-child {
-  width: 65%;
-  height: 80vh;
-  background-color: #097c0d;
-}
-.broker-img img {
-  height: 80vh;
-  width: 100%;
-  object-fit: cover;
-}
-.broker-child .broker-child2 {
-  background-color: #fff;
-  text-align: center;
-  color: #000;
-  font-weight: 200;
-  margin: 15rem;
-  margin-top: 5rem;
-  padding: 3rem;
-  font-size: 30px;
-  font-weight: bold;
-  border-radius: 30px;
-}
-
-.broker-child2 #broker-btn {
-  padding: 10px;
-  font-size: 18px;
-  background-color: #097c0d;
-  color: #fff;
-  outline: none;
-  border: #097c0d;
-  border-radius: 5px;
-  margin-top: -15rem;
-  cursor: pointer;
-}
-.broker-child2 #broker-btn:hover {
-  background-color: var(--color-primary-variant);
-  border: #097c0d;
-  color: #097c0d;
-/* } */
+/* BROKER SCTION */
 
 .broker-container {
   display: flex;
@@ -422,3 +373,14 @@ del {
   height: 20vh;
   margin: 2rem;
 }
+.pages {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  justify-items: center;
+  cursor: pointer;
+  margin: 2rem 0;
+}
+/* .pages:hover {
+  color: #097c0d;
+} */

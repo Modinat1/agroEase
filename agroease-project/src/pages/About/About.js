@@ -1,14 +1,16 @@
 import React from 'react'
-import { Aboutus } from './Aboutus'
-// import Navbar1 from '../../components/Navbar1/Navbar1'
-// import { About } from "./Component/Pages/About/About";
+import Footer from '../../components/Footer/Footer'
+import Navbar1 from '../../components/Navbar1/Navbar1'
+import Aboutus from './Aboutus'
+
+
 
 const About = () => {
   return (
     <div>
-        <Aboutus/>
-        
-        
+        <Navbar1 />
+        <Aboutus />
+        <Footer />
     </div>
   )
 }

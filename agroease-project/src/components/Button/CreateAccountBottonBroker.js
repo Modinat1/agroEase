@@ -1,20 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import "./StyleButtons.css"
 
-const CreateAccountBottonBroker = ({isSubmitting, handleSubmit, handleReset}) => {
+const CreateAccountBottonBroker =  ({isSubmitting, handleSubmit, handleReset}) => {
+
+        
+
   return (
     <div className='create-account-style'>
-       <Link to="/brokerlogin"><button
+       <button
             disabled={isSubmitting}
             type="button"
-            onClick={handleSubmit} 
+            onClick={handleSubmit}
         >
            {
-            isSubmitting? ("Submitting...")  : ("Create Account") 
+             isSubmitting? ( "Submitting...") : ("Create Account") 
            }
 
-           </button></Link>
+
+          
+           </button>
+
     </div>
   )
 }

@@ -6,8 +6,8 @@ import FooterSocial from './FooterSocial'
 
 const ContactFooter = () => {
   return (
-    <div className='contact-foot-width'>
-        <FooterSocial className="widths"/>
+    <div className='contact-foot-width container mx-auto'>
+        <FooterSocial />
         <FooterQuicklink />
         <FooterAddress />
     </div>

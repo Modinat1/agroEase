@@ -1,0 +1,13 @@
+.create-account-style {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.create-account-style button{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #097C0D;
+    background-color: #097C0D;
+    color: white;
+}

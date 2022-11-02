@@ -1,0 +1,27 @@
+.submenu-item {
+    width: 7rem;
+    position: absolute;
+    text-align: start;
+    top: 70px;
+    z-index: 999;
+}
+
+.submenu-item li {
+    background: var(--color-bg-shade50);
+}
+
+.submenu-item.clicked {
+    display: none;
+}
+
+.account-submenu {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.account-submenu:hover {
+    background-color: aliceblue;
+}

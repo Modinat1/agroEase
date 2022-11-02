@@ -1,6 +1,7 @@
 .navbar1-style {
     display: flex;
     justify-content: space-between;
+   
 }
 
 .navbar-input-menu {
@@ -12,4 +13,24 @@
 .navbar-input-button {
     display: flex;
     gap: 0.3rem;
+}
+
+.max-wids {
+    padding: 0 2rem;
+}
+
+
+/* *************MEDIA QUERIES (MEDIUM DEVICES) */
+
+@media screen and (max-width: 1024px) {
+    .max-wids {
+        padding: 0;
+    }
+  
+}
+
+/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
+
+@media  screen and (max-width: 600px) {
+  
 }

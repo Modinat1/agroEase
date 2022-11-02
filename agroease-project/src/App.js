@@ -1,3 +1,4 @@
+
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About/About";
@@ -15,6 +16,7 @@ import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
 function App() {
   return (
     <div>
+
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
@@ -27,6 +29,7 @@ function App() {
         <Route exact path="/brokersignup" element={<BrokerSigninForm />} />
         <Route exact path="/brokerlogin" element={<BrokerLoginForm />} />
       </Routes>
+
     </div>
   );
 }

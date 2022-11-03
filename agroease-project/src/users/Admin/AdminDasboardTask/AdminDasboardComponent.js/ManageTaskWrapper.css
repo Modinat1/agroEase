@@ -1,0 +1,15 @@
+.ManageTaskWrapper {
+	/* width: 100%; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	margin-bottom: 3rem;
+	margin-top: 6rem;
+}
+.manage-task-wrapper {
+	width: 80%;
+	position: relative;
+	height: 100vh;
+	left: 10%;
+}

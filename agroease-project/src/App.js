@@ -1,22 +1,30 @@
 
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
-import Help from "./pages/Help/Help";
-import Home from "./pages/Home/Home";
-import { Agroeducation } from "./pages/AgroEducation/AgroEducation";
-import FarmerSigninForm from "./users/Farmer/FarmerSignupPage/FarmerSigninForm";
-import BrokerSigninForm from "./users/Broker/BrokerSignupPage/BrokerSigninForm";
-import BuyerSigninForm from "./users/Buyer/BuyerSignupPage/BuyerSigninForm";
-import Account from "./pages/Account/Account";
-import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
+import Dashnav from "./components/dashboard-nav-and-side/Dashnav";
+import Sidebar from "./components/dashboard-nav-and-side/Sidebar";
+import Dashconten from "./users/Broker/BrokerDashboard/Dashconten";
+// import About from "./pages/About/About";
+// import Contact from "./pages/Contact/Contact";
+// import Help from "./pages/Help/Help";
+// import Home from "./pages/Home/Home";
+// import { Agroeducation } from "./pages/AgroEducation/AgroEducation";
+// import FarmerSigninForm from "./users/Farmer/FarmerSignupPage/FarmerSigninForm";
+// import BrokerSigninForm from "./users/Broker/BrokerSignupPage/BrokerSigninForm";
+// import BuyerSigninForm from "./users/Buyer/BuyerSignupPage/BuyerSigninForm";
+// import Account from "./pages/Account/Account";
+// import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
+
 
 
 function App() {
   return (
     <div>
 
+    <Sidebar/>
+    <Dashnav/>
+    
+{/* 
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
@@ -28,7 +36,7 @@ function App() {
         <Route exact path="/farmersignup" element={<FarmerSigninForm />} />
         <Route exact path="/brokersignup" element={<BrokerSigninForm />} />
         <Route exact path="/brokerlogin" element={<BrokerLoginForm />} />
-      </Routes>
+      </Routes> */}
 
     </div>
   );

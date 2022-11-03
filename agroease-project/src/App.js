@@ -1,9 +1,9 @@
 
 // import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Dashnav from "./components/dashboard-nav-and-side/Dashnav";
-import Sidebar from "./components/dashboard-nav-and-side/Sidebar";
-import Dashconten from "./users/Broker/BrokerDashboard/Dashconten";
+import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
+// import BrokerDashboardPage from "./users/Broker/BrokerDashboard/BrokerDashboardPage";
+
 // import About from "./pages/About/About";
 // import Contact from "./pages/Contact/Contact";
 // import Help from "./pages/Help/Help";
@@ -20,9 +20,9 @@ import Dashconten from "./users/Broker/BrokerDashboard/Dashconten";
 function App() {
   return (
     <div>
-
-    <Sidebar/>
-    <Dashnav/>
+   {/* <BrokerDashboardPage/> */}
+   <Farmerdashboard/>
+   
     
 {/* 
       <Routes>

@@ -1,3 +1,4 @@
+
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About/About";
@@ -33,7 +34,6 @@ function App() {
 				<Route exact path='/farmersignup' element={<FarmerSigninForm />} />
 				<Route exact path='/brokersignup' element={<BrokerSigninForm />} />
 				<Route exact path='/brokerlogin' element={<BrokerLoginForm />} />
-
 				<Route exact path='/Farmerindex' element={<Index />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
 				<Route

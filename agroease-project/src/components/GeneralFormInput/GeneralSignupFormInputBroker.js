@@ -1,9 +1,13 @@
 import React from 'react'
 import { Formik } from 'formik';
+import Loginschema from "../Yup/Schema/LoginValidation"
 import "./GeneralSignupFormInput.css"
 import CreateAccountBottonBroker from '../Button/CreateAccountBottonBroker';
+import { useNavigate } from 'react-router-dom';
 
 const GeneralSignupFormInputBroker = () => {
+
+    const navigate = useNavigate()
   return (
     <div>
 
@@ -17,11 +21,32 @@ const GeneralSignupFormInputBroker = () => {
             password: '' 
         }}
 
+        validationSchema={Loginschema}
+
+        
+        validate={(values) => {
+            const {firstname, lastname, email, password} = values;
+
+            // "key": errorMessage
+            const errors = {}
+            if(!firstname) (errors.firstname = <small className='text-red-500'>Firstname cannot be empty</small>)
+
+            if(!lastname) (errors.lastname = <small className='text-red-500'>Lastname cannot be empty</small>)
+    
+            if(!email) (errors.email = <small className='text-red-500'>Email cannot be empty</small>)
+
+            if(!password) (errors.password = <small className='text-red-500'>Password cannot be empty</small>)
+
+            return errors
+        }}
+
+        // onsubmitting
         onSubmit={(values, { setSubmitting, resetForm }) => {
             setTimeout(() => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false);
               resetForm()
+              navigate("/brokerlogin")
             }, 4000);
           }}
         >
@@ -39,7 +64,7 @@ const GeneralSignupFormInputBroker = () => {
 
         <React.Fragment>
             {/* <pre>{JSON.stringify(values, 2, null)}</pre> */}
-        <form action='/brokerlogin'>
+        <form>
             <div  className='flex-col' id={values.id}>
                 <label>Firstname</label>
                 <input 
@@ -48,6 +73,7 @@ const GeneralSignupFormInputBroker = () => {
                         value={values.firstname}
                         onChange={handleChange}
                 />
+                {errors.firstname && touched.firstname && errors.firstname}
             </div>
             <div  className='flex-col'>
                 <label>Lastname</label>
@@ -57,6 +83,8 @@ const GeneralSignupFormInputBroker = () => {
                         value={values.lastname}
                         onChange={handleChange}
                 />
+                {errors.lastname && touched.lastname && errors.lastname}
+                
             </div>
             <div className='flex-col'>
                 <label>Email</label>
@@ -66,6 +94,7 @@ const GeneralSignupFormInputBroker = () => {
                         value={values.email}
                         onChange={handleChange}
                 />
+                {errors.email && touched.email && errors.email}
             </div>
             <div className='flex-col'>
                 <label>Password</label>
@@ -75,11 +104,13 @@ const GeneralSignupFormInputBroker = () => {
                         value={values.password}
                         onChange={handleChange}
                 />
+                {errors.password && touched.password && errors.password}
             </div>
             <CreateAccountBottonBroker 
                 isSubmitting={isSubmitting} 
                 handleSubmit={handleSubmit} 
                 handleReset={handleReset} />
+            
         </form>
         </React.Fragment>
       )}
@@ -89,3 +120,5 @@ const GeneralSignupFormInputBroker = () => {
 }
 
 export default GeneralSignupFormInputBroker
+
+//  

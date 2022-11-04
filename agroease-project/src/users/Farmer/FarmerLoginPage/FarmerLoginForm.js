@@ -1,7 +1,8 @@
 import React from 'react'
-import AdminLogInPageForm from '../../../components/LoginForm/AdminLogInPageForm'
 import Navbar1 from '../../../components/Navbar1/Navbar1'
 import FarmerLoginImage from './FarmerLoginFormCompo/FarmerLoginImage'
+import FarmerLogInPageForm from './FarmerLoginFormCompo/FarmerLogInPageForm'
+
 
 
 const FarmerLoginForm = () => {
@@ -11,7 +12,7 @@ const FarmerLoginForm = () => {
         <div className='bg-signinform farmer-height'>
             <div className='signin-image-and-form2 '>
                 <FarmerLoginImage />
-                <AdminLogInPageForm />
+                <FarmerLogInPageForm />
             </div>
         </div>
     </div>

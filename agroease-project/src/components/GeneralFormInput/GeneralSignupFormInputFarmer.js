@@ -46,7 +46,7 @@ const GeneralSignupFormInputFarmer = () => {
                 console.log((JSON.stringify(values, null, 2)));
                 setSubmitting(false);
                 resetForm()
-                navigate("/brokerlogin")
+                navigate("/farmerlogin")
               }, 4000);
             }}
           >

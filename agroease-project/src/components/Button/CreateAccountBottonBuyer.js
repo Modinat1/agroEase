@@ -1,22 +1,22 @@
 import React from 'react'
 import "./StyleButtons.css"
 
-const CreateAccountBottonBuyer = ({isSubmitting, handleSubmit, handleReset}) => {
-
-
+const CreateAccountBottonBuyer = ({isSubmitting, handleSubmit}) => {
   return (
     <div className='create-account-style'>
-      <button
+       <button
             disabled={isSubmitting}
             type="button"
-            onClick={handleSubmit} 
+            onClick={handleSubmit}
         >
            {
              isSubmitting? ( "Submitting...") : ("Create Account") 
            }
 
 
+          
            </button>
+
     </div>
   )
 }

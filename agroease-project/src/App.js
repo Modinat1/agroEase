@@ -19,6 +19,7 @@ import { Oderreview } from "./Payment/Oderreview";
 import { PaymentProcess } from "./Payment/PaymentProcess";
 import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
+import OrderSummary from "./pages/OrderSummary/OrderSummary"
 
 function App() {
 	return (
@@ -47,6 +48,8 @@ function App() {
 				<Route path='PaymentProcessing' element={<PaymentProcess />} />
 				<Route path='OrderSuccesful' element={<OrderSuccessful />} />
 				<Route path='Shipping' element={<Shipping />} />
+				<Route path='OrderSummary' element={<OrderSummary />} />
+				
 			</Routes>
 		</div>
 	);

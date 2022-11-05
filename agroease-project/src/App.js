@@ -18,6 +18,7 @@ import { Oderreview } from "./Payment/Oderreview";
 import { PaymentProcess } from "./Payment/PaymentProcess";
 import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
+import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
 
 function App() {
 	return (
@@ -35,6 +36,7 @@ function App() {
 				<Route exact path='/brokerlogin' element={<BrokerLoginForm />} />
 
 				<Route exact path='/Farmerindex' element={<Index />} />
+				<Route exact path='/AdminTaskNotification' element={<AdminTaskNotification />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
 				<Route
 					exact

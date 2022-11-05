@@ -3,6 +3,7 @@ import Dashnav from "../../../../components/dashboard-nav-and-side/Dashnav";
 import Sidebar from "../../../../components/dashboard-nav-and-side/Sidebar";
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
+// import { AdminTaskNotification } from "../../AdminTaskNotification/AdminTaskNotification";
 
 import { TableBody } from "../AdminDasboardComponent.js/TableBody";
 import "./AdminPaymentTask.css";
@@ -42,6 +43,7 @@ export const AdminPaymentTask = () => {
 					</tbody>
 				</table>
 			</div>
+			{/* <AdminTaskNotification/> */}
 		</>
 	);
 };

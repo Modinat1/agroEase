@@ -3,6 +3,7 @@ import Dashnav from "../../../../components/dashboard-nav-and-side/Dashnav";
 import Sidebar from "../../../../components/dashboard-nav-and-side/Sidebar";
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
+import Bus from "../../../../images/Bus.png";
 import "./AdminLogisticsTask.css";
 
 export const AdminLogisticsTask = () => {
@@ -40,7 +41,7 @@ export const AdminLogisticsTask = () => {
 							</div>
 						</div>
 						<div className='bus-image'>
-							{/* <img src={Rectangle} alt='' /> */}
+							<img src={Bus} alt='' />
 						</div>
 					</div>
 					<div className='history-route-container'>

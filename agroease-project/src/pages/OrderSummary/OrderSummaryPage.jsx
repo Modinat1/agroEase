@@ -9,7 +9,7 @@ const OrderSummaryPage = () => {
         <h2 className="order-summery-top-pick"> Top Picks</h2>
         <div className="summery-box1">
           <div>
-            <img src="summaryChiken1.png" alt="summeryChiken-image" />
+            <img src="summaryChiken.png" alt="summeryChiken-image" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>

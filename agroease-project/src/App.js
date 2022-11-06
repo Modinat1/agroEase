@@ -21,7 +21,7 @@ import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
-
+import OrderSummary from "./pages/OrderSummary/OrderSummary"
 
 
 function App() {
@@ -38,8 +38,8 @@ function App() {
 				<Route exact path='/farmersignup' element={<FarmerSigninForm />} />
 				<Route exact path='/brokersignup' element={<BrokerSigninForm />} />
 				<Route exact path='/brokerlogin' element={<BrokerLoginForm />} />
-        <Route exact path="/buyerlogin" element={<BuyerLoginForm />} />
-        <Route exact path="/farmerlogin" element={<FarmerLoginForm />} />
+				<Route exact path="/buyerlogin" element={<BuyerLoginForm />} />
+				<Route exact path="/farmerlogin" element={<FarmerLoginForm />} />
 				<Route exact path='/Farmerindex' element={<Index />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
@@ -49,6 +49,8 @@ function App() {
 				<Route path='PaymentProcessing' element={<PaymentProcess />} />
 				<Route path='OrderSuccesful' element={<OrderSuccessful />} />
 				<Route path='Shipping' element={<Shipping />} />
+				<Route path='OrderSummary' element={<OrderSummary />} />
+				
 			</Routes>
 		</div>
 	);

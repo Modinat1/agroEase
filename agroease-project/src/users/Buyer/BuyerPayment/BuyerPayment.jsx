@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Buyernav } from "./Buyernav";
-import { Progress } from "./Progress";
+import Footer from "../../../components/Footer/Footer";
+import { Buyernav } from "./BuyerPayementComponent/Buyernav";
+// import { Buyernav } from "./Buyernav";
+import { Progress } from "./BuyerPayementComponent/Progress";
 
-export const Payment = () => {
+export const BuyerPayment = () => {
 	return (
 		<>
+			{/* <Buyernav /> */}
 			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
@@ -64,7 +67,7 @@ export const Payment = () => {
 					</div>
 				</form>
 			</div>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 };

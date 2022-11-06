@@ -1,0 +1,49 @@
+.admin_summary_card_wrapper{
+  display: flex;
+  justify-content: space-around;
+  gap: 0.625rem;
+}
+.farmer_product_category_card{
+  display: flex;
+  flex-direction: column;
+  width: 11.5rem;
+  height: 13rem;
+  /* padding: 2rem;  */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.farmer_product_category_card.active{
+  border: 1px solid lightblue;
+}
+.farmer_admin_card-1{
+  border: 1px solid #097C0D;
+}
+.farmer_admin_card-2{
+  border: 1px solid #264494;
+}
+.farmer_admin_card-3{
+  border: 1px solid #F01616;
+}
+.farmer_admin_card-4{
+  border: 1px solid #EED202;
+}
+.farmer_admin_title{
+  margin-bottom: 1.5rem;
+}
+
+/* media query for admin cards */
+@media screen and (max-width: 768px) {
+  .farmer_product_category_card{
+    width: 8.5rem;
+    height: 10rem;
+    /* padding: 2rem;  */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+}

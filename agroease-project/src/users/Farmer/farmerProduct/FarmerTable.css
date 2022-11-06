@@ -1,0 +1,66 @@
+/* Farmers Product Table Section */
+.farmers_product_table_wrapper{
+  width: 100%;
+  /* background: #15294B; */
+  overflow-x: scroll;
+}
+.farmer_product_table{
+  margin-top: 3rem;
+  /* width: 100%; */
+  border-collapse: collapse;
+}
+
+.farmer_product_table_header tr{
+  background: #EBEDF0;
+  margin: 1rem;
+  border: none;
+}
+.farmer_product_table_header th{
+  background: #EBEDF0;
+  text-align: justify;
+  outline: none;
+}
+.farmer_product_data{
+  padding: 10px;
+}
+.farmer_product_th{
+  padding: 10px;
+}
+
+.id_container span{
+  margin-left: 0.4rem;
+}
+th span{
+  margin-left: 1rem;
+}
+.farm_product_btn_icon{
+  width: 39px;
+  height: 30px;
+  background-color: #ffffff;
+  border: 1px solid #097C0D;
+  border-radius: 5px;
+  color:#097C0D;
+}
+/* @media screen and (max-width: 1400px){
+  .farmer_product_table{
+    width: 300vw;
+  }
+} */
+
+@media screen and (max-width: 1024px){
+  .farmer_product_table{
+    width: 150vw;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .farmer_product_table{
+    width: 130vw;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .farmer_product_table{
+    width: 300vw;
+  }
+}

@@ -19,6 +19,10 @@ import { Oderreview } from "./Payment/Oderreview";
 import { PaymentProcess } from "./Payment/PaymentProcess";
 import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
+import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
+import { FarmIndex } from "./users/Farmer/farmersCurrentTask/FarmIndex";
+import { BuyerDashboardIndex } from "./users/Buyer/buyerDashboard/BuyerDashboardIndex";
+import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
 
 function App() {
 	return (
@@ -36,6 +40,10 @@ function App() {
 				<Route exact path='/brokerlogin' element={<BrokerLoginForm />} />
 				<Route exact path='/Farmerindex' element={<Index />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
+				<Route exact path='/FarmerProductIndex' element={<FarmerProductIndex />} />
+				<Route exact path='/FarmIndex' element={<FarmIndex />} />
+				<Route exact path='/BuyerDashboardIndex' element={<BuyerDashboardIndex />} />
+				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
 				<Route
 					exact
 					path='/AdminLogisticsTask'

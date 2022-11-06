@@ -44,7 +44,7 @@ const GeneralSignupFormInputBuyer = () => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false);
               resetForm()
-              navigate("/about")
+              navigate("/buyerlogin")
             }, 4000);
           }}
           >

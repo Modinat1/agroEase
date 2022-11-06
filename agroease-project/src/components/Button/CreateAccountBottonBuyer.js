@@ -1,5 +1,4 @@
 import React from 'react'
-import "./StyleButtons.css"
 
 const CreateAccountBottonBuyer = ({isSubmitting, handleSubmit}) => {
   return (

@@ -30,6 +30,7 @@ import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
+import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
 
 function App() {
 	return (
@@ -77,8 +78,8 @@ function App() {
 				{/* New routes added */}
 				<Route path='BuyerPayment' element={<BuyerPayment />} />
 				<Route path='BuyerOrderreview' element={<BuyerOderreview />} />
-				{/*<Route path='PaymentProcessing' element={<PaymentProcess />} />
-				<Route path='OrderSuccesful' element={<OrderSuccessful />} />*/}
+				{/*<Route path='PaymentProcessing' element={<PaymentProcess />} />*/}
+				<Route path='BuyerOrderSuccesful' element={<BuyerOrderSuccessful />} />
 				<Route path='BuyerShipping' element={<BuyerShipping />} />
 				<Route path='OrderSummary' element={<OrderSummary />} />
 			</Routes>

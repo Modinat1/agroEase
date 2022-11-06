@@ -7,6 +7,7 @@ import "./BuyerPaymentCSS/Review.css";
 import Smove from "../../../images/SMoveSmove.png";
 import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
+import cow from "../../../images/cows.png";
 
 export const BuyerOderreview = () => {
 	return (
@@ -22,7 +23,7 @@ export const BuyerOderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -34,7 +35,7 @@ export const BuyerOderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -46,7 +47,7 @@ export const BuyerOderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -58,7 +59,7 @@ export const BuyerOderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>

@@ -145,7 +145,7 @@ form.login-form i.fa-eye {
 
 .shipping-form-group-btn {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 }
 
@@ -161,8 +161,8 @@ form.login-form i.fa-eye {
 	transition: var(--transition);
 	cursor: pointer;
 	min-width: 100px;
-	position: relative;
-	left: 100%;
+	/* position: relative;
+	left: 100%; */
 }
 
 .shipping-form .shipping-proceed-btn:hover {
@@ -198,9 +198,9 @@ form.login-form p a {
 	.shipping-form-step {
 		max-width: 600px;
 	}
-	.shipping-form .shipping-proceed-btn {
+	/* .shipping-form .shipping-proceed-btn {
 		width: 40%;
-	}
+	} */
 	.shipping-form h3 {
 		font-size: 40px;
 	}

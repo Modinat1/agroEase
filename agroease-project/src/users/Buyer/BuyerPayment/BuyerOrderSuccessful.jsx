@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const OrderSuccessful = () => {
+export const BuyerOrderSuccessful = () => {
 	return (
 		<>
 			<div id='review-overlay-successfull'>

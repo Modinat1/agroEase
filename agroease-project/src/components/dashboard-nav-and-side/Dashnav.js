@@ -19,7 +19,7 @@ export default function Dashnav() {
             <i className="uil uil-search" />
             <input type="text" placeholder="Search here..." />
           </div>
-          <a href="">
+          <a href="/">
             <div className="notification">
               <i className="uil uil-bell" id="noti-bell" />
               <span className="badge" />

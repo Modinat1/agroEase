@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LogInAccountButton = () => {
+const LogInAccountButtonFarmer = () => {
   return (
     <div className='create-account-style'>
         <button>Log In</button>
@@ -8,4 +8,4 @@ const LogInAccountButton = () => {
   )
 }
 
-export default LogInAccountButton
+export default LogInAccountButtonFarmer

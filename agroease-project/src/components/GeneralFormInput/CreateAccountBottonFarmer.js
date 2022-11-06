@@ -1,9 +1,6 @@
 import React from 'react'
-import "./StyleButtons.css"
 
-const CreateAccountBottonFarmer = ({isSubmitting, handleSubmit, handleReset}) => {
-
-   
+const CreateAccountBottonFarmer = ({isSubmitting, handleSubmit}) => {
   return (
     <div className='create-account-style'>
        <button

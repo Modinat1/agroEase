@@ -1,7 +1,7 @@
 import React from 'react'
-import "./GeneralSignupFormInput.css";
+import "./GeneralSignupFormInput.css"
 
-const GeneralLoginForm = () => {
+const GeneralLoginFormFarmer = () => {
   return (
     <div>
         <form>
@@ -18,4 +18,4 @@ const GeneralLoginForm = () => {
   )
 }
 
-export default GeneralLoginForm
+export default GeneralLoginFormFarmer

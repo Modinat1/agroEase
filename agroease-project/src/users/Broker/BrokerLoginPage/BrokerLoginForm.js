@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminLogInPageForm from '../../../components/LoginForm/AdminLogInPageForm'
 import Navbar1 from '../../../components/Navbar1/Navbar1'
 import BrokerLogIImage from './BrokerLoginFormCompo/BrokerLogIImage'
+import BrokerLogInPageForm from './BrokerLoginFormCompo/BrokerLogInPageForm'
 
 
 const BrokerLoginForm = () => {
@@ -11,7 +11,7 @@ const BrokerLoginForm = () => {
         <div className='bg-signinform '>
             <div className='signin-image-and-form '>
                 <BrokerLogIImage />
-                <AdminLogInPageForm />
+                <BrokerLogInPageForm />
             </div>
         </div>
     </div>

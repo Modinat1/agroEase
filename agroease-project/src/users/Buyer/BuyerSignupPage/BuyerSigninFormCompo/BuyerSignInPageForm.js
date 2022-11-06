@@ -1,8 +1,9 @@
 import React from 'react'
-import "../../../Admin/AdminSignupPage/"
+import "../../../Admin/AdminSignupPage/AdminSigninPage.css"
 import SigninText from '../../../../components/SignupForm/AdminSignInPageFormCompo/SigninText'
 import SignInFormFooterBuyer from '../../../../components/SignupForm/AdminSignInPageFormCompo/SignInFormFooterBuyer'
 import GeneralSignupFormInputBuyer from '../../../../components/GeneralFormInput/GeneralSignupFormInputBuyer'
+
 
 
 const BuyerSignInPageForm = () => {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Buyernav } from "./Buyernav";
-import Footer from "./Footer";
 import { Progress } from "./Progress";
 
 export const Payment = () => {
@@ -65,7 +64,7 @@ export const Payment = () => {
 					</div>
 				</form>
 			</div>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };

@@ -1,5 +1,9 @@
 import './OrderSummaryPage.css'
-
+import summaryTractor from '../../images/summaryTractor.png'
+import summaryChiken1 from '../../images/summaryChiken1.png'
+import summaryCow from '../../images/summaryCow.png'
+import summaryRice from '../../images/summaryRice.png'
+import summaryChikenRectangle from '../../images/summaryChikenRectangle.png'
 import React from 'react'
 
 const OrderSummaryPage = () => {
@@ -9,7 +13,7 @@ const OrderSummaryPage = () => {
         <h2 className="order-summery-top-pick"> Top Picks</h2>
         <div className="summery-box1">
           <div>
-            <img src="summaryChiken.png" alt="summeryChiken-image" />
+            <img src={summaryTractor}  alt="summeryTractor-image" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -20,7 +24,7 @@ const OrderSummaryPage = () => {
         {/* 2 */}
         <div className="summery-box1">
           <div>
-            <img src="summaryChiken1.png" alt="summeryChiken-image" />
+            <img src={summaryChiken1} alt="summeryChiken-image" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -31,7 +35,7 @@ const OrderSummaryPage = () => {
         {/* 3 */}
         <div className="summery-box1">
           <div>
-            <img src="summaryChiken1.png" alt="summeryChiken-image" />
+            <img src={summaryChiken1} alt="summeryChiken-image" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -42,7 +46,7 @@ const OrderSummaryPage = () => {
         {/* 4 */}
         <div className="summery-box1">
           <div>
-            <img src="summaryChiken1.png" alt="summeryChiken-image" />
+            <img src={summaryCow} alt="summeryCow-image" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -53,7 +57,7 @@ const OrderSummaryPage = () => {
         {/* 5 */}
         <div className="summery-box1">
           <div>
-            <img src="summaryChiken1.png" alt="summeryChiken-image" />
+            <img src={summaryRice} alt="summeryRice-image" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -69,7 +73,7 @@ const OrderSummaryPage = () => {
           {/* <div class="summary-order-box2-biggestContainerInner"></div> */}
           <div className="summary-order-box-2">
             <div className="summary-empty">
-              <img src="summaryChikenRectangle.png" />
+              <img src={summaryChikenRectangle} />
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>
@@ -80,7 +84,7 @@ const OrderSummaryPage = () => {
           {/* 2 */}
           <div className="summary-order-box-2">
             <div className="summary-empty">
-              <img src="summaryChikenRectangle.png" />
+              <img src={summaryChikenRectangle} />
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>
@@ -91,7 +95,7 @@ const OrderSummaryPage = () => {
           {/* 3 */}
           <div className="summary-order-box-2">
             <div className="summary-empty">
-              <img src="summaryChikenRectangle.png" />
+            <img src={summaryChikenRectangle} />
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>
@@ -99,6 +103,22 @@ const OrderSummaryPage = () => {
             </div>
             <div className="summary-order-cancel"> ✖</div>
           </div>
+
+
+          {/* 4 */}
+
+          <div className="summary-order-box-2">
+            <div className="summary-empty">
+            <img src={summaryChikenRectangle} />
+            </div>
+            <div className="summary-order-total">
+              <h5>Fulani Cow Special Breed</h5>
+              <h5 className="sumary-0rder-money"> N120,000.00 </h5>
+            </div>
+            <div className="summary-order-cancel"> ✖</div>
+          </div>
+
+
         </div>
         <section className="summary-order-button-container">
           <button className="summary-order-checkout">

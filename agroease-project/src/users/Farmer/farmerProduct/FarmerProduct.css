@@ -1,0 +1,50 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.farmer_product_wrapper{
+  width: 75%;
+  margin: 6rem 7rem 2rem auto;
+  padding: 1rem;
+}
+.farmer_product_title h3{
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 2rem;
+}
+/* Add product section */
+.farmer_add_product{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+.farmer_add_product p{
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  padding-top: 0.5rem;
+}
+.farmer_add_product button{
+  background: #15294B;
+  border-radius: 5px;
+  width: 9.8rem;
+  height: 3rem;
+  border: none;
+  color: #ffffff;
+}
+@media screen and (max-width: 1024px){
+  .farmer_product_wrapper{
+    width: 70%;
+    /* margin: 6rem 7rem 2rem auto; */
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 487px){
+  .farmer_add_product{
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

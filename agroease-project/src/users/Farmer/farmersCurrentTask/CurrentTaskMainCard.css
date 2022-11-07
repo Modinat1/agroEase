@@ -1,0 +1,130 @@
+/* main card section starts here */
+.farmer_task_main_card{
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  gap: 40px;
+  border: 2px solid #C2C7D0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main_card_content h5{
+  margin: 2rem 0rem 1rem 0rem;
+  font-weight: 700;
+  font-size: 39.81px;
+  line-height: 47px;
+}
+.main_card_content p{
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.main_card_content p>span{
+  color: #097C0D;
+}
+.product_desc_content{
+  margin-top: 1rem;
+}
+.product_desc_content{
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 2.5rem;
+}
+.product_desc_content_title{
+  font-weight: 700;
+  font-size: 23.04px;
+  line-height: 27px;
+}
+.product_desc_content_amount{
+  font-weight: 400;
+  font-size: 23.04px;
+  line-height: 27px;
+}
+#product_amount{
+  font-weight: 400;
+  font-size: 23.04px;
+  line-height: 27px;
+  color: #097C0D;
+  margin-left: 2rem;
+}
+.farmers_uploaded_product h5{
+  margin: 2rem 0;
+  font-weight: 700;
+  font-size: 33.18px;
+  line-height: 39px;
+}
+.item_details{
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.item_details div{
+  width: 100%;
+}
+#fulani_breed{
+  max-width: none;
+}
+.item_details_name h5{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 33.18px;
+  line-height: 39px;
+}
+.item_details_name p{
+  font-size: 19.2px;
+  line-height: 24px;
+  padding-bottom: 1rem;
+}
+/* Main card media query */
+@media screen and (max-width: 1024px){
+  .farmer_task_main_card{
+    gap: 20px;
+  }
+  #fulani_breed{
+    width: 300px;
+  }
+  .main_card_content h5{
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .main_card_content p{
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+  }
+  .product_desc_content{
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+  
+  .product_desc_content_title, .product_desc_content_amount{
+    font-size: 14px;
+    line-height: 15px;
+    padding-left: 0.4rem;
+  }
+  .item_details div{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px){
+  .farmer_task_main_card{
+    flex-direction: column;
+  }
+  #fulani_breed{
+    width: 100%;
+    /* height: 420px; */
+  }
+  .main_card_content{
+    padding: 0rem 1rem 0rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .main_card_content h5 {
+    margin: 0rem 0rem 1rem 0rem;
+  }
+  #product_amount{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px){
+  
+}

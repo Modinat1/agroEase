@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Buyernav } from "./Buyernav";
+// import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 // import Footer from "./Footer";
-import { Progress } from "./Progress";
+import "./BuyerPaymentCSS/Shipping.css";
+import { Progress } from "./BuyerPayementComponent/Progress";
+import Footer from "../../../components/Footer/Footer";
+import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 
-export const Shipping = () => {
+export const BuyerShipping = () => {
 	return (
 		<>
+			{/* <Buyernav /> */}
 			<Buyernav />
-
 			<div className='shipping-container'>
 				<Progress />
 				<form
@@ -47,16 +50,14 @@ export const Shipping = () => {
 					<div className='shipping-form-group-btn'>
 						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
 						<Link to={"/Payment"}>
-							<button
-								className='shipping-proceed-btn btn-next btn-shipping'
-								type='submit'>
+							<button className='shipping-proceed-btn ' type='submit'>
 								Next
 							</button>
 						</Link>
 					</div>
 				</form>
 			</div>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 };

@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Buyernav } from "./Buyernav";
+// import { Buyernav } from "./Buyernav";
 // import Footer from "./Footer";
-import { Progress } from "./Progress";
+import { Progress } from "./BuyerPayementComponent/Progress";
+import "./BuyerPaymentCSS/Review.css";
+import Smove from "../../../images/SMoveSmove.png";
+import Footer from "../../../components/Footer/Footer";
+import { Buyernav } from "./BuyerPayementComponent/Buyernav";
+import cow from "../../../images/cows.png";
 
-export const Oderreview = () => {
+export const BuyerOderreview = () => {
 	return (
 		<>
 			<Buyernav />
@@ -18,7 +23,7 @@ export const Oderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -30,7 +35,7 @@ export const Oderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -42,7 +47,7 @@ export const Oderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -54,7 +59,7 @@ export const Oderreview = () => {
 								<div className='product-review'>
 									<div className='product-review-container'>
 										<div className='product-review-img'>
-											<img src='/assets/goat.jpg' alt='' />
+											<img src={cow} alt='' />
 										</div>
 										<div>
 											<h4 className='product-review-text'>Fulani Cow</h4>
@@ -93,8 +98,8 @@ export const Oderreview = () => {
 								to resolve issues concerning bad goods
 							</h4>
 						</div>
-						<div className='payment-review-container'>
-							<div className='card-details'>
+
+						{/* <div className='card-details'>
 								<div className='payment-review'>
 									<div className='card-img-wrapper'>
 										<div className='check-box check-box-active' />
@@ -132,21 +137,16 @@ export const Oderreview = () => {
 									</div>
 								</div>
 								<button className='add-card'>Add Card</button>
-							</div>
-							<div className='add-shipping'>
-								<h4>Available Shipping Methods</h4>
-								<div className='fedex-shipping'>
-									<div className='fedEx'>
-										<img src='/assets/FedExfedex.png' alt='' />
-									</div>
-									<div className='fedEx-des'>
-										<h5>FedEx Delivery</h5>
-										<p>Delivery within 2-3 working days</p>
-									</div>
-									<div className='add-shipping-btn'>
-										<p>Free</p>
-										<div className='check-box check-box-active' />
-									</div>
+							</div> */}
+						<div className='add-shipping'>
+							<h4>Available Shipping Methods</h4>
+							<div className='fedex-shipping'>
+								<div className='fedEx'>
+									<img src={Smove} alt='' />
+								</div>
+								<div className='fedEx-des'>
+									<h5>SharpMove Delivery</h5>
+									<p>Delivery within 2-3 working days</p>
 								</div>
 							</div>
 						</div>
@@ -156,7 +156,7 @@ export const Oderreview = () => {
 					</Link>
 				</div>
 			</div>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 };

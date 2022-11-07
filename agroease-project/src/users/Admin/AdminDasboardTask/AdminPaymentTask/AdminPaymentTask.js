@@ -16,32 +16,32 @@ export const AdminPaymentTask = () => {
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />
-
-				<table>
-					<thead>
-						<tr>
-							<th scope='col'>
-								<input type='checkbox' className='table-checkbox' />
-							</th>
-							<th scope='col'>Name</th>
-							<th scope='col'>Account</th>
-							<th scope='col'>CVV</th>
-							<th scope='col'>Balance</th>
-							<th scope='col'>Transfer Date</th>
-							<th scope='col'>Transaction</th>
-							<th scope='col'>Status</th>
-							<th scope='col'>Action</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<TableBody />
-						<TableBody />
-						<TableBody />
-						<TableBody />
-					</tbody>
-				</table>
 			</div>
+
+			<table>
+				<thead>
+					<tr>
+						<th scope='col'>
+							<input type='checkbox' className='table-checkbox' />
+						</th>
+						<th scope='col'>Name</th>
+						<th scope='col'>Account</th>
+						<th scope='col'>CVV</th>
+						<th scope='col'>Balance</th>
+						<th scope='col'>Transfer Date</th>
+						<th scope='col'>Transaction</th>
+						<th scope='col'>Status</th>
+						<th scope='col'>Action</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<TableBody />
+					<TableBody />
+					<TableBody />
+					<TableBody />
+				</tbody>
+			</table>
 		</>
 	);
 };

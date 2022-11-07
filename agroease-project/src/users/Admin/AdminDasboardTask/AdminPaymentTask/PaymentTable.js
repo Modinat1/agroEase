@@ -14,8 +14,8 @@ export const TableBody = () => {
 			<td data-label='date'>26/10/2023</td>
 			<td data-label='transaction'>Successful</td>
 			<td data-label='status'>In Review</td>
-			<td data-label='Action' className='notify-btn'>
-				Notify
+			<td data-label='Action'>
+				<div className='notify-btn'>Notify</div>
 			</td>
 		</tr>
 	);

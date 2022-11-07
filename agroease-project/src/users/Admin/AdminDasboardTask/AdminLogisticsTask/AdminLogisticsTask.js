@@ -6,7 +6,7 @@ import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrappe
 import Bus from "../../../../images/Bus.png";
 import googleMap from "../../../../images/googleMap.png";
 import "./AdminLogisticsTask.css";
-import { PlateNumber } from "./PlateNumber";
+// import { PlateNumber } from "./PlateNumber";
 
 export const AdminLogisticsTask = () => {
 	return (
@@ -45,7 +45,7 @@ export const AdminLogisticsTask = () => {
 						<div className='bus-image'>
 							<img src={Bus} alt='' />
 						</div>
-						<PlateNumber />
+						{/* <PlateNumber /> */}
 					</div>
 					<div className='history-route-container'>
 						<div className='logistics-routes'>

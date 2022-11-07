@@ -18,6 +18,7 @@ import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTa
 // import { PaymentProcess } from "./Payment/PaymentProcess";
 // import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
+import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
 
 import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
 import { FarmIndex } from "./users/Farmer/farmersCurrentTask/FarmIndex";
@@ -53,6 +54,7 @@ function App() {
 				<Route exact path='/buyerlogin' element={<BuyerLoginForm />} />
 				<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
 				<Route exact path='/Farmerindex' element={<Index />} />
+				<Route exact path='/AdminTaskNotification' element={<AdminTaskNotification />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
 				<Route exact path='/brokerdashboard' element={<BrokerDashboardPage />}/>

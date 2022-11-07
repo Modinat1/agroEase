@@ -5,7 +5,7 @@ import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
 
 import { TableBody } from "../AdminDasboardComponent.js/TableBody";
-import "./AdminPaymentTask.css";
+// import "./AdminPaymentTask.css";
 
 export const AdminPaymentTask = () => {
 	return (
@@ -17,7 +17,7 @@ export const AdminPaymentTask = () => {
 				<ManageTaskWrapper />
 				<TaskSwitch />
 			</div>
-
+			{/*
 			<table>
 				<thead>
 					<tr>
@@ -41,7 +41,7 @@ export const AdminPaymentTask = () => {
 					<TableBody />
 					<TableBody />
 				</tbody>
-			</table>
+			</table> */}
 		</>
 	);
 };

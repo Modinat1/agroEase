@@ -61,7 +61,7 @@ export const AdminLogisticsTask = () => {
 								<img src={googleMap} alt='googleMap' />
 							</div>
 							<div className='route-table'>
-								<table>
+								{/* <table>
 									<tr>
 										<th>Distance</th>
 										<th>Time</th>
@@ -74,7 +74,7 @@ export const AdminLogisticsTask = () => {
 										<td>7000 naira</td>
 										<td>120m</td>
 									</tr>
-								</table>
+								</table> */}
 							</div>
 						</div>
 						<div className='logistics-history'>
@@ -84,7 +84,7 @@ export const AdminLogisticsTask = () => {
 							</div>
 
 							<div className='route-table'>
-								<table className='logistics details'>
+								{/* <table className='logistics details'>
 									<tr>
 										<th>
 											<input type={"checkbox"} />
@@ -140,7 +140,7 @@ export const AdminLogisticsTask = () => {
 										<td>Wuse 2</td>
 										<td>12/4/2022</td>
 									</tr>
-								</table>
+								</table> */}
 							</div>
 						</div>
 					</div>

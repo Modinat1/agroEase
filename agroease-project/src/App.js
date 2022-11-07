@@ -21,8 +21,11 @@ import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
-import OrderSummary from "./pages/OrderSummary/OrderSummary"
-
+import OrderSummary from "./pages/OrderSummary/OrderSummary";
+import BrokerDashboardPage from './users/Broker/BrokerDashboard/BrokerDashboardPage'
+import BrokerClientPage from "./users/Broker/BrokerClient/BrokerClientPage";
+import BrokerRefferalPage from "./users/Broker/BrokerReferral/BrokerRefferalPage";
+import BuyerDashboardPage from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
 
 function App() {
 	return (
@@ -43,6 +46,10 @@ function App() {
 				<Route exact path='/Farmerindex' element={<Index />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
+				<Route exact path='/brokerdashboard' element={<BrokerDashboardPage />}/>
+				<Route exact path='/brokerclientpage' element={<BrokerClientPage />}/>
+				<Route exact path='/brokerrefferalpage' element={<BrokerRefferalPage />}/>
+				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage />}/>
 				{/* New routes added */}
 				<Route path='Payment' element={<Payment />} />
 				<Route path='Orderreview' element={<Oderreview />} />

@@ -1,11 +1,15 @@
 import React from 'react'
 import { Formik } from 'formik';
+import axios from "axios";
 import Loginschema from "../Yup/Schema/LoginValidation"
 import "./GeneralSignupFormInput.css"
 import CreateAccountBottonBroker from '../Button/CreateAccountBottonBroker';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const GeneralSignupFormInputBroker = () => {
+
+    const [success, setSuccess] = useState(null)
 
     const navigate = useNavigate()
   return (
@@ -15,23 +19,24 @@ const GeneralSignupFormInputBroker = () => {
        initialValues={
         { 
             id: crypto.randomUUID(),
-            firstname: '',
-            lastname: '',
+            firstName: '',
+            lastName: '',
             email: '', 
-            password: '' 
+            password: '',
+            role: "Broker"
         }}
 
         validationSchema={Loginschema}
 
         
         validate={(values) => {
-            const {firstname, lastname, email, password} = values;
+            const {firstName, lastName, email, password} = values;
 
             // "key": errorMessage
             const errors = {}
-            if(!firstname) (errors.firstname = <small className='text-red-500'>Firstname cannot be empty</small>)
+            if(!firstName) (errors.firstName = <small className='text-red-500'>Firstname cannot be empty</small>)
 
-            if(!lastname) (errors.lastname = <small className='text-red-500'>Lastname cannot be empty</small>)
+            if(!lastName) (errors.lastName = <small className='text-red-500'>Lastname cannot be empty</small>)
     
             if(!email) (errors.email = <small className='text-red-500'>Email cannot be empty</small>)
 
@@ -41,14 +46,28 @@ const GeneralSignupFormInputBroker = () => {
         }}
 
         // onsubmitting
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={ async (values, { setSubmitting, resetForm }) => {
+          const {...data} = values
             setTimeout(() => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false);
               resetForm()
               navigate("/brokerlogin")
+              
             }, 4000);
-          }}
+          
+            const response = await axios.post("http://localhost:8000/v1/auth/register", data)
+            .catch((err) => {
+              if(err && err.response) {
+                console.log("Error", err)
+              }
+
+              if(response && response.data) {
+                setSuccess(response.data.message)
+                console.log(success)
+              }
+            }
+  )}}
         >
        {({
          values,
@@ -64,26 +83,27 @@ const GeneralSignupFormInputBroker = () => {
 
         <React.Fragment>
             {/* <pre>{JSON.stringify(values, 2, null)}</pre> */}
+            <small className="form-success-mes">{success? "The registration is successful" : ""}</small>
         <form>
             <div  className='flex-col' id={values.id}>
                 <label>Firstname</label>
                 <input 
                         type="text"
-                        name='firstname'
-                        value={values.firstname}
+                        name='firstName'
+                        value={values.firstName}
                         onChange={handleChange}
                 />
-                {errors.firstname && touched.firstname && errors.firstname}
+                {errors.firstName && touched.firstName && errors.firstName}
             </div>
             <div  className='flex-col'>
                 <label>Lastname</label>
                 <input 
                         type="text"
-                        name='lastname'
-                        value={values.lastname}
+                        name='lastName'
+                        value={values.lastName}
                         onChange={handleChange}
                 />
-                {errors.lastname && touched.lastname && errors.lastname}
+                {errors.lastName && touched.lastName && errors.lastName}
                 
             </div>
             <div className='flex-col'>
@@ -93,6 +113,7 @@ const GeneralSignupFormInputBroker = () => {
                         name='email'
                         value={values.email}
                         onChange={handleChange}
+                        // emailch={values.email}
                 />
                 {errors.email && touched.email && errors.email}
             </div>

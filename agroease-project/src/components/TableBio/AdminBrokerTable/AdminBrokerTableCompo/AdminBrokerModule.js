@@ -1,15 +1,5 @@
 export const adminbroker = [
     {
-       id: 7587,
-       name: "Godswill Chibuzo",
-       email: "godswill@gmail.com",
-       phoneNumber: "08098767898",
-       gender:"Male",
-       address: "Wuse zone 2, Abuja",
-       tbcName: "admin-general-tbody",
-       tbcIcon: "styletableicon"
-    },
-    {
         id: 3457,
         name: "Gbenga Akinnukawe",
         email: "akinu@gmail.com",

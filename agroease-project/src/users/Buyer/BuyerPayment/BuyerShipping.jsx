@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Buyernav } from "./BuyerPayementComponent/Buyernav";
-// import Footer from "./Footer";
-import "./BuyerPaymentCSS/Shipping.css";
+
+// import "./BuyerPaymentCSS/Shipping.css";
 import { Progress } from "./BuyerPayementComponent/Progress";
 import Footer from "../../../components/Footer/Footer";
-import { Buyernav } from "./BuyerPayementComponent/Buyernav";
+// import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 
 export const BuyerShipping = () => {
 	return (
 		<>
 			{/* <Buyernav /> */}
-			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
 				<form

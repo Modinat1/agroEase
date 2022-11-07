@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 // import { Buyernav } from "./Buyernav";
 // import Footer from "./Footer";
 import { Progress } from "./BuyerPayementComponent/Progress";
-import "./BuyerPaymentCSS/Review.css";
+// import "./BuyerPaymentCSS/Review.css";
 import Smove from "../../../images/SMoveSmove.png";
 import Footer from "../../../components/Footer/Footer";
-import { Buyernav } from "./BuyerPayementComponent/Buyernav";
+// import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import cow from "../../../images/cows.png";
 
 export const BuyerOderreview = () => {
 	return (
 		<>
-			<Buyernav />
+			{/* <Buyernav /> */}
 			<div className='shipping-container'>
 				<Progress />
 				<div className='shipping-form shipping-form-active'>

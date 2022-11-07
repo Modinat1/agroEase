@@ -3,7 +3,7 @@ table {
 	border-collapse: collapse;
 	margin: 0;
 	padding: 0;
-	width: 80%;
+	width: 100%;
 	/* table-layout: fixed; */
 	overflow-x: scroll;
 }

@@ -10,7 +10,6 @@ import BrokerSigninForm from "./users/Broker/BrokerSignupPage/BrokerSigninForm";
 import BuyerLoginForm from "./users/Buyer/BuyerLoginPage/BuyerLoginForm";
 import FarmerLoginForm from "./users/Farmer/FarmerLoginPage/FarmerLoginForm";
 import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
-import { Index } from "./users/Farmer/FarmerProductUpload.js/Index";
 import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTask/AdminPaymentTask";
 // import { Shipping } from "./Payment/Shipping";
 // import { Payment } from "./Payment/Payment";
@@ -21,7 +20,6 @@ import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisti
 import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
 
 // import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
-import { FarmIndex } from "./users/Farmer/farmersCurrentTask/FarmIndex";
 // import { BuyerDashboardIndex } from "./users/Buyer/buyerDashboard/BuyerDashboardIndex";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
 
@@ -31,13 +29,20 @@ import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import BrokerDashboardPage from './users/Broker/BrokerDashboard/BrokerDashboardPage'
 import BrokerClientPage from "./users/Broker/BrokerClient/BrokerClientPage";
 import BrokerRefferalPage from "./users/Broker/BrokerReferral/BrokerRefferalPage";
-import BuyerDashboardPage from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
 import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
 import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
+import FarmerProfile from "./users/Farmer/FarmerProfile/FarmerProfile";
+import { FarmerProductPage } from "./users/Farmer/farmerProduct/FarmerProductPage";
+import { FarmerAddProduct } from "./users/Farmer/FarmerProductUpload.js/FarmerAddProduct";
+import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerCurrentTaskPage";
+import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
+import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
+import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
+
 
 function App() {
 	return (
@@ -55,18 +60,23 @@ function App() {
 				<Route exact path='/brokerlogin' element={<BrokerLoginForm />} />
 				<Route exact path='/buyerlogin' element={<BuyerLoginForm />} />
 				<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
-				<Route exact path='/Farmerindex' element={<Index />} />
 				<Route exact path='/AdminTaskNotification' element={<AdminTaskNotification />} />
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
 				<Route exact path='/brokerdashboard' element={<BrokerDashboardPage />}/>
 				<Route exact path='/brokerclientpage' element={<BrokerClientPage />}/>
 				<Route exact path='/brokerrefferalpage' element={<BrokerRefferalPage />}/>
-				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage />}/>
 				<Route exact path='/brokerprofilepage' element={<BrokerProfilePage />}/>
 				<Route exact path='/farmerdashboardpage' element={<Farmerdashboard />}/>
-				{/* <Route exact path='/FarmerProductIndex' element={<FarrProductIndex />}/> */}
-				<Route exact path='/FarmIndex' element={<FarmIndex />} />
+				<Route exact path='/farmerprofilepage' element={<FarmerProfile />}/>
+				<Route exact path='/farmerproductpage' element={<FarmerProductPage />}/>
+				<Route exact path='/farmeraddproduct' element={<FarmerAddProduct />}/>
+				<Route exact path='/farmercurrenttask' element={<FarmerCurrentTaskPage />}/>
+				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage />}/>
+				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />}/>
+				<Route exact path='/buyerproductpage' element={<BuyerProductPage />}/>
+				
+				
 				{/* <Route exact path='/BuyerDashboardIndex' element={<BuyerDashboardIndex />}/> */}
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>

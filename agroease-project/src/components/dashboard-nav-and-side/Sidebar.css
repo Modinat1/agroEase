@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
 }
 
 :root {
@@ -24,12 +24,12 @@
     --tran-03: all 0.2s ease;
 }
 
-body {
+/* body {
     min-height: 100vh;
     background-color: var(--primary-color);
-}
+} */
 
-body.dark {
+/* body.dark {
     --primary-color: #3a3b3c;
     --panel-color: #242526;
     --text-color: #ccc;
@@ -40,7 +40,7 @@ body.dark {
     --box2-color: #3a3b3c;
     --box3-color: #3a3b3c;
     --title-icon-color: #ccc;
-}
+} */
 
 
 /* === Custom Scroll Bar CSS === */
@@ -68,29 +68,29 @@ body.dark .activity-data::-webkit-scrollbar-thumb:hover {
     background: #3a3b3c;
 } */
 
-nav {
+.dashboard-sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    /* width: 250px; */
+    width: 175px; 
     padding: 10px 14px;
     background-color: #fff9e9;
     border-right: 1px solid var(--border-color);
     transition: var(--tran-05);
 }
 
-nav.close {
+.dashboard-sidebar.close {
     width: 73px;
 }
 
-nav .logo-name {
+.dashboard-sidebar .logo-name {
     display: flex;
     align-items: center;
     width: 100px;
 }
 
-nav .logo-image {
+.dashboard-sidebar .logo-image {
     display: flex;
     justify-content: center;
     min-width: 45px;
@@ -99,13 +99,13 @@ nav .logo-image {
     width: 140px;
 }
 
-nav .logo-image img {
+.dashboard-sidebar .logo-image img {
     width: 40px;
     object-fit: cover;
     border-radius: 50%;
 }
 
-nav .logo-name .logo_name {
+.dashboard-sidebar .logo-name .logo_name {
     font-size: 22px;
     font-weight: 600;
     color: var(--text-color);
@@ -113,12 +113,12 @@ nav .logo-name .logo_name {
     transition: var(--tran-05);
 }
 
-nav.close .logo_name {
+.dashboard-sidebar.close .logo_name {
     opacity: 0;
     pointer-events: none;
 }
 
-nav .menu-items {
+.dashboard-sidebar .menu-items {
     margin-top: 40px;
     height: calc(100% - 90px);
     display: flex;
@@ -127,7 +127,7 @@ nav .menu-items {
 }
 
 .menu-items li {
-    list-style: none;
+    list-style-type: none;
 }
 
 .menu-items li a {
@@ -145,11 +145,13 @@ nav .menu-items {
     height: 5px;
     width: 5px;
     border-radius: 50%;
+   
     background-color: green;
 }
 
 body.dark li a:hover:before {
     background-color: var(--text-color);
+    list-style-type: none;
 }
 
 .menu-items li a i {
@@ -169,7 +171,7 @@ body.dark li a:hover:before {
     transition: var(--tran-05);
 }
 
-nav.close li a .link-name {
+.dashboard-sidebar.close li a .link-name {
     opacity: 0;
     pointer-events: none;
 }
@@ -242,7 +244,7 @@ body.dark .switch:before {
     transition: var(--tran-05);
 }
 
-nav.close~.dashboard {
+.dashboard-sidebar.close~.dashboard {
     left: 73px;
     width: calc(100% - 73px);
 }
@@ -262,7 +264,7 @@ nav.close~.dashboard {
     height: 10%;
 }
 
-nav.close~.dashboard .top {
+.dashboard-sidebar.close~.dashboard .top {
     left: 73px;
     width: calc(100% - 73px);
 }
@@ -408,14 +410,14 @@ nav.close~.dashboard .top {
 }
 
 @media (max-width: 480px) {
-    nav {
+    .dashboard-sidebar {
       width: 16%;
       padding: 0;
     }
-    nav.close {
+    .dashboard-sidebar.close {
         width: 73px;
     }
-    nav .logo_name {
+    .dashboard-sidebar .logo_name {
         opacity: 0;
         pointer-events: none;
     }

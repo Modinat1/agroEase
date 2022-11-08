@@ -1,9 +1,19 @@
 import React from 'react'
 
-const LogInAccountButtonBroker = () => {
+const LogInAccountButtonBroker = ({isSubmitting, handleSubmit}) => {
   return (
     <div className='create-account-style'>
-        <button>Log In</button>
+        <button
+              disabled={isSubmitting}
+              type="button"
+              onClick={handleSubmit}
+              >
+                
+                {
+                  isSubmitting? ( "Submitting...") : ("LogIn") 
+                }
+                
+              </button>
     </div>
   )
 }

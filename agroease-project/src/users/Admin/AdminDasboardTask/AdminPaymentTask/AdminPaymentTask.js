@@ -1,8 +1,9 @@
 import React from "react";
-import Dashnav from "../../../../components/dashboard-nav-and-side/Dashnav";
-import Sidebar from "../../../../components/dashboard-nav-and-side/Sidebar";
+// import Dashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
+// import Sidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
+// import { AdminTaskNotification } from "../../AdminTaskNotification/AdminTaskNotification";
 
 import { TableBody } from "../AdminDasboardComponent.js/TableBody";
 import "./AdminPaymentTask.css";
@@ -10,8 +11,8 @@ import "./AdminPaymentTask.css";
 export const AdminPaymentTask = () => {
 	return (
 		<>
-			<Sidebar />
-			<Dashnav />
+			{/* <Sidebar />
+			<Dashnav /> */}
 
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
@@ -42,6 +43,7 @@ export const AdminPaymentTask = () => {
 					</tbody>
 				</table>
 			</div>
+			{/* <AdminTaskNotification/> */}
 		</>
 	);
 };

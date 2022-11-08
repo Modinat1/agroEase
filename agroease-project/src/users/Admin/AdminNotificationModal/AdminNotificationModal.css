@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.AdminModalCancelBtn {
+    background-color: transparent;
+    color: red;
+    display: block;
+    font-weight: 900;
+    padding: 0.2rem 0.4rem;
+    margin-top: -1rem;
+    margin-left: 20rem;
+}
+
+.AdminNotificationModalContainer {
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.AdminNotificationModal {
+    background-color: #fff;
+    border-radius: 0.3rem;
+    margin-top: 5rem;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.AdminNotificationModal label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.AdminNotificationModal h3 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.AdminNotificationModal input,
+textarea {
+    border: 1px solid gray;
+    border-radius: 0.3rem;
+    width: 100%;
+    padding: 0.7rem;
+}
+
+.AdminNotificationModal input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.AdminModalBtnContainer {
+    text-align: center;
+}
+
+.AdminModalBtn {
+    border-radius: 0.3rem;
+    border: none;
+    margin: 1rem 0.5rem 0 0;
+    padding: 0.4rem 0.5rem;
+}
+
+.AdminModalBtn.cancel {
+    background-color: #fff;
+    border: 1px solid green;
+    color: green;
+}
+
+.AdminModalBtn.send {
+    background-color: green;
+    color: #fff;
+}
+
+.darkBG {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}

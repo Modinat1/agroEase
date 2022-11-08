@@ -16,9 +16,9 @@ export const TaskSwitch = () => {
 	return (
 		<>
 			<div className='TaskSwitch-wrapper'>
-				<CustomLink to={"/"}>Notification</CustomLink>
-				<CustomLink to={"/Logistics"}>Logistics</CustomLink>
-				<CustomLink to={"/Payment"}>Payment</CustomLink>
+				<CustomLink to={"/AdminNotificationTask"}>Notification</CustomLink>
+				<CustomLink to={"/AdminLogisticsTask"}>Logistics</CustomLink>
+				<CustomLink to={"/AdminPaymentTask"}>Payment</CustomLink>
 			</div>
 		</>
 	);

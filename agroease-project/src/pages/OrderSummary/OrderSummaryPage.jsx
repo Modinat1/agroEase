@@ -13,7 +13,7 @@ const OrderSummaryPage = () => {
         <h2 className="order-summery-top-pick"> Top Picks</h2>
         <div className="summery-box1">
           <div>
-            <img src={summaryTractor}  alt="summeryTractor-image" />
+            <img src={summaryTractor}  alt="" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -24,7 +24,7 @@ const OrderSummaryPage = () => {
         {/* 2 */}
         <div className="summery-box1">
           <div>
-            <img src={summaryChiken1} alt="summeryChiken-image" />
+            <img src={summaryChiken1} alt="" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -35,7 +35,7 @@ const OrderSummaryPage = () => {
         {/* 3 */}
         <div className="summery-box1">
           <div>
-            <img src={summaryChiken1} alt="summeryChiken-image" />
+            <img src={summaryChiken1} alt="" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -46,7 +46,7 @@ const OrderSummaryPage = () => {
         {/* 4 */}
         <div className="summery-box1">
           <div>
-            <img src={summaryCow} alt="summeryCow-image" />
+            <img src={summaryCow} alt="" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -57,7 +57,7 @@ const OrderSummaryPage = () => {
         {/* 5 */}
         <div className="summery-box1">
           <div>
-            <img src={summaryRice} alt="summeryRice-image" />
+            <img src={summaryRice} alt="" />
           </div>
           <div className="summary-image-details">
             <h5 className="summery-details1"> Fulani Cow</h5>
@@ -73,7 +73,7 @@ const OrderSummaryPage = () => {
           {/* <div class="summary-order-box2-biggestContainerInner"></div> */}
           <div className="summary-order-box-2">
             <div className="summary-empty">
-              <img src={summaryChikenRectangle} />
+              <img src={summaryChikenRectangle} alt=""/>
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>
@@ -84,7 +84,7 @@ const OrderSummaryPage = () => {
           {/* 2 */}
           <div className="summary-order-box-2">
             <div className="summary-empty">
-              <img src={summaryChikenRectangle} />
+              <img src={summaryChikenRectangle} alt=''/>
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>
@@ -95,7 +95,7 @@ const OrderSummaryPage = () => {
           {/* 3 */}
           <div className="summary-order-box-2">
             <div className="summary-empty">
-            <img src={summaryChikenRectangle} />
+            <img src={summaryChikenRectangle} alt=''/>
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>
@@ -109,7 +109,7 @@ const OrderSummaryPage = () => {
 
           <div className="summary-order-box-2">
             <div className="summary-empty">
-            <img src={summaryChikenRectangle} />
+            <img src={summaryChikenRectangle} alt=''/>
             </div>
             <div className="summary-order-total">
               <h5>Fulani Cow Special Breed</h5>

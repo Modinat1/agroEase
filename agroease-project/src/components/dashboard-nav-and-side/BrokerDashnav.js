@@ -2,7 +2,7 @@ import React from "react";
 import "./Sidebar.css";
 import FarmerProfile from "../../images/farmer_profile.png";
 
-export default function Dashnav() {
+export default function BrokerDashnav() {
 	return (
 		<>
 			<section className='dashboard'>

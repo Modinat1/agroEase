@@ -1,8 +1,8 @@
 import React from 'react'
 import { Formik } from 'formik'
 import Loginschema from '../Yup/Schema/LoginValidation'
-import CreateAccountBottonFarmer from './CreateAccountBottonFarmer'
 import { useNavigate } from 'react-router-dom'
+import CreateAccountBottonFarmer from '../Button/CreateAccountBottonFarmer'
 
 const GeneralSignupFormInputFarmer = () => {
 
@@ -106,7 +106,7 @@ const GeneralSignupFormInputFarmer = () => {
                 />
                 {errors.password && touched.password && errors.password}
             </div>
-            <CreateAccountBottonFarmer 
+            <CreateAccountBottonFarmer
                 isSubmitting={isSubmitting}
                 handleSubmit={handleSubmit}
                 />

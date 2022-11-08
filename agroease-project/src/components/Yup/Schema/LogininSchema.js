@@ -3,9 +3,7 @@ import * as yup from 'yup';
 
 
 
-let Loginschema = yup.object().shape({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
+let LogininSchema = yup.object().shape({
     email: yup.string().email("Invalid email format").required(),
     password: yup.string().min(3).required()
             .matches(
@@ -16,5 +14,5 @@ let Loginschema = yup.object().shape({
     
   });
 
-  export default Loginschema
+  export default LogininSchema
 

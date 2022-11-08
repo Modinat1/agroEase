@@ -5,15 +5,15 @@ import WeatherImg from "../../../images/farmer_img_circle.png";
 import CloudImg from "../../../images/farmer_cloud_img.png";
 import "./AdminDashIndex.css";
 // import { FarmerTable } from "../farmerProduct/FarmerTable";
-import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
-import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
+// import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
+// import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
 import { FarmerTable } from "../../Farmer/farmerProduct/FarmerTable";
 
 export const AdminDashIndex = () => {
   return (
     <div>
-      <Sidebar />
-      <Dashnav />
+      {/* <Sidebar />
+      <Dashnav /> */}
       <div>
         <section className="admin_dashboard_wrapper">
           <section className="admin_dash_title">

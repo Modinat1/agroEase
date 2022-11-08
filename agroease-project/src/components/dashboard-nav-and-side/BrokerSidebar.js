@@ -16,7 +16,11 @@ export default function BrokerSidebar() {
           <ul className="nav-links">
             <li className='flex'>
                 <i className="uil uil-estate pt-3 pr-2" />
-                <Link to='/brokerdashboard'><span className="link-name cursor-pointer">Dahsboard</span></Link>
+                <Link to='/brokerdashboard'><span className="link-name cursor-pointer">Dashboard</span></Link>
+            </li>
+            <li className='flex'>
+                <i className="uil uil-users-alt pt-4 pr-2" />
+                <Link to='/brokerprofilepage'><span className="link-name cursor-pointer">Profile</span></Link>
             </li>
             <li className='flex'>
                 <i className="uil uil-users-alt pt-4 pr-2" />

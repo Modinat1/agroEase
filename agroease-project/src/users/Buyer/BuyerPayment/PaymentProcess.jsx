@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Buyernav } from "./Buyernav";
+import { Buyernav } from "./Buyernav";
 // import Footer from "./Footer";
 import { Progress } from "./Progress";
 
 export const PaymentProcess = () => {
 	return (
 		<>
-			{/* <Buyernav /> */}
+			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
 				<Link to={"/OrderSuccesful"}>

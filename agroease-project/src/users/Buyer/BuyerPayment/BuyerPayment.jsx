@@ -8,7 +8,7 @@ import { Progress } from "./BuyerPayementComponent/Progress";
 export const BuyerPayment = () => {
 	return (
 		<>
-			{/* <Buyernav /> */}
+			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
 				<form

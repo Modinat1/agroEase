@@ -31,6 +31,7 @@ import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
+import { BrokerRefferal } from "./users/Broker/BrokerRefferalPage/BrokerRefferal";
 
 function App() {
 	return (
@@ -82,6 +83,8 @@ function App() {
 				<Route path='BuyerOrderSuccesful' element={<BuyerOrderSuccessful />} />
 				<Route path='BuyerShipping' element={<BuyerShipping />} />
 				<Route path='OrderSummary' element={<OrderSummary />} />
+
+				<Route path='Brokerreferral' element={<BrokerRefferal />} />
 			</Routes>
 		</div>
 	);

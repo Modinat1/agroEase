@@ -3,7 +3,7 @@ import Thebarchart from './Thebarchart'
 import Thepiechart from './Thepiechart'
 import "../../Broker/BrokerDashboard/Brokerdb.css"
 
-export default function Farmercontent() {
+const Farmercontent=()=> {
   return (
     <React.Fragment>
 
@@ -56,7 +56,7 @@ export default function Farmercontent() {
                        <div className="weather-name"> Weather Report</div>
                        <div className="weather-image" > 
                            <div className="weather-cycle"></div>
-                           <span><img src='#'/></span>
+                           <span></span>
                        </div>
 
                        <div className="weather-rate">
@@ -82,3 +82,5 @@ export default function Farmercontent() {
     </React.Fragment>
   )
 }
+
+export default Farmercontent;

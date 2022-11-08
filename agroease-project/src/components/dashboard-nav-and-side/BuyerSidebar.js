@@ -19,11 +19,15 @@ const BuyerSidebar = () => {
             </li>
             <li className='flex'>
                 <i className="uil uil-users-alt pt-4 pr-2" />
-                <Link to='/brokerclientpage'><span className="link-name cursor-pointer">My Client</span></Link>
+                <Link to='/brokerdashboard'><span className="link-name cursor-pointer">Profile</span></Link>
+            </li>
+            <li className='flex'>
+                <i className="uil uil-users-alt pt-4 pr-2" />
+                <Link to='/brokerclientpage'><span className="link-name cursor-pointer">Products</span></Link>
             </li>
             <li className='flex'>
                 <i className="uil uil-elipsis-double-v-alt pt-4 pr-2" />
-                <Link to='/brokerrefferalpage'><span className="link-name cursor-pointer">Refferal</span></Link>
+                <Link to='/brokerrefferalpage'><span className="link-name cursor-pointer">Current Task</span></Link>
             </li>
           </ul>
           <ul className="logout-mode">

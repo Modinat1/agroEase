@@ -1,8 +1,8 @@
 import React from "react";
 // import { NavBar2 } from "../NavBar2";
 // import { Sidebar } from "../Sidebar";
-import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
-import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav"
+// import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
+// import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav"
 import "./FarmerProduct.css";
 import { FarmerProductCard } from "./FarmerProductCard";
 import { FarmerTable } from "./FarmerTable";
@@ -10,8 +10,8 @@ import { FarmerTable } from "./FarmerTable";
 export const FarmerProductIndex = () => {
   return (
     <>
-    <Sidebar />
-    <Dashnav />
+    {/* <Sidebar />
+    <Dashnav /> */}
       {/* <Sidebar /> */}
       {/* <NavBar2 /> */}
       

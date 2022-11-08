@@ -1,16 +1,18 @@
 import React from 'react'
-import Dashnav from '../../../components/dashboard-nav-and-side/Dashnav'
-import Sidebar from '../../../components/dashboard-nav-and-side/Sidebar'
+import BrokerDashnav from '../../../components/dashboard-nav-and-side/BrokerDashnav'
+import FarmerSidebar from '../../../components/dashboard-nav-and-side/FarmerSidebar'
 import Farmercontent from './Farmercontent'
 
-export default function Farmerdashboard() {
+const Farmerdashboard = ()=> {
   return (
     <React.Fragment>
 
-      <Sidebar/>
-      <Dashnav/>
-      <Farmercontent/>
+        <FarmerSidebar />
+        <BrokerDashnav />
+        <Farmercontent/>
 
     </React.Fragment>
   )
 }
+
+export default Farmerdashboard;

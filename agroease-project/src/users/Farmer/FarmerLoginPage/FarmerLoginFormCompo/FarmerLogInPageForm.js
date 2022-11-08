@@ -1,5 +1,4 @@
 import React from 'react'
-import LogInAccountButtonFarmer from '../../../../components/Button/LogInAccountButtonFarmer'
 import GeneralLoginFormFarmer from '../../../../components/GeneralFormInput/GeneralLoginFormFarmer'
 import "../../../../components/LoginForm/AdminLogInPageForm.css"
 import LogInFormFooterFarmer from '../../../../components/LoginForm/AdminLogInPageFormCompo/LogInFormFooterFarmer'
@@ -13,7 +12,6 @@ const FarmerLogInPageForm = () => {
             <div className='admin-login-form-inner'>
                 <LogInText />
                 <GeneralLoginFormFarmer />
-                <LogInAccountButtonFarmer />
                 <LogInFormFooterFarmer />
             </div>
             <div className='admin-login-form-outer'></div>

@@ -82,7 +82,7 @@ const GeneralSignupFormInputBuyer = () => {
                     value={values.lastName}
                     onChange={handleChange}
             />
-            {errors.lastName && touched.lastName && errors.lastname}
+            {errors.lastName && touched.lastName && errors.lastName}
             
         </div>
         <div className='flex-col'>

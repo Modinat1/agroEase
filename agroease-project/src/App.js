@@ -20,9 +20,9 @@ import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTa
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
 
-import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
+// import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
 import { FarmIndex } from "./users/Farmer/farmersCurrentTask/FarmIndex";
-import { BuyerDashboardIndex } from "./users/Buyer/buyerDashboard/BuyerDashboardIndex";
+// import { BuyerDashboardIndex } from "./users/Buyer/buyerDashboard/BuyerDashboardIndex";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
 
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
@@ -36,6 +36,8 @@ import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
+import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
+import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
 
 function App() {
 	return (
@@ -61,9 +63,11 @@ function App() {
 				<Route exact path='/brokerclientpage' element={<BrokerClientPage />}/>
 				<Route exact path='/brokerrefferalpage' element={<BrokerRefferalPage />}/>
 				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage />}/>
-				<Route exact path='/FarmerProductIndex' element={<FarmerProductIndex />}/>
+				<Route exact path='/brokerprofilepage' element={<BrokerProfilePage />}/>
+				<Route exact path='/farmerdashboardpage' element={<Farmerdashboard />}/>
+				{/* <Route exact path='/FarmerProductIndex' element={<FarrProductIndex />}/> */}
 				<Route exact path='/FarmIndex' element={<FarmIndex />} />
-				<Route exact path='/BuyerDashboardIndex' element={<BuyerDashboardIndex />}/>
+				{/* <Route exact path='/BuyerDashboardIndex' element={<BuyerDashboardIndex />}/> */}
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>

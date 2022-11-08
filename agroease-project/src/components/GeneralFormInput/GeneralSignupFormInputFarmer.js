@@ -14,8 +14,8 @@ const GeneralSignupFormInputFarmer = () => {
             initialValues={
                 { 
                     id: crypto.randomUUID(),
-                    firstname: '',
-                    lastname: '',
+                    firstName: '',
+                    lastName: '',
                     email: '', 
                     password: '' 
                 }}
@@ -23,13 +23,13 @@ const GeneralSignupFormInputFarmer = () => {
                 validationSchema={Loginschema}
 
                 validate={(values) => {
-                    const {firstname, lastname, email, password} = values;
+                    const {firstName, lastName, email, password} = values;
         
                     // "key": errorMessage
                     const errors = {}
-                    if(!firstname) (errors.firstname = <small className='text-red-500'>Firstname cannot be empty</small>)
+                    if(!firstName) (errors.firstName = <small className='text-red-500'>Firstname cannot be empty</small>)
         
-                    if(!lastname) (errors.lastname = <small className='text-red-500'>Lastname cannot be empty</small>)
+                    if(!lastName) (errors.lastName = <small className='text-red-500'>Lastname cannot be empty</small>)
             
                     if(!email) (errors.email = <small className='text-red-500'>Email cannot be empty</small>)
         
@@ -69,21 +69,21 @@ const GeneralSignupFormInputFarmer = () => {
                 <label>Firstname</label>
                 <input 
                         type="text"
-                        name='firstname'
-                        value={values.firstname}
+                        name='firstName'
+                        value={values.firstName}
                         onChange={handleChange}
                 />
-                {errors.firstname && touched.firstname && errors.firstname}
+                {errors.firstName && touched.firstName && errors.firstName}
             </div>
             <div  className='flex-col'>
                 <label>Lastname</label>
                 <input 
                         type="text"
-                        name='lastname'
-                        value={values.lastname}
+                        name='lastName'
+                        value={values.lastName}
                         onChange={handleChange}
                 />
-                {errors.lastname && touched.lastname && errors.lastname}
+                {errors.lastName && touched.lastName && errors.lastName}
                 
             </div>
             <div className='flex-col'>

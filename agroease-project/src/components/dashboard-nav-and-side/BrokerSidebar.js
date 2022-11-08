@@ -20,6 +20,10 @@ export default function BrokerSidebar() {
             </li>
             <li className='flex'>
                 <i className="uil uil-users-alt pt-4 pr-2" />
+                <Link to='/brokerprofilepage'><span className="link-name cursor-pointer">Profile</span></Link>
+            </li>
+            <li className='flex'>
+                <i className="uil uil-users-alt pt-4 pr-2" />
                 <Link to='/brokerclientpage'><span className="link-name cursor-pointer">My Client</span></Link>
             </li>
             <li className='flex'>

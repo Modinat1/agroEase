@@ -4,15 +4,15 @@ import { CurrentTaskMainCard } from "./CurrentTaskMainCard";
 // import { NavBar2 } from "../NavBar2";
 import './farmerCurrentTask.css'
 import { CurrentTaskSubCard } from "./CurrentTaskSubCard";
-import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
-import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
+// import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
+// import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
 
 export const FarmIndex = () => {
   return (
     <>
       <section className="farmer_current_task">
-        <Sidebar />
-        <Dashnav />
+        {/* <Sidebar />
+        <Dashnav /> */}
 
         {/* <Sidebar />
         <NavBar2 /> */}

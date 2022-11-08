@@ -1,18 +1,22 @@
 import React from 'react'
-import Dashnav from '../../../components/dashboard-nav-and-side/Dashnav'
-import Sidebar from '../../../components/dashboard-nav-and-side/Sidebar'
-import Brokdbcontent from './Brokdbcontent'
+import BrokerDashnav from '../../../components/dashboard-nav-and-side/BrokerDashnav'
+import BrokerSidebar from '../../../components/dashboard-nav-and-side/BrokerSidebar'
+import Brokdbcontent from './Brokdbcontent.jsx'
 
 
-export default function BrokerDashboardPage() {
+
+const BrokerDashboardPage =() => {
   return (
     <React.Fragment>
        
-       <Sidebar/>
-       <Dashnav/>
-       <Brokdbcontent/>
+       <BrokerSidebar/>
+       <BrokerDashnav/>
+       <Brokdbcontent />
        
              
     </React.Fragment>
   )
 }
+
+export default BrokerDashboardPage;
+

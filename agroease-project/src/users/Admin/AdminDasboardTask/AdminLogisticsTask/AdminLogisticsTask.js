@@ -1,6 +1,6 @@
 import React from "react";
-import Dashnav from "../../../../components/dashboard-nav-and-side/Dashnav";
-import Sidebar from "../../../../components/dashboard-nav-and-side/Sidebar";
+// import Dashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
+// import Sidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
 import Bus from "../../../../images/Bus.png";
@@ -11,8 +11,8 @@ import { PlateNumber } from "./PlateNumber";
 export const AdminLogisticsTask = () => {
 	return (
 		<>
-			<Sidebar />
-			<Dashnav />
+			{/* <Sidebar />
+			<Dashnav /> */}
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />

@@ -10,7 +10,7 @@ const BuyerLoginImage = () => {
         <div className='mt-10'>
             <img src={blackgirl} alt=""/>
         </div>
-        <WelcomeBack
+        <WelcomeBack />
     </div>
     </div>
   )

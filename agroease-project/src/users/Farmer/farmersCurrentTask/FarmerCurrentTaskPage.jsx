@@ -1,25 +1,16 @@
 import React from "react";
 import { CurrentTaskMainCard } from "./CurrentTaskMainCard";
-// import { Sidebar } from "../Sidebar";
-// import { NavBar2 } from "../NavBar2";
 import "./farmerCurrentTask.css";
 import { CurrentTaskSubCard } from "./CurrentTaskSubCard";
-import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
 import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
-// import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
-// import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
+import FarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 
-export const FarmIndex = () => {
+export const FarmerCurrentTaskPage = () => {
 	return (
 		<>
 			<section className='farmer_current_task'>
-				{/* <Sidebar />
-        <Dashnav /> */}
-				<BrokerSidebar />
+				<FarmerSidebar />
 				<BrokerDashnav />
-
-				{/* <Sidebar />
-        <NavBar2 /> */}
 				<CurrentTaskMainCard />
 				{/* Uploaded section Content */}
 				<div className='farmers_uploaded_product'>

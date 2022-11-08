@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import { toast, ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 import "./FarmerProductUpload.css";
@@ -121,7 +122,7 @@ export const FarmerProductUpload = () => {
 						</div>
 					</div>
 					<div className='add-product-btn'>
-						<button type='submit'>Add Product</button>
+						<Link to='/farmerproductpage'><button type='submit'>Add Product</button></Link>
 					</div>
 				</form>
 			</section>

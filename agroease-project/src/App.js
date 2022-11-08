@@ -22,6 +22,7 @@ import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/Admin
 // import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
 // import { BuyerDashboardIndex } from "./users/Buyer/buyerDashboard/BuyerDashboardIndex";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
+import { FarmerProductUpload } from "./users/Farmer/FarmerProductUpload.js/FarmerProductUpload";
 
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
@@ -83,6 +84,12 @@ function App() {
 				
 				{/* <Route exact path='/BuyerDashboardIndex' element={<BuyerDashboardIndex />}/> */}
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
+				<Route exact path='/FarmerProductUpload' element={<FarmerProductUpload />} />
+				<Route
+					exact
+					path='/AdminLogisticsTask'
+					element={<AdminLogisticsTask />}
+				/>
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
 				{/* New routes added */}

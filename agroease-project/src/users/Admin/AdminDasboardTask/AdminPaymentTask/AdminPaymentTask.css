@@ -39,6 +39,10 @@ table th {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
+.notify-btn {
+	background-color: #15294b;
+	color: #fff;
+}
 
 @media screen and (max-width: 600px) {
 	table {
@@ -91,6 +95,6 @@ table th {
 
 /* general styling */
 body {
-	font-family: "Open Sans", sans-serif;
+	/* font-family: "Open Sans", sans-serif; */
 	line-height: 1.25;
 }

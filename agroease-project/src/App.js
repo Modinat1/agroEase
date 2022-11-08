@@ -33,6 +33,9 @@ import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
+
+import { BrokerRefferal } from "./users/Broker/BrokerRefferalPage/BrokerRefferal";
+
 import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
 import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
 import FarmerProfile from "./users/Farmer/FarmerProfile/FarmerProfile";
@@ -42,6 +45,7 @@ import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerC
 import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
 import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
 import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
+
 
 
 function App() {
@@ -88,6 +92,8 @@ function App() {
 				<Route path='BuyerOrderSuccesful' element={<BuyerOrderSuccessful />} />
 				<Route path='BuyerShipping' element={<BuyerShipping />} />
 				<Route path='OrderSummary' element={<OrderSummary />} />
+
+				<Route path='Brokerreferral' element={<BrokerRefferal />} />
 			</Routes>
 		</div>
 	);

@@ -28,10 +28,10 @@ import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
-import BrokerDashboardPage from './users/Broker/BrokerDashboard/BrokerDashboardPage'
+import BrokerDashboardPage from "./users/Broker/BrokerDashboard/BrokerDashboardPage";
 import BrokerClientPage from "./users/Broker/BrokerClient/BrokerClientPage";
 import BrokerRefferalPage from "./users/Broker/BrokerReferral/BrokerRefferalPage";
-import BuyerDashboardPage from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
+import BuyerDashboardPage from "./users/Buyer/buyerDashboard/BuyerDashboardPage";
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
@@ -55,19 +55,55 @@ function App() {
 				<Route exact path='/buyerlogin' element={<BuyerLoginForm />} />
 				<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
 				<Route exact path='/Farmerindex' element={<Index />} />
-				<Route exact path='/AdminTaskNotification' element={<AdminTaskNotification />} />
+				<Route
+					exact
+					path='/AdminTaskNotification'
+					element={<AdminTaskNotification />}
+				/>
 				<Route exact path='/AdminPaymentTask' element={<AdminPaymentTask />} />
-				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
-				<Route exact path='/brokerdashboard' element={<BrokerDashboardPage />}/>
-				<Route exact path='/brokerclientpage' element={<BrokerClientPage />}/>
-				<Route exact path='/brokerrefferalpage' element={<BrokerRefferalPage />}/>
-				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage />}/>
-				<Route exact path='/FarmerProductIndex' element={<FarmerProductIndex />}/>
+				<Route
+					exact
+					path='/AdminLogisticsTask'
+					element={<AdminLogisticsTask />}
+				/>
+				<Route
+					exact
+					path='/brokerdashboard'
+					element={<BrokerDashboardPage />}
+				/>
+				<Route exact path='/brokerclientpage' element={<BrokerClientPage />} />
+				<Route
+					exact
+					path='/brokerrefferalpage'
+					element={<BrokerRefferalPage />}
+				/>
+				<Route
+					exact
+					path='/buyerdashboardpage'
+					element={<BuyerDashboardPage />}
+				/>
+				<Route
+					exact
+					path='/FarmerProductIndex'
+					element={<FarmerProductIndex />}
+				/>
 				<Route exact path='/FarmIndex' element={<FarmIndex />} />
-				<Route exact path='/BuyerDashboardIndex' element={<BuyerDashboardIndex />}/>
+				<Route
+					exact
+					path='/BuyerDashboardIndex'
+					element={<BuyerDashboardIndex />}
+				/>
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
-				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
-				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
+				<Route
+					exact
+					path='/AdminLogisticsTask'
+					element={<AdminLogisticsTask />}
+				/>
+				<Route
+					exact
+					path='/AdminLogisticsTask'
+					element={<AdminLogisticsTask />}
+				/>
 				{/* New routes added */}
 				<Route path='BuyerPayment' element={<BuyerPayment />} />
 				<Route path='BuyerOrderreview' element={<BuyerOderreview />} />

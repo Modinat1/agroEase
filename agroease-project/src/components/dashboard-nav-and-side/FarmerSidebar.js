@@ -1,11 +1,10 @@
 import React from "react";
-import "./Sidebar.css";
 import AgroEaseLogo from "../../images/agrologo.png";
 import { Link } from "react-router-dom";
 
-export default function BrokerSidebar() {
+export const FarmerSidebar = () => {
 	return (
-		<>
+		<div>
 			<nav className='dashboard-sidebar'>
 				<div className='logo-name'>
 					<div className='logo-name' style={{ height: 60 }}>
@@ -29,20 +28,14 @@ export default function BrokerSidebar() {
 						<li className='flex'>
 							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
 							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>My Client</span>
-							</Link>
-						</li>
-						<li className='flex'>
-							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
-							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>Refferal</span>
+								<span className='link-name cursor-pointer'>Products</span>
 							</Link>
 						</li>
 
 						<li className='flex'>
 							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
 							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>Report</span>
+								<span className='link-name cursor-pointer'>Current Task</span>
 							</Link>
 						</li>
 					</ul>
@@ -65,6 +58,6 @@ export default function BrokerSidebar() {
 					</ul>
 				</div>
 			</nav>
-		</>
+		</div>
 	);
-}
+};

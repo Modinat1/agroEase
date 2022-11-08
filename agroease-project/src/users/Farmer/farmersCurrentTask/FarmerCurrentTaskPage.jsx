@@ -3,7 +3,7 @@ import { CurrentTaskMainCard } from "./CurrentTaskMainCard";
 import "./farmerCurrentTask.css";
 import { CurrentTaskSubCard } from "./CurrentTaskSubCard";
 import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
-import FarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
+import {FarmerSidebar} from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 
 export const FarmerCurrentTaskPage = () => {
 	return (

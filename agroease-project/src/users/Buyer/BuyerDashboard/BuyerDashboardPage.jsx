@@ -1,6 +1,6 @@
 import React from "react";
 import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
-import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
+// import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
 import BuyerSidebar from "../../../components/dashboard-nav-and-side/BuyerSidebar";
 // import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
 // import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";

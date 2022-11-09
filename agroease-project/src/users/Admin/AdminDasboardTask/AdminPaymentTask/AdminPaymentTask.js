@@ -1,4 +1,6 @@
 import React from "react";
+import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
+import BrokerSidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
 // import Dashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
 // import Sidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
@@ -11,8 +13,8 @@ import "./AdminPaymentTask.css";
 export const AdminPaymentTask = () => {
 	return (
 		<>
-			{/* <Sidebar />
-			<Dashnav /> */}
+			<BrokerSidebar />
+			<BrokerDashnav />
 
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />

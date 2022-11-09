@@ -1,7 +1,7 @@
-.buyers-dasboard-nav {
+.buyers-dashboard-nav {
 	display: flex;
 	width: 100%;
-	/* background-color: #097c0d; */
+
 	height: 70px;
 	justify-content: space-between;
 	align-items: center;

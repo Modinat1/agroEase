@@ -6,13 +6,19 @@ import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrappe
 import Bus from "../../../../images/Bus.png";
 import googleMap from "../../../../images/googleMap.png";
 import "./AdminLogisticsTask.css";
-import { PlateNumber } from "./PlateNumber";
+// import BrokerSidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
+import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
+import { AdminSidebar } from "../../../../components/dashboard-nav-and-side/AdminSidebar";
+// import { PlateNumber } from "./PlateNumber";
 
 export const AdminLogisticsTask = () => {
 	return (
 		<>
 			{/* <Sidebar />
 			<Dashnav /> */}
+			{/* <BrokerSidebar /> */}
+			<AdminSidebar />
+			<BrokerDashnav />
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />
@@ -45,7 +51,7 @@ export const AdminLogisticsTask = () => {
 						<div className='bus-image'>
 							<img src={Bus} alt='' />
 						</div>
-						<PlateNumber />
+						{/* <PlateNumber /> */}
 					</div>
 					<div className='history-route-container'>
 						<div className='logistics-routes'>

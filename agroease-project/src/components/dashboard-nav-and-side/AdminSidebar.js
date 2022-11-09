@@ -1,9 +1,8 @@
 import React from "react";
-import "./Sidebar.css";
 import AgroEaseLogo from "../../images/agrologo.png";
 import { Link } from "react-router-dom";
 
-export default function BrokerSidebar() {
+export const AdminSidebar = () => {
 	return (
 		<>
 			<nav className='dashboard-sidebar'>
@@ -23,26 +22,26 @@ export default function BrokerSidebar() {
 						<li className='flex'>
 							<i className='uil uil-users-alt pt-4 pr-2' />
 							<Link to='/brokerclientpage'>
-								<span className='link-name cursor-pointer'>Profile</span>
+								<span className='link-name cursor-pointer'>Manage Task</span>
 							</Link>
 						</li>
 						<li className='flex'>
 							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
 							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>My Client</span>
-							</Link>
-						</li>
-						<li className='flex'>
-							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
-							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>Refferal</span>
+								<span className='link-name cursor-pointer'>Buyer</span>
 							</Link>
 						</li>
 
 						<li className='flex'>
 							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
 							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>Report</span>
+								<span className='link-name cursor-pointer'>Farmer</span>
+							</Link>
+						</li>
+						<li className='flex'>
+							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
+							<Link to='/brokerrefferalpage'>
+								<span className='link-name cursor-pointer'>Broker</span>
 							</Link>
 						</li>
 					</ul>
@@ -67,4 +66,4 @@ export default function BrokerSidebar() {
 			</nav>
 		</>
 	);
-}
+};

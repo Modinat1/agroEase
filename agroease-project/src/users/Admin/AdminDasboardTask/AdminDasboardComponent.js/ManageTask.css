@@ -1,4 +1,11 @@
 .ManageTask {
 	font-size: 1.5rem;
-	font-weight: 700;
+	font-weight: 600;
+}
+
+@media screen and (max-width: 425px) {
+	.ManageTask {
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
 }

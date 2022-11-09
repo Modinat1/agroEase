@@ -6,6 +6,9 @@ import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrappe
 import Bus from "../../../../images/Bus.png";
 import googleMap from "../../../../images/googleMap.png";
 import "./AdminLogisticsTask.css";
+// import BrokerSidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
+import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
+import { AdminSidebar } from "../../../../components/dashboard-nav-and-side/AdminSidebar";
 // import { PlateNumber } from "./PlateNumber";
 
 export const AdminLogisticsTask = () => {
@@ -13,6 +16,9 @@ export const AdminLogisticsTask = () => {
 		<>
 			{/* <Sidebar />
 			<Dashnav /> */}
+			{/* <BrokerSidebar /> */}
+			<AdminSidebar />
+			<BrokerDashnav />
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />

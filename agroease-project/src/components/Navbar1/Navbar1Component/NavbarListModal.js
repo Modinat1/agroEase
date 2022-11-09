@@ -28,6 +28,9 @@ export const navItems = [
         title: "Account",
         path: "/",
         cName: "navbar-menulist"
+    },
+    {
+        navName: "landing-nav-btn nav-close-btn"
     }
 ]
 

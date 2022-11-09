@@ -1,9 +1,9 @@
 import React from 'react'
 import Navbar1 from '../../../components/Navbar1/Navbar1'
-import AdminSignInPageForm from '../../../components/SignupForm/AdminSignInPageFormBroker'
-
 import "./FarmerSigninForm.css"
 import FarmerSigninImage from './FarmerSigninFormCompo/FarmerSigninImage'
+import FarmerSignInPageForm from './FarmerSigninFormCompo/FarmerSignInPageForm'
+
 
 
 const FarmerSigninForm = () => {
@@ -13,7 +13,7 @@ const FarmerSigninForm = () => {
         <div className='bg-signinform farmer-height'>
         <div className='signin-image-and-form2 '>
           <FarmerSigninImage />
-          <AdminSignInPageForm />
+          <FarmerSignInPageForm />
         </div>
       </div>
     </div>

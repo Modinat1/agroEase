@@ -1,0 +1,149 @@
+.logistics-wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 2rem;
+}
+
+.logistics-bus {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	border: 1px solid #8994ac;
+	padding: 2rem;
+	position: relative;
+	box-shadow: 0px 2px 4px;
+
+	/* gap: 100px; */
+}
+
+.bus-header {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	font-weight: 600;
+}
+.bus-details {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.bus-image {
+	width: 420px;
+}
+.bus-image img {
+	width: 100%;
+	margin-left: 1rem;
+}
+
+.bus-payload {
+	display: flex;
+	justify-content: space-between;
+	gap: 6rem;
+}
+
+.payload h5 {
+	margin-bottom: 0.5rem;
+	font-size: 0.9rem;
+	color: #8994ac;
+}
+
+.payload p {
+	font-size: 1rem;
+}
+
+.plate-number-container {
+	position: absolute;
+	bottom: 0;
+	width: 100px;
+	font-size: 0.5rem;
+	text-align: center;
+	border: 1px solid #8994ac;
+	border-radius: 5px;
+}
+
+.history-route-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	margin-top: 3rem;
+	padding: 2rem;
+	/* flex-direction: column; */
+	gap: 30px;
+}
+
+.logistics-routes {
+	border-right: 1px solid #8994ac;
+	padding-right: 1rem;
+}
+
+.route-header {
+	margin-bottom: 1rem;
+}
+
+.route-text {
+	font-size: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.route-details h4 {
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+.route-details p {
+	margin-bottom: 1rem;
+}
+
+.route-text::after {
+	content: "";
+	width: 20%;
+	height: 2px;
+	position: absolute;
+	background-color: #8994ac;
+	margin-left: 1rem;
+	margin-top: 0.5rem;
+}
+.route-update-display {
+	margin: 1rem 0;
+}
+
+.route-table {
+	overflow-x: scroll;
+}
+
+@media screen and (max-width: 768px) {
+	.logistics-wrapper {
+		padding: 1rem 1rem;
+	}
+
+	.bus-image {
+		display: none;
+	}
+
+	.logistics-bus {
+		justify-content: center;
+		padding: 2rem 0.5rem;
+	}
+	.history-route-container {
+		flex-direction: column;
+	}
+	.logistics-routes {
+		border-right: none;
+	}
+
+	.route-text::after {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.history-route-container {
+		padding: 2rem 0.5rem;
+	}
+
+	.bus-header {
+		font-size: 1rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+}

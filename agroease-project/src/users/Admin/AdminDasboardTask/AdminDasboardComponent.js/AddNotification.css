@@ -1,0 +1,25 @@
+.Add-notification-btn {
+	background-color: #15294b;
+	padding: 0.75rem;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	border: none;
+	width: 150px;
+	font-size: 0.75rem;
+}
+
+.Add-notification-btn:hover {
+	color: #15294b;
+	background-color: #fff;
+	border: 1px solid #15294b;
+}
+
+@media screen and (max-width: 425px) {
+	.Add-notification-btn {
+		font-weight: 600;
+		font-size: 0.5rem;
+		width: 100px;
+	}
+}

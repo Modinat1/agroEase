@@ -1,0 +1,60 @@
+.farmer_product_category_wrapper{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+/* card section */
+.farmer_product_category_card{
+  padding: 2rem;
+  width: 12.5rem;
+  height: 9rem;
+}
+.farmer_product_category_card .farmer_cart_title{
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-bottom: 0.875rem;
+}
+.farmer_product_category_card .farmer_cart_price{
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  color: #097C0D;
+}
+.category_card-1{
+  border: 1px solid #947C26;
+  border-radius: 10px;
+}
+.category_card-2{
+  border: 6px solid #264494;
+  border-radius: 10px;
+}
+.category_card-3{
+  border: 1px solid #942661;
+  border-radius: 10px;
+}
+.category_card-4{
+  border: 1px solid #26942A;
+  border-radius: 10px;
+}
+.category_card-5{
+  border: 1px solid #502694;
+  border-radius: 10px;
+}
+@media screen and (max-width: 1024px){
+  .farmer_product_category_wrapper{
+    flex-wrap: wrap;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px){
+  .farmer_product_category_wrapper{
+    flex-wrap: wrap;
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 487px){
+  .farmer_product_category_wrapper{
+    margin: 0;
+  }
+}

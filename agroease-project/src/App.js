@@ -22,7 +22,7 @@ import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/Admin
 // import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
 // import { BuyerDashboardIndex } from "./users/Buyer/buyerDashboard/BuyerDashboardIndex";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
-import { FarmerProductUpload } from "./users/Farmer/FarmerProductUpload.js/FarmerProductUpload";
+// import { FarmerProductUpload } from "./users/Farmer/FarmerProductUpload.js/FarmerProductUpload";
 
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
@@ -30,7 +30,8 @@ import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import BrokerDashboardPage from "./users/Broker/BrokerDashboard/BrokerDashboardPage";
 import BrokerClientPage from "./users/Broker/BrokerClient/BrokerClientPage";
 import BrokerRefferalPage from "./users/Broker/BrokerReferral/BrokerRefferalPage";
-import { BuyerDashboardPage } from "./users/Buyer/buyerDashboard/BuyerDashboardPage";
+// import { BuyerDashboardPage } from "./users/Buyer/buyerDashboard/BuyerDashboardPage";
+import {BuyerDashboardPage} from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
@@ -111,7 +112,7 @@ function App() {
 				<Route
 					exact
 					path='/buyerdashboardpage'
-					element={<BuyerDashboardPage />}
+					element={<BuyerDashboardPage/>}
 				/>
 				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />} />
 				<Route exact path='/buyerproductpage' element={<BuyerProductPage />} />

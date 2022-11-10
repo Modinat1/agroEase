@@ -10,6 +10,8 @@ import "./AdminDashIndex.css";
 import { FarmerTable } from "../../Farmer/farmerProduct/FarmerTable";
 import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
 import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
+import Thelinechart from "../../Broker/BrokerDashboard/Thelinechart";
+import Thebarchart from "../../Farmer/FarmerDB/Thebarchart";
 
 export const AdminDashIndex = () => {
 	return (
@@ -49,6 +51,18 @@ export const AdminDashIndex = () => {
 					</section>
 					{/* <FarmerTable /> */}
 					<FarmerTable />
+					<section className="farmerdash_graph">
+
+						
+                              <Thebarchart/>
+					
+
+						
+							<Thelinechart/>
+
+						
+
+					</section>
 				</section>
 			</div>
 		</div>

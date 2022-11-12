@@ -25,3 +25,22 @@
 .account-submenu:hover {
     background-color: aliceblue;
 }
+
+/* *************MEDIA QUERIES (MEDIUM DEVICES) */
+
+@media screen and (max-width: 1024px) {
+    .submenu-item {
+        width: 7rem;
+        position: absolute;
+        text-align: start;
+        top: 23.7rem;
+        z-index: 999;
+    }
+  
+}
+
+/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
+
+@media  screen and (max-width: 600px) {
+  
+}

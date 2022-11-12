@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 .categories-home-section {
-  width: 94%;
+  width: 88%;
   gap: 15px;
-  margin: 2rem 3rem 2rem 4rem;
+  margin: 2rem 3rem 2rem 6rem;
   height: 90vh;
 }
 
@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   color: #ffffff;
-  padding: 12rem 45rem 0 4rem;
+  padding: 12rem 37rem 0 4rem;
   z-index: 1;
 }
 .wrapper-article .wrapper-writeup {
@@ -74,7 +74,7 @@
 
 /* CATEGORIES SECTION */
 .buyers-product-category {
-  margin-left: 3.5rem;
+  margin-left: 7rem;
 }
 .buyers-product-category ul {
   display: flex;
@@ -82,108 +82,95 @@
 .buyers-product-category ul li {
   list-style-type: none;
   margin: auto 4rem;
-  padding: 1rem;
   cursor: pointer;
   font-weight: bold;
 }
 
 .buyers-product-category ul li:hover {
   color: #097c0d;
-  border: 1px solid #dfe2e6;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #097c0d;
 }
 
-/* * BUYER PRODUCT CARD */
-
-.buyer-product-card-container {
-  width: 100%;
-  margin: 2rem 0;
-  padding-left: 4rem;
+/* CARD SECTION */
+.containers-product {
+  width: 90%;
+  margin: 0 auto;
+  margin-left: 5rem;
 }
-
-.card-title h3 {
-  text-align: center;
-  color: #097c0d;
-  font-size: 25px;
+.containers-product h2 {
   font-weight: bold;
-  margin-top: 3rem;
+  color: #097c0d;
 }
-.Buyers-product-card-container {
+.container-card {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 4%;
+  margin-top: 2rem;
   width: 100%;
-  /* margin-left: 3rem; */
 }
-
-.buyer-product-card {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  margin: 20px;
-  width: 29%;
+.containers-product h2 {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 20px;
+}
+.card {
+  width: 22rem;
+  margin: 10px;
+  height: 415px;
+  transition: 2s;
   border: 1px solid #dfe2e6;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  padding-right: 1rem;
-  transition: 2s;
 }
-.Buyers-product-card-container:after {
+
+.bag img {
+  height: 230px;
+  width: 100%;
+}
+.price {
+  padding: 10px;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.container-card:after {
   content: "";
   display: table;
   clear: both;
 }
-.buyer-product-image img {
-  height: 25vh;
-  width: 85%;
-}
-
-.buyer-image-line p {
-  padding: 0.5rem;
-  color: #097c0d;
-  font-weight: bold;
-}
-.buyer-product-card-info {
-  margin-top: 1rem;
-  /* margin-left: ; */
-  font-weight: bold;
-  /* text-justify: auto; */
-}
-.card-info h2 {
-  font-weight: bold;
-  font-size: 18px;
-}
-.card-info p {
-  font-size: 16px;
-}
-
-.homepage-cart-and-button {
+.share {
   display: flex;
-  padding-top: 3.3rem;
+  justify-content: space-between;
+  margin-top: 15px;
 }
-
-.buyer-cart {
+.share .carte {
   background-color: #e6f2e7;
   border: 1px solid #00ab66;
   cursor: pointer;
   border-radius: 4px;
-  padding: 2px 10px;
-  /* padding: 4px; */
-}
-.buyer-cart svg {
-  fill: #00ab66;
-  /* height: 2vh; */
-}
-.buyer-cart svg:hover {
-  fill: #fff;
-  /* height: 2vh; */
-}
-
-.buyer-product-button {
-  /* margin-top: 2rem; */
-  margin-left: 1.5rem;
-}
-
-.buy-product {
   padding: 5px;
+}
+.share .carte svg {
+  fill: #00ab66;
+}
+
+.share .carte:hover {
+  background: #097c0d;
+}
+.share .carte svg:hover {
+  fill: #fff;
+}
+
+.card h4 {
+  color: #097c0d;
+}
+
+.card p {
+  font-size: 16px;
+}
+
+#buy {
+  padding: 3px;
   font-size: 10px;
   background-color: #097c0d;
   border: #097c0d;
@@ -191,25 +178,19 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
-.buy-product:hover {
+#buy:hover {
   background-color: #dfe2e6;
   color: #097c0d;
   border: #097c0d;
 }
 
-.buyer-cart:hover {
-  background-color: #097c0d;
-  border: #097c0d;
-}
-span i {
+.price span i {
   color: tomato !important;
 }
-span del {
+.price span del {
   color: tomato !important;
   text-decoration: line-through;
 }
-
 /* BROKER SCTION */
 
 .broker-container {
@@ -263,6 +244,7 @@ span del {
 
 /* seller */
 .seller-main-conatiner {
+  margin-top: 2rem;
   background-color: #e6f2e7;
   padding: 2rem;
 }
@@ -353,8 +335,9 @@ span del {
 } */
 .partner-with h4 {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   padding-top: 2rem;
+  font-weight: bold;
 }
 .partners {
   display: flex;
@@ -363,6 +346,7 @@ span del {
   margin: auto 0;
   align-items: center;
   padding-left: 4rem;
+  margin-bottom: -5rem;
 }
 
 .partners .tiidelab img {

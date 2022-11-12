@@ -1,0 +1,94 @@
+.buyers-dashboard-nav {
+	display: flex;
+	width: 100%;
+
+	height: 70px;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 2rem;
+}
+
+.buyer-nav-logo {
+	display: flex;
+	width: 40%;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.buyer-nav-name {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #097c0d;
+}
+.buyer-nav-detail p {
+	font-size: 1rem;
+	color: #097c0d;
+}
+
+.buyer-nav-input-cart {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 10px;
+	width: 50%;
+}
+
+.buyer-search {
+	border: 1px solid #097c0d;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	border-radius: 5px;
+}
+.buyer-input-search {
+	position: relative;
+	width: 70%;
+}
+
+.buyer-btn-grey {
+	background-color: #cfbeb6;
+	padding: 0.5rem 0.5rem;
+	border-radius: 5px;
+	color: #fff;
+}
+.BsSearch {
+	position: absolute;
+	right: 5%;
+	top: 20%;
+	font-size: 1.5rem;
+}
+
+.buyer-notification-bell {
+	color: #000;
+	font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+	.buyer-nav-name {
+		font-size: 1rem;
+	}
+	.buyer-nav-detail p {
+		font-size: 0.75rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.buyer-nav-name {
+		font-size: 0.75rem;
+	}
+	.buyer-nav-detail p {
+		font-size: 0.5rem;
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.buyer-nav-name {
+		font-size: 0.75rem;
+		display: none;
+	}
+	.buyer-nav-detail p {
+		font-size: 0.5rem;
+		display: none;
+	}
+}

@@ -2,11 +2,11 @@
  .dash-content {
     
         position: relative;
-        left: 250px;
+        left: 200px;
         background-color: var(--panel-color);
         min-height: 100vh;
         width: calc(100% - 250px);
-        padding: 10px 14px;
+        padding: 10px 15px;
         transition: var(--tran-05);
     
         padding-top: 50px;
@@ -39,7 +39,7 @@
 .dash-content .boxes{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     
 }
@@ -67,14 +67,24 @@
     color: var(--text-color);
 }
 
+.card-text{
+    
+    font-size: 25px;
+}
+
 .box-content{
  display: flex;
  flex-direction: column;
  margin: auto;
 }
 
+.number{
+    position: relative;
+    right: -15px;
+}
+
 .boxes .box .number{
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 500;
     color: var(--text-color);
 }
@@ -148,7 +158,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 300px;
+    
     margin-top: 3rem;
 }
 .activity {

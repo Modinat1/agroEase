@@ -1,0 +1,153 @@
+/* Sub card section */
+.farmer_current_tasK_sub_card_wrapper{
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin: 1rem auto 2rem auto;
+}
+.farmer_current_task_sub_card{
+  display: flex;
+  flex-direction: column;
+  background: red;
+  border: 0.2px solid #243757;
+  border-radius: 0px 0px 5px 5px;
+  background: #FAFBFB;
+}
+.uploaded_cart_details{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.uploaded_cart_price p{
+  color: #054C08;
+  margin-top: 0.4rem;
+  font-weight: 700;
+  font-size: 23.04px;
+  line-height: 27px;
+}
+.uploaded_cart_buttons{
+  display: flex;
+  gap: 3.8rem;
+}
+
+.farmer_shopping_cart{
+  width: 52px;
+  height: 36px;
+  background: #FAFBFB;
+  color: #097C0D;
+  /* Foundation /Shades/S700 */
+  border: 1px solid #097C0D;
+  border-radius: 5px;
+}
+.farmer_buy_now{
+  width: 85px;
+  height: 36px;
+  background: #097C0D;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  font-size: 13.33px;
+  line-height: 16px;
+  color: #ffffff;
+}
+@media screen and (max-width: 1024px){
+  .farmer_current_tasK_sub_card_wrapper{
+    gap: 2rem;
+  }
+  .item_details_name h5 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 27.18px;
+    line-height:25px;
+  }
+  .item_details_name p {
+    font-size: 1rem;
+    line-height: 24px;
+  }
+  .uploaded_cart_price p {
+    font-size: 19.04px;
+    line-height: 25px;
+  }
+  .uploaded_cart_buttons {
+    gap: 0.8rem;
+  }
+  .farmer_buy_now {
+    width: 53px;
+    height: 33px;
+    font-size: 10.33px;
+    line-height: 11px;
+  }
+  .farmer_shopping_cart {
+    width: 40px;
+    height: 32px;
+  }
+}
+@media screen and (max-width: 768px){
+  .farmer_current_tasK_sub_card_wrapper{
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .uploaded_cart_price p{
+    margin-top: 0.4rem;
+    font-size: 23.04px;
+    line-height: 27px;
+  }
+  .uploaded_cart_buttons{
+    display: flex;
+    gap: 4.5rem;
+  }
+  
+  .farmer_shopping_cart{
+    width: 52px;
+    height: 36px;
+  }
+  .farmer_buy_now{
+    width: 85px;
+    height: 36px;
+    font-size: 13.33px;
+    line-height: 16px;
+  }
+}
+@media screen and (max-width: 600px){
+  .item_details{
+    flex-direction: column;
+    gap: 0;
+    padding-right: 0rem; 
+  }
+  .item_details_name{
+    padding: 1rem 1rem 0rem 1rem;
+  }
+  /* .fulani_rice_div{
+    height: 300px;
+  } */
+  #fulani_rice{
+    width: 100%;
+  }
+  .item_details_name h5 {
+    margin-top: 0rem;
+    margin-bottom: 0.8rem;
+    font-size: 27.18px;
+    line-height:25px;
+  }
+  .item_details_name p {
+    font-size: 1rem;
+    line-height: 16px;
+  }
+  .uploaded_cart_price p {
+    font-size: 19.04px;
+    line-height: 25px;
+  }
+  .uploaded_cart_buttons {
+    gap: 0.8rem;
+  }
+  .farmer_buy_now {
+    width: 53px;
+    height: 33px;
+    font-size: 10.33px;
+    line-height: 11px;
+  }
+  .farmer_shopping_cart {
+    width: 40px;
+    height: 32px;
+  }
+}

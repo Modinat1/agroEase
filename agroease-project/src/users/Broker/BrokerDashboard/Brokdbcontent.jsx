@@ -4,9 +4,7 @@ import "./Brokerdb.css"
 
 
 
-export default function 
-
-() {
+const Brokdbcontent = () => {
   return (
    <React.Fragment>
 
@@ -58,7 +56,7 @@ export default function
                      <div className="weather-name"> Weather Report</div>
                      <div className="weather-image" > 
                          <div className="weather-cycle"></div>
-                         <span><img src='#'/></span>
+                         <span></span>
                      </div>
 
                      <div className="weather-rate">
@@ -82,3 +80,5 @@ export default function
    </React.Fragment>
   )
 }
+
+export default Brokdbcontent;

@@ -15,3 +15,11 @@
 	background-color: #fff;
 	border: 1px solid #15294b;
 }
+
+@media screen and (max-width: 425px) {
+	.Add-notification-btn {
+		font-weight: 600;
+		font-size: 0.5rem;
+		width: 100px;
+	}
+}

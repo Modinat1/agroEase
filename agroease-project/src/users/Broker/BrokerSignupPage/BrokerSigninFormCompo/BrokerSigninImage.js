@@ -5,7 +5,7 @@ import gardner from "../../../../images/garden.png"
 const BrokerSigninImage = () => {
   return (
     <div>
-        <div className='blackgirl-image-text'>
+        <div className='farmer-image-text'>
         <div className='mt-10'>
          <img src={gardner} alt=""/>
         </div>

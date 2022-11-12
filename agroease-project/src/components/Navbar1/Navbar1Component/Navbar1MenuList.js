@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import DropDown from './DropDown'
 import "./NavbarCompo.css"
 import {navItems} from "./NavbarListModal"
+import {GiHamburger} from "react-icons/gi"
+import { AiOutlineClose } from 'react-icons/ai';
+import "../Navbar1.css"
+
 
 const Navbar1MenuList = () => {
-
+  const navRef = useRef();
   const [dropDowns, setDropDowns] = useState(false)
+  
+  const showNavbar =()=> {
+    navRef.current.classList.toggle("responsive-nav")
+  }
+
   return (
     <div>
-        <ul className='navbar-menulist'>
+        <ul className='navbar-menulist' ref={navRef}>
            {
             navItems.map((item) => {
 
@@ -29,8 +38,13 @@ const Navbar1MenuList = () => {
               )
             })
            }
+        <button>
+          <AiOutlineClose className="landing-nav-btn nav-close-btn" onClick={showNavbar}/>
+        </button>
         </ul>
-        
+        <button>
+          <GiHamburger className="landing-nav-btn" onClick={showNavbar}/>
+        </button>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 .navbar1-style {
     display: flex;
     justify-content: space-between;
-   
+    height: 100px;
 }
 
 .navbar-input-menu {
@@ -15,9 +15,22 @@
     gap: 0.3rem;
 }
 
-.max-wids {
+.max-widss {
     padding: 0 2rem;
 }
+
+.landing-nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 3.1rem;
+    color:#257928;
+    display: none;
+    opacity: 0;
+}
+
 
 
 /* *************MEDIA QUERIES (MEDIUM DEVICES) */
@@ -26,6 +39,19 @@
     .max-wids {
         padding: 0;
     }
+
+    .landing-nav-btn {
+        display: flex;
+        opacity: 1;
+    }
+
+    .navbar1-style {
+        z-index: 999;
+       
+           
+        
+    }
+   
   
 }
 

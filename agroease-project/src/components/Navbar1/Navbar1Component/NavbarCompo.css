@@ -34,7 +34,7 @@
 }
 
 .navbar-menulist li {
-    color: #097C0D;
+    color: #097c0d;
     font-weight: 500;
     cursor: pointer;
     
@@ -59,28 +59,32 @@
 /* *************MEDIA QUERIES (MEDIUM DEVICES) */
 
 @media screen and (max-width: 1024px) {
- 
-    .navbar-menulist {
-        display: none;
-        gap: 2rem;
-        padding-top: 5px;
+
+    .navbar-menulist li {
+        color: #097c0d;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        /* background-color: transparent; */
+    }    
+    
+    .navbar1-search-input {
+        position: absolute;
+        top: 45px;
     }
-}
-
-/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
-
-@media  screen and (max-width: 600px) {
+    
     .navbar1-search-input input{
         padding: 0.3rem 0.5rem;
         border-radius: 5px;
         border: 1px solid #097C0D;
         width: 100px;
-        padding-right: 2rem;
+        padding-left: 2rem;
+        
     }
 
     .navbar-logo-resize {
-        width: 150px;
-        margin: 1.3rem 0 0 2rem;
+        /* width: 150px; */
+        margin: 0.9rem 0 0 0.9rem;
     }
 
     .navbar-logo-resize img {
@@ -89,8 +93,8 @@
 
     .navbar-search-icon {
         position: absolute;
-        top: 0.7rem;
-        right: 0.7rem;
+        top: 0.58rem;
+        left: 0.7rem;
         visibility: visible;
         flex: 0 1 1;
     }
@@ -104,4 +108,40 @@
         border-radius: 3px;
     }
 
+ 
+    .navbar-menulist {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #e6f2e7;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: 1s;
+        transform: translateY(-100vh);
+    }
+
+    .responsive-nav {
+        transform: none;
+    }
+
+    .nav-close-btn {
+        position: absolute;
+        z-index: 99999;
+        color: white;
+        font-size: 2.8rem;
+        top: 29px;
+        right: 29px;
+    }
+}
+
+/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
+
+@media  screen and (max-width: 600px) {
+    
 }

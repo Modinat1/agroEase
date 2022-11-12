@@ -1,21 +1,22 @@
 import React from 'react'
-import LogInAccountButton from '../Button/LogInAccountButton'
-import GeneralLoginForm from '../GeneralFormInput/GeneralLoginForm'
-// import LogInFormFooterBuyer from './AdminLogInPageFormCompo/LogInFormFooterBuyer'
+import "./AdminLogInPageForm.css"
+import LogInFormFooterBuyer from './AdminLogInPageFormCompo/LogInFormFooterBuyer'
 import LogInText from './AdminLogInPageFormCompo/LogInText'
+import GeneralLoginFormBuyer from '../GeneralFormInput/GeneralLoginFormBuyer'
+import LogInAccountButtonBuyer from '../Button/LogInAccountButtonBuyer'
 
 
 const AdminLogInPageForm = () => {
   return (
     <div>
         <div className='admin-signup-cover'>
-            <div className='admin-signup-form-inner'>
+            <div className='admin-login-form-inner'>
                 <LogInText />
-                <GeneralLoginForm />
-                <LogInAccountButton />
-                {/* <LogInFormFooterBuyer /> */}
+                <GeneralLoginFormBuyer />
+                <LogInAccountButtonBuyer />
+                <LogInFormFooterBuyer />
             </div>
-            <div className='admin-signup-form-outer'></div>
+            <div className='admin-login-form-outer'></div>
         </div>
     </div>
   )

@@ -1,5 +1,6 @@
 .admin_summary_card_wrapper{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   gap: 0.625rem;
 }
@@ -45,5 +46,12 @@
     justify-content: center;
     border-radius: 10px;
     font-weight: 700;
+  }
+
+  .admin_summary_card_wrapper{
+    display: flex;
+   
+    justify-content: space-around;
+    gap: 0.625rem;
   }
 }

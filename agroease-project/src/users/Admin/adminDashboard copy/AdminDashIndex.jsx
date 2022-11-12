@@ -1,5 +1,5 @@
 import React from "react";
-
+import AdminBrokerTable from '../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable'
 import { AdminDashCard } from "./AdminDashCard";
 import WeatherImg from "../../../images/farmer_img_circle.png";
 import CloudImg from "../../../images/farmer_cloud_img.png";
@@ -51,6 +51,7 @@ export const AdminDashIndex = () => {
 					</section>
 					{/* <FarmerTable /> */}
 					<FarmerTable />
+					<AdminBrokerTable />
 					<section className="farmerdash_graph">
 
 						

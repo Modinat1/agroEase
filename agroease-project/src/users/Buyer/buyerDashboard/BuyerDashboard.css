@@ -6,7 +6,7 @@
 .buyer_dashboard_wrapper {
   width: 81%;
   margin: 5rem 0rem 2rem 13rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .buyer_dash_title h2{
   font-weight: 700;

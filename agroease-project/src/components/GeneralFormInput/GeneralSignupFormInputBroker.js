@@ -7,7 +7,14 @@ import CreateAccountBottonBroker from '../Button/CreateAccountBottonBroker';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+
+// // axios.defaults.baseURL = 'https://agro-ease-tiidelab.herokuapp.com'
+// axios.defaults.headers.common['Accept'] = 'application/json';
+// axios.defaults.headers.post['Content-Type'] = 'application/json'
+
 const GeneralSignupFormInputBroker = () => {
+
+  
 
     const [success, setSuccess] = useState(null)
 
@@ -18,12 +25,11 @@ const GeneralSignupFormInputBroker = () => {
     <Formik
        initialValues={
         { 
-            id: crypto.randomUUID(),
             firstName: '',
             lastName: '',
             email: '', 
             password: '',
-            role: "Broker"
+            // role: "Broker"
         }}
 
         validationSchema={Loginschema}
@@ -47,7 +53,6 @@ const GeneralSignupFormInputBroker = () => {
 
         // onsubmitting
         onSubmit={ async (values, { setSubmitting, resetForm }) => {
-          const {...data} = values
             setTimeout(() => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false);
@@ -56,7 +61,8 @@ const GeneralSignupFormInputBroker = () => {
               
             }, 4000);
           
-            const response = await axios.post("http://localhost:8000/v1/auth/register", data)
+            const response = await axios.post("https://agro-ease-tiidelab.herokuapp.com/v1/auth/register", values)
+
             .catch((err) => {
               if(err && err.response) {
                 console.log("Error", err)
@@ -66,7 +72,7 @@ const GeneralSignupFormInputBroker = () => {
                 setSuccess(response.data.message)
                 console.log(success)
               }
-            }
+          }
   )}}
         >
        {({

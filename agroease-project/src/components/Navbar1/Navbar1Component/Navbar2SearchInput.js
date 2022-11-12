@@ -6,7 +6,7 @@ const Navbar2SearchInput = () => {
   return (
     <div>
         <div className='navbar1-search-input'>
-            <input type="text" />
+            <input type="text" placeholder='Search...'/>
             <BsSearch className='navbar-search-icon'/>
         </div>
     </div>

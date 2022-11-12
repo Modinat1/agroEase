@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import React from 'react'
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import LogInAccountButtonBroker from '../Button/LogInAccountButtonBroker';
 import LogininSchema from '../Yup/Schema/LogininSchema';
@@ -34,14 +35,34 @@ const GeneralLoginFormBroker = () => {
         }}
 
         //onSubmitting
-        onSubmit={(values, { setSubmitting, resetForm}) => {
+        onSubmit={ async (values, { setSubmitting, resetForm}) => {
             setTimeout(() => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false)
               resetForm()
               navigate("/brokerdashboard")
             }, 4000)
-        }}
+
+            const response = await axios.post("https://agro-ease-tiidelab.herokuapp.com/v1/auth/login", values)
+            .then(res=> {
+              console.log("Hi", response);
+              console.log("Hello", response.data);
+            //   window.location="/retrieve" 
+            })
+
+            .catch((err) => {
+              if(err && err.response) {
+                console.log("Error", err)
+              }
+
+              // if(response && response.data) {
+              //   setSuccess(response.data.message)
+              //   console.log(success)
+              // }
+          }
+
+            
+  )}}
       >
         {({
           values, 

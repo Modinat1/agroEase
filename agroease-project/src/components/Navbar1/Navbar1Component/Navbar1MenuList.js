@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import DropDown from './DropDown'
 import "./NavbarCompo.css"
 import {navItems} from "./NavbarListModal"
-import {GiHamburger} from "react-icons/gi"
+import {GiHamburgerMenu} from "react-icons/gi"
 import { AiOutlineClose } from 'react-icons/ai';
 import "../Navbar1.css"
 
@@ -43,7 +43,7 @@ const Navbar1MenuList = () => {
         </button>
         </ul>
         <button>
-          <GiHamburger className="landing-nav-btn" onClick={showNavbar}/>
+          <GiHamburgerMenu className="landing-nav-btn" onClick={showNavbar}/>
         </button>
     </div>
   )

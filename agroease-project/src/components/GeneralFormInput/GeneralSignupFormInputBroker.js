@@ -8,9 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 
-// // axios.defaults.baseURL = 'https://agro-ease-tiidelab.herokuapp.com'
-// axios.defaults.headers.common['Accept'] = 'application/json';
-// axios.defaults.headers.post['Content-Type'] = 'application/json'
+
 
 const GeneralSignupFormInputBroker = () => {
 

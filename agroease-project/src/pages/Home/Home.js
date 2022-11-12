@@ -18,11 +18,11 @@ const Home = () => {
       <HomepageHeader />
       <Categories />
       <PaginatedItems itemsPerPage={6} />
-      <Broker /> 
+       <Broker /> 
       {/* <TopPicks />  */}
-      <Seller />
+       <Seller />
       <Payment />
-      <Footer />
+      <Footer /> 
     </>
   );
 };

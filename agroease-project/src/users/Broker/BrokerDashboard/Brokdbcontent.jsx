@@ -1,79 +1,42 @@
 import React from 'react'
 import Thelinechart from './Thelinechart'
 import "./Brokerdb.css"
+import BrokerDashboardCard from './BrokerDashboardCard'
+import BrokerDashWeather from './BrokerDashWeather'
 
 
 
 const Brokdbcontent = () => {
   return (
    <React.Fragment>
+   
 
-<div className="dash-content">
-          <div className="overview">
-             <div className="title">
-                 
-                 <div className="text">Dashboard</div> 
-                 
-                 <div className="text">Today</div>
-             </div>
+<div className="dash-content ">
+<section className='admin_dash_title'>
+						<h2>Dashboard</h2>
+					</section>
+					<section className='admin_dash_summary overview'>
+						<section className='today_weather_card_container'>
+							<h4>Today</h4>
+							<BrokerDashboardCard />
+						</section>
+						<BrokerDashWeather />
+					</section>
+       
+       
+       
+       
+       
+       
+        <div className=" pt-6 flex">
+           
+           
+        </div>
 
-             <div className="boxes">
-                 <div className="box box1">
-                    
-                     <div className="box-content">
-                      <div className="">Total Clients</div>
-                      <br/>
-                     <div className="number">50,120</div>
-                     </div>
-                 </div>
-
-                 <div className="box box2">
-                  <div className="box-content">
-                      <div className="">Sold Product</div>
-                      <br/>
-                     <div className="number">50,120</div>
-                     </div>
-                 </div>
-
-                 <div className="box box2">
-                     <div className="box-content">
-                         <div className="">Cancelled</div>
-                          <br/>
-                        <div className="number">50,120</div>
-                     </div>
-               </div>
-
-                <div className="box box2">
-                   
-                     <div className="box-content">
-                         <div className="">Pending</div>
-                         <br/>
-                         <div className="number">50,120</div>
-                     </div>
-                </div>
-
-                 <div className="box box3">
-                     <div className="weather-name"> Weather Report</div>
-                     <div className="weather-image" > 
-                         <div className="weather-cycle"></div>
-                         <span></span>
-                     </div>
-
-                     <div className="weather-rate">
-                         <span className="weather-text">Today:</span> <span class="weather-num">29</span>
-                     </div>
-                 </div>
-
-              </div>
-         </div> 
-
-         <div className="activity">
-
-
+        <div className="activity">
             <Thelinechart/>
-
-                
-         </div>  
+        </div> 
+     
      </div>
 
 

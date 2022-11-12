@@ -19,6 +19,8 @@ import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTa
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
+// import { FarmerProductUpload } from "./users/Farmer/FarmerProductUpload.js/FarmerProductUpload";
+
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
@@ -30,7 +32,6 @@ import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
 import { BrokerRefferal } from "./users/Broker/BrokerRefferalPage/BrokerRefferal";
-
 import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
 import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
 import FarmerProfile from "./users/Farmer/FarmerProfile/FarmerProfile";
@@ -68,8 +69,16 @@ function App() {
 				<Route exact path='/farmerprofilepage' element={<FarmerProfile />} />
 				<Route exact path='/farmerproductpage' element={<FarmerProductIndex />}/>
 				<Route exact path='/farmeraddproduct' element={<FarmerAddProduct />} />
-				<Route exact path='/farmercurrenttask' element={<FarmerCurrentTaskPage />}/>
-				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage />}/>
+				<Route
+					exact
+					path='/farmercurrenttask'
+					element={<FarmerCurrentTaskPage />}
+				/>
+				<Route
+					exact
+					path='/buyerdashboardpage'
+					element={<BuyerDashboardPage/>}
+				/>
 				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />} />
 				<Route exact path='/buyerproductpage' element={<BuyerProductPage />} />
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />

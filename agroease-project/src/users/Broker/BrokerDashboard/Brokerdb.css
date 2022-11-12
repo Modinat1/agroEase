@@ -8,9 +8,9 @@
         width: calc(100% - 250px);
         padding: 10px 15px;
         transition: var(--tran-05);
-    
         padding-top: 50px;
 }
+
 
 
 .dash-content .title i{
@@ -238,6 +238,10 @@
     .activity .activity-data {
         overflow-x: scroll;
     }
+    .overview {
+        overflow-x: scroll;
+        margin-left: 2rem;
+    }
 }
 
 @media (max-width: 780px) {
@@ -245,6 +249,8 @@
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
     }
+
+    
 }
 
 @media (max-width: 560px) {

@@ -17,7 +17,7 @@ export const BuyerDashboardPage = () => {
 			<div>
 				<section className='buyer_dashboard_wrapper'>
 					<section className='buyer_dash_title'>
-						<h2>Dashboard</h2>
+						<h2>Buyer Dashboard </h2>
 					</section>
 
 					<BuyerDashCard />

@@ -41,10 +41,27 @@ import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerC
 import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
 import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
 import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
+import Spinner from "./components/Loader/Spinner";
+import { useState } from "react";
+import { useEffect } from "react";
+
+
 
 function App() {
+	const [isLoading, setIsLoading] = useState(true)
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(false)
+		}, 4000);
+		
+	  }, [])
 	return (
+		
+		isLoading? 
+		<Spinner /> : 
 		<div>
+			
 			<Routes>
 				<Route exact path='/' element={<Home />} />
 				<Route exact path='/about' element={<About />} />

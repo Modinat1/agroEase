@@ -12,7 +12,7 @@ const AdminBrokerTable = () => {
             <table className='admin-general-table'>
                 <thead className='admin-general-thead'>
                     <tr className='admin-general-tr'>
-                        <th>Id</th>
+                        <th>id</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>PhoneNumber</th>

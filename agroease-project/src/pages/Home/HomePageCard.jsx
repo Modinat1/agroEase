@@ -4,8 +4,11 @@ import ReactPaginate from 'react-paginate';
 import rice from "../../images/rice.png"
 import garri from "../../images/garri.jpg"
 import beans from "../../images/beans.jpg"
+import { ProductContext } from '../../Context/Store/productContext';
 
-const items = [
+
+const allProducts = {
+ default: [
   {id: 1,
     name: "Rice",
     desc: "Better than Foreing Rice",
@@ -114,19 +117,76 @@ const items = [
     price: "N29, 000",
     image: garri,
   },
+],
+
+livestocks: [
+  {
+    name: "Cockrel",
+    desc: "Home trained chicken",
+    price: "5,000",
+    image: "/assets/chickens.png",
+  },
+  {
+    name: "Broilers",
+    desc: "3 months broilers",
+    price: "700",
+    image: "/assets/broilers.jpg",
+  },
+  {
+    name: "Chicks",
+    desc: "Day old chilcks of all sizes",
+    price: "20,000",
+    image: "/assets/day-old.jpg",
+  },
+  {
+    name: "Cow",
+    desc: "Cows are available",
+    price: "150,000",
+    image: "/assets/cows.png",
+  },
+  {
+    name: "Pigs",
+    desc: "Home trained pigs",
+    price: "75,000",
+    image: "/assets/pigs.jpg",
+  },
+  {
+    name: "Goat",
+    desc: "Home trained goats",
+    price: "29,000",
+    image: "/assets/goat.jpg",
+  },
+  {
+    name: "Turkey<",
+    desc: "Turkey birds available",
+    price: "15,000",
+    image: "/assets/turkey.jpg",
+  },
+  {
+    name: "Eggs",
+    desc: "Sets of Eggs available",
+    price: "3,000",
+    image: "/assets/eggs.jpg",
+  },
+  {
+    name: "Live Fish",
+    desc: "Live fresh fish from pond",
+    price: "7,000",
+    image: "/assets/fish.jpg",
+  },
 ]
+}
+
+ const Items= ({ currentItems, title }) =>{
 
 
- const Items= ({ currentItems }) =>{
-
- 
   return(
     <section>
       <div className="containers-product" >
-  <h2>Products</h2>
+  <h2>{title || 'Products'}</h2>
   <div className="container-card">
 
-  {currentItems && 
+  {currentItems.length > 0? 
         currentItems.map((data , idx)=>{
           return (
                <div className="card">
@@ -160,7 +220,7 @@ const items = [
               </div>
               </div>
     )
-    })
+    }) : <h6>No products available</h6>
     
   }
   </div>
@@ -175,33 +235,46 @@ const items = [
 
 
  function PaginatedItems({ itemsPerPage }) {
+  
+  const productStore = React.useContext(ProductContext)
+
+  // const [products, setProducts] = useState(allProducts.default)
+
   // We start with an empty list of items.
-  const [currentItems, setCurrentItems] = useState(null);
+  const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
 
+  // useEffect(() => {
+  //   console.log("allProducts[productStore.category]", allProducts[productStore.category]);
+  // setProducts(allProducts[productStore.category])
+  // }, [productStore.category])
+
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+    const products = allProducts[productStore.category || "default"] || []
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+
+    setCurrentItems(products.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(products.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, productStore.category]);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    const newOffset = (event.selected * itemsPerPage) % allProducts[productStore.category || "default"] || [].length;
+    // console.log(
+    //   `User requested page number ${event.selected}, which is offset ${newOffset}`
+    // );
     setItemOffset(newOffset);
   };
 
   return (
     <>
-      <Items currentItems={currentItems} />
+    
+      <Items currentItems={currentItems} title={productStore.category} />
    
       <ReactPaginate className='pages'
         breakLabel="..."

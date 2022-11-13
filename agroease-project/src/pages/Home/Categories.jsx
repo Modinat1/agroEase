@@ -1,24 +1,50 @@
 import React from "react"
-import { useState } from "react"
+import { ProductContext} from "../../Context/Store/productContext"
+
 
 
 export const Categories = () => {
 
-  const [active, setActive] = useState(true)
+  const productStore = React.useContext(ProductContext)
 
-  const handleClick = () =>{
-    setActive(!active)
+  const categories = [
+    {
+      title: "Livestocks",
+      action: "livestocks"
+    },
+    {
+      title: "Crops",
+      action: "Crops"
+    },
+    {
+      title: "Farm Inputs",
+      action: "Farm Inputs"
+    },
+    {
+      title: "Processed Products",
+      action: "Processed Products"
+    },
+    {
+      title: "Equipments",
+      action: "Equipments"
+    },
+  ]
+
+  const changeCategory = (action) => {
+    productStore.changeCategory(action)
   }
 
   return(
-
 <div class="buyers-product-category">
+
   <ul>
-    <li className={active ? "active":  "li"} onClick={handleClick}>Livestocks</li>
-    <li className={active ? "active":  "li"} onClick={handleClick}>Crops</li>
-    <li className={active ? "active":  "li"} onClick={handleClick}>Farm Inputs</li>
-    <li className={active ? "active":  "li"} onClick={handleClick}>Processed Products</li>
-    <li className={active ? "active":  "li"} onClick={handleClick}>Equipments</li> 
+    {
+      categories.map((category, index) => {
+        return (
+          <li key={index} onClick={() => changeCategory(category.action)}>{category.title}</li>
+        )
+      })
+    }
   </ul>
 </div>
 

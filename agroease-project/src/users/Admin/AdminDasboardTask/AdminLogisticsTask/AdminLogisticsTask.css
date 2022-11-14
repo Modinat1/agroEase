@@ -64,7 +64,7 @@
 .history-route-container {
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
+	/* width: 100%; */
 
 	margin-top: 3rem;
 	padding: 2rem;
@@ -86,7 +86,7 @@
 	margin-bottom: 1rem;
 }
 
-.route-details h4 {
+.route-id {
 	font-weight: 500;
 	margin-bottom: 1rem;
 }

@@ -7,7 +7,7 @@ export const TaskSwitch = () => {
 		const resolePath = useResolvedPath(to);
 		const isActive = useMatch({ path: resolePath.pathname });
 		return (
-			<Link to={to} className={isActive ? "active" : ""}>
+			<Link to={to} className={isActive ? "admin-active" : ""}>
 				{children}
 			</Link>
 		);
@@ -16,7 +16,7 @@ export const TaskSwitch = () => {
 	return (
 		<>
 			<div className='TaskSwitch-wrapper'>
-				<CustomLink to={"/AdminNotificationTask"}>Notification</CustomLink>
+				<CustomLink to={"/AdminTaskNotification"}>Notification</CustomLink>
 				<CustomLink to={"/AdminLogisticsTask"}>Logistics</CustomLink>
 				<CustomLink to={"/AdminPaymentTask"}>Payment</CustomLink>
 			</div>

@@ -4,7 +4,7 @@ import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSide
 // import Dashnav from '../../../components/dashboard-nav-and-side/Dashnav'
 import { TaskSwitch } from "../AdminDasboardTask/AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardTask/AdminDasboardComponent.js/ManageTaskWrapper";
-import { AdminTaskTableBody } from "./AdminTaskTableBody";
+// import { AdminTaskTableBody } from "./AdminTaskTableBody";
 // import Sidebar from '../../../components/dashboard-nav-and-side/Sidebar'
 
 export const AdminTaskNotification = () => {
@@ -18,7 +18,7 @@ export const AdminTaskNotification = () => {
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />
-
+				{/* 
 				<table>
 					<thead>
 						<tr>
@@ -39,7 +39,7 @@ export const AdminTaskNotification = () => {
 						<AdminTaskTableBody />
 						<AdminTaskTableBody />
 					</tbody>
-				</table>
+				</table> */}
 			</div>
 		</>
 	);

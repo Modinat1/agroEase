@@ -1,5 +1,5 @@
 import React from "react";
-import AdminBrokerTable from '../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable'
+import AdminBrokerTable from "../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable";
 import { AdminDashCard } from "./AdminDashCard";
 import WeatherImg from "../../../images/farmer_img_circle.png";
 import CloudImg from "../../../images/farmer_cloud_img.png";
@@ -12,14 +12,18 @@ import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSide
 import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
 import Thelinechart from "../../Broker/BrokerDashboard/Thelinechart";
 import Thebarchart from "../../Farmer/FarmerDB/Thebarchart";
+import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 
 export const AdminDashIndex = () => {
 	return (
 		<div>
 			{/* <Sidebar />
       <Dashnav /> */}
-			<BrokerSidebar />
-			<BrokerDashnav />
+			{/* <BrokerSidebar />
+			<BrokerDashnav /> */}
+			<NewBrokerNavbar />
+			<NewBrokerSidebar />
 			<div>
 				<section className='admin_dashboard_wrapper'>
 					<section className='admin_dash_title'>
@@ -52,17 +56,10 @@ export const AdminDashIndex = () => {
 					{/* <FarmerTable /> */}
 					<FarmerTable />
 					<AdminBrokerTable />
-					<section className="farmerdash_graph">
+					<section className='farmerdash_graph'>
+						<Thebarchart />
 
-						
-                              <Thebarchart/>
-					
-
-						
-							<Thelinechart/>
-
-						
-
+						<Thelinechart />
 					</section>
 				</section>
 			</div>

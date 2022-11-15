@@ -1,40 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import UsersDashboardSearch from "./UsersDashboardSearch";
+// import Agroeaselogo from "../../images/agrologo.png";
 
 const NewBrokerNavbar = () => {
 	return (
 		<div>
 			{/* navbar */}
-			<nav className='flex justify-between bg-gray-900 text-white w-full'>
+			<nav className='flex justify-between bg-green-600 text-white w-full'>
 				<div className='px-5 xl:px-12 py-6 flex w-full justify-between items-center'>
-					<Link className='text-3xl font-bold font-heading'>
-						{/* <img class="h-9" src="logo.png" alt="logo"> */}
-						Logo Here.
+					<Link className='hidden md:flex text-2xl font-bold font-heading'>
+						{/* <img class='h-12' src={Agroeaselogo} alt='logo' /> */}
+						Hello, Godswill Chibuzor
+					</Link>
+					<Link className='navbar-burger self-center mr-12 xl:hidden'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							className='h-9 w-9 hover:text-gray-200'
+							fill='none'
+							viewBox='0 0 24 24'
+							stroke='currentColor'>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								strokeWidth={2}
+								d='M4 6h16M4 12h16M4 18h16'
+							/>
+						</svg>
 					</Link>
 					{/* Search Links */}
-					<UsersDashboardSearch />
 					{/* Header Icons */}
 					<div className='hidden xl:flex items-center space-x-5 items-center'>
-						<Link className='hover:text-gray-200'>
+						<UsersDashboardSearch />
+
+						{/* <Link className='flex items-center hover:text-gray-200'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
-								className='h-6 w-6'
-								fill='none'
-								viewBox='0 0 24 24'
-								stroke='currentColor'>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth={2}
-									d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-								/>
-							</svg>
-						</Link>
-						<Link className='flex items-center hover:text-gray-200'>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								className='h-6 w-6'
+								className='h-8 w-8'
 								fill='none'
 								viewBox='0 0 24 24'
 								stroke='currentColor'>
@@ -49,12 +51,12 @@ const NewBrokerNavbar = () => {
 								<span className='animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75' />
 								<span className='relative inline-flex rounded-full h-3 w-3 bg-pink-500'></span>
 							</span>
-						</Link>
+						</Link> */}
 						{/* Sign In / Register      */}
 						<Link className='flex items-center hover:text-gray-200'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
-								className='h-6 w-6 hover:text-gray-200'
+								className='h-8 w-8 hover:text-gray-200'
 								fill='none'
 								viewBox='0 0 24 24'
 								stroke='currentColor'>
@@ -69,10 +71,10 @@ const NewBrokerNavbar = () => {
 					</div>
 				</div>
 				{/* Responsive navbar */}
-				<Link className='xl:hidden flex mr-6 items-center'>
+				{/* <Link className='xl:hidden flex mr-6 items-center'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
-						className='h-6 w-6 hover:text-gray-200'
+						className='h-8 w-8 hover:text-gray-200'
 						fill='none'
 						viewBox='0 0 24 24'
 						stroke='currentColor'>
@@ -87,8 +89,26 @@ const NewBrokerNavbar = () => {
 						<span className='animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75' />
 						<span className='relative inline-flex rounded-full h-3 w-3 bg-pink-500'></span>
 					</span>
+				</Link> */}
+
+				<Link className='hover:text-gray-200 mt-6 md:mt-8'>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						className='w-10 h-10'
+						width='16'
+						height='16'
+						fill='currentColor'
+						class='bi bi-bell'
+						viewBox='0 0 24 24'>
+						<path
+							strokeLinecap='round'
+							strokeLinejoin='round'
+							strokeWidth={2}
+							d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z'
+						/>
+					</svg>
 				</Link>
-				<Link className='navbar-burger self-center mr-12 xl:hidden'>
+				{/* <Link className='navbar-burger self-center mr-12 xl:hidden'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						className='h-6 w-6 hover:text-gray-200'
@@ -102,7 +122,7 @@ const NewBrokerNavbar = () => {
 							d='M4 6h16M4 12h16M4 18h16'
 						/>
 					</svg>
-				</Link>
+				</Link> */}
 			</nav>
 
 			{/* Does this resource worth a follow? */}

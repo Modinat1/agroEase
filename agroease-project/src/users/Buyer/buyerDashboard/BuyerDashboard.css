@@ -1,15 +1,15 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 .buyer_dashboard_wrapper {
-  width: 81%;
-  margin: 5rem 0rem 2rem 13rem;
-  /* border: 1px solid red; */
+	width: 81%;
+	margin: 5rem 0rem 2rem 13rem;
+	/* border: 1px solid red; */
 }
-.buyer_dash_title h2{
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 2.5rem;
+.buyer_dash_title h2 {
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 2.5rem;
 }

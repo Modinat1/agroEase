@@ -1,7 +1,6 @@
 import React from 'react'
-import BrokerDashnav from '../../../components/dashboard-nav-and-side/BrokerDashnav'
-import BrokerSidebar from '../../../components/dashboard-nav-and-side/BrokerSidebar'
-import BuyerSidebar from '../../../components/dashboard-nav-and-side/BuyerSidebar'
+import NewBrokerNavbar from '../../../components/dashboard-nav-and-side/NewBrokerNavbar'
+import NewBrokerSidebar from '../../../components/dashboard-nav-and-side/NewBrokerSidebar'
 import AdminBrokerTable from '../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable'
 import Brokdbcontent from './Brokdbcontent.jsx'
 
@@ -11,9 +10,9 @@ const BrokerDashboardPage =() => {
   return (
     <React.Fragment>
        
-       <BuyerSidebar />
-       <BrokerDashnav/>
-			<div>
+       <NewBrokerNavbar />
+       <NewBrokerSidebar />
+			{/* <div>
 				<section className='buyer_dashboard_wrapper'>
 					<section className='buyer_dash_title'>
 						<h2>Dashboard</h2>
@@ -22,7 +21,7 @@ const BrokerDashboardPage =() => {
 					<Brokdbcontent />
           <AdminBrokerTable />
 				</section>
-			</div>
+			</div> */}
           
     </React.Fragment>
   )

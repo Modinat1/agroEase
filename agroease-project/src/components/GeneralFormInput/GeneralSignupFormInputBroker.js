@@ -5,21 +5,24 @@ import Loginschema from "../Yup/Schema/LoginValidation"
 import "./GeneralSignupFormInput.css"
 import CreateAccountBottonBroker from '../Button/CreateAccountBottonBroker';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import UserContext from '../../Context/user-context/UserContext';
 
 
 
 
 const GeneralSignupFormInputBroker = () => {
 
-  
-
-    const [success, setSuccess] = useState(null)
-
     const navigate = useNavigate()
-  return (
-    <div>
+    const [success, setSuccess] = useState(null)
+    const {users} = useContext(UserContext)
 
+
+    
+  return (
+    
+    <div>
+      
     <Formik
        initialValues={
         { 
@@ -29,11 +32,13 @@ const GeneralSignupFormInputBroker = () => {
             password: '',
             // role: "Broker"
         }}
+        
 
         validationSchema={Loginschema}
 
         
         validate={(values) => {
+          
             const {firstName, lastName, email, password} = values;
 
             // "key": errorMessage

@@ -1,0 +1,2 @@
+
+export const REGISTER_USER_FORM = "REGISTER_USER_FORM"

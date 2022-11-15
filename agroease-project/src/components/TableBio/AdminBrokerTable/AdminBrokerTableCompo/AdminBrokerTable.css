@@ -43,6 +43,7 @@
     width: 200px;
     height: 50px;
     z-index: -1;
+    text-align: center;
 }
 
 .admin-general-tbody tr{

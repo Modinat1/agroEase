@@ -1,31 +1,26 @@
-import React from 'react'
-import NewBrokerNavbar from '../../../components/dashboard-nav-and-side/NewBrokerNavbar'
-import NewBrokerSidebar from '../../../components/dashboard-nav-and-side/NewBrokerSidebar'
-import AdminBrokerTable from '../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable'
-import Brokdbcontent from './Brokdbcontent.jsx'
+import React from "react";
+import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+import AdminBrokerTable from "../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable";
+import Brokdbcontent from "./Brokdbcontent.jsx";
 
-
-
-const BrokerDashboardPage =() => {
-  return (
-    <React.Fragment>
-       
-       <NewBrokerNavbar />
-       <NewBrokerSidebar />
-			{/* <div>
+const BrokerDashboardPage = () => {
+	return (
+		<React.Fragment>
+			<NewBrokerNavbar />
+			<NewBrokerSidebar />
+			<div>
 				<section className='buyer_dashboard_wrapper'>
 					<section className='buyer_dash_title'>
 						<h2>Dashboard</h2>
 					</section>
 
 					<Brokdbcontent />
-          <AdminBrokerTable />
+					<AdminBrokerTable />
 				</section>
-			</div> */}
-          
-    </React.Fragment>
-  )
-}
+			</div>
+		</React.Fragment>
+	);
+};
 
 export default BrokerDashboardPage;
-

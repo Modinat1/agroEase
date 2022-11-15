@@ -16,6 +16,7 @@ export const AdminLogisticsTask = () => {
 		<>
 			<AdminSidebar />
 			<BrokerDashnav />
+
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />

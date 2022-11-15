@@ -5,7 +5,7 @@ import Agroeaselogo from "../../images/agro_ease_logo.png";
 const NewBrokerSidebar = () => {
 	return (
 		<>
-			<div className='hidden md:flex items-center justify-left w-full h-screen  space-x-6 bg-white border-x-emerald-300'>
+			<div className='hidden md:flex items-center justify-left w-auto h-screen  space-x-6 bg-white border-x-emerald-300 fixed top-0 z-40'>
 				{/* Component Start */}
 				{/* <div className='flex flex-col items-center w-16 h-full overflow-hidden text-gray-700 bg-gray-100 rounded'>
 				<Link className='flex items-center justify-center mt-3' href='#'>

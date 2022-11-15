@@ -8,7 +8,7 @@ import googleMap from "../../../../images/googleMap.png";
 import "./AdminLogisticsTask.css";
 import NewBrokerNavbar from "../../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 import NewBrokerSidebar from "../../../../components/dashboard-nav-and-side/NewBrokerSidebar";
-import { BuyerProductCard } from "../../../Buyer/BuyerProduct/BuyerProductCard";
+// import { BuyerProductCard } from "../../../Buyer/BuyerProduct/BuyerProductCard";
 // import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
 // import { AdminSidebar } from "../../../../components/dashboard-nav-and-side/AdminSidebar";
 // import { AdminLogisticsTable } from "../../../../components/TableBio/AdminLogisticsTable/AdminLogisticsTable";
@@ -83,7 +83,6 @@ export const AdminLogisticsTask = () => {
 					</div>
 				</div>
 			</div>
-			<BuyerProductCard />
 		</>
 	);
 };

@@ -11,7 +11,8 @@ body {
 
 .referral-header h3 {
 	font-weight: 600;
-	font-size: 1.3rem;
+	font-size: 1rem;
+	margin-bottom: 2rem;
 }
 
 /* .referral-header h3 {
@@ -24,8 +25,8 @@ body {
 	/* height: 100vh; */
 	padding: 2rem 0rem;
 	/* background-color: #fff; */
-	width: 80%;
-	left: 15%;
+	width: 70%;
+	left: 20%;
 }
 
 .broker-referral-container p,
@@ -118,6 +119,7 @@ h4 {
 
 .invite-users h4 {
 	font-weight: 500;
+	margin-top: 5rem;
 }
 
 .invite-users p {

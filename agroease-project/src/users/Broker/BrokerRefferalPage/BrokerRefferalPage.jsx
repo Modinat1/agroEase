@@ -14,7 +14,7 @@ import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrok
 // import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
 // import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
 
-export const BrokerRefferal = () => {
+export const BrokerRefferalPage = () => {
 	return (
 		<div>
 			{/* <Sidebar />

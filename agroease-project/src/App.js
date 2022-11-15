@@ -59,9 +59,9 @@ function App() {
 	return (
 		
 		isLoading? 
-		<Spinner /> : 
+		<Spinner /> 
+		: 
 		<div>
-			
 			<Routes>
 				<Route exact path='/' element={<Home />} />
 				<Route exact path='/about' element={<About />} />
@@ -86,16 +86,8 @@ function App() {
 				<Route exact path='/farmerprofilepage' element={<FarmerProfile />} />
 				<Route exact path='/farmerproductpage' element={<FarmerProductIndex />}/>
 				<Route exact path='/farmeraddproduct' element={<FarmerAddProduct />} />
-				<Route
-					exact
-					path='/farmercurrenttask'
-					element={<FarmerCurrentTaskPage />}
-				/>
-				<Route
-					exact
-					path='/buyerdashboardpage'
-					element={<BuyerDashboardPage/>}
-				/>
+				<Route exact path='/farmercurrenttask' element={<FarmerCurrentTaskPage />} />
+				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage/>}/>
 				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />} />
 				<Route exact path='/buyerproductpage' element={<BuyerProductPage />} />
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
@@ -109,8 +101,9 @@ function App() {
 				<Route path='BuyerOrderSuccesful' element={<BuyerOrderSuccessful />} />
 				<Route path='BuyerShipping' element={<BuyerShipping />} />
 				<Route path='OrderSummary' element={<OrderSummary />} />
-
 				<Route path='Brokerreferral' element={<BrokerRefferal />} />
+				
+
 			</Routes>
 		</div>
 	);

@@ -13,10 +13,13 @@ import Footer from "../../components/Footer/Footer";
 import { ProductProvider } from "../../Context/Store/productContext";
 
 
+
 const Home = () => {
+
+  console.log(process.env.REACT_APP_BASE_URL)
   return (
     <>
-
+      
       <Navbar1 />
       <HomepageHeader />
       <ProductProvider>

@@ -7,7 +7,7 @@ export const TaskSwitch = () => {
 		const resolePath = useResolvedPath(to);
 		const isActive = useMatch({ path: resolePath.pathname });
 		return (
-			<Link to={to} className={isActive ? "admin-active" : ""}>
+			<Link to={to} className={isActive ? "admin-task-active" : ""}>
 				{children}
 			</Link>
 		);

@@ -9,16 +9,20 @@ import Arrow2 from "../../../images/Arrow2.png";
 import Moneybag from "../../../images/MoneyBag.png";
 import AddUser from "../../../images/AddUserMale.png";
 import EmailSend from "../../../images/EmailSend.png";
-import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
-import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
+import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+// import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
+// import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
 
-export const BrokerRefferal = () => {
+export const BrokerRefferalPage = () => {
 	return (
 		<div>
 			{/* <Sidebar />
 			<Dashnav /> */}
-			<BrokerSidebar />
-			<BrokerDashnav />
+			{/* <BrokerSidebar />
+			<BrokerDashnav /> */}
+			<NewBrokerNavbar />
+			<NewBrokerSidebar />
 			<section className='broker-referral-container'>
 				<div className='referral-header'>
 					<h3>Referral</h3>

@@ -5,10 +5,11 @@ import BrokerSidebar from '../../../components/dashboard-nav-and-side/BrokerSide
 
 const BrokerClientPage = () => {
   return (
-    <div>
+    <>
         <BrokerSidebar />
         <BrokerDashnav />
-    </div>
+        
+    </>
   )
 }
 

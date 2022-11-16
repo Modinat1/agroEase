@@ -1,7 +1,10 @@
 import './Contact.css'
-import { HiOutlineLocationMarker } from 'react-icons/hi'
-import { AiOutlinePhone } from 'react-icons/ai'
+
 import { AiOutlineMail } from 'react-icons/ai'
+import { AiOutlinePhone } from 'react-icons/ai'
+import ContactUsModal from './ContactUsModal'
+import { HiOutlineLocationMarker } from 'react-icons/hi'
+import { useState } from 'react'
 
 // import contactEmail from '../../images/contactEmail.png'
 // import contactMap from '../../images/contactMap.png'
@@ -11,6 +14,18 @@ import { AiOutlineMail } from 'react-icons/ai'
 
 const ContactUs = () => {
   // const style = { color: '#097c0d', fontSize: '5rem' }
+
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  
+  const setModalIsCloseToTrue = () => {
+    setModalIsOpen(!modalIsOpen)
+  }
+
+
+  function refreshPage() {
+    window.location.reload(false)
+  }
   return (
     <div>
       <section className="contact-container">
@@ -76,12 +91,21 @@ const ContactUs = () => {
               required
               defaultValue={''}
             />
-            <button className="contact-button" type="button">
+            <button className="contact-button" type="button"
+             onClick={setModalIsCloseToTrue}
+            >
               Send Message
             </button>
           </form>
         </div>
       </section>
+
+      {modalIsOpen ? (
+        <ContactUsModal
+          isModalClose={setModalIsCloseToTrue}
+          refresh={refreshPage}
+        />
+      ) : null}
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import React from "react";
 
 import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
-import { FarmerSidebar } from "../../../components/dashboard-nav-and-side/FarmerSidebar";
+import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+// import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 import { BuyerDashCard } from "../../Buyer/BuyerDashboard/BuyerDashCard";
 import Thebarchart from "./Thebarchart";
 import Thepiechart from "./Thepiechart";
@@ -15,7 +15,8 @@ const Farmerdashboard = () => {
 			{/* <FarmerSidebar />
 			<BrokerDashnav /> */}
 			<NewBrokerNavbar />
-			<NewBrokerSidebar />
+			{/* <NewBrokerSidebar /> */}
+			<NewFarmerSidebar />
 			{/* <Farmercontent />  */}
 			<div>
 				<section className='buyer_dashboard_wrapper'>

@@ -5,7 +5,8 @@ import { CurrentTaskSubCard } from "./CurrentTaskSubCard";
 // import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
 // import { FarmerSidebar } from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+// import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
+// import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/NewFarmerSidebar";
 
 export const FarmerCurrentTaskPage = () => {
 	return (
@@ -14,7 +15,9 @@ export const FarmerCurrentTaskPage = () => {
 				{/* <FarmerSidebar />
 				<BrokerDashnav /> */}
 				<NewBrokerNavbar />
-				<NewBrokerSidebar />
+				{/* <NewFarmerSidebar /> */}
+				{/* <NewFarmerSidebar /> */}
+				
 				<CurrentTaskMainCard />
 				{/* Uploaded section Content */}
 				<div className='farmers_uploaded_product'>

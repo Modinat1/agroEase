@@ -6,8 +6,8 @@ import React from "react";
 import "./FarmerProduct.css";
 import { FarmerProductCard } from "./FarmerProductCard";
 import { FarmerTable } from "./FarmerTable";
-import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
-import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
+// import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
+// import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 
@@ -19,7 +19,7 @@ export const FarmerProductIndex = () => {
 			{/* <BrokerSidebar />
 			<BrokerDashnav /> */}
 			<NewBrokerNavbar />
-			<NewBrokerSidebar />
+			<NewBrokerSidebar /> 
 
 			<section className='farmer_product_wrapper'>
 				<div className='farmer_product_title'>

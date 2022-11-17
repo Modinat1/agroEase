@@ -1,13 +1,14 @@
 import React from "react";
-import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
-import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
+// import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
+//  import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+// import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 // import Dashnav from '../../../components/dashboard-nav-and-side/Dashnav'
 import { TaskSwitch } from "../AdminDasboardTask/AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardTask/AdminDasboardComponent.js/ManageTaskWrapper";
 // import { AdminTaskTableBody } from "./AdminTaskTableBody";
 // import Sidebar from '../../../components/dashboard-nav-and-side/Sidebar'
+import NewAdminSidebar from "../../../components/dashboard-nav-and-side/AdminSidebar";
 
 export const AdminTaskNotification = () => {
 	return (
@@ -18,7 +19,8 @@ export const AdminTaskNotification = () => {
 			{/* <BrokerSidebar />
 			<BrokerDashnav /> */}
 			<NewBrokerNavbar />
-			<NewBrokerSidebar />
+			{/* <NewBrokerSidebar /> */}
+			<NewAdminSidebar/>
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />

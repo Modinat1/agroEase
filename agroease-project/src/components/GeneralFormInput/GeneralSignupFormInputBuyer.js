@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik } from "formik";
 import Loginschema from "../Yup/Schema/LoginValidation";
 import { useNavigate } from "react-router-dom";
 import CreateAccountBottonBuyer from "../Button/CreateAccountBottonBuyer";
-import axios from "axios";
 
 const GeneralSignupFormInputBuyer = () => {
 	const navigate = useNavigate();
-	const [success, setSuccess] = useState(null);
+
 	return (
 		<div>
 			<Formik
@@ -54,23 +53,6 @@ const GeneralSignupFormInputBuyer = () => {
 						resetForm();
 						navigate("/buyerlogin");
 					}, 4000);
-
-					const response = await axios
-						.post(
-							"https://agro-ease-tiidelab.herokuapp.com/v1/auth/register",
-							values
-						)
-
-						.catch((err) => {
-							if (err && err.response) {
-								console.log("Error", err);
-							}
-
-							if (response && response.data) {
-								setSuccess(response.data.message);
-								console.log(success);
-							}
-						});
 				}}>
 				{({
 					values,

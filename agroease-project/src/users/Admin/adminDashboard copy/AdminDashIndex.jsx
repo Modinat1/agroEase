@@ -1,19 +1,42 @@
-import React from "react";
+import "./AdminDashIndex.css";
+
 import AdminBrokerTable from "../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable";
 import { AdminDashCard } from "./AdminDashCard";
-import WeatherImg from "../../../images/farmer_img_circle.png";
 import CloudImg from "../../../images/farmer_cloud_img.png";
-import "./AdminDashIndex.css";
+import { FarmerTable } from "../../Farmer/farmerProduct/FarmerTable";
+import NewAdminSidebar from "../../../components/dashboard-nav-and-side/AdminSidebar";
+import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import React from "react";
+import Thebarchart from "../../Farmer/FarmerDB/Thebarchart";
+import Thelinechart from "../../Broker/BrokerDashboard/Thelinechart";
+import WeatherImg from "../../../images/farmer_img_circle.png";
+
+// import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+
+
+
+
+
+// import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
+
+
+
+
+
+
+
+
+
 // import { FarmerTable } from "../farmerProduct/FarmerTable";
 // import Sidebar from "../../../components/dashboard-nav-and-side/Sidebar";
 // import Dashnav from "../../../components/dashboard-nav-and-side/Dashnav";
-import { FarmerTable } from "../../Farmer/farmerProduct/FarmerTable";
-import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
-import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
-import Thelinechart from "../../Broker/BrokerDashboard/Thelinechart";
-import Thebarchart from "../../Farmer/FarmerDB/Thebarchart";
-import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+
+// import BrokerSidebar from "../../../components/dashboard-nav-and-side/BrokerSidebar";
+
+
+
+
+
 
 export const AdminDashIndex = () => {
 	return (
@@ -23,7 +46,8 @@ export const AdminDashIndex = () => {
 			{/* <BrokerSidebar />
 			<BrokerDashnav /> */}
 			<NewBrokerNavbar />
-			<NewBrokerSidebar />
+			<NewAdminSidebar/>
+			{/* <NewBrokerSidebar /> */}
 			<div>
 				<section className='admin_dashboard_wrapper'>
 					<section className='admin_dash_title'>

@@ -30,7 +30,7 @@ import "./FarmerProductUpload.css";
 
 
 
-export const FarmerProductUpload = (props) => {
+export const FarmerProductUpload = (props, func={addRows}) => {
 	// function displayProductUploadNotice() {
 	// 	toast.error("Product uploaded successfully");
 	// }

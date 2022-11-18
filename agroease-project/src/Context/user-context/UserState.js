@@ -5,8 +5,10 @@ import UserReducer from './UserReducer';
 export const UserState = ({children}) => {
 
     const initialState = {
-        users: []
-    }
+        users: [],
+        
+    }  
+    
 
     const [state, dispatch] = useReducer(UserReducer, initialState)
 

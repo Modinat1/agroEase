@@ -1,5 +1,5 @@
 //import axiosinstance
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axiosInstance from "../axios-config/axios-user-config";
 
 
@@ -26,19 +26,8 @@ const registerBrokerUser = async (values) => {
 }
 
 
-// To get the user token
-const getToken = async (token)=> {
-    try{
-    
-    }
-    catch (error) {
-        console.log(error)
-    }
-}
-
 const UserServices = {
     registerBrokerUser,
-    getToken
 }
 
 export default UserServices;

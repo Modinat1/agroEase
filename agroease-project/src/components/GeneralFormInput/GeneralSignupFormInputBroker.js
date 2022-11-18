@@ -1,25 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Formik } from 'formik';
-import axios from "axios";
+// import axios from "axios";
 import Loginschema from "../Yup/Schema/LoginValidation"
 import "./GeneralSignupFormInput.css"
 import CreateAccountBottonBroker from '../Button/CreateAccountBottonBroker';
 import { useNavigate } from 'react-router-dom';
+import UserServices from '../../Context/user-context/user.service';
 import { useState } from 'react';
+import UserContext from '../../Context/user-context/UserContext';
 
 
 
 
 const GeneralSignupFormInputBroker = () => {
 
-  
-
-    const [success, setSuccess] = useState(null)
-
+    const {users} = useContext(UserContext)
     const navigate = useNavigate()
-  return (
-    <div>
 
+  
+    // handle registration function
+    const handleUserRegistration =(values)=> {
+      console.log(users)
+      UserServices.registerBrokerUser(values).then((users) => {
+      console.log(users)
+    })
+  }
+
+
+    // const fetchToken =(token)=> {
+    //   UserServices.getToken(token).then((users) => {
+    //     console.log(users)
+    //     if(token) {
+    //         navigate('/brokerlogin')
+    //         console.log('congratulations')
+    //     }
+    //   })
+    // }
+    
+  return (
+    
+    <div>
+      
     <Formik
        initialValues={
         { 
@@ -29,11 +50,13 @@ const GeneralSignupFormInputBroker = () => {
             password: '',
             // role: "Broker"
         }}
+        
 
         validationSchema={Loginschema}
 
         
         validate={(values) => {
+          
             const {firstName, lastName, email, password} = values;
 
             // "key": errorMessage
@@ -55,23 +78,11 @@ const GeneralSignupFormInputBroker = () => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false);
               resetForm()
+              handleUserRegistration(values)
               navigate("/brokerlogin")
-              
             }, 4000);
           
-            const response = await axios.post("https://agro-ease-tiidelab.herokuapp.com/v1/auth/register", values)
-
-            .catch((err) => {
-              if(err && err.response) {
-                console.log("Error", err)
-              }
-
-              if(response && response.data) {
-                setSuccess(response.data.message)
-                console.log(success)
-              }
-          }
-  )}}
+           }}
         >
        {({
          values,
@@ -87,7 +98,7 @@ const GeneralSignupFormInputBroker = () => {
 
         <React.Fragment>
             {/* <pre>{JSON.stringify(values, 2, null)}</pre> */}
-            <small className="form-success-mes">{success? "The registration is successful" : ""}</small>
+            
         <form>
             <div  className='flex-col' id={values.id}>
                 <label>Firstname</label>

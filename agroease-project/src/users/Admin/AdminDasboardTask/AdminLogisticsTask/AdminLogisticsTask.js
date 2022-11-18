@@ -1,4 +1,5 @@
 import React from "react";
+import NewAdminSidebar from "../../../../components/dashboard-nav-and-side/AdminSidebar";
 // import Dashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
 // import Sidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
@@ -6,19 +7,23 @@ import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrappe
 import Bus from "../../../../images/Bus.png";
 import googleMap from "../../../../images/googleMap.png";
 import "./AdminLogisticsTask.css";
-// import BrokerSidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
-import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
-import { AdminSidebar } from "../../../../components/dashboard-nav-and-side/AdminSidebar";
-// import { PlateNumber } from "./PlateNumber";
+import NewBrokerNavbar from "../../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+// import NewBrokerSidebar from "../../../../components/dashboard-nav-and-side/NewBrokerSidebar";
+// import { BuyerProductCard } from "../../../Buyer/BuyerProduct/BuyerProductCard";
+// import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
+// import { AdminSidebar } from "../../../../components/dashboard-nav-and-side/AdminSidebar";
+// import { AdminLogisticsTable } from "../../../../components/TableBio/AdminLogisticsTable/AdminLogisticsTable";
+// import { AdminLogisticsTableSub } from "../../../../components/TableBio/AdminLogisticsTable/AdminLogisticsTableSub";
 
 export const AdminLogisticsTask = () => {
 	return (
 		<>
-			{/* <Sidebar />
-			<Dashnav /> */}
-			{/* <BrokerSidebar /> */}
-			<AdminSidebar />
-			<BrokerDashnav />
+			{/* <AdminSidebar /> */}
+			{/* <BrokerDashnav /> */}
+			<NewBrokerNavbar />
+			{/* <NewBrokerSidebar /> */}
+			<NewAdminSidebar/>
+
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />
 				<TaskSwitch />
@@ -66,22 +71,8 @@ export const AdminLogisticsTask = () => {
 							<div className='route-update-display'>
 								<img src={googleMap} alt='googleMap' />
 							</div>
-							<div className='route-table'>
-								<table>
-									<tr>
-										<th>Distance</th>
-										<th>Time</th>
-										<th>Price</th>
-										<th>Volume</th>
-									</tr>
-									<tr>
-										<td>0.62mil</td>
-										<td>4 hours</td>
-										<td>7000 naira</td>
-										<td>120m</td>
-									</tr>
-								</table>
-							</div>
+
+							{/* <AdminLogisticsTableSub /> */}
 						</div>
 						<div className='logistics-history'>
 							<div className='route-container'>
@@ -89,65 +80,7 @@ export const AdminLogisticsTask = () => {
 								<p className='route-text'>PRODUCT HISTORY</p>
 							</div>
 
-							<div className='route-table'>
-								<table className='logistics details'>
-									<tr>
-										<th>
-											<input type={"checkbox"} />
-										</th>
-										<th>ID</th>
-										<th>Pickup Location</th>
-										<th>Drop-off Location</th>
-										<th>Delivery Date</th>
-									</tr>
-									<tr>
-										<td>
-											<input type={"checkbox"} />
-										</td>
-										<td>345-745-87</td>
-										<td>Ojuelegba, Lagos</td>
-										<td>Wuse 2</td>
-										<td>12/4/2022</td>
-									</tr>
-
-									<tr>
-										<td>
-											<input type={"checkbox"} />
-										</td>
-										<td>345-745-87</td>
-										<td>Ojuelegba, Lagos</td>
-										<td>Wuse 2</td>
-										<td>12/4/2022</td>
-									</tr>
-									<tr>
-										<td>
-											<input type={"checkbox"} />
-										</td>
-										<td>345-745-87</td>
-										<td>Ojuelegba, Lagos</td>
-										<td>Wuse 2</td>
-										<td>12/4/2022</td>
-									</tr>
-									<tr>
-										<td>
-											<input type={"checkbox"} />
-										</td>
-										<td>345-745-87</td>
-										<td>Ojuelegba, Lagos</td>
-										<td>Wuse 2</td>
-										<td>12/4/2022</td>
-									</tr>
-									<tr>
-										<td>
-											<input type={"checkbox"} />
-										</td>
-										<td>345-745-87</td>
-										<td>Ojuelegba, Lagos</td>
-										<td>Wuse 2</td>
-										<td>12/4/2022</td>
-									</tr>
-								</table>
-							</div>
+							{/* <AdminLogisticsTable /> */}
 						</div>
 					</div>
 				</div>

@@ -15,29 +15,22 @@ const BuyerSidebar = () => {
 					<ul className='nav-links'>
 						<li className='flex'>
 							<i className='uil uil-estate pt-3 pr-2' />
-							<Link to='/brokerdashboard'>
+							<Link to='/buyerdashboardpage'>
 								<span className='link-name cursor-pointer'>Dahsboard</span>
 							</Link>
 						</li>
 						<li className='flex'>
 							<i className='uil uil-users-alt pt-4 pr-2' />
-							<Link to='/brokerclientpage'>
+							<Link to='/buyerprofilepage'>
 								<span className='link-name cursor-pointer'>Profile</span>
 							</Link>
 						</li>
 						<li className='flex'>
 							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
-							<Link to='/brokerrefferalpage'>
+							<Link to='/buyerproductpage'>
 								<span className='link-name cursor-pointer'>Products</span>
 							</Link>
 						</li>
-
-						{/* <li className='flex'>
-							<i className='uil uil-elipsis-double-v-alt pt-4 pr-2' />
-							<Link to='/brokerrefferalpage'>
-								<span className='link-name cursor-pointer'>Refferal</span>
-							</Link>
-						</li> */}
 					</ul>
 					<ul className='logout-mode'>
 						<li className='flex'>
@@ -46,15 +39,7 @@ const BuyerSidebar = () => {
 								<span className='link-name'>Logout</span>
 							</Link>
 						</li>
-						{/* <li className="mode">
-              <a href="#">
-                <i className="uil uil-moon" />
-                <span className="link-name">Dark Mode</span>
-              </a>
-              <div className="mode-toggle">
-                <span className="switch" />
-              </div>
-            </li> */}
+						
 					</ul>
 				</div>
 			</nav>

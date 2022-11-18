@@ -21,11 +21,11 @@
 	background-color: #ebebeb;
 	bottom: 0;
 }
-.active {
+.admin-task-active {
 	color: #097c0d;
 	position: relative;
 }
-.active::after {
+.admin-task-active::after {
 	content: "";
 	width: 100%;
 	position: absolute;

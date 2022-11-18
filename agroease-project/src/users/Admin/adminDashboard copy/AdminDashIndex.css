@@ -1,74 +1,80 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-.admin_dashboard_wrapper{
-  width: 81%;
-  margin: 5rem 0rem 2rem 13rem;
-  /* border: 1px solid red; */
+.admin_dashboard_wrapper {
+	width: 81%;
+	margin: 5rem 0rem 2rem 13rem;
+	/* border: 1px solid red; */
 }
-.admin_dash_title h2{
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 2.5rem;
+.admin_dash_title h2 {
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 2.5rem;
 }
-.admin_dash_summary{
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.admin_dash_summary {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
 }
-.today_weather_card_container h4{
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  font-size: 1.7rem;
-  line-height: 2rem;
-}
-
-.admin_weather_container{
-  position: relative;
-  background: #8E98A8;
-  border-radius: 10px;
-  width: 14rem;
-  height: 16rem;
-  padding: 1rem;
-  text-align: center;
-  margin-top: 1.5rem;
-  color: #ffffff;
-  font-size: 20px;
-}
-.weather_report{
-  margin-bottom: 1.5rem;
-}
-.weather_img{
-  position: relative;
-  margin-bottom: 1rem;
-}
-#weather_cloud_icon{
-  position: absolute;
-  right: 17%;
-  bottom: 5%;
-}
-.admin_weather_container p span{
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 47px;
-}
-.admin_weather_container p span sup{
-  font-size: 1.1rem;
-  line-height: 1.1rem;
+.today_weather_card_container h4 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+	font-size: 1.7rem;
+	line-height: 2rem;
 }
 
-.admin_recent_upload p{
-  font-weight: 700;
-  font-size: 1.7rem;
-  line-height: 2rem;
-  margin-top: 2rem;
+.admin_weather_container {
+	position: relative;
+	background: #8e98a8;
+	border-radius: 10px;
+	width: 14rem;
+	height: 16rem;
+	padding: 1rem;
+	text-align: center;
+	margin-top: 1.5rem;
+	color: #ffffff;
+	font-size: 20px;
 }
-.farmerdash_graph{
-  display: flex;
-  overflow-x: auto;
-  gap: 1.5rem;
-  margin-top: 2rem;
+.weather_report {
+	margin-bottom: 1.5rem;
+}
+.weather_img {
+	position: relative;
+	margin-bottom: 1rem;
+}
+#weather_cloud_icon {
+	position: absolute;
+	right: 17%;
+	bottom: 5%;
+}
+.admin_weather_container p span {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 10px;
+}
+.admin_weather_container p span sup {
+	font-size: 1rem;
+	line-height: 1rem;
+}
+
+.admin_recent_upload p {
+	font-weight: 700;
+	font-size: 1.7rem;
+	line-height: 2rem;
+	margin-top: 2rem;
+}
+.farmerdash_graph {
+	display: flex;
+	overflow-x: auto;
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+	.admin_weather_container {
+		display: none;
+	}
 }

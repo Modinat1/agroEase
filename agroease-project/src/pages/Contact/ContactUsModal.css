@@ -1,6 +1,6 @@
 /* overlay section */
 #pop-up-modal {
-  display: none;
+  display: block;
 }
 #contact-thanks {
   position: fixed;

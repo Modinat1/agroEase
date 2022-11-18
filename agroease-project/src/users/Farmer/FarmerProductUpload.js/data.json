@@ -1,0 +1,20 @@
+
+[{
+  "id": 1,
+  "productName": "rice",
+  "productType": "crop",
+  "unitInput": "tonnes",
+  "unitCost": "2",
+  "productDesc": "ofada rice",
+  "productFile": "rice.png"
+},
+{
+  "id": 2,
+  "productName": "beans",
+  "productType": "crop",
+  "unitInput": "tonnes",
+  "unitCost": "7",
+  "productDesc": "beans beans",
+  "productFile": "beans.png"
+}
+]

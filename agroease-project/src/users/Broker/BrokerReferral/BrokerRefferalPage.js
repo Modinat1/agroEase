@@ -6,7 +6,7 @@ const BrokerRefferalPage = () => {
   return (
     <div>
         <BrokerSidebar />
-       <BrokerDashnav />
+        <BrokerDashnav />
     </div>
   )
 }

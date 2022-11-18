@@ -39,11 +39,11 @@ import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIn
 import { FarmerAddProduct } from "./users/Farmer/FarmerProductUpload.js/FarmerAddProduct";
 import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerCurrentTaskPage";
 import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
-import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
 import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
 import Spinner from "./components/Loader/Spinner";
 import { useState } from "react";
 import { useEffect } from "react";
+import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
 
 
 
@@ -89,7 +89,7 @@ function App() {
 				<Route exact path='/farmercurrenttask' element={<FarmerCurrentTaskPage />} />
 				<Route exact path='/buyerdashboardpage' element={<BuyerDashboardPage/>}/>
 				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />} />
-				<Route exact path='/buyerproductpage' element={<BuyerProductPage />} />
+				<Route exact path='/buyerproductpage' element={<BuyerProductCard />} />
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>
 				<Route exact path='/AdminLogisticsTask' element={<AdminLogisticsTask />}/>

@@ -17,6 +17,8 @@ const GeneralSignupFormInputBroker = () => {
     const [success, setSuccess] = useState(null)
     const {users} = useContext(UserContext)
 
+    console.log(process.env.REACT_APP_BASE_URL)
+
 
     
   return (

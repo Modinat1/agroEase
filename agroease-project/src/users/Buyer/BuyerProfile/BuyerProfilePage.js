@@ -7,15 +7,23 @@ import NewBuySidebar from "../../../components/dashboard-nav-and-side/NewBuySide
 import { BuyerProfile } from "./BuyerProfile";
 
 const BuyerProfilePage = () => {
-	return (
-		<div>
-			{/* <BuyerSidebar />
+  return (
+    <div>
+      {/* <BuyerSidebar />
       <BrokerDashnav /> */}
+<<<<<<< HEAD
 			<NewBrokerNavbar />
 			<NewBuySidebar/>
 			<BuyerProfile />
 		</div>
 	);
+=======
+      <NewBrokerNavbar />
+      <NewBrokerSidebar />
+      <BuyerProfile />
+    </div>
+  );
+>>>>>>> 8fef5ffd17b08ef691fe6161e2d2b2005eb398c7
 };
 
 export default BuyerProfilePage;

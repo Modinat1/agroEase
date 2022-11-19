@@ -11,27 +11,18 @@ import BuyerLoginForm from "./users/Buyer/BuyerLoginPage/BuyerLoginForm";
 import FarmerLoginForm from "./users/Farmer/FarmerLoginPage/FarmerLoginForm";
 import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
 import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTask/AdminPaymentTask";
-// import { Shipping } from "./Payment/Shipping";
-// import { Payment } from "./Payment/Payment";
-// import { Oderreview } from "./Payment/Oderreview";
-// import { PaymentProcess } from "./Payment/PaymentProcess";
-// import { OrderSuccessful } from "./Payment/OrderSuccessful";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
-// import { FarmerProductUpload } from "./users/Farmer/FarmerProductUpload.js/FarmerProductUpload";
-
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import About from "./pages/About/About";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import BrokerDashboardPage from "./users/Broker/BrokerDashboard/BrokerDashboardPage";
 import BrokerClientPage from "./users/Broker/BrokerClient/BrokerClientPage";
-
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
-
 import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
 import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
 import FarmerProfile from "./users/Farmer/FarmerProfile/FarmerProfile";
@@ -39,11 +30,11 @@ import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIn
 import { FarmerAddProduct } from "./users/Farmer/FarmerProductUpload.js/FarmerAddProduct";
 import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerCurrentTaskPage";
 import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
-import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
 import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
 import Spinner from "./components/Loader/Spinner";
 import { useState } from "react";
 import { useEffect } from "react";
+import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
 import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
 
 function App() {
@@ -122,7 +113,7 @@ function App() {
 					element={<BuyerDashboardPage />}
 				/>
 				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />} />
-				<Route exact path='/buyerproductpage' element={<BuyerProductPage />} />
+				<Route exact path='/buyerproductpage' element={<BuyerProductCard />} />
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
 				<Route
 					exact

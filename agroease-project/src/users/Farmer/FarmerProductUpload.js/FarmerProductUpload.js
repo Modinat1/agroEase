@@ -1,36 +1,94 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 // import { toast, ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 import "./FarmerProductUpload.css";
 
-const submitHandler = (event) => {
-	event.preventDefault();
-	const {
-		product_name,
-		product_type,
-		unit_input,
-		unit_cost,
-		product_desc,
-		product_file,
-	} = event.target.elements;
-	const formValue = {
-		product_name: product_name.value,
-		product_type: product_type.value,
-		unit_input: unit_input.value,
-		unit_cost: unit_cost.value,
-		product_desc: product_desc.value,
-		product_file: product_file?.files?.[0].name,
-	};
+// const submitHandler = (event) => {
+// 	event.preventDefault();
+// 	const {
+// 		product_name,
+// 		product_type,
+// 		unit_input,
+// 		unit_cost,
+// 		product_desc,
+// 		product_file,
+// 	} = event.target.elements;
+// 	const formValue = {
+// 		product_name: product_name.value,
+// 		product_type: product_type.value,
+// 		unit_input: unit_input.value,
+// 		unit_cost: unit_cost.value,
+// 		product_desc: product_desc.value,
+// 		product_file: product_file?.files?.[0].name,
+// 	};
 
-	console.table(formValue);
-	event.target.reset();
-	// displayProductUploadNotice
-};
-export const FarmerProductUpload = () => {
+// 	console.table(formValue);
+// 	event.target.reset();
+// 	// displayProductUploadNotice
+// };
+
+
+
+export const FarmerProductUpload = (props) => {
 	// function displayProductUploadNotice() {
 	// 	toast.error("Product uploaded successfully");
 	// }
+
+
+	const [productName, setProductName] = useState('');
+  const [productType, setProductType] = useState('');
+	const [unitInput, setUnitInput] = useState('');
+	const [unitCost, setUnitCost] = useState('');
+	const [productDesc, setProductDesc] = useState('');
+	const [productFile, setProductFile] = useState('');
+
+	
+  
+  const changeProductName = (event) => {
+    setProductName(event.target.value);
+  };
+	const changeProductType = (event) => {
+    setProductType(event.target.value);
+  };
+	const changeUnitInput = (event) => {
+    setUnitInput(event.target.value);
+  };
+	const changeUnitCost = (event) => {
+    setUnitCost(event.target.value);
+  };
+	const changeProductDesc = (event) => {
+    setProductDesc(event.target.value);
+  };
+  
+  const changeProductFile = (event) => {
+    setProductFile(event.target.value);
+  };
+  
+  const transferValue = (event) => {
+    event.preventDefault();
+    const val= {
+					productName,
+					productType,
+					unitInput,
+					unitCost,
+					productDesc,
+					productFile
+				}
+    props.func(val);
+    clearState();
+  };
+  
+  const clearState = () => {
+		setProductName('');
+		setProductType('');
+		setUnitInput('');
+		setUnitCost('');
+		setProductDesc('');
+		setProductFile('');
+    
+  };
+
 	return (
 		<>
 			{/* <ToastContainer
@@ -47,7 +105,7 @@ export const FarmerProductUpload = () => {
 			/> */}
 			<section className='farmers-product'>
 				<h5 className='farmers-product-title'>New Product</h5>
-				<form method='post' onSubmit={submitHandler}>
+				<form method='post'>
 					<div className='product-name-type'>
 						<div className='product-name label_input'>
 							<label htmlFor='product-name' className='name'>
@@ -57,7 +115,8 @@ export const FarmerProductUpload = () => {
 								type='text'
 								className='product'
 								id='product-name'
-								name='product_name'
+								value={productName}
+								onChange={changeProductName}
 							/>
 						</div>
 						<div className='product-type label_input'>
@@ -68,7 +127,8 @@ export const FarmerProductUpload = () => {
 								type='text'
 								className='product-type-input'
 								id='product-input'
-								name='product_type'
+								value={productType}
+								onChange={changeProductType}
 							/>
 						</div>
 					</div>
@@ -80,8 +140,8 @@ export const FarmerProductUpload = () => {
 							<input
 								type='text'
 								className='default-unit-input'
-								id='unit-input'
-								name='unit_input'
+								value={unitInput}
+								onChange={changeUnitInput}
 							/>
 						</div>
 						<div className='unit-cost label_input'>
@@ -92,7 +152,8 @@ export const FarmerProductUpload = () => {
 								type='text'
 								id='unit-cost'
 								className='unit-cost-type'
-								name='unit_cost'
+								value={unitCost}
+								onChange={changeUnitCost}
 							/>
 						</div>
 					</div>
@@ -105,7 +166,8 @@ export const FarmerProductUpload = () => {
 							cols={30}
 							rows={10}
 							placeholder='product description'
-							name='product_desc'
+							value={productDesc}
+							onChange={changeProductDesc}
 						/>
 					</div>
 					<div className='upload-file'>
@@ -118,11 +180,13 @@ export const FarmerProductUpload = () => {
 								placeholder='Choose file'
 								name='product_file[]'
 								multiple='multiple'
+								value={productFile}
+								onChange={changeProductFile}
 							/>
 						</div>
 					</div>
 					<div className='add-product-btn'>
-						<Link to='/farmerproductpage'><button type='submit'>Add Product</button></Link>
+						<Link to='/farmerproductpage'><button type='submit' onClick={transferValue}>Add Product</button></Link>
 					</div>
 				</form>
 			</section>

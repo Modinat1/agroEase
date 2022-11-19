@@ -162,7 +162,10 @@ const NewFarmerSidebar = () => {
 				{/* Component End  */}
 				{/* Component Start */}
 				<div className='flex flex-col items-center w-40 h-full overflow-hidden text-green-600 bg-yellow-50 border-x-emerald-300 rounded'>
-					<Link className='flex items-center w-full px-1 mt-3' href='#'>
+					<Link
+						to={"/"}
+						className='flex items-center w-full px-1 mt-3'
+						href='#'>
 						{/* <svg
 							className='w-8 h-8 fill-current'
 							xmlns='http://www.w3.org/2000/svg'

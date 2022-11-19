@@ -11,6 +11,7 @@ import { FarmerTable } from "./FarmerTable";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 // import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
+import { Link } from "react-router-dom";
 
 export const FarmerProductIndex = () => {
 	return (
@@ -30,7 +31,9 @@ export const FarmerProductIndex = () => {
 				{/* farmer_add_product */}
 				<section className='farmer_add_product'>
 					<p>Crop</p>
-					<button>Add Product</button>
+					<Link to={"/farmeraddproduct"}>
+						<button>Add Product</button>
+					</Link>
 				</section>
 
 				<FarmerTable />

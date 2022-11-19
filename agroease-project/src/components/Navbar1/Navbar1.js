@@ -4,7 +4,7 @@ import AgroEaseLogo from "./Navbar1Component/AgroEaseLogo";
 import Navbar1MenuList from "./Navbar1Component/Navbar1MenuList";
 import Navbar2SearchButton from "./Navbar1Component/Navbar2SearchButton";
 import Navbar2SearchInput from "./Navbar1Component/Navbar2SearchInput";
-import { GrCart } from "react-icons/gr";
+
 
 const Navbar1 = () => {
 	return (
@@ -13,8 +13,8 @@ const Navbar1 = () => {
 			<section className='navbar-input-menu'>
 				<div className='navbar-input-button'>
 					<Navbar2SearchInput />
-					{/* <GrCart className='font' /> */}
-					{/* <Navbar2SearchButton /> */}
+					 
+					<Navbar2SearchButton /> 
 				</div>
 				<Navbar1MenuList />
 			</section>

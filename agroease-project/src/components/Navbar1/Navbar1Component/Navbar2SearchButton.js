@@ -1,11 +1,12 @@
 import React from 'react'
 import "./NavbarCompo.css"
+import { GrCart } from "react-icons/gr";
 
 const Navbar2SearchButton = () => {
   return (
     <div>
         <div className='navbar1-search-button'>
-            <button>Search</button>
+       <button className='flex item-center'> <GrCart className='mt-2 '  /></button>
         </div>
     </div>
   )

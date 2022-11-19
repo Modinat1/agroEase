@@ -225,6 +225,7 @@
 @media screen and (max-width: 700px) {
   .card {
     width: 100%;
+    margin-left: 2rem;
   }
   .broker-container {
     display: block;
@@ -294,6 +295,7 @@
     margin-top: 1rem;
     width: 90%;
     margin-left: 1.2rem;
+    margin-bottom: -20rem;
   }
 
   .wrapper-article button {
@@ -337,6 +339,7 @@
     flex-wrap: wrap; */
     /* text-align: center; */
     display: none;
+    /* margin-bottom: -6rem;  */
   }
   /* 
   .buyers-product-category ul li {
@@ -345,12 +348,13 @@
   } */
 
   .buyer-product-card-container {
-    width: 90%;
-    margin-left: 0.5rem;
+    width: 95%;
+    /* padding-right: 6rem; */
   }
   .Buyers-product-card-container {
     /* width: 100%; */
-    gap: 2rem;
+    /* gap: 2rem; */
+    margin-left: 6rem;
   }
   .buyer-product-card {
     width: 100%;
@@ -399,18 +403,26 @@
     display: inline-block;
     border: 2px solid #dfe2e6;
     width: 100%;
+    margin-bottom: -6rem;
   }
   .all-payment-writeup {
     font-size: 18px;
     text-align: center;
     margin-bottom: 2rem;
-    margin-left: 3rem;
+    margin-left: 0.3rem;
+  }
+
+  .payment-partners {
+    margin-bottom: -10rem;
   }
 
   .pay {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
+    /* margin: 2rem; */
+    /* padding-right: 4rem; */
+    margin-left: -2.7rem;
   }
   /* .pay img {
     width: 40px;

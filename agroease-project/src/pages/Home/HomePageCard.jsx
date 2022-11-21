@@ -5,6 +5,8 @@ import rice from "../../images/rice.png";
 import garri from "../../images/garri.jpg";
 import beans from "../../images/beans.jpg";
 import { ProductContext } from "../../Context/Store/productContext";
+// import { useContext } from "react";
+// import BuyerContext from "../../Context/Buyer-context/BuyerContext";
 
 const allProducts = {
 	default: [
@@ -194,10 +196,16 @@ const allProducts = {
 	],
 };
 
-const farmerDB = "db101";
+// const farmerDB = "db101";
 // let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
 
 const Items = ({ currentItems, title }) => {
+	const cartContext = React.useContext(ProductContext);
+	const { cart, addToCart } = cartContext;
+
+	const handleAddToClick = () => {
+		console.log(addToCart);
+	};
 	return (
 		<section>
 			<div className='containers-product'>
@@ -216,7 +224,10 @@ const Items = ({ currentItems, title }) => {
 										<span>Seller: Agroease</span>
 										<h4>Price:{data.price}</h4>
 										<div className='share'>
-											<div className='carte' id='carte'>
+											<div
+												className='carte'
+												id='carte'
+												onClick={handleAddToClick}>
 												<svg
 													xmlns='http://www.w3.org/2000/svg'
 													width={16}

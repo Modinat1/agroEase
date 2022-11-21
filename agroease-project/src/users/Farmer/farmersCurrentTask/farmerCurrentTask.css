@@ -17,9 +17,15 @@
   font-size: 2rem;
   line-height: 2.3rem;
 }
+@media screen and (max-width: 767px) {
+  .farmer_current_task{
+    width: 100%;
+    padding: 1rem;
+  }
+}
 @media screen and (max-width: 600px) {
   .farmer_current_task{
-    width: 80%;
-    margin: 6rem 1rem 2rem auto;
+    width: 90%;
+    margin: 6rem auto 2rem auto;
   }
 }

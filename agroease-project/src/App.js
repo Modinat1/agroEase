@@ -36,6 +36,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
 import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
+import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -113,7 +114,7 @@ function App() {
 					element={<BuyerDashboardPage />}
 				/>
 				<Route exact path='/buyerprofilepage' element={<BuyerProfilePage />} />
-				<Route exact path='/buyerproductpage' element={<BuyerProductCard />} />
+				<Route exact path='/buyerproductpage' element={<BuyerProductPage />} />
 				<Route exact path='/AdminDashIndex' element={<AdminDashIndex />} />
 				<Route
 					exact

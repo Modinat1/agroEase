@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import { toast, ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 import "./FarmerProductUpload.css";
@@ -28,66 +28,67 @@ import "./FarmerProductUpload.css";
 // 	// displayProductUploadNotice
 // };
 
-
-
 export const FarmerProductUpload = (props) => {
 	// function displayProductUploadNotice() {
 	// 	toast.error("Product uploaded successfully");
 	// }
 
+	const farmerDB = "db101";
+	let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
 
-	const [productName, setProductName] = useState('');
-  const [productType, setProductType] = useState('');
-	const [unitInput, setUnitInput] = useState('');
-	const [unitCost, setUnitCost] = useState('');
-	const [productDesc, setProductDesc] = useState('');
-	const [productFile, setProductFile] = useState('');
+	const [productName, setProductName] = useState("");
+	const [productType, setProductType] = useState("");
+	const [unitInput, setUnitInput] = useState("");
+	const [unitCost, setUnitCost] = useState("");
+	const [productDesc, setProductDesc] = useState("");
+	const [productFile, setProductFile] = useState("");
 
-	
-  
-  const changeProductName = (event) => {
-    setProductName(event.target.value);
-  };
+	const changeProductName = (event) => {
+		setProductName(event.target.value);
+	};
 	const changeProductType = (event) => {
-    setProductType(event.target.value);
-  };
+		setProductType(event.target.value);
+	};
 	const changeUnitInput = (event) => {
-    setUnitInput(event.target.value);
-  };
+		setUnitInput(event.target.value);
+	};
 	const changeUnitCost = (event) => {
-    setUnitCost(event.target.value);
-  };
+		setUnitCost(event.target.value);
+	};
 	const changeProductDesc = (event) => {
-    setProductDesc(event.target.value);
-  };
-  
-  const changeProductFile = (event) => {
-    setProductFile(event.target.value);
-  };
-  
-  const transferValue = (event) => {
-    event.preventDefault();
-    const val= {
-					productName,
-					productType,
-					unitInput,
-					unitCost,
-					productDesc,
-					productFile
-				}
-    props.func(val);
-    clearState();
-  };
-  
-  const clearState = () => {
-		setProductName('');
-		setProductType('');
-		setUnitInput('');
-		setUnitCost('');
-		setProductDesc('');
-		setProductFile('');
-    
-  };
+		setProductDesc(event.target.value);
+	};
+
+	const changeProductFile = (event) => {
+		setProductFile(event.target.value);
+	};
+
+	// console.log(changeProductName);
+
+	const transferValue = (event) => {
+		event.preventDefault();
+		const val = {
+			productName,
+			productType,
+			unitInput,
+			unitCost,
+			productDesc,
+			productFile,
+		};
+		const updatedTodo = [...todoDBInstance, val];
+		localStorage.setItem(farmerDB, JSON.stringify(updatedTodo));
+		props.func(val);
+		clearState();
+	};
+
+	const clearState = () => {
+		setProductName("");
+		setProductType("");
+		setUnitInput("");
+		setUnitCost("");
+		setProductDesc("");
+		setProductFile("");
+	};
 
 	return (
 		<>
@@ -186,7 +187,11 @@ export const FarmerProductUpload = (props) => {
 						</div>
 					</div>
 					<div className='add-product-btn'>
-						<Link to='/farmerproductpage'><button type='submit' onClick={transferValue}>Add Product</button></Link>
+						<Link to='/farmerproductpage'>
+							<button type='submit' onClick={transferValue}>
+								Add Product
+							</button>
+						</Link>
 					</div>
 				</form>
 			</section>

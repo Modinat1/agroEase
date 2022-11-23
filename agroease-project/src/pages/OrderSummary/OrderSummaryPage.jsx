@@ -182,7 +182,7 @@ const OrderSummaryPage = () => {
 					<div className=' '>
 						<h4>{subTotal}</h4>
 						<h4>{subTotal * 0.01}</h4>
-						<h4>{subTotal - subTotal * 0.01}</h4>
+						<h4>{subTotal + subTotal * 0.01}</h4>
 					</div>
 				</section>
 			</div>

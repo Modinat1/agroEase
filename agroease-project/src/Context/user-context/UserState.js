@@ -1,12 +1,13 @@
-import React, { useReducer } from "react";
-import UserContext from "./UserContext";
-import UserReducer from "./UserReducer";
 import {
 	ADD_USER,
 	EDIT_USER,
 	SIGNUP_USER_ERROR,
 	SIGNUP_USER_SUCCESS,
 } from "./UserType";
+import React, { useReducer } from "react";
+
+import UserContext from "./UserContext";
+import UserReducer from "./UserReducer";
 
 export const UserState = ({ children }) => {
 	const initialState = {

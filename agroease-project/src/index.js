@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { UserState } from "./Context/user-context/UserState";
-// import { BuyerState } from "./Context/Buyer-context/BuyerState";
+
+import { ProductProvider } from "./Context/Store/ProductContext";
 
 // import { BuyerState } from "./Context/Buyer-context/BuyerState";
 
@@ -13,9 +14,11 @@ root.render(
 	<React.StrictMode>
 		{/* <BuyerState> */}
 		<UserState>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
+			<ProductProvider>
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+			</ProductProvider>
 		</UserState>
 		{/* </BuyerState> */}
 	</React.StrictMode>

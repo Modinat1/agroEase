@@ -10,30 +10,25 @@ import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
 import Footer from "../../components/Footer/Footer";
-import { ProductProvider } from "../../Context/Store/productContext";
-
-
+// import { ProductProvider } from "../../Context/Store/ProductContext";
 
 const Home = () => {
+	console.log(process.env.REACT_APP_BASE_URL);
+	return (
+		<>
+			<Navbar1 />
+			<HomepageHeader />
 
-  console.log(process.env.REACT_APP_BASE_URL)
-  return (
-    <>
-      
-      <Navbar1 />
-      <HomepageHeader />
-      <ProductProvider>
-      <Categories />
-      <PaginatedItems itemsPerPage={6} />
-    </ProductProvider>
-      <Broker />
-      <TopPicks />
-      <Seller />
-      <Payment />
-      <Footer />
-  
-    </>
-  );
+			<Categories />
+			<PaginatedItems itemsPerPage={6} />
+
+			<Broker />
+			<TopPicks />
+			<Seller />
+			<Payment />
+			<Footer />
+		</>
+	);
 };
 
 export default Home;

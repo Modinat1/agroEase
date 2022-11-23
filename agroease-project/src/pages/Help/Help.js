@@ -9,7 +9,7 @@ const Help = () => {
   return (
     <div>
         <Navbar1 />
-        		    {/* START OF MAIN */}
+        {/* START OF MAIN */}
 				<section className="faq-main-section container">
         <div className="searchresults">
           <ul id="searchlist">
@@ -19,13 +19,8 @@ const Help = () => {
           <h4>Help &amp; FAQs</h4>
         </section>
         <FaqItems />
-
-        
       </section>
       {/* END OF MAIN */}
-
-
-
         <Footer />
 
     </div>

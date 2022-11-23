@@ -1,10 +1,12 @@
 import React, { useReducer } from "react";
+import { allProducts } from "../../pages/Home/HomePageCard";
 import BuyerContext from "./BuyerContext";
 import { BuyerReducer } from "./BuyerReducer";
 import { ADD_TO_CART } from "./BuyerType";
 
 export const BuyerState = ({ Children }) => {
 	const initialState = {
+		product: allProducts.default,
 		cart: [],
 		isCheckoutedOut: false,
 	};

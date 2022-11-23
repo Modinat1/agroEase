@@ -1,0 +1,8 @@
+.userSignIn_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 850px;
+    width: 80%;
+    margin: auto;
+}

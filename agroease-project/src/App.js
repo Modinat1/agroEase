@@ -1,42 +1,45 @@
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Contact from "./pages/Contact/Contact";
-import Help from "./pages/Help/Help";
-import Home from "./pages/Home/Home";
-import { Agroeducation } from "./pages/AgroEducation/AgroEducation";
-import Account from "./pages/Account/Account";
-import FarmerSigninForm from "./users/Farmer/FarmerSignupPage/FarmerSigninForm";
-import BrokerSigninForm from "./users/Broker/BrokerSignupPage/BrokerSigninForm";
-import BuyerLoginForm from "./users/Buyer/BuyerLoginPage/BuyerLoginForm";
-import FarmerLoginForm from "./users/Farmer/FarmerLoginPage/FarmerLoginForm";
-import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
-import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTask/AdminPaymentTask";
-import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
-import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
-import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
-import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
+
+import { Route, Routes } from "react-router-dom";
+
 import About from "./pages/About/About";
-import OrderSummary from "./pages/OrderSummary/OrderSummary";
-import BrokerDashboardPage from "./users/Broker/BrokerDashboard/BrokerDashboardPage";
+import Account from "./pages/Account/Account";
+import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
+import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
+import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTask/AdminPaymentTask";
+import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
+import { Agroeducation } from "./pages/AgroEducation/AgroEducation";
 import BrokerClientPage from "./users/Broker/BrokerClient/BrokerClientPage";
-import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
-import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
+import BrokerDashboardPage from "./users/Broker/BrokerDashboard/BrokerDashboardPage";
+import BrokerLoginForm from "./users/Broker/BrokerLoginPage/BrokerLoginForm";
+import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
+import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
+import BrokerSigninForm from "./users/Broker/BrokerSignupPage/BrokerSigninForm";
+import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
+import BuyerLoginForm from "./users/Buyer/BuyerLoginPage/BuyerLoginForm";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
-import BrokerProfilePage from "./users/Broker/BrokerProfile/BrokerProfilePage";
-import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
-import FarmerProfile from "./users/Farmer/FarmerProfile/FarmerProfile";
-import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
+import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
+import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
+import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
+import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
+import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
+import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
+import Contact from "./pages/Contact/Contact";
 import { FarmerAddProduct } from "./users/Farmer/FarmerProductUpload.js/FarmerAddProduct";
 import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerCurrentTaskPage";
-import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
-import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardPage";
+import FarmerLoginForm from "./users/Farmer/FarmerLoginPage/FarmerLoginForm";
+import { FarmerProductIndex } from "./users/Farmer/farmerProduct/FarmerProductIndex";
+import FarmerProfile from "./users/Farmer/FarmerProfile/FarmerProfile";
+import FarmerSigninForm from "./users/Farmer/FarmerSignupPage/FarmerSigninForm";
+import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
+import { GenerateLink } from "./users/Admin/adminDashboard copy/GenerateLink";
+import Help from "./pages/Help/Help";
+import Home from "./pages/Home/Home";
+import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import Spinner from "./components/Loader/Spinner";
-import { useState } from "react";
 import { useEffect } from "react";
-import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
-import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
-import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
+import { useState } from "react";
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -138,6 +141,7 @@ function App() {
 				<Route path='BuyerOrderSuccesful' element={<BuyerOrderSuccessful />} />
 				<Route path='BuyerShipping' element={<BuyerShipping />} />
 				<Route path='OrderSummary' element={<OrderSummary />} />
+				<Route path='GenerateLink' element={<GenerateLink/>} />
 			</Routes>
 		</div>
 	);

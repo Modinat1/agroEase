@@ -7,7 +7,7 @@ export const UserState = ({children}) => {
 
     const initialState = {
         users: [],
-        token: "" || token,
+        token: "" ,
         loading: false,
         errorMessage: null
         

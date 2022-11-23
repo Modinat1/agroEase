@@ -20,7 +20,7 @@ import BuyerLoginForm from "./users/Buyer/BuyerLoginPage/BuyerLoginForm";
 import { BuyerOderreview } from "./users/Buyer/BuyerPayment/BuyerOderreview";
 import { BuyerOrderSuccessful } from "./users/Buyer/BuyerPayment/BuyerOrderSuccessful";
 import { BuyerPayment } from "./users/Buyer/BuyerPayment/BuyerPayment";
-import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
+// import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
 import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
 import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
@@ -39,9 +39,10 @@ import Home from "./pages/Home/Home";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import Spinner from "./components/Loader/Spinner";
 import { useEffect } from "react";
+import { useState } from "react";
 
-import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
-import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
+// import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
+// import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
 import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 
@@ -70,6 +71,7 @@ function App() {
 				<Route exact path='/brokerlogin' element={<BrokerLoginForm />} />
 				<Route exact path='/buyerlogin' element={<BuyerLoginForm />} />
 				<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
+				<Route exactt path='/generateLink' element={<GenerateLink />} />
 				<Route
 					exact
 					path='/AdminTaskNotification'

@@ -34,11 +34,11 @@ import { BuyerDashboardPage } from "./users/Buyer/BuyerDashboard/BuyerDashboardP
 import Spinner from "./components/Loader/Spinner";
 import { useState } from "react";
 import { useEffect } from "react";
-import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
+
 import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
 import BuyerProductPage from "./users/Buyer/BuyerProduct/BuyerProductPage";
-import {UsersSignUp} from "./components/UsersSignUp/UsersSignUp";
-import {UsersSignIn} from "./components/UsersSignIn/UsersSignIn"
+import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
+import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -143,7 +143,6 @@ function App() {
 				<Route path='UsersSignUp' element={<UsersSignUp />} />
 				<Route path='UsersSignIn' element={<UsersSignIn />} />
 			</Routes>
-
 		</div>
 	);
 }

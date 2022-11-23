@@ -252,7 +252,7 @@ const Items = ({ currentItems, title }) => {
 
 	console.log(cart);
 	return (
-		<section>
+		<section id='marketplace'>
 			<div className='containers-product'>
 				<h2>{title || "Products"}</h2>
 				<div className='container-card'>

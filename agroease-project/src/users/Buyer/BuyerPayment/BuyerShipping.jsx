@@ -47,7 +47,7 @@ export const BuyerShipping = () => {
 					</div>
 					<div className='shipping-form-group-btn'>
 						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						<Link to={"/Payment"}>
+						<Link to={"/BuyerPayment"}>
 							<button className='shipping-proceed-btn ' type='submit'>
 								Next
 							</button>

@@ -14,41 +14,46 @@ export const allProducts = {
 			id: 1,
 			name: "Rice",
 			desc: "Better than Foreing Rice",
-			price: "29, 000",
+			price: 29000,
 			image: beans,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 2,
 			name: "Rice",
 			desc: "Better than Foreing Rice",
-			price: "29, 000",
+			price: 29000,
 			image: garri,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 3,
 			name: "Rice",
 			desc: "Better than Foreing Rice",
-			price: "29 000",
+			price: 29000,
 			image: rice,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 4,
 			name: "Rice",
 			desc: "Better than Foreing Rice",
-			price: "N29000",
+			price: 29000,
 			image: beans,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 5,
 			name: "Rice",
 			desc: "Better than Foreing Rice",
-			price: "29000",
+			price: 29000,
 			image: garri,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 6,
@@ -57,6 +62,7 @@ export const allProducts = {
 			price: 29000,
 			image: rice,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 7,
@@ -65,6 +71,7 @@ export const allProducts = {
 			price: 29000,
 			image: rice,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 8,
@@ -73,6 +80,7 @@ export const allProducts = {
 			price: 29000,
 			image: beans,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 9,
@@ -81,6 +89,7 @@ export const allProducts = {
 			price: 29000,
 			image: garri,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 10,
@@ -89,6 +98,7 @@ export const allProducts = {
 			price: 29000,
 			image: rice,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 11,
@@ -97,6 +107,7 @@ export const allProducts = {
 			price: 29000,
 			image: beans,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 12,
@@ -105,6 +116,7 @@ export const allProducts = {
 			price: 29000,
 			image: garri,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 13,
@@ -113,6 +125,7 @@ export const allProducts = {
 			price: 29000,
 			image: rice,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 14,
@@ -121,6 +134,7 @@ export const allProducts = {
 			price: 29000,
 			image: beans,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 15,
@@ -129,6 +143,7 @@ export const allProducts = {
 			price: 29000,
 			image: garri,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 16,
@@ -137,6 +152,7 @@ export const allProducts = {
 			price: 29000,
 			image: rice,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 17,
@@ -145,6 +161,7 @@ export const allProducts = {
 			price: 29000,
 			image: beans,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 		{
 			id: 18,
@@ -153,6 +170,7 @@ export const allProducts = {
 			price: 29000,
 			image: garri,
 			isInStock: false,
+			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 		},
 	],
 
@@ -160,7 +178,7 @@ export const allProducts = {
 		{
 			name: "Cockrel",
 			desc: "Home trained chicken",
-			price: "5,000",
+			price: 5000,
 			image: "/assets/chickens.png",
 			isInStock: false,
 		},
@@ -255,7 +273,6 @@ const Items = ({ currentItems, title }) => {
 											<div>
 												{cart.some((p) => p.id === data.id) ? (
 													<button
-														disabled={!data.isInStock}
 														className='carte'
 														id='carte'
 														onClick={() => {

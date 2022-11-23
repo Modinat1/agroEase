@@ -7,26 +7,24 @@ import summaryChikenRectangle from "../../images/summaryChikenRectangle.png";
 import React, { useState } from "react";
 import { ProductContext } from "../../Context/Store/ProductContext";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const OrderSummaryPage = () => {
 	const cartContext = React.useContext(ProductContext);
-	console.log(cartContext);
+
 	const {
 		state: { cart },
 		dispatch,
 	} = cartContext;
 
-	const [subTotal, setsubTotal] = useState();
-	const [Vat, setVat] = useState();
-	const [total, setTotal] = useState();
-
-	console.log(cart[0].price);
+	const [subTotal, setsubTotal] = useState(0);
 
 	useEffect(() => {
-		setsubTotal(cart.reduce((acc, curr) => acc + curr.price, 0));
-		setVat(subTotal * 0.05);
-		setTotal(subTotal - Number(Vat));
+		setsubTotal(
+			cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
+		);
 	}, [cart]);
+
 	return (
 		<section className='general-container'>
 			<div className='summary-order-left'>
@@ -93,13 +91,30 @@ const OrderSummaryPage = () => {
 					{/* <div class="summary-order-box2-biggestContainerInner"></div> */}
 					{cart.map((prod) => {
 						return (
-							<div className='summary-order-box-2'>
+							<div key={prod.id} className='summary-order-box-2'>
 								<div className='summary-empty'>
 									<img src={prod.image} alt='' />
 								</div>
 								<div className='summary-order-total'>
 									<h5>{prod.name}</h5>
 									<h5 className='sumary-0rder-money'> {prod.price} </h5>
+								</div>
+								<div className='flex'>
+									<select
+										value={prod.qty}
+										onChange={(e) =>
+											dispatch({
+												type: "CHANGE_QTY",
+												payload: {
+													id: prod.id,
+													qty: e.target.value,
+												},
+											})
+										}>
+										{prod.inStock.map((x) => (
+											<option key={x}>{x}</option>
+										))}
+									</select>
 								</div>
 								<div
 									className='summary-order-cancel'
@@ -109,7 +124,6 @@ const OrderSummaryPage = () => {
 											payload: prod,
 										});
 									}}>
-									{" "}
 									✖
 								</div>
 							</div>
@@ -152,10 +166,11 @@ const OrderSummaryPage = () => {
           </div> */}
 				</div>
 				<section className='summary-order-button-container'>
-					<button className='summary-order-checkout'>
-						{" "}
-						Proceed to checkout
-					</button>
+					<Link to={"/BuyerShipping"}>
+						<button className='summary-order-checkout'>
+							Proceed to checkout
+						</button>
+					</Link>
 				</section>
 				<section className='summery-order-total-vat'>
 					<div className='subtotal-vat-shipping-summary-left'>
@@ -166,8 +181,8 @@ const OrderSummaryPage = () => {
 					</div>
 					<div className=' '>
 						<h4>{subTotal}</h4>
-						<h4>{Vat}</h4>
-						<h4>{total}</h4>
+						<h4>{subTotal * 0.01}</h4>
+						<h4>{subTotal - subTotal * 0.01}</h4>
 					</div>
 				</section>
 			</div>

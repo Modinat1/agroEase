@@ -3,15 +3,17 @@ import "../BuyerPaymentCSS/BuyerNav.css";
 import Agroeaslogo from "../../../../images/agro_ease_logo.png";
 import { BsSearch } from "react-icons/bs";
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export const Buyernav = () => {
 	return (
 		<>
 			<div className='buyers-dashboard-nav'>
 				<div className='buyer-nav-logo'>
-					<a href='/pages/homepage/homepage.html'>
+					<Link to={"/"}>
 						<img src={Agroeaslogo} alt='' className='nav-logos' />
-					</a>
+					</Link>
+
 					<div className='buyer-nav-detail'>
 						<h3 className='buyer-nav-name'>
 							Hello <span>Godswill</span>

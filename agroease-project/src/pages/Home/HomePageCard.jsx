@@ -194,7 +194,7 @@ const allProducts = {
 	],
 };
 
-const farmerDB = "db101";
+// const farmerDB = "db101";
 // let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
 
 const Items = ({ currentItems, title }) => {

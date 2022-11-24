@@ -9,6 +9,7 @@ import AdminSuccessPending from "../../../../components/TableBio/AdminBuyerTable
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
 import NewAdminSidebar from "../../../../components/dashboard-nav-and-side/AdminSidebar";
+import AdminPaymentTable from "../../../../components/TableBio/AdminPaymentTable/AdminPaymentTable";
 
 export const AdminPaymentTask = () => {
 	return (
@@ -25,6 +26,7 @@ export const AdminPaymentTask = () => {
 				<TaskSwitch />
 				<AdminSuccessPending />
 				{/* <AdminPaymentTable /> */}
+				<AdminPaymentTable />
 			</div>
 			{/* <AdminTaskNotification/> */}
 		</>

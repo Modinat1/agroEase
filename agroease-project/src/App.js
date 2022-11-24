@@ -36,6 +36,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { BuyerProductCard } from "./users/Buyer/BuyerProduct/BuyerProductCard";
 import { BrokerRefferalPage } from "./users/Broker/BrokerRefferalPage/BrokerRefferalPage";
+import NewHomePage from "./pages/NewWork/NewHomePage/NewHomePage";
 
 function App() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -137,6 +138,8 @@ function App() {
 				<Route path='BuyerOrderSuccesful' element={<BuyerOrderSuccessful />} />
 				<Route path='BuyerShipping' element={<BuyerShipping />} />
 				<Route path='OrderSummary' element={<OrderSummary />} />
+				<Route path='/newhomepage' element={<NewHomePage />} />
+				
 			</Routes>
 		</div>
 	);

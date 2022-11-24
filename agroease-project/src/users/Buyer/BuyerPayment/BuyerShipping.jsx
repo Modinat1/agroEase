@@ -1,89 +1,103 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./BuyerPaymentCSS/Shipping.css";
 import { Progress } from "./BuyerPayementComponent/Progress";
 import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import { useFormik } from "formik";
+// import CountrySelector from "./BuyerPayementComponent/CountrySelector";
+import { countryList } from "./BuyerPayementComponent/countryModule";
+import { stateList } from "./BuyerPayementComponent/countryModule";
+import { useState } from "react";
 
 export const BuyerShipping = () => {
-	const validate = (values) => {
-		const errors = {};
-		if (!values.name) {
-			errors.firstName = "Required";
-		}
-
-		if (!values.phone) {
-			errors.lastName = "Required";
-		}
-
-		if (!values.email) {
-			errors.email = "Required";
-		} else if (
-			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-		) {
-			errors.email = "Invalid email address";
-		}
-
-		if (!values.localGov) {
-			errors.password = "Required";
-		}
-
-		if (!values.state) {
-			errors.password = "Required";
-		}
-
-		if (!values.shippingAdd) {
-			errors.password = "Required";
-		}
-
-		// if (!values.confirmPassword) {
-		// 	errors.confirmPassword = "Required";
-		// } else if (values.password !== values.confirmPassword) {
-		// 	errors.confirmPassword = "Must match with password";
-		// }
-
-		return errors;
+	const navigate = useNavigate();
+	const initialValues = {
+		username: "",
+		// email: "",
+		phone: "",
+		country: "",
+		state: "",
+		zip: "",
+		city: "",
+		address: "",
 	};
 
-	const formik = useFormik({
-		initialValues: {
-			name: "",
-			phone: "",
-			email: "",
-			locaGov: "",
-			state: "",
-			shippingAdd: "",
-		},
-		validate,
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
-		},
-	});
+	const [formValue, setformValue] = useState(initialValues);
+
+	const [formErrors, setformErrors] = useState({});
+
+	const [isSubmit, setisSubmit] = useState(false);
+
+	const [ischecked, setischecked] = useState(false);
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setformValue({ ...formValue, [name]: value });
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setformErrors(validate(formValue));
+		setisSubmit(true);
+		console.log(formValue);
+	};
+
+	// useEffect(() => {
+	// 	if (Object.keys(formErrors).length === 0 && isSubmit) {
+	// 	}
+	// }, [formErrors]);
+
+	const validate = (values) => {
+		// const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+		const errors = {};
+		if (!values.username) {
+			errors.username = "Required";
+		}
+
+		// if (!values.email) {
+		// 	errors.email = "Required";
+		// } else if (!emailRegex.test(values.email)) {
+		// 	errors.email = "Enter a valid email";
+		// }
+
+		if (!values.country) {
+			errors.country = "Required";
+		}
+		if (!values.state) {
+			errors.state = "Required";
+		}
+		if (!values.city) {
+			errors.city = "Required";
+		}
+		if (!values.zip) {
+			errors.zip = "Required";
+		}
+		if (!values.address) {
+			errors.address = "Required";
+		}
+		return errors;
+	};
 
 	return (
 		<>
 			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
+
 				<form
-					className='shipping-form shipping-form-active shipping-form-step'
-					onSubmit={formik.handleSubmit}>
+					onSubmit={handleSubmit}
+					className='shipping-form shipping-form-active shipping-form-step'>
 					<h3>Shipping Details</h3>
 					<div className='shipping-form-group'>
 						<label htmlFor='name'>Name</label>
 						<input
 							className='username'
 							type='text'
-							name='name'
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-							value={formik.values.name}
+							name='username'
+							onChange={handleChange}
 						/>
-						{formik.touched.name && formik.errors.name ? (
-							<div style={{ color: "red" }}>{formik.errors.name}</div>
-						) : null}
+						<p className='error'>{formErrors.username}</p>
 					</div>
 					<div className='shipping-form-group password'>
 						{/* <i class="fa-solid fa-eye"></i> */}
@@ -92,42 +106,60 @@ export const BuyerShipping = () => {
 							className='userphone'
 							type='text'
 							name='phone'
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-							value={formik.values.phone}
+							onChange={handleChange}
 						/>
-						{formik.touched.phone && formik.errors.phone ? (
-							<div style={{ color: "red" }}>{formik.errors.phone}</div>
-						) : null}
+						<p className='error'>{formErrors.phone}</p>
 					</div>
 					<div className='shipping-form-group state'>
 						<div className='state-content'>
+							<label htmlFor='state'>Country</label>
+							<select
+								className='shipping_slect'
+								type='text'
+								name='country'
+								onChange={handleChange}>
+								{countryList.map((country, index) => {
+									return <option key={index}>{country}</option>;
+								})}
+							</select>
+							<p className='error'>{formErrors.country}</p>
+							{/* <CountrySelector className='shipping_slect' /> */}
+						</div>
+						<div className='state-content'>
 							<label htmlFor='state'>State</label>
+							<select
+								className='shipping_slect'
+								type='text'
+								name='state'
+								onChange={handleChange}>
+								{stateList.map((state, index) => {
+									return <option key={index}>{state}</option>;
+								})}
+							</select>
+							<p className='error'>{formErrors.state}</p>
+						</div>
+					</div>
+					<div className='shipping-form-group state'>
+						<div className='state-content'>
+							<label htmlFor='local-gov'>City</label>
 							<input
 								className='userstate'
 								type='text'
-								name='state'
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								value={formik.values.state}
+								name='city'
+								onChange={handleChange}
 							/>
-							{formik.touched.state && formik.errors.state ? (
-								<div style={{ color: "red" }}>{formik.errors.state}</div>
-							) : null}
+							<p className='error'>{formErrors.city}</p>
 						</div>
 						<div className='state-content'>
-							<label htmlFor='local-gov'>Local Government</label>
+							<label htmlFor='local-gov'>Zip</label>
+
 							<input
 								className='userlga'
 								type='text'
-								name='localGgov'
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								value={formik.values.locaGov}
+								name='zip'
+								onChange={handleChange}
 							/>
-							{formik.touched.locaGov && formik.errors.locaGov ? (
-								<div style={{ color: "red" }}>{formik.errors.locaGov}</div>
-							) : null}
+							<p className='error'>{formErrors.zip}</p>
 						</div>
 					</div>
 					<div className='shipping-form-group shipping-form-step'>
@@ -135,22 +167,18 @@ export const BuyerShipping = () => {
 						<input
 							className='useradd'
 							type='text'
-							name='shippingAdd'
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-							value={formik.values.shippingAdd}
+							name='address'
+							onChange={handleChange}
 						/>
-						{formik.touched.shippingAdd && formik.errors.shippingAdd ? (
-							<div style={{ color: "red" }}>{formik.errors.shippingAdd}</div>
-						) : null}
+						<p className='error'>{formErrors.address}</p>
 					</div>
 					<div className='shipping-form-group-btn'>
 						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						<Link to={"/BuyerPayment"}>
-							<button className='shipping-proceed-btn ' type='submit'>
-								Next
-							</button>
-						</Link>
+						{/* <Link to={"/BuyerPayment"}> */}
+						<button className='shipping-proceed-btn ' type='submit'>
+							Next
+						</button>
+						{/* </Link> */}
 					</div>
 				</form>
 			</div>

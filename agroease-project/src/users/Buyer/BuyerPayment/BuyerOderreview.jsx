@@ -151,7 +151,7 @@ export const BuyerOderreview = () => {
 							</div>
 						</div>
 					</section>
-					<Link to={"/PaymentProcessing"}>
+					<Link to={"/BuyerOrderSuccesful"}>
 						<button className='confirm-order'>Confirm Order</button>
 					</Link>
 				</div>

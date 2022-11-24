@@ -1,3 +1,4 @@
+import { useFormik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../../components/Footer/Footer";
@@ -6,6 +7,58 @@ import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import { Progress } from "./BuyerPayementComponent/Progress";
 
 export const BuyerPayment = () => {
+	const validate = (values) => {
+		const errors = {};
+		if (!values.firstName) {
+			errors.firstName = "Required";
+		} else if (values.firstName.length > 15) {
+			errors.firstName = "Must be 15 characters or less";
+		}
+
+		if (!values.lastName) {
+			errors.lastName = "Required";
+		} else if (values.lastName.length > 20) {
+			errors.lastName = "Must be 20 characters or less";
+		}
+
+		if (!values.email) {
+			errors.email = "Required";
+		} else if (
+			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+		) {
+			errors.email = "Invalid email address";
+		}
+
+		if (!values.password) {
+			errors.password = "Required";
+		} else if (values.password.length < 8) {
+			errors.password = "Must be 8 characters or more";
+		}
+
+		if (!values.confirmPassword) {
+			errors.confirmPassword = "Required";
+		} else if (values.password !== values.confirmPassword) {
+			errors.confirmPassword = "Must match with password";
+		}
+
+		return errors;
+	};
+
+	const formik = useFormik({
+		initialValues: {
+			firstName: "",
+			lastName: "",
+			email: "",
+			phoneNumber: "",
+			password: "",
+			confirmPassword: "",
+		},
+		validate,
+		onSubmit: (values) => {
+			alert(JSON.stringify(values, null, 2));
+		},
+	});
+
 	return (
 		<>
 			<Buyernav />
@@ -56,7 +109,7 @@ export const BuyerPayment = () => {
 					</div>
 					<div className='shipping-form-group-btn'>
 						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						<Link to={"/Orderreview"}>
+						<Link to={"/BuyerOrderreview"}>
 							<button
 								className='shipping-proceed-btn btn-next btn-payment'
 								type='submit'>

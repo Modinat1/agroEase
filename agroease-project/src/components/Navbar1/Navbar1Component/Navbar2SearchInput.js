@@ -1,16 +1,20 @@
-import React from 'react'
-import "./NavbarCompo.css"
-import {BsSearch} from "react-icons/bs"
+import "./NavbarCompo.css";
+import { BsSearch } from "react-icons/bs";
 
-const Navbar2SearchInput = () => {
+const Navbar2SearchInput = ({ search, setSearch }) => {
   return (
     <div>
-        <div className='navbar1-search-input'>
-            <input type="text" placeholder='Search...'/>
-            <BsSearch className='navbar-search-icon'/>
-        </div>
+      <div className="navbar1-search-input">
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+        <BsSearch className="navbar-search-icon" />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar2SearchInput
+export default Navbar2SearchInput;

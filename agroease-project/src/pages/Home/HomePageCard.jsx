@@ -244,7 +244,7 @@ export const allProducts = {
 // const farmerDB = "db101";
 // let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
 
-const Items = ({ currentItems, title }) => {
+const Items = ({ currentItems, title, search }) => {
 	const cartContext = React.useContext(ProductContext);
 	// const { cart, addToCart } = cartContext;
 	const { state, dispatch } = cartContext;
@@ -254,7 +254,8 @@ const Items = ({ currentItems, title }) => {
 	return (
 		<section id='marketplace'>
 			<div className='containers-product'>
-				<h2>{title || "Products"}</h2>
+				{/* <h2>{title || "Products"}</h2> */}
+				<h2>{search}</h2>
 				<div className='container-card'>
 					{currentItems.length > 0 ? (
 						currentItems.map((data, idx) => {
@@ -332,7 +333,7 @@ const Items = ({ currentItems, title }) => {
 	);
 };
 
-function PaginatedItems({ itemsPerPage }) {
+function PaginatedItems({ itemsPerPage, search }) {
 	const productStore = React.useContext(ProductContext);
 
 	const [products, setProducts] = useState(allProducts.default);
@@ -376,7 +377,11 @@ function PaginatedItems({ itemsPerPage }) {
 
 	return (
 		<>
-			<Items currentItems={currentItems} title={productStore.category} />
+			<Items
+				currentItems={currentItems}
+				title={productStore.category}
+				search={search}
+			/>
 
 			<ReactPaginate
 				className='pages'

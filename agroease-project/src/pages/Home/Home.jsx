@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar1 from "../../components/Navbar1/Navbar1";
 import "./HomePage.css";
 import "./HomeResponsiveness.css";
@@ -13,14 +13,14 @@ import Footer from "../../components/Footer/Footer";
 // import { ProductProvider } from "../../Context/Store/ProductContext";
 
 const Home = () => {
-	console.log(process.env.REACT_APP_BASE_URL);
+	const [search, setSearch] = useState("");
 	return (
 		<>
-			<Navbar1 />
+			<Navbar1 search={search} setSearch={setSearch} />
 			<HomepageHeader />
 
 			<Categories />
-			<PaginatedItems itemsPerPage={6} />
+			<PaginatedItems search={search} setSearch={setSearch} itemsPerPage={6} />
 
 			<Broker />
 			<TopPicks />

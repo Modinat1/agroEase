@@ -108,7 +108,7 @@ export const UsersSignUpForm = () => {
 						type='text'
 						placeholder='Phone Number*'
 						onBlur={formik.handleBlur}
-						value={formik.values.phoneNumber}
+						// value={formik.values.phoneNumber}
 					/>
 					{/* {formik.errors.phoneNumber ? <div>{formik.errors.phoneNumber}</div> : null} */}
 
@@ -119,7 +119,7 @@ export const UsersSignUpForm = () => {
 						type='password'
 						placeholder='Password*'
 						onBlur={formik.handleBlur}
-						value={formik.values.password}
+						// value={formik.values.password}
 					/>
 					{formik.touched.password && formik.errors.password ? (
 						<div style={{ color: "red" }}>{formik.errors.password}</div>
@@ -132,7 +132,7 @@ export const UsersSignUpForm = () => {
 						type='password'
 						placeholder='Confirm Password*'
 						onBlur={formik.handleBlur}
-						value={formik.values.confirmPassword}
+						// value={formik.values.confirmPassword}
 					/>
 					{formik.touched.confirmPassword && formik.errors.confirmPassword ? (
 						<div style={{ color: "red" }}>{formik.errors.confirmPassword}</div>

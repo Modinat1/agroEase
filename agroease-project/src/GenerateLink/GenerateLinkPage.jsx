@@ -1,5 +1,6 @@
 import "./GenerateLinkPage.css"
 
+import {BiCopy} from 'react-icons/bi'
 import React from 'react'
 import referalImage from '../images/referalImage.png'
 
@@ -30,7 +31,8 @@ const GenerateLinkPage = () => {
             <div className="generated-password-container">
               {/* <input type="text" placeholder="jhdupa09793oeydlp9etos[oruywpfi9"> */}
               <button type="button" className="referal-main-id">jhdupa09793oeydlp9etosoruywpfi9</button>
-              <img src="copy-id.png" alt="id-number" className="referal-id-copy-icon" />
+              {/* <img src="copy-id.png" alt="id-number" className="referal-id-copy-icon" /> */}
+              <BiCopy/>
             </div>
           </div>
         </section>

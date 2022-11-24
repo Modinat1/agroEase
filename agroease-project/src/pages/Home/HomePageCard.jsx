@@ -13,7 +13,7 @@ export const allProducts = {
 	default: [
 		{
 			id: 1,
-			name: "Rice",
+			name: "Beans",
 			desc: "Better than Foreing Rice",
 			price: 29000,
 			image: beans,
@@ -22,7 +22,7 @@ export const allProducts = {
 		},
 		{
 			id: 2,
-			name: "Rice",
+			name: "Garri",
 			desc: "Better than Foreing Rice",
 			price: 29000,
 			image: garri,
@@ -40,7 +40,7 @@ export const allProducts = {
 		},
 		{
 			id: 4,
-			name: "Rice",
+			name: "Beans",
 			desc: "Better than Foreing Rice",
 			price: 29000,
 			image: beans,
@@ -255,11 +255,16 @@ const Items = ({ currentItems, title, search }) => {
 	return (
 		<section id='marketplace'>
 			<div className='containers-product'>
-				{/* <h2>{title || "Products"}</h2> */}
-				<h2>{search}</h2>
+				<h2>{title || "Products"}</h2>
 				<div className='container-card'>
 					{currentItems.length > 0 ? (
-						currentItems.map((data, idx) => {
+						currentItems.filter(post => {
+							if(search === ''){
+								return post;
+							} else if (post.name.toLowerCase().includes(search.toLowerCase())){
+								return post;
+							}
+						}).map((data, idx) => {
 							console.log(data.isInStock);
 							return (
 								<div className='card'>

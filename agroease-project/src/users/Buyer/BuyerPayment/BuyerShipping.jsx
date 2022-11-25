@@ -86,7 +86,7 @@ export const BuyerShipping = () => {
 				<Progress />
 
 				<form
-					onSubmit={handleSubmit}
+					// onSubmit={handleSubmit}
 					className='shipping-form shipping-form-active shipping-form-step'>
 					<h3>Shipping Details</h3>
 					<div className='shipping-form-group'>
@@ -174,11 +174,11 @@ export const BuyerShipping = () => {
 					</div>
 					<div className='shipping-form-group-btn'>
 						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						{/* <Link to={"/BuyerPayment"}> */}
-						<button className='shipping-proceed-btn ' type='submit'>
-							Next
-						</button>
-						{/* </Link> */}
+						<Link to={"/BuyerPayment"}>
+							<button className='shipping-proceed-btn ' type='submit'>
+								Next
+							</button>
+						</Link>
 					</div>
 				</form>
 			</div>

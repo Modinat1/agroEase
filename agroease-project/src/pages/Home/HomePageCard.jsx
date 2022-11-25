@@ -4,11 +4,12 @@ import ReactPaginate from "react-paginate";
 import rice from "../../images/rice.png";
 import garri from "../../images/garri.jpg";
 import beans from "../../images/beans.jpg";
-// import { ProductContext } from "../../Context/Store/ProductContext";
-import { ProductContext } from "../../Context/Store/productContext";
+import { ProductContext } from "../../Context/Store/ProductContext";
+// import { ProductContext } from "../../Context/Store/productContext";
 // import { useContext } from "react";
 // import BuyerContext from "../../Context/Buyer-context/BuyerContext";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const allProducts = {
 	default: [
 		{
@@ -251,85 +252,104 @@ const Items = ({ currentItems, title, search }) => {
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
 
-	console.log(cart);
+	const formatter = new Intl.NumberFormat("en-NG", {
+		style: "currency",
+		currency: "NGN",
+
+		// These options are needed to round to whole numbers if that's what you want.
+		//minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+	});
+	const addNotify = () => toast.success("Item added to cart!");
+	const removeNotify = () => toast.error("Item removed from cart!");
+
 	return (
 		<section id='marketplace'>
 			<div className='containers-product'>
 				<h2>{title || "Products"}</h2>
 				<div className='container-card'>
 					{currentItems.length > 0 ? (
-						currentItems.filter(post => {
-							if(search === ''){
-								return post;
-							} else if (post.name.toLowerCase().includes(search.toLowerCase())){
-								return post;
-							}
-						}).map((data, idx) => {
-							console.log(data.isInStock);
-							return (
-								<div className='card'>
-									<div className='bag'>
-										<img src={data.image} alt='' />
-									</div>
-									<div className='price'>
-										<h3>{data.name}</h3>
-										<p>{data.desc} </p>
-										<span>Seller: Agroease</span>
-										<h4>Price:{data.price}</h4>
-										<div className='share'>
-											<div>
-												{cart.some((p) => p.id === data.id) ? (
-													<button
-														className='carte'
-														id='carte'
-														onClick={() => {
-															dispatch({
-																type: "REMOVE_FROM_CART",
-																payload: data,
-															});
-														}}>
-														Remove from Cart
-													</button>
-												) : (
-													<button
-														className='carte'
-														id='carte'
-														onClick={() => {
-															dispatch({
-																type: "ADD_TO_CART",
-																payload: data,
-															});
-														}}>
-														<svg
-															xmlns='http://www.w3.org/2000/svg'
-															width={16}
-															height={16}
-															fill='currentColor'
-															className='bi bi-cart3'
-															viewBox='0 0 16 16'>
-															<path
-																d='M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 
-          													0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
-           													.49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415
-           													 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01
-             												3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479
-              												9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2
-               												2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7
-               												 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1
-                 											1 0 0 1 0-2z'
-															/>
-														</svg>
-													</button>
-												)}
-											</div>
-											<div className='by-me'>
-												<button id='buy'>Buy Now</button>
+						currentItems
+							.filter((post) => {
+								if (search === "") {
+									return post;
+								} else if (
+									post.name.toLowerCase().includes(search.toLowerCase())
+								)
+									return post;
+							})
+							.map((data, idx) => {
+								return (
+									<div className='card'>
+										<ToastContainer />
+										<div className='bag'>
+											<img src={data.image} alt='' />
+										</div>
+										<div className='price'>
+											<h3>{data.name}</h3>
+											<p>{data.desc} </p>
+											<span>Seller: Agroease</span>
+											<h4>Price:{formatter.format(data.price)}</h4>
+											<div className='share'>
+												<div>
+													{cart.some((p) => p.id === data.id) ? (
+														<>
+															<button
+																className='carte'
+																id='carte'
+																onClick={() => {
+																	dispatch({
+																		type: "REMOVE_FROM_CART",
+																		payload: data,
+																	});
+																	removeNotify();
+																}}>
+																Remove from Cart
+															</button>
+														</>
+													) : (
+														<>
+															<button
+																className='carte'
+																id='carte'
+																onClick={() => {
+																	dispatch({
+																		type: "ADD_TO_CART",
+																		payload: data,
+																	});
+																	addNotify();
+																}}>
+																<svg
+																	xmlns='http://www.w3.org/2000/svg'
+																	width={16}
+																	height={16}
+																	fill='currentColor'
+																	className='bi bi-cart3'
+																	viewBox='0 0 16 16'>
+																	<path
+																		d='M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 
+																	0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1
+																	.49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415
+																	11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01
+																	3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479
+																	9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2
+																	2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7
+																	1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1
+																	1 0 0 1 0-2z'
+																	/>
+																</svg>
+															</button>
+														</>
+													)}
+												</div>
+												<div className='by-me'>
+													<button id='buy'>Buy Now</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							);
-						})
+								);
+							})
 					) : (
 						<h6>No products available</h6>
 					)}

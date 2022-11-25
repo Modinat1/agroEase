@@ -5,15 +5,11 @@
 	height: 70px;
 	justify-content: space-between;
 	align-items: center;
-	padding: 2rem 2rem;
+	padding: 2rem 1rem;
 }
 
 .buyer-nav-logo {
-	display: flex;
-	width: 40%;
-	justify-content: space-between;
-	align-items: center;
-	gap: 10px;
+	width: 200px;
 }
 
 .buyer-nav-name {

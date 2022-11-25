@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductContext } from "../../Context/Store/productContext";
+import { ProductContext } from "../../Context/Store/ProductContext";
 
 export const Categories = () => {
 	const productStore = React.useContext(ProductContext);

@@ -1,8 +1,8 @@
 import React from "react";
-
-import BrokerDashnav from "../../../components/dashboard-nav-and-side/BrokerDashnav";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import AdminPaymentTable from "../../../components/TableBio/AdminPaymentTable/AdminPaymentTable";
+import FarmerTotalcat from "../../../components/TableBio/FarmerTotalcat/FarmerTotalcat";
 // import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 import { BuyerDashCard } from "../../Buyer/BuyerDashboard/BuyerDashCard";
 import Thebarchart from "./Thebarchart";
@@ -26,9 +26,16 @@ const Farmerdashboard = () => {
 
 					<BuyerDashCard />
 					<div className='flex justify-between items-center'>
-						<Thepiechart />
+						<div>
+							<h1 className="font-bold">SALES ANALYSIS</h1>
+							<Thepiechart />
+						</div>
+
 						<Thebarchart />
+						
 					</div>
+					<FarmerTotalcat />
+					<AdminPaymentTable  />
 				</section>
 			</div>
 		</React.Fragment>

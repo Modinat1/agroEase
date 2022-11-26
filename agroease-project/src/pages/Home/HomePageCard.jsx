@@ -1,13 +1,10 @@
-// import React from "react"
+import React from "react"
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import rice from "../../images/rice.png";
 import garri from "../../images/garri.jpg";
 import beans from "../../images/beans.jpg";
 import { ProductContext } from "../../Context/Store/productContext";
-// import { ProductContext } from "../../Context/Store/productContext";
-// import { useContext } from "react";
-// import BuyerContext from "../../Context/Buyer-context/BuyerContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const allProducts = {

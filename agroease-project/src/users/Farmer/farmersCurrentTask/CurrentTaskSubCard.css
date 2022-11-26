@@ -151,3 +151,9 @@
     height: 32px;
   }
 }
+@media screen and (max-width: 487px){
+  .uploaded_cart_price p {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}

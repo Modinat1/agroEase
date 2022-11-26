@@ -13,11 +13,7 @@ export const FarmerCurrentTaskPage = () => {
 		<>
 			<NewBrokerNavbar />
 			<NewFarmerSidebar />
-
-			{/* <FarmerSidebar />
-				<BrokerDashnav /> */}
-
-			{/* <NewFarmerSidebar /> */}
+		<section className="farmer_current_task">
 
 			<CurrentTaskMainCard />
 			{/* Uploaded section Content */}
@@ -26,6 +22,7 @@ export const FarmerCurrentTaskPage = () => {
 			</div>
 			<CurrentTaskSubCard />
 			<CurrentTaskSubCard />
+			</section>
 			{/* <section className='farmer_current_task'></section> */}
 		</>
 	);

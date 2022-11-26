@@ -4,13 +4,22 @@ import summaryChiken1 from "../../images/summaryChiken1.png";
 import summaryCow from "../../images/summaryCow.png";
 import summaryRice from "../../images/summaryRice.png";
 // import summaryChikenRectangle from "../../images/summaryChikenRectangle.png";
-import React, { useState, } from "react";
+import React, { useState } from "react";
+import { ProductContext } from "../../Context/Store/ProductContext";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../../Context/Store/productContext";
 
 const OrderSummaryPage = () => {
 	const cartContext = React.useContext(ProductContext);
+	const formatter = new Intl.NumberFormat("en-NG", {
+		style: "currency",
+		currency: "NGN",
+
+		// These options are needed to round to whole numbers if that's what you want.
+		//minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+	});
 
 	const {
 		state: { cart },
@@ -92,12 +101,14 @@ const OrderSummaryPage = () => {
 					{cart.map((prod) => {
 						return (
 							<div key={prod.id} className='summary-order-box-2'>
-								<div className='summary-empty'>
-									<img src={prod.image} alt='' />
+								<div className='summary-empty' style={{ width: "200px" }}>
+									<img src={prod.image} alt='' style={{ width: "100%" }} />
 								</div>
 								<div className='summary-order-total'>
 									<h5>{prod.name}</h5>
-									<h5 className='sumary-0rder-money'> {prod.price} </h5>
+									<h5 className='sumary-0rder-money'>
+										{formatter.format(prod.price)}
+									</h5>
 								</div>
 								<div className='flex'>
 									<select
@@ -175,14 +186,13 @@ const OrderSummaryPage = () => {
 				<section className='summery-order-total-vat'>
 					<div className='subtotal-vat-shipping-summary-left'>
 						<h4>Subtotal</h4>
-						<h4>VAT</h4>
-
+						<h4>Shipping</h4>
 						<h4>Total</h4>
 					</div>
 					<div className=' '>
-						<h4>{subTotal}</h4>
-						<h4>{subTotal * 0.01}</h4>
-						<h4>{subTotal + subTotal * 0.01}</h4>
+						<h4>{formatter.format(subTotal)}</h4>
+						<h4>{formatter.format(0)}</h4>
+						<h4>{formatter.format(subTotal)}</h4>
 					</div>
 				</section>
 			</div>

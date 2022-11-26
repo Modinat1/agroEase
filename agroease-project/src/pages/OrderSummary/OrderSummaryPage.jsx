@@ -5,10 +5,10 @@ import summaryCow from "../../images/summaryCow.png";
 import summaryRice from "../../images/summaryRice.png";
 // import summaryChikenRectangle from "../../images/summaryChikenRectangle.png";
 import React, { useState } from "react";
-import { ProductContext } from "../../Context/Store/ProductContext";
+// import { ProductContext } from "../../Context/Store/ProductContext";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { Progress } from "../../users/Buyer/BuyerPayment/BuyerPayementComponent/Progress";
+import { ProductContext } from "../../Context/Store/productContext";
 
 const OrderSummaryPage = () => {
 	const cartContext = React.useContext(ProductContext);

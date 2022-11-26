@@ -5,7 +5,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { UserState } from "./Context/user-context/UserState";
 
-import { ProductProvider } from "./Context/Store/ProductContext";
+import { ProductProvider } from "./Context/Store/productContext";
 
 // import { BuyerState } from "./Context/Buyer-context/BuyerState";
 

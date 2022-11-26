@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 4000)
+    }, [])
   }, [])
   return isLoading ? (
     <Spinner />

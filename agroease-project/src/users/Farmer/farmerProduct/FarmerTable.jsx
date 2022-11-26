@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "./FarmerTable.css";
 // import jsonData from "../FarmerProductUpload.js/data.json";
 // import { FarmerProductUpload } from "../FarmerProductUpload.js/FarmerProductUpload";

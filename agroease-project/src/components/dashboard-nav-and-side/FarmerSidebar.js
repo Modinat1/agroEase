@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Agroeaselogo from "../../images/agro_ease_logo.png";
+import {useState} from "react";
 
 const NewFarmerSidebar = () => {
+	const [isActive, setIsActive] = useState(false)
+	const linkStyle = "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
+	const activeLinkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-300 hover:bg-gray-300"
+	const changeActive =()=>{
+		setIsActive(true)
+	}
 	return (
 		<>
 			<div className='hidden md:flex items-center justify-left w-auto h-screen  space-x-6 bg-white border-x-emerald-300 fixed top-0 z-40'>
@@ -180,7 +187,8 @@ const NewFarmerSidebar = () => {
 						<div className='flex flex-col items-center w-full mt-3 border-t border-gray-300'>
 							<Link
 								to={"/farmerdashboardpage"}
-								className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300'
+								className={isActive? activeLinkStyle: linkStyle}
+								onClick={changeActive}
 								href='#'>
 								<svg
 									className='w-6 h-6 stroke-current'
@@ -199,7 +207,8 @@ const NewFarmerSidebar = () => {
 							</Link>
 							<Link
 								to={"/farmerprofilepage"}
-								className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300'
+								className={isActive? activeLinkStyle: linkStyle}
+								onClick={changeActive}
 								href='#'>
 								{/* <svg
                   className="w-6 h-6 stroke-current"
@@ -228,13 +237,16 @@ const NewFarmerSidebar = () => {
 										d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
 									/>
 								</svg>
-								<span className='ml-2 text-sm font-medium'>Profile</span>
+								<span className='ml-2 text-sm font-medium' >Profile</span>
+
 							</Link>
 							<Link
 								to={"/farmerproductpage"}
-								className='flex items-center w-full h-12 px-3 mt-2 bg-gray-300 rounded'
+								className={isActive? activeLinkStyle: linkStyle}
+								onClick={changeActive}
 								href='#'>
 								{/* <svg
+								
 									className='w-6 h-6 stroke-current'
 									xmlns='http://www.w3.org/2000/svg'
 									fill='none'
@@ -258,7 +270,7 @@ const NewFarmerSidebar = () => {
 								</svg>
 								<span className='ml-2 text-sm font-medium'>Products</span>
 							</Link>
-							<Link
+							{/* <Link
 								to={"/farmercurrenttask"}
 								className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300'
 								href='#'>
@@ -280,8 +292,8 @@ const NewFarmerSidebar = () => {
 									/>
 								</svg>
 								<span className='ml-2 text-sm font-medium'>Current Task</span>
-							</Link>
-						</div>
+							</Link>*/}
+						</div> 
 						<div className='flex flex-col items-center w-full mt-2 border-t border-gray-300'>
 							{/* <Link
                 className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
@@ -306,7 +318,8 @@ const NewFarmerSidebar = () => {
 						</div>
 					</div>
 					<Link
-						className='flex items-center justify-center w-full h-16 mt-auto bg-gray-200 hover:bg-gray-300'
+						className={isActive? activeLinkStyle: linkStyle}
+						onClick={changeActive}
 						href='#'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'

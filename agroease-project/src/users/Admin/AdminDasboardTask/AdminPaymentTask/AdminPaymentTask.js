@@ -25,9 +25,8 @@ export const AdminPaymentTask = () => {
 				<ManageTaskWrapper />
 				<TaskSwitch />
 				<AdminSuccessPending />
-				{/* <AdminLogistcisTable /> */}
 			</div>
 			{/* <AdminTaskNotification/> */}
 		</>
-	);
-};
+	)
+}

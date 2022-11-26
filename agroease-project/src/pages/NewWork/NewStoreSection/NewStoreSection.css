@@ -1,0 +1,116 @@
+.newstoresec-width {
+    border: 1px solid blue;
+    width: 95%;
+    margin: 0 auto;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.newstoresec-shop {
+    padding: 1rem;
+    background-color: #96DDC0;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+
+}
+
+.newstoresec-shop p{
+    font-weight: 700;
+}
+
+.flexing-store {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.newstorecardsec-width {
+    padding: 1.5rem;
+}
+
+
+.newstorecardsec-img {
+    max-width: 100%;
+}
+
+.newstorecardsec-single-width {
+    width: 200px;
+}
+.newstorecardsec-descrip {
+    margin-top: 0.9rem;
+}
+
+.newstorecardsec-descrip h3 {
+    font-weight: 600;
+}
+
+.newstorecardsec-price-cart {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.newstorecardsec-price-cart p{
+    color: #097C0D;
+    font-weight: 500;
+}
+
+.newstorecardsec-buy-cart {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.newstorecart {
+    border: 1px solid #097C0D;
+    padding: 0.2rem 0.7rem;
+    margin-top: -0.4rem;
+    border-radius: 5px;
+}
+
+.newstorebuy {
+    border: 1px solid #097C0D;
+    background: #097C0D;
+    padding: 0.2rem;
+    margin-top: -0.4rem;
+    color: white;
+    border-radius: 5px;
+}
+
+/* *************MEDIA QUERIES (MEDIUM DEVICES) */
+
+@media screen and (max-width: 1024px) {
+    
+
+}
+
+/* *************MEDIA QUERIES (SMALL DEVICE)*********** */
+
+@media screen and (max-width: 600px) {
+
+    .flexing-store {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .newstorecardsec-width {
+        padding: 1.5rem;
+    }
+    
+    
+    .newstorecardsec-img {
+        max-width: 100%;
+    }
+    
+    .newstorecardsec-single-width {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .newstorecardsec-img img{
+        width: 100%;
+        border: 1px solid blue;
+    }
+
+}

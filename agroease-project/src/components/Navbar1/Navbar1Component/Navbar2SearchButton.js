@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavbarCompo.css";
 import { GrCart } from "react-icons/gr";
-import { ProductContext } from "../../../Context/Store/ProductContext";
+import { ProductContext } from "../../../Context/Store/productContext";
 import { Link } from "react-router-dom";
 
 const Navbar2SearchButton = () => {

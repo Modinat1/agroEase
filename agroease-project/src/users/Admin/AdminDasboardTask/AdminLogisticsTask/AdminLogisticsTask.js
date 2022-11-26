@@ -1,28 +1,19 @@
 import React from "react";
 import NewAdminSidebar from "../../../../components/dashboard-nav-and-side/AdminSidebar";
-// import Dashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
-// import Sidebar from "../../../../components/dashboard-nav-and-side/BrokerSidebar";
+
 import { TaskSwitch } from "../AdminDasboardComponent.js/ManageTaskSwitch";
 import { ManageTaskWrapper } from "../AdminDasboardComponent.js/ManageTaskWrapper";
 import Bus from "../../../../images/Bus.png";
 import googleMap from "../../../../images/googleMap.png";
 import "./AdminLogisticsTask.css";
 import NewBrokerNavbar from "../../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-// import NewBrokerSidebar from "../../../../components/dashboard-nav-and-side/NewBrokerSidebar";
-// import { BuyerProductCard } from "../../../Buyer/BuyerProduct/BuyerProductCard";
-// import BrokerDashnav from "../../../../components/dashboard-nav-and-side/BrokerDashnav";
-// import { AdminSidebar } from "../../../../components/dashboard-nav-and-side/AdminSidebar";
-// import { AdminLogisticsTable } from "../../../../components/TableBio/AdminLogisticsTable/AdminLogisticsTable";
-// import { AdminLogisticsTableSub } from "../../../../components/TableBio/AdminLogisticsTable/AdminLogisticsTableSub";
 
 export const AdminLogisticsTask = () => {
 	return (
 		<>
-			{/* <AdminSidebar /> */}
-			{/* <BrokerDashnav /> */}
 			<NewBrokerNavbar />
-			{/* <NewBrokerSidebar /> */}
-			<NewAdminSidebar/>
+
+			<NewAdminSidebar />
 
 			<div className='manage-task-wrapper'>
 				<ManageTaskWrapper />

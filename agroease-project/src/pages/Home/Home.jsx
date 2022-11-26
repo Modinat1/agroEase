@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar1 from "../../components/Navbar1/Navbar1";
 import "./HomePage.css";
 import "./HomeResponsiveness.css";
@@ -10,30 +10,25 @@ import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
 import Footer from "../../components/Footer/Footer";
-import { ProductProvider } from "../../Context/Store/productContext";
-
-
+// import { ProductProvider } from "../../Context/Store/ProductContext";
 
 const Home = () => {
+	const [search, setSearch] = useState("");
+	return (
+		<>
+			<Navbar1 search={search} setSearch={setSearch} />
+			<HomepageHeader />
 
-  console.log(process.env.REACT_APP_BASE_URL)
-  return (
-    <>
-      
-      <Navbar1 />
-      <HomepageHeader />
-      <ProductProvider>
-      <Categories />
-      <PaginatedItems itemsPerPage={6} />
-    </ProductProvider>
-      <Broker />
-      <TopPicks />
-      <Seller />
-      <Payment />
-      <Footer />
-  
-    </>
-  );
+			<Categories />
+			<PaginatedItems search={search} setSearch={setSearch} itemsPerPage={6} />
+
+			<Broker />
+			<TopPicks />
+			<Seller />
+			<Payment />
+			<Footer />
+		</>
+	);
 };
 
 export default Home;

@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .referal-page-body {
+    background-color: #fafbfb;
+  }
+  .referal-page-general-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+     /* border: 2px solid red;  */
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+  
+  .refer-and-earn-right-section-content {
+     /* border: 2px solid blue; */
+     text-align: center; 
+    height: 27rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .referal-header {
+     margin-top: 5rem; 
+     width: 80%;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 20px;
+    /* border: 2px solid palevioletred; */
+  }
+  
+  .refer-and-earn-section-inner-container {
+     /* border: 2px solid green;  */
+    margin-left: 8rem;
+    margin-right: 8rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .refer-generate-link-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #243757;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  .earn-as-much-content {
+    /* border: 2px solid purple; */
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .refer-and-earn-section-detail {
+    line-height: 1;
+    /* font-size: 18px; */
+  }
+  
+  .generated-password-container {
+    border: 1px solid #15294b;
+    width: 100%;
+    padding: 10px;
+  
+    display: flex;
+    justify-content: space-between;
+  }
+  .referal-main-id {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .referal-id-copy-icon {
+    cursor: pointer;
+  }
+  
+  /* MEDIA QUERY */
+  @media screen and (max-width: 790px) {
+    .referal-page-general-container {
+      flex-direction: column-reverse;
+    }
+  
+    .referal-left-image {
+      display: none;
+    }
+  
+    .refer-and-earn-right-section-content {
+      margin-top: 5rem;
+    }
+  }
+  

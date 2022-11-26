@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import rice from "../../images/rice.png";

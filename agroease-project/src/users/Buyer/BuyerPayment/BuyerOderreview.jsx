@@ -8,7 +8,7 @@ import Smove from "../../../images/SMoveSmove.png";
 import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import cow from "../../../images/cows.png";
-import { ProductContext } from "../../../Context/Store/ProductContext";
+import { ProductContext } from "../../../Context/Store/productContext";
 
 export const BuyerOderreview = () => {
 	const productContext = React.useContext(ProductContext);

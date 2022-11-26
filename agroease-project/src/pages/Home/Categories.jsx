@@ -1,6 +1,5 @@
-import React from "react";
-import { ProductContext } from "../../Context/Store/ProductContext";
-
+import React from "react"
+import { ProductContext } from "../../Context/Store/productContext";
 export const Categories = () => {
 	const productStore = React.useContext(ProductContext);
 

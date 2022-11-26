@@ -6,78 +6,51 @@ import { Progress } from "./BuyerPayementComponent/Progress";
 import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import { useFormik } from "formik";
-// import CountrySelector from "./BuyerPayementComponent/CountrySelector";
+
 import { countryList } from "./BuyerPayementComponent/countryModule";
 import { stateList } from "./BuyerPayementComponent/countryModule";
-import { useState } from "react";
+// import shippingSchema from "../../../components/Yup/Schema/ShippingSchema";
+import * as yup from "yup";
 
 export const BuyerShipping = () => {
 	const navigate = useNavigate();
-	const initialValues = {
-		username: "",
-		// email: "",
-		phone: "",
-		country: "",
-		state: "",
-		zip: "",
-		city: "",
-		address: "",
-	};
-
-	const [formValue, setformValue] = useState(initialValues);
-
-	const [formErrors, setformErrors] = useState({});
-
-	const [isSubmit, setisSubmit] = useState(false);
-
-	const [ischecked, setischecked] = useState(false);
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setformValue({ ...formValue, [name]: value });
-	};
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setformErrors(validate(formValue));
-		setisSubmit(true);
-		console.log(formValue);
-	};
-
-	// useEffect(() => {
-	// 	if (Object.keys(formErrors).length === 0 && isSubmit) {
-	// 	}
-	// }, [formErrors]);
-
-	const validate = (values) => {
-		// const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-		const errors = {};
-		if (!values.username) {
-			errors.username = "Required";
-		}
-
-		// if (!values.email) {
-		// 	errors.email = "Required";
-		// } else if (!emailRegex.test(values.email)) {
-		// 	errors.email = "Enter a valid email";
-		// }
-
-		if (!values.country) {
-			errors.country = "Required";
-		}
-		if (!values.state) {
-			errors.state = "Required";
-		}
-		if (!values.city) {
-			errors.city = "Required";
-		}
-		if (!values.zip) {
-			errors.zip = "Required";
-		}
-		if (!values.address) {
-			errors.address = "Required";
-		}
-		return errors;
-	};
+	const {
+		handleBlur,
+		handleChange,
+		handleSubmit,
+		touched,
+		values,
+		errors,
+		isSubmitting,
+	} = useFormik({
+		initialValues: {
+			username: "",
+			phone: "",
+			country: "",
+			state: "",
+			city: "",
+			zip: "",
+			address: "",
+		},
+		validationSchema: yup.object().shape({
+			username: yup.string().required("Required"),
+			phone: yup.number().required("Required"),
+			country: yup.string().required("Required"),
+			state: yup.string().required("Required"),
+			city: yup.string().required("Required"),
+			zip: yup.string().required("Required"),
+			address: yup.string().required("Required"),
+		}),
+		onSubmit: (values, { resetForm, setSubmitting }) => {
+			setTimeout(() => {
+				console.log(JSON.stringify(values, null, 2));
+				setSubmitting(false);
+				resetForm();
+				//   handleUserRegistration(values)
+				navigate("/BuyerPayment");
+			}, 4000);
+		},
+	});
 
 	return (
 		<>
@@ -86,7 +59,7 @@ export const BuyerShipping = () => {
 				<Progress />
 
 				<form
-					// onSubmit={handleSubmit}
+					onSubmit={handleSubmit}
 					className='shipping-form shipping-form-active shipping-form-step'>
 					<h3>Shipping Details</h3>
 					<div className='shipping-form-group'>
@@ -95,9 +68,13 @@ export const BuyerShipping = () => {
 							className='username'
 							type='text'
 							name='username'
+							value={values.username}
 							onChange={handleChange}
+							onBlur={handleBlur}
 						/>
-						<p className='error'>{formErrors.username}</p>
+						{errors.username && touched.username ? (
+							<span className='text-red-500'>{errors.username}</span>
+						) : null}
 					</div>
 					<div className='shipping-form-group password'>
 						{/* <i class="fa-solid fa-eye"></i> */}
@@ -106,9 +83,13 @@ export const BuyerShipping = () => {
 							className='userphone'
 							type='text'
 							name='phone'
+							value={values.phone}
 							onChange={handleChange}
+							onBlur={handleBlur}
 						/>
-						<p className='error'>{formErrors.phone}</p>
+						{errors.phone && touched.phone ? (
+							<span className='text-red-500'>{errors.phone}</span>
+						) : null}
 					</div>
 					<div className='shipping-form-group state'>
 						<div className='state-content'>
@@ -117,12 +98,16 @@ export const BuyerShipping = () => {
 								className='shipping_slect'
 								type='text'
 								name='country'
-								onChange={handleChange}>
+								value={values.country}
+								onChange={handleChange}
+								onBlur={handleBlur}>
 								{countryList.map((country, index) => {
 									return <option key={index}>{country}</option>;
 								})}
 							</select>
-							<p className='error'>{formErrors.country}</p>
+							{errors.country && touched.country ? (
+								<span className='text-red-500'>{errors.country}</span>
+							) : null}
 							{/* <CountrySelector className='shipping_slect' /> */}
 						</div>
 						<div className='state-content'>
@@ -131,12 +116,16 @@ export const BuyerShipping = () => {
 								className='shipping_slect'
 								type='text'
 								name='state'
-								onChange={handleChange}>
+								value={values.state}
+								onChange={handleChange}
+								onBlur={handleBlur}>
 								{stateList.map((state, index) => {
 									return <option key={index}>{state}</option>;
 								})}
 							</select>
-							<p className='error'>{formErrors.state}</p>
+							{errors.state && touched.state ? (
+								<span className='text-red-500'>{errors.state}</span>
+							) : null}
 						</div>
 					</div>
 					<div className='shipping-form-group state'>
@@ -146,9 +135,13 @@ export const BuyerShipping = () => {
 								className='userstate'
 								type='text'
 								name='city'
+								value={values.city}
 								onChange={handleChange}
+								onBlur={handleBlur}
 							/>
-							<p className='error'>{formErrors.city}</p>
+							{errors.city && touched.city ? (
+								<span className='text-red-500'>{errors.city}</span>
+							) : null}
 						</div>
 						<div className='state-content'>
 							<label htmlFor='local-gov'>Zip</label>
@@ -157,9 +150,13 @@ export const BuyerShipping = () => {
 								className='userlga'
 								type='text'
 								name='zip'
+								value={values.zip}
 								onChange={handleChange}
+								onBlur={handleBlur}
 							/>
-							<p className='error'>{formErrors.zip}</p>
+							{errors.zip && touched.zip ? (
+								<span className='text-red-500'>{errors.zip}</span>
+							) : null}
 						</div>
 					</div>
 					<div className='shipping-form-group shipping-form-step'>
@@ -168,17 +165,24 @@ export const BuyerShipping = () => {
 							className='useradd'
 							type='text'
 							name='address'
+							value={values.address}
 							onChange={handleChange}
+							onBlur={handleBlur}
 						/>
-						<p className='error'>{formErrors.address}</p>
+						{errors.address && touched.address ? (
+							<span className='text-red-500'>{errors.address}</span>
+						) : null}
 					</div>
 					<div className='shipping-form-group-btn'>
 						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						<Link to={"/BuyerPayment"}>
-							<button className='shipping-proceed-btn ' type='submit'>
-								Next
-							</button>
-						</Link>
+						{/* <Link to={"/BuyerPayment"}> */}
+						<button
+							className='shipping-proceed-btn '
+							type='submit'
+							isSubmitting>
+							Next
+						</button>
+						{/* </Link> */}
 					</div>
 				</form>
 			</div>

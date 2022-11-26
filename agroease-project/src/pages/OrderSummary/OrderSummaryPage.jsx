@@ -140,42 +140,8 @@ const OrderSummaryPage = () => {
 							</div>
 						);
 					})}
-					{/* 2 */}
-					{/* <div className="summary-order-box-2">
-            <div className="summary-empty">
-              <img src={summaryChikenRectangle} alt=''/>
-            </div>
-            <div className="summary-order-total">
-              <h5>Fulani Cow Special Breed</h5>
-              <h5 className="sumary-0rder-money"> N120,000.00 </h5>
-            </div>
-            <div className="summary-order-cancel"> ✖</div>
-          </div> */}
-					{/* 3 */}
-					{/* <div className="summary-order-box-2">
-            <div className="summary-empty">
-            <img src={summaryChikenRectangle} alt=''/>
-            </div>
-            <div className="summary-order-total">
-              <h5>Fulani Cow Special Breed</h5>
-              <h5 className="sumary-0rder-money"> N120,000.00 </h5>
-            </div>
-            <div className="summary-order-cancel"> ✖</div>
-          </div> */}
-
-					{/* 4 */}
-
-					{/* <div className="summary-order-box-2">
-            <div className="summary-empty">
-            <img src={summaryChikenRectangle} alt=''/>
-            </div>
-            <div className="summary-order-total">
-              <h5>Fulani Cow Special Breed</h5>
-              <h5 className="sumary-0rder-money"> N120,000.00 </h5>
-            </div>
-            <div className="summary-order-cancel"> ✖</div>
-          </div> */}
 				</div>
+
 				<section className='summary-order-button-container'>
 					<Link to={"/BuyerShipping"}>
 						<button className='summary-order-checkout'>

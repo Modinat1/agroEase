@@ -1,14 +1,15 @@
 import React from 'react'
+import "./AdminPaymentTable.css"
 import { adminpayment } from './AdminPaymentModule'
 
 const AdminPaymentTable = () => {
   return (
     <div>
-        <div className='general-table-bio'>
-        <div className='general-table-width'>
-            <table className='admin-general-table'>
-                <thead className='admin-general-thead'>
-                    <tr className='admin-general-tr'>
+        <div className='general-table-bio-pay'>
+        <div className='general-table-width-pay'>
+            <table className='pay-general-table'>
+                <thead className='pay-general-thead'>
+                    <tr className='pay-general-tr'>
                         <th>Id</th>
                         <th>Account Name</th>
                         <th>Account Number</th>

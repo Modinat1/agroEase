@@ -1,0 +1,104 @@
+.general-table-bio-pay {
+    display: flex;
+    justify-content: center;
+    background: white;
+}
+
+.general-table-width-pay {
+    width: 95%; 
+    height: auto; 
+    overflow-y: hidden;
+    margin-top: 80px;
+}
+
+.styletableicon {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    color: #097c0d;
+}
+
+
+.pay-general-table {
+    width: 1850px;
+    text-align: left;
+    overflow: scroll;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.pay-general-thead {
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+.pay-general-thead .pay-general-tr {
+  background: #999999;
+}
+
+.pay-general-tr th {
+    width: 200px;
+    height: 50px;
+    z-index: -1;
+    text-align: center;
+}
+
+.pay-general-tbody tr{
+    background: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.pay-general-tbody td {
+    width: 200px;
+    height: 40px;
+    text-align: center;
+}
+
+.pay-general-tbody tr:nth-child(odd) {
+    background: #f2f2f2;
+}
+
+.pay-general-tbody tr:hover {
+    background: #bebdbd;
+    color: white;
+}
+
+/* fix 1st td and scroll */
+
+.pay-general-tr th:nth-child(1) {
+    width: 120px;
+    height: 50px;
+    text-align: left;
+    position: absolute;
+    z-index: 10;
+    background: inherit;
+    padding: 10px;
+    padding-left: 55px;
+}
+
+.pay-general-tbody td:nth-child(1) {
+    box-shadow: 5px 0 3px -2px #ccc;
+    width: 120px;
+    /* position: fixed; */
+    position: absolute;
+    z-index: 1;
+    background: inherit;
+    padding: 10px;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 55px;
+    font-weight: bold;
+}
+
+/* .admin-general-tbody td:nth-child(2) {
+    width: 100px;
+}
+
+.admin-general-tbody td:nth-child(3) {
+    width: 400px;
+} */
+
+

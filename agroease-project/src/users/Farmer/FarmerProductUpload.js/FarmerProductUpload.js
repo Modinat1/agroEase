@@ -164,6 +164,7 @@ export const FarmerProductUpload = (props) => {
 							id="product_cart"
 							onChange={formik.handleChange}
               value={formik.values.product_cart}
+              className="lopo"
 							>
                 select
                 <option value="">

@@ -7,7 +7,7 @@
     max-width: 100%;
     left: 0;
     z-index: 99999;
-    position: fixed;
+    position: sticky;
     background-color: #F5F6F7;
 }
 

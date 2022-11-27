@@ -9,7 +9,7 @@ export const adminpayment = [
         transaction:"In review",
         status:"In review",
         action:"In review",
-        tbcName: "admin-general-tbody",
+        tbcName: "pay-general-tbody",
         tbcIcon: "styletableicon"
      },
      {
@@ -22,7 +22,7 @@ export const adminpayment = [
         transaction:"In review",
         status:"In review",
         action:"In review",
-        tbcName: "admin-general-tbody",
+        tbcName: "pay-general-tbody",
         tbcIcon: "styletableicon"
      },
      {
@@ -35,7 +35,7 @@ export const adminpayment = [
         transaction:"In review",
         status:"In review",
         action:"In review",
-        tbcName: "admin-general-tbody",
+        tbcName: "pay-general-tbody",
         tbcIcon: "styletableicon"
      },
      {
@@ -48,7 +48,7 @@ export const adminpayment = [
         transaction:"In review",
         status:"In review",
         action:"In review",
-        tbcName: "admin-general-tbody",
+        tbcName: "pay-general-tbody",
         tbcIcon: "styletableicon"
      }
 ]

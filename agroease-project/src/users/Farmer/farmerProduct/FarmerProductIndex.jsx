@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import React from "react";
+import AdminBrokerTable from "../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable";
 
 // import AdminSuccessPending from "../../../components/TableBio/AdminBuyerTableCompo/AdminSuccessPending";
 
@@ -59,8 +60,7 @@ export const FarmerProductIndex = () => {
 					</Link>
 				</section>
                
-				<FarmerTable />
-				<FarmerTableRow/>
+				<AdminBrokerTable />
 
 				{/* <AdminSuccessPending/> */}
 			</section>

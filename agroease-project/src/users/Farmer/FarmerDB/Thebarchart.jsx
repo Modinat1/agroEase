@@ -64,6 +64,7 @@ const data = [
 
 export default function Thebarchart() {
   return (
+    
     <ResponsiveContainer width="50%" aspect={2}>
       <BarChart
         width={500}
@@ -85,6 +86,6 @@ export default function Thebarchart() {
         <Bar dataKey="sales" fill="#82ca9d" />
       </BarChart>
     </ResponsiveContainer>
-
+    
   )
 }

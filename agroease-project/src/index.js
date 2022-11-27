@@ -11,15 +11,15 @@ import { ProductProvider } from "./Context/Store/productContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<React.StrictMode>
-		{/* <BuyerState> */}
-		<UserState>
-			<ProductProvider>
-				<BrowserRouter>
-					<App />
-				</BrowserRouter>
-			</ProductProvider>
-		</UserState>
-		{/* </BuyerState> */}
-	</React.StrictMode>
+  <React.StrictMode>
+    {/* <BuyerState> */}
+    <UserState>
+      <ProductProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ProductProvider>
+    </UserState>
+    {/* </BuyerState> */}
+  </React.StrictMode>
 );

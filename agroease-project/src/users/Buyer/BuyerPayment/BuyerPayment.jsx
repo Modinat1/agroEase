@@ -7,6 +7,8 @@ import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import { Progress } from "./BuyerPayementComponent/Progress";
 import * as yup from "yup";
 
+import visaCard from "../../../images/visa.png";
+import masterCard from "../../../images/mastercard.png";
 export const BuyerPayment = () => {
 	const navigate = useNavigate();
 	const { handleChange, handleBlur, handleSubmit, errors, values, touched } =
@@ -57,10 +59,10 @@ export const BuyerPayment = () => {
 							onChange={handleChange}
 						/>
 						{touched.fullName && errors.fullName ? (
-							<span>{errors.fullName}</span>
+							<span className='text-red-500'>{errors.fullName}</span>
 						) : null}
 					</div>
-					<div className='shipping-form-group password'>
+					<div className='shipping-form-group password relative'>
 						{/* <i class="fa-solid fa-eye"></i> */}
 						<label htmlFor='card-number'>Card Number</label>
 						<input
@@ -70,8 +72,15 @@ export const BuyerPayment = () => {
 							value={values.cardNumber}
 							onChange={handleChange}
 						/>
+						<div style={{ width: "30px" }} className='absolute right-2 top-12'>
+							<img style={{ width: "100%" }} src={visaCard} alt='' />
+						</div>
+						<div style={{ width: "30px" }} className='absolute right-10 top-12'>
+							<img style={{ width: "100%" }} src={masterCard} alt='' />
+						</div>
+
 						{touched.cardNumber && errors.cardNumber ? (
-							<span>{errors.cardNumber}</span>
+							<span className='text-red-500'>{errors.cardNumber}</span>
 						) : null}
 					</div>
 					<div className='shipping-form-group state'>
@@ -95,7 +104,7 @@ export const BuyerPayment = () => {
 								/>
 							</div>
 							{touched.expiryYear && errors.expiryYear ? (
-								<span>{errors.expiryYear}</span>
+								<span className='text-red-500'>{errors.expiryYear}</span>
 							) : null}
 						</div>
 						<div className='state-content'>
@@ -107,7 +116,9 @@ export const BuyerPayment = () => {
 								value={values.cvv}
 								onChange={handleChange}
 							/>
-							{touched.cvv && errors.cvv ? <span>{errors.cvv}</span> : null}
+							{touched.cvv && errors.cvv ? (
+								<span className='text-red-500'>{errors.cvv}</span>
+							) : null}
 						</div>
 					</div>
 					<div className='shipping-form-group-btn'>

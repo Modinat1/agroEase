@@ -104,7 +104,7 @@ export const FarmerProductUpload = (props) => {
   const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
   const validationSchema = Yup.object({
     product_name: Yup.string().required("product name required").max(50),
-    product_desc: Yup.string().required("Product description require").max(200),
+    product_desc: Yup.string().required("Product description required").max(200),
     product_qty: Yup.string().required("The quantity must not be zero").max(2),
     file: Yup.mixed()
       .nullable()
@@ -142,6 +142,7 @@ export const FarmerProductUpload = (props) => {
               <input
                 type="text"
                 className="product"
+                placeholder="name of product"
                 id="product_name"
                 name="product_name"
                 onChange={formik.handleChange}
@@ -166,7 +167,7 @@ export const FarmerProductUpload = (props) => {
               value={formik.values.product_cart}
 							>
                 select
-                <option value="">
+                <option value="" disabled>
                   Select
                 </option>
                 <option value="uploaded_farm_input">Farm Input</option>
@@ -190,7 +191,7 @@ export const FarmerProductUpload = (props) => {
 							onChange={formik.handleChange}
               value={formik.values.unit_input}
 							>
-                <option value="">
+                <option value="" disabled>
                   Select
                 </option>
                 <option value="uploaded_kilo">Kg</option>
@@ -219,27 +220,6 @@ export const FarmerProductUpload = (props) => {
               />
             </div>
           </div>
-          <div className="textarea-text label_input">
-            <label htmlFor="product-desc" className="name">
-              Product Description
-            </label>
-            <textarea
-              // id="product-desc"
-              cols={30}
-              rows={10}
-              placeholder="product description"
-              id="product_desc"
-              name="product_desc"
-              onChange={formik.handleChange}
-              value={formik.values.product_desc}
-            />
-						{formik.errors.product_desc ? (
-                <div className="product_upload_error">
-                  {formik.errors.product_desc}
-                </div>
-              ) : null}
-          </div>
-          
 
 					<div className="default-unit-cost upload_photo_qty">
             <div className="default-unit-div label_input">
@@ -274,6 +254,27 @@ export const FarmerProductUpload = (props) => {
             </div>
           </div>
 
+          <div className="textarea-text label_input">
+            <label htmlFor="product-desc" className="name">
+              Product Description
+            </label>
+            <textarea
+              // id="product-desc"
+              cols={30}
+              rows={10}
+              placeholder="product description"
+              id="product_desc"
+              name="product_desc"
+              onChange={formik.handleChange}
+              value={formik.values.product_desc}
+            />
+						{formik.errors.product_desc ? (
+                <div className="product_upload_error">
+                  {formik.errors.product_desc}
+                </div>
+              ) : null}
+          </div>
+          
 
 
 

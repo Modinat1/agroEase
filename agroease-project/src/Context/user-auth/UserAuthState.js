@@ -1,36 +1,38 @@
-import {SIGNUP_USER,
+import {
+	SIGNUP_USER,
 	SIGNUP_USER_ERROR,
-	SIGNUP_USER_SUCCESS,} from './UserAuthType'
+	SIGNUP_USER_SUCCESS,
+} from "./UserAuthType";
 
-import React, {useReducer, useState} from 'react'
-import UserAuthContext from './UserAuthContext'
-import UserAuthReducer from './UserAuthReducer'
+import React, { useReducer, useState } from "react";
+import UserAuthContext from "./UserAuthContext";
+import UserAuthReducer from "./UserAuthReducer";
 
-export const UserAuthState = ({children}) => {
-    // const initialState = {
-    //     userAuth: {},
+export const UserAuthState = ({ children }) => {
+	// const initialState = {
+	//     userAuth: {},
 
+	// }
+	// const [state, dispatch] = useReducer(UserAuthReducer, initialState);
 
-    // }
-    // const [state, dispatch] = useReducer(UserAuthReducer, initialState);
-
-
-    // For SignupUser
+	// For SignupUser
 	// const signupUser = (addObj) => {
 	// 	dispatch({ type: SIGNUP_USER, payload: addObj });
 	// };
-    const [userAuth, setUserAuth] = useState({})
-    return (
+	const [userAuth, setUserAuth] = useState({});
+	const [autherror, setautherror] = useState("");
+	return (
 		<UserAuthContext.Provider
 			value={{
-                userAuth,
-                setUserAuth,
-                // userAuth: state.userAuth,
-                // signupUser,
+				userAuth,
+				setUserAuth,
+				autherror,
+				setautherror,
+				// userAuth: state.userAuth,
+				// signupUser,
 				// ...state,
-
 			}}>
 			{children}
 		</UserAuthContext.Provider>
 	);
-}
+};

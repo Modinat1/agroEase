@@ -197,8 +197,26 @@ form.login-form p a {
 	padding: 0.5rem;
 	margin-top: 0.75rem;
 }
+.state-content {
+	width: 100%;
+}
+
+.shipping_slect {
+	width: 100%;
+}
 
 @media (min-width: 764px) {
+	.state {
+		display: flex;
+	}
+	.state-content {
+		width: 50%;
+	}
+
+	.shipping_slect {
+		width: 100%;
+	}
+
 	.shipping-form {
 		/* max-width: 600px; */
 		margin: 3rem 0;

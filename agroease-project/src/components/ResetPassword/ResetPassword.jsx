@@ -13,11 +13,13 @@ export const ResetPassword = () => {
   const notifySuccess = () => {
     toast.success("Reset Link has been sent to your email!", {
       position: toast.POSITION.TOP_CENTER,
+			className: 'toast-message',
     });
   };
   const notifyError = () => {
     toast.error("Email not found !", {
       position: toast.POSITION.TOP_CENTER,
+			className: 'toast-message',
     });
   };
   return (
@@ -27,6 +29,17 @@ export const ResetPassword = () => {
 									email: "",
 								}}
 								// validationSchema={SignupSchema}
+								validate={values => {
+									const errors = {};
+									if (!values.email) {
+										errors.email = 'Required';
+									} else if (
+										!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+									) {
+										errors.email = 'Invalid email address';
+									}
+									return errors;
+								}}
 								onSubmit={async (values, { setSubmitting }) => {
 									const { email } = values;
 									setSubmitting(true);
@@ -39,6 +52,7 @@ export const ResetPassword = () => {
 										);
 										notifySuccess();
 										// navigate("/check-mail");
+								
 									} catch (error) {
 										notifyError();
 									}
@@ -59,7 +73,7 @@ export const ResetPassword = () => {
 		<Navbar1/>
 	
 				 <div className='reset_password_form'>
-					<h2 className='reset_password_form_title'>Reset Password</h2>
+					<h2 className='reset_password_form_title'>Forgot Password?</h2>
 						<label >Email Address</label>
 	 					<input
 								type="email"
@@ -68,7 +82,7 @@ export const ResetPassword = () => {
 								onChange={handleChange}
 								value={values.email}
 								/>
-								{/* <div className='errors'>{errors.email && touched.email && errors.email}</div> */}
+								<div className='errors'>{errors.email && touched.email && errors.email}</div>
 								<button className='reset_btn' type="submit"  onClick={handleSubmit}
                       disabled={isSubmitting}>
 									     {isSubmitting ? "loading..." : "continue"}

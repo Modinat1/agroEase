@@ -36,6 +36,7 @@ import { GenerateLink } from "./users/Admin/adminDashboard copy/GenerateLink";
 import Help from "./pages/Help/Help";
 import Home from "./pages/Home/Home";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Spinner from "./components/Loader/Spinner";
 import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
@@ -145,6 +146,7 @@ function App() {
         <Route path="OrderSummary" element={<OrderSummary />} />
         <Route path="UsersSignUp" element={<UsersSignUp />} />
         <Route path="UsersSignIn" element={<UsersSignIn />} />
+        <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
       </Routes>
     </div>
   )

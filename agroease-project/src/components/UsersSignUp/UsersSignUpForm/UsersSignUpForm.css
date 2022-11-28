@@ -12,6 +12,8 @@
 .broker_signup_form{
     width: 350px;
     padding: 1rem;
+    
+    
 }
 .broker_signup_form_title{
     font-size: 1.5rem;
@@ -21,6 +23,7 @@
 .broker_signup_form label{
     display: block;
     margin-top: 0.5rem;
+    padding-top: 1rem;
 }
 .broker_signup_form input{
     background-color: transparent;
@@ -28,7 +31,20 @@
     border-bottom: 1px solid gray;
     padding: 0.2rem;
     width: 100%;
+    /* row-gap: 2rem; */
 }
+
+.broker_signup_form select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 0.2rem;
+    width: 100%;
+    outline: none;
+    gap: 1rem;
+}
+
+
 .broker_signup_form input:focus{
     outline: none;
 }

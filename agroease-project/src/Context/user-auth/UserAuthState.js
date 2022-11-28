@@ -7,24 +7,19 @@ import UserAuthContext from './UserAuthContext'
 import UserAuthReducer from './UserAuthReducer'
 
 export const UserAuthState = ({children}) => {
-    // const initialState = {
-    //     userAuth: {},
-
-
-    // }
-    // const [state, dispatch] = useReducer(UserAuthReducer, initialState);
-
-
-    // For SignupUser
-	// const signupUser = (addObj) => {
-	// 	dispatch({ type: SIGNUP_USER, payload: addObj });
-	// };
+    
     const [userAuth, setUserAuth] = useState({})
+    const [user, setUser] = useState({})
+
+
+
     return (
 		<UserAuthContext.Provider
 			value={{
                 userAuth,
                 setUserAuth,
+                user,
+                setUser,
                 // userAuth: state.userAuth,
                 // signupUser,
 				// ...state,

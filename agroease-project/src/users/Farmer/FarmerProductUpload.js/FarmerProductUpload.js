@@ -31,66 +31,7 @@ import "./FarmerProductUpload.css";
 // };
 
 export const FarmerProductUpload = (props) => {
-  // function displayProductUploadNotice() {
-  // 	toast.error("Product uploaded successfully");
-  // }
-
-  // const farmerDB = "db101";
-  // let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
-
-  // const [productName, setProductName] = useState("");
-  // const [productType, setProductType] = useState("");
-  // const [unitInput, setUnitInput] = useState("");
-  // const [unitCost, setUnitCost] = useState("");
-  // const [productDesc, setProductDesc] = useState("");
-  // const [productFile, setProductFile] = useState("");
-
-  // const changeProductName = (event) => {
-  // 	setProductName(event.target.value);
-  // };
-  // const changeProductType = (event) => {
-  // 	setProductType(event.target.value);
-  // };
-  // const changeUnitInput = (event) => {
-  // 	setUnitInput(event.target.value);
-  // };
-  // const changeUnitCost = (event) => {
-  // 	setUnitCost(event.target.value);
-  // };
-  // const changeProductDesc = (event) => {
-  // 	setProductDesc(event.target.value);
-  // };
-
-  // const changeProductFile = (event) => {
-  // 	setProductFile(event.target.value);
-  // };
-
-  // console.log(changeProductName);
-
-  // const transferValue = (event) => {
-  // 	event.preventDefault();
-  // 	const val = {
-  // 		productName,
-  // 		productType,
-  // 		unitInput,
-  // 		unitCost,
-  // 		productDesc,
-  // 		productFile,
-  // 	};
-  // 	const updatedTodo = [...todoDBInstance, val];
-  // 	localStorage.setItem(farmerDB, JSON.stringify(updatedTodo));
-  // 	props.func(val);
-  // 	clearState();
-  // };
-
-  // const clearState = () => {
-  // 	setProductName("");
-  // 	setProductType("");
-  // 	setUnitInput("");
-  // 	setUnitCost("");
-  // 	setProductDesc("");
-  // 	setProductFile("");
-  // };
+  
   const initialValues = {
     product_name: "",
     product_cart: "",
@@ -98,28 +39,29 @@ export const FarmerProductUpload = (props) => {
     unit_cost: "",
     product_desc: "",
     product_qty: "",
-    file: "",
+    file: [],
   };
 
   const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
+
   const validationSchema = Yup.object({
     product_name: Yup.string().required("product name required").max(50),
     product_desc: Yup.string().required("Product description required").max(200),
     product_qty: Yup.string().required("The quantity must not be zero").max(2),
-    file: Yup.mixed()
-      .nullable()
-      .required("This picture is required")
-      .test(
-        "FILE_SIZE",
-        "Uploaded file is too big",
-        (value) => !value || (value && value.size <= 1024 * 1024)
-      )
-      .test(
-        "FILE_FORMAT",
-        "Uploaded file has unsupported format",
-        (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
-      ),
-  });
+    // file: Yup.mixed()
+    //   .required("This picture is required")
+  //     .test({message: "Uploaded file is too big",
+        
+  //     test:(value) => value[0].size <= 2000000
+  //       // { return console.log(value) }
+  //       // !value || (value && value.size <= 1024 * 1024)
+  // })
+      // .test(
+      //   "FILE_FORMAT",
+      //   "Uploaded file has unsupported format",
+      //   (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
+      // ),
+   });
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
@@ -236,6 +178,8 @@ export const FarmerProductUpload = (props) => {
 								name="file"
 								onChange={formik.handleChange}
 								value={formik.values.file}
+                multiple
+                required
 								/>
 								 {formik.errors.file ? <div className="product_upload_error">{formik.errors.file}</div> : null}
             </div>
@@ -276,66 +220,6 @@ export const FarmerProductUpload = (props) => {
               ) : null}
           </div>
           
-
-
-
-
-
-
-
-          {/* <div className="default-unit-cost">
-            <div className="default-unit-div label_input">
-              <label htmlFor="unit-input" className="name">
-                Default Unit
-              </label>
-              <input
-                type="text"
-                className="default-unit-input"
-                value={unitInput}
-                onChange={changeUnitInput}
-              />
-            </div>
-            <div className="unit-cost label_input">
-              <label htmlFor="unit-cost" className="name">
-                Unit Cost/item
-              </label>
-              <input
-                type="text"
-                id="unit-cost"
-                className="unit-cost-type"
-                value={unitCost}
-                onChange={changeUnitCost}
-              />
-            </div>
-          </div>
-          <div className="textarea-text label_input">
-            <label htmlFor="product-desc" className="name">
-              Product Description
-            </label>
-            <textarea
-              id="product-desc"
-              cols={30}
-              rows={10}
-              placeholder="product description"
-              value={productDesc}
-              onChange={changeProductDesc}
-            />
-          </div>
-          <div className="upload-file">
-            <label htmlFor="choose-file" className="name">
-              Upload Photo
-            </label>
-            <div className="choose-file" id="choose-file">
-              <input
-                type="file"
-                placeholder="Choose file"
-                name="product_file[]"
-                multiple="multiple"
-                value={productFile}
-                onChange={changeProductFile}
-              />
-            </div>
-          </div> */}
 
           <div className="add-product-btn">
             {/* <Link to="/farmerproductpage"> */}

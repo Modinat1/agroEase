@@ -32,7 +32,7 @@ export const ResetPassword = () => {
 									setSubmitting(true);
 									try {
 										await axios.post(
-											"https://agro-ease-tiidelab.herokuapp.com/v1/auth/forgot-password",
+											"https://agro-ease-herokuapp.com/v1/auth/forgot-password",
 											{
 												email,
 											}
@@ -74,7 +74,7 @@ export const ResetPassword = () => {
 									     {isSubmitting ? "loading..." : "continue"}
 								</button>
 								</div>
-							</form>
+						</form>
 							)}
 							  </Formik>
 								

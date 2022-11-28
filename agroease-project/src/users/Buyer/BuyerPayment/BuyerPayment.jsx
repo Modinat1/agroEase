@@ -9,42 +9,48 @@ import * as yup from "yup";
 
 import visaCard from "../../../images/visa.png";
 import masterCard from "../../../images/mastercard.png";
+import PaymentInputs from "./BuyerPayementComponent/CreditCardValidator";
 export const BuyerPayment = () => {
-	const navigate = useNavigate();
-	const { handleChange, handleBlur, handleSubmit, errors, values, touched } =
-		useFormik({
-			initialValues: {
-				fullName: "",
-				cardNumber: "",
-				expiryMonth: "",
-				expiryYear: "",
-				cvv: "",
-			},
-			validationSchema: yup.object().shape({
-				fullName: yup.string().required("Required"),
-				cardNumber: yup.string().required("Required"),
-				expiryMonth: yup.date().required("Required"),
-				expiryYear: yup.date().required("Required"),
-				cvv: yup.string().required("Required"),
-			}),
-			onSubmit: async (values) => {
-				console.log(JSON.stringify(values, null, 2));
-				setTimeout(() => {
-					console.log(JSON.stringify(values, null, 2));
-					// setSubmitting(false);
-					// resetForm();
-					//   handleUserRegistration(values)
-					navigate("/BuyerOrderreview");
-				}, 4000);
-			},
-		});
+	// const navigate = useNavigate();
+	// const { handleChange, handleBlur, handleSubmit, errors, values, touched } =
+	// 	useFormik({
+	// 		initialValues: {
+	// 			fullName: "",
+	// 			cardNumber: "",
+	// 			expiryMonth: "",
+	// 			expiryYear: "",
+	// 			cvv: "",
+	// 		},
+	// 		validationSchema: yup.object().shape({
+	// 			fullName: yup.string().required("Required"),
+	// 			cardNumber: yup.string().required("Required"),
+	// 			expiryMonth: yup.date().required("Required"),
+	// 			expiryYear: yup.date().required("Required"),
+	// 			cvv: yup.string().required("Required"),
+	// 		}),
+	// 		onSubmit: async (values) => {
+	// 			console.log(JSON.stringify(values, null, 2));
+	// 			setTimeout(() => {
+	// 				console.log(JSON.stringify(values, null, 2));
+	// 				// setSubmitting(false);
+	// 				// resetForm();
+	// 				//   handleUserRegistration(values)
+	// 				navigate("/BuyerOrderreview");
+	// 			}, 4000);
+	// 		},
+	// 	});
 
 	return (
 		<>
 			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
-				<form
+				<div className='mt-20 flex  w-2/3 md:max-w-md m-auto flex-col'>
+					<h3 className='text-center'>Payment Details</h3>
+
+					<PaymentInputs />
+				</div>
+				{/* <form
 					onSubmit={handleSubmit}
 					className='shipping-form shipping-form-step  shipping-form-active'
 					action>
@@ -63,7 +69,7 @@ export const BuyerPayment = () => {
 						) : null}
 					</div>
 					<div className='shipping-form-group password relative'>
-						{/* <i class="fa-solid fa-eye"></i> */}
+						
 						<label htmlFor='card-number'>Card Number</label>
 						<input
 							className='card-number'
@@ -122,16 +128,16 @@ export const BuyerPayment = () => {
 						</div>
 					</div>
 					<div className='shipping-form-group-btn'>
-						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						{/* <Link to={"/BuyerOrderreview"}> */}
+						
+						
 						<button
 							className='shipping-proceed-btn btn-next btn-payment'
 							type='submit'>
 							Next
 						</button>
-						{/* </Link> */}
+						
 					</div>
-				</form>
+				</form> */}
 			</div>
 			<Footer />
 		</>

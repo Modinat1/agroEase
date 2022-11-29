@@ -5,32 +5,32 @@ import { ProductContext } from "../../../Context/Store/productContext";
 import { Link } from "react-router-dom";
 
 const Navbar2SearchButton = () => {
-	const cartContext = React.useContext(ProductContext);
-	console.log(cartContext);
-	const {
-		state: { cart },
-		// dispatch,
-	} = cartContext;
+  const cartContext = React.useContext(ProductContext);
+  console.log(cartContext);
+  const {
+    state: { cart },
+    // dispatch,
+  } = cartContext;
 
-	console.log(cart.length);
-	return (
-		<div>
-			<div className='navbar1-search-button'>
-				{cart.length === 0 ? (
-					<button className='flex item-center'>
-						<GrCart color='white' fontSize='25px' />
-						<span className=''>{cart.length > 0 ? cart.length : 0}</span>
-					</button>
-				) : (
-					<Link to={"/OrderSummary"}>
-						<button className='flex item-center'>
-							<GrCart color='white' fontSize='25px' />
-							<span className=''>{cart.length > 0 ? cart.length : 0}</span>
-						</button>
-					</Link>
-				)}
+  console.log(cart.length);
+  return (
+    <div>
+      <div className="navbar1-search-button">
+        {cart.length === 0 ? (
+          <button className="flex item-center">
+            <GrCart color="white" fontSize="25px" />
+            <span className="">{cart.length > 0 ? cart.length : 0}</span>
+          </button>
+        ) : (
+          <Link to={"/OrderSummary"}>
+            <button className="flex item-center">
+              <GrCart color="white" fontSize="25px" />
+              <span className="">{cart.length > 0 ? cart.length : 0}</span>
+            </button>
+          </Link>
+        )}
 
-				{/* {cart.length > 0 ? (
+        {/* {cart.length > 0 ? (
 					cart.map((prod) => {
 						return (
 							<div className='absolute flex flex-col items-center'>
@@ -66,9 +66,9 @@ const Navbar2SearchButton = () => {
 				) : (
 					<span>Cart is empty</span>
 				)} */}
-			</div>
-		</div>
-	);
+      </div>
+    </div>
+  );
 };
 
 export default Navbar2SearchButton;

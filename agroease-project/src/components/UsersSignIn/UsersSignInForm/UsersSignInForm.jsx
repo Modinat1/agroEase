@@ -1,73 +1,135 @@
-import React from "react";
-import { useFormik } from "formik";
+import React, { useContext, useEffect, useState } from "react";
+import { Formik, useFormik } from "formik";
 import "./UsersSignInForm.css";
 import { SellerSignUpBtn } from "../../UsersButton/Seller_Btn/SellerSignUpBtn";
 import { BuyerSignUpBtn } from "../../UsersButton/Buyer_Btn/BuyerSignUpBtn";
 import { BrokerSignUpBtn } from "../../UsersButton/Broker_Btn/BrokerSignUpBtn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import LogininSchema from "../../Yup/Schema/LogininSchema";
+import UserServices from "../../../Context/user-context/user.service";
+import UserAuth from "../../../Context/user-auth/UserAuthContext";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const UsersSignInForm = () => {
-	const validate = (values) => {
-		const errors = {};
+	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+		const [errorso, setErrorso] = useState("")
+		const [successo, setSuccesso] = useState("")
 
-		if (!values.email) {
-			errors.email = "Required";
-		} else if (
-			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-		) {
-			errors.email = "Invalid email address";
-		}
+		const navigate = useNavigate()
 
-		if (!values.password) {
-			errors.password = "Required";
-		} else if (values.password.length < 8) {
-			errors.password = "Must be 8 characters or more";
+
+	const handleLoginAuth = async (values)=> {
+		try {
+			const response = await axiosInstance.post("/v1/auth/login", values)
+			const accessToken = response.data.tokens.access.token
+			const refreshToken = response.data.tokens.refresh.token
+			setUserAuth({accessToken, refreshToken})
+			setUser(response.data.user)
+			// JSON.parse(localStorage.setItem('token', accessToken))
+			setSuccesso('Account Created Successfully')
+			console.log("Congratulation")
+			if (userAuth) {
+				navigate("/farmerdashboardpage")
+			}
 		}
-	};
-	const formik = useFormik({
-		initialValues: {
-			email: "",
-			password: "",
-		},
-		validate,
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
-		},
-	});
+		catch (error) {
+			if (!error.response) {
+				console.log("Server down")
+			} else if (error.response.status === 400) {
+				console.log('I don see enough shege')
+			} else if (error.response.status === 401) {
+				setErrorso("Incorrect Email or Password")
+				console.log('I don see enough')
+			} else if (error.response.status === 409) {
+				console.log('I don see ')
+			}
+		}
+	}
+
+
 	return (
+		<div>
+			<Formik
+        initialValues={
+          {
+            email: '',
+            password: ''
+          }
+        }
+
+        validationSchema={LogininSchema}
+
+        validate={(values) => {
+          const {email, password} = values
+
+          //"Key": errorMesssage
+          const errors = {}
+          if(!email) (errors.email = <small className='text-red-500'>Email cannot be empty</small>)
+
+          if(!password) (errors.password = <small className='text-red-500'>Password cannot be empty</small>)
+
+          return errors
+        }}
+
+        //onSubmitting
+        onSubmit={(values, { setSubmitting, resetForm}) => {
+            setTimeout(() => {
+              console.log((JSON.stringify(values, null, 2)));
+              setSubmitting(false)
+              resetForm()
+			  handleLoginAuth(values)
+            }, 4000)
+        }}
+      >
+        {({
+          values, 
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleReset,
+          handleSubmit,
+          isSubmitting,
+        }) => (
 		<React.Fragment>
 			<div className='user_signin_form'>
-				<form onSubmit={formik.handleSubmit}>
+				<form>
 					<h2 className='user_signin_form_title'>Welcome to AgroEase</h2>
-					<label htmlFor='email'>Email Address</label>
+					<small className="text-red-500 flex justify-center">{errorso}</small>
+						<small className="text-green-500 flex justify-center">{successo}</small>
+					<label >Email Address</label>
 					<input
 						id='email'
 						name='email'
 						type='email'
 						placeholder='Email*'
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.email}
+						onChange={handleChange}
+						onBlur={handleBlur}
+						value={values.email}
 					/>
-					{formik.touched.email && formik.errors.email ? (
-						<div style={{ color: "red" }}>{formik.errors.email}</div>
-					) : null}
+					{errors.email && touched.email && errors.email}
 
-					<label htmlFor='password'>Password</label>
+					<label>Password</label>
 					<input
 						id='password'
 						name='password'
 						type='password'
 						placeholder='Password*'
-						onBlur={formik.handleBlur}
-						value={formik.values.password}
+						onChange={handleChange}
+						onBlur={handleBlur}
+						value={values.password}
 					/>
-					{formik.touched.password && formik.errors.password ? (
-						<div style={{ color: "red" }}>{formik.errors.password}</div>
-					) : null}
+					{errors.password && touched.password && errors.password}
 
-					<button className='user_signin_btn' type='submit'>
-						SignIn
+					<button 
+							className='user_signin_btn' 
+							type='button'
+							disabled={isSubmitting}
+              				onClick={handleSubmit}
+							>
+								{
+									isSubmitting? ( "Submitting...") : ("SignIn")
+								}
 					</button>
 					<div className='reset_password_div'>
 						<Link to={"/resetPassword"}>Reset Password</Link>
@@ -77,9 +139,9 @@ export const UsersSignInForm = () => {
 					<h4 className='or'>OR</h4>
 
 					<div className='signUp_Btns'>
-						<Link to={"/UsersSignUp"}>
+						{/* <Link to={"/UsersSignUp"}>
 							<SellerSignUpBtn />
-						</Link>
+						</Link> */}
 						<Link to={"/UsersSignUp"}>
 							<BuyerSignUpBtn />
 						</Link>
@@ -90,5 +152,8 @@ export const UsersSignInForm = () => {
 				</form>
 			</div>
 		</React.Fragment>
+		 )}
+		 </Formik>
+		</div>
 	);
 };

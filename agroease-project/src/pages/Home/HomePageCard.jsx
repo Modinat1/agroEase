@@ -5,12 +5,9 @@ import rice from "../../images/rice.png";
 import garri from "../../images/garri.jpg";
 import beans from "../../images/beans.jpg";
 import { ProductContext } from "../../Context/Store/productContext";
-// import { ProductContext } from "../../Context/Store/productContext";
-// import { ProductContext } from "../../Context/Store/productContext";
-// import { useContext } from "react";
-// import BuyerContext from "../../Context/Buyer-context/BuyerContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 export const allProducts = {
 	default: [
 		{
@@ -282,7 +279,6 @@ const Items = ({ currentItems, title, search }) => {
 							.map((data, idx) => {
 								return (
 									<div className='card'>
-										<ToastContainer />
 										<div className='bag'>
 											<img src={data.image} alt='' />
 										</div>
@@ -293,6 +289,7 @@ const Items = ({ currentItems, title, search }) => {
 											<h4>Price:{formatter.format(data.price)}</h4>
 											<div className='share'>
 												<div>
+													<ToastContainer />
 													{cart.some((p) => p.id === data.id) ? (
 														<>
 															<button
@@ -307,6 +304,7 @@ const Items = ({ currentItems, title, search }) => {
 																}}>
 																Remove from Cart
 															</button>
+															{/* <ToastContainer /> */}
 														</>
 													) : (
 														<>
@@ -340,11 +338,24 @@ const Items = ({ currentItems, title, search }) => {
 																	/>
 																</svg>
 															</button>
+															{/* <ToastContainer /> */}
 														</>
 													)}
 												</div>
 												<div className='by-me'>
-													<button id='buy'>Buy Now</button>
+													<Link to='OrderSummary'>
+														<button
+															id='buy'
+															onClick={() => {
+																dispatch({
+																	type: "ADD_TO_CART",
+																	payload: data,
+																});
+																addNotify();
+															}}>
+															Buy Now
+														</button>
+													</Link>
 												</div>
 											</div>
 										</div>

@@ -42,6 +42,11 @@
 	border: 1px solid #c2c7d0;
 	border-radius: 5px;
 }
+
+.lopo {
+	color: #a6aebb;
+	background-color: red;
+}
 .textarea-text textarea {
 	padding: 0.5rem;
 	border-radius: 5px;

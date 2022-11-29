@@ -1,154 +1,234 @@
-import React from "react";
-import { useFormik } from "formik";
+import React, { useContext } from "react";
+import { Formik } from "formik";
 import "./UsersSignUpForm.css";
+import { useNavigate } from "react-router-dom";
+import Loginschema from "../../Yup/Schema/LoginValidation";
+import UserContext from "../../../Context/user-context/UserContext";
+import UserServices from "../../../Context/user-context/user.service";
+import UserAuth from "../../../Context/user-auth/UserAuthContext";
+import AuthServices from "../../../Context/user-auth/userauth.service";
+import { useState } from "react";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
+
 
 export const UsersSignUpForm = () => {
-	const validate = (values) => {
-		const errors = {};
-		if (!values.firstName) {
-			errors.firstName = "Required";
-		} else if (values.firstName.length > 15) {
-			errors.firstName = "Must be 15 characters or less";
+	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+	const [errorso, setErrorso] = useState("")
+	const [successo, setSuccesso] = useState("")
+	
+	const navigate = useNavigate();
+
+
+	// handle registration function
+    const handleUserRegistration = async (values)=> {
+		try {
+			const response = await axiosInstance.post("v1/auth/register", values)
+			const accessToken = response.data.tokens.access.token
+			setUserAuth({accessToken})
+			setUser(response.data.user)
+			// JSON.parse(localStorage.setItem('token', accessToken))
+			setSuccesso('Account Created Successfully')
+
+			if (userAuth) {
+				navigate("/UsersSignIn")
+			}
 		}
-
-		if (!values.lastName) {
-			errors.lastName = "Required";
-		} else if (values.lastName.length > 20) {
-			errors.lastName = "Must be 20 characters or less";
+		catch (error) {
+			if (!error.response) {
+				console.log("Server down")
+			} else if (error.response.status === 400) {
+				console.log('I don see enough shege')
+				setErrorso("User Already Exists")
+			} else if (error.response.status === 401) {
+				console.log('I don see enough')
+			} else if (error.response.status === 409) {
+				console.log('I don see ')
+			}
 		}
+	}
 
-		if (!values.email) {
-			errors.email = "Required";
-		} else if (
-			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-		) {
-			errors.email = "Invalid email address";
-		}
-
-		if (!values.password) {
-			errors.password = "Required";
-		} else if (values.password.length < 8) {
-			errors.password = "Must be 8 characters or more";
-		}
-
-		if (!values.confirmPassword) {
-			errors.confirmPassword = "Required";
-		} else if (values.password !== values.confirmPassword) {
-			errors.confirmPassword = "Must match with password";
-		}
-
-		return errors;
-	};
-
-	const formik = useFormik({
-		initialValues: {
-			firstName: "",
-			lastName: "",
-			email: "",
-			phoneNumber: "",
-			password: "",
-			confirmPassword: "",
-		},
-		validate,
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
-		},
-	});
 	return (
+		<div>
+
+		<Formik
+				initialValues={{
+					firstname: "",
+					lastname: "",
+					email: "",
+					phone_number:"",
+					password: "",
+				}}
+				validationSchema={Loginschema}
+				validate={(values) => {
+					const { firstname, lastname, email, phone_number, password } = values;
+
+					// "key": errorMessage
+					const errors = {};
+					if (!firstname)
+						errors.firstname = (
+							<small className='text-red-500'>Firstname cannot be empty</small>
+						);
+
+					if (!lastname)
+						errors.lastname = (
+							<small className='text-red-500'>Lastname cannot be empty</small>
+						);
+
+					if (!email)
+						errors.email = (
+							<small className='text-red-500'>Email cannot be empty</small>
+						);
+					if (!phone_number)
+						errors.phone_number = (
+							<small className='text-red-500'>Phone Number cannot be empty</small>
+						);
+
+					if (!password)
+						errors.password = (
+							<small className='text-red-500'>Password cannot be empty</small>
+						);
+
+					return errors;
+				}}
+				// onSubmitting
+				onSubmit={async (values, { setSubmitting, resetForm }) => {
+					setTimeout(() => {
+						console.log(JSON.stringify(values, null, 2));
+						setSubmitting(false);
+						resetForm();
+						handleUserRegistration(values)
+						
+						// navigate("/UsersSignIn");
+					}, 4000);
+				}}>
+				{({
+					values,
+					errors,
+					touched,
+					handleChange,
+					handleBlur,
+					handleReset,
+					handleSubmit,
+					isSubmitting,
+					/* and other goodies */
+				}) => (
 		<React.Fragment>
-			<div className='broker_signup_form'>
-				<form onSubmit={formik.handleSubmit}>
-					<h2 className='broker_signup_form_title'>Create an Account</h2>
-					<label htmlFor='firstName'>First Name</label>
-					<input
-						id='firstName'
-						name='firstName'
-						type='text'
-						placeholder='First Name*'
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.firstName}
-					/>
-					{formik.touched.firstName && formik.errors.firstName ? (
-						<div style={{ color: "red" }}>{formik.errors.firstName}</div>
-					) : null}
+				<div className='broker_signup_form'>
+					<form >
+						<h2 className='broker_signup_form_title'>Create an Account</h2>
+						<small className="text-red-500 flex justify-center">{errorso}</small>
+						<small className="text-green-500 flex justify-center">{successo}</small>
+						<label>First Name</label>
+						<input
+							id='firstname'
+							name='firstname'
+							type='text'
+							placeholder='First Name*'
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.firstname}
+						/>
+						{errors.firstname && touched.firstname && errors.firstname}
 
-					<label htmlFor='lastName'>Last Name</label>
-					<input
-						id='lastName'
-						name='lastName'
-						type='text'
-						placeholder='Last Name*'
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.lastName}
-					/>
-					{formik.touched.lastName && formik.errors.lastName ? (
-						<div style={{ color: "red" }}>{formik.errors.lastName}</div>
-					) : null}
+						<label>Last Name</label>
+						<input
+							id='lastname'
+							name='lastname'
+							type='text'
+							placeholder='Last Name*'
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.lastname}
+						/>
+						{errors.lastname && touched.lastname && errors.lastname}
 
-					<label htmlFor='email'>Email Address</label>
-					<input
-						id='email'
-						name='email'
-						type='email'
-						placeholder='Email*'
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.email}
-					/>
-					{formik.touched.email && formik.errors.email ? (
-						<div style={{ color: "red" }}>{formik.errors.email}</div>
-					) : null}
+						<label>Email Address</label>
+						<input
+							id='email'
+							name='email'
+							type='email'
+							placeholder='Email*'
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.email}
+						/>
+						{errors.email && touched.email && errors.email}
 
-					<label htmlFor='phoneNumber'>Phone Number</label>
-					<input
-						id='phoneNumber'
-						name='phoneNumber'
-						type='text'
-						placeholder='Phone Number*'
-						onBlur={formik.handleBlur}
-						// value={formik.values.phoneNumber}
-					/>
-					{/* {formik.errors.phoneNumber ? <div>{formik.errors.phoneNumber}</div> : null} */}
 
-					<label htmlFor='password'>Password</label>
-					<input
-						id='password'
-						name='password'
-						type='password'
-						placeholder='Password*'
-						onBlur={formik.handleBlur}
-						// value={formik.values.password}
-					/>
-					{formik.touched.password && formik.errors.password ? (
-						<div style={{ color: "red" }}>{formik.errors.password}</div>
-					) : null}
+						<label for='user_type'>User Type</label>
+							<select 
+									name="user_type"
+									type='user_type'
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.user_type}
+									>
+								<option value='Select' autofocus>Select</option>
+								<option value='Farmer(Seller)'>Farmer(Seller)</option>
+								<option value='Buyer'>Buyer</option>
+							</select>
+						{errors.email && touched.email && errors.email}
 
-					<label htmlFor='confirmPassword'>Confirm Password</label>
-					<input
-						id='confirmPassword'
-						name='confirmPassword'
-						type='password'
-						placeholder='Confirm Password*'
-						onBlur={formik.handleBlur}
-						// value={formik.values.confirmPassword}
-					/>
-					{formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-						<div style={{ color: "red" }}>{formik.errors.confirmPassword}</div>
-					) : null}
+						<label>Phone Number</label>
+						<input
+							id='phone_number'
+							name='phone_number'
+							type='text'
+							placeholder='Phone Number*'
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.phone_number}
+						/>
+						{errors.phone_number && touched.phone_number && errors.phone_number}
 
-					<small className='broker_terms'>
-						By clicking, you agree to the AgroEase{" "}
-						<span className='broker_green'>Term of Service</span> and
-						acknowledge, that AgroEase{" "}
-						<span className='broker_green'>Privacy Policy</span> applies to you
-					</small>
-					<button className='signup_form_btn' type='submit'>
-						Sign Up
-					</button>
-				</form>
-			</div>
+						<label>Password</label>
+						<input
+							id='password'
+							name='password'
+							type='password'
+							placeholder='Password*'
+							onChange={handleChange}
+							onBlur={handleBlur}
+							value={values.password}
+						/>
+						{errors.password && touched.password && errors.password}
+
+						{/* <label htmlFor='confirmPassword'>Confirm Password</label>
+						<input
+							id='confirmPassword'
+							name='confirmPassword'
+							type='password'
+							placeholder='Confirm Password*'
+							onBlur={formik.handleBlur}
+							// value={formik.values.confirmPassword}
+						/>
+						{formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+							<div style={{ color: "red" }}>{formik.errors.confirmPassword}</div>
+						) : null} */}
+
+						<small className='broker_terms'>
+							By clicking, you agree to the AgroEase{" "}
+							<span className='broker_green'>Term of Service</span> and
+							acknowledge, that AgroEase{" "}
+							<span className='broker_green'>Privacy Policy</span> applies to you
+						</small>
+						<button 
+								className='signup_form_btn' 
+								disabled={isSubmitting}
+								type="button"
+								onClick={handleSubmit}
+								>
+
+									{
+										isSubmitting? ( "Submitting...") : ("Sign Up")
+									}
+							
+						</button>
+					</form>
+				</div>
 		</React.Fragment>
+		)}
+		</Formik>
+		</div>
 	);
 };

@@ -6,20 +6,23 @@ import { BrowserRouter } from "react-router-dom";
 import { UserState } from "./Context/user-context/UserState";
 
 import { ProductProvider } from "./Context/Store/productContext";
+import { UserAuthState } from "./Context/user-auth/UserAuthState";
 
 // import { BuyerState } from "./Context/Buyer-context/BuyerState";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<React.StrictMode>
-		{/* <BuyerState> */}
-		<UserState>
-			<ProductProvider>
-				<BrowserRouter>
-					<App />
-				</BrowserRouter>
-			</ProductProvider>
-		</UserState>
-		{/* </BuyerState> */}
-	</React.StrictMode>
+  <React.StrictMode>
+    {/* <BuyerState> */}
+    <UserState>
+      <ProductProvider>
+        <UserAuthState>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+        </UserAuthState>
+      </ProductProvider>
+    </UserState>
+    {/* </BuyerState> */}
+  </React.StrictMode>
 );

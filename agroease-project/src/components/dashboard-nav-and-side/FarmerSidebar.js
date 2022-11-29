@@ -1,15 +1,50 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Agroeaselogo from "../../images/agro_ease_logo.png";
 import {useState} from "react";
+import UserAuth from "../../Context/user-auth/UserAuthContext";
+import axiosInstance from "../../Context/axios-config/axios-user-config";
 
 const NewFarmerSidebar = () => {
-	const [isActive, setIsActive] = useState(true)
+	const navigate = useNavigate();
+	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+	const {accessToken, refreshToken} = userAuth
+	const [isActive, setIsActive] = useState(false)
 	const linkStyle = "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
 	const activeLinkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-300 hover:bg-gray-300"
 	const changeActive =()=>{
 		setIsActive(!isActive)
 	}
+
+  
+
+  //Logging out a user
+  console.log(userAuth)
+  const handleLogout = async () => {
+    try {
+
+			const response = await axiosInstance.post("/v1/auth/logout", refreshToken)
+			console.log(response)
+			// JSON.parse(localStorage.setItem('token', accessToken))
+			
+
+			// if (userAuth) {
+			// 	navigate("/UsersSignIn")
+			// }
+		}
+		catch (error) {
+			if (!error.response) {
+				console.log("Server down")
+			} else if (error.response.status === 400) {
+				console.log('I don see enough shege')
+			} else if (error.response.status === 401) {
+				console.log('I don see enough')
+			} else if (error.response.status === 409) {
+				console.log('I don see ')
+			}
+		}
+  }
+	
 	return (
 		<>
 			<div className='hidden md:flex items-center justify-left w-auto h-screen  space-x-6 bg-white border-x-emerald-300 fixed top-0 z-40'>
@@ -331,7 +366,10 @@ const NewFarmerSidebar = () => {
 							<path d='M7.5 1v7h1V1h-1z' />
 							<path d='M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z' />
 						</svg>
-						<span className='ml-2 text-sm font-medium'>Log out</span>
+						<span 
+							className='ml-2 text-sm font-medium'
+							onClick={handleLogout}
+							>Log out</span>
 					</Link>
 				</div>
 				{/* Component End  */}

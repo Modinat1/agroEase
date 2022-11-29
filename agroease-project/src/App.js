@@ -36,11 +36,14 @@ import { GenerateLink } from "./users/Admin/adminDashboard copy/GenerateLink";
 import Help from "./pages/Help/Help";
 import Home from "./pages/Home/Home";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Spinner from "./components/Loader/Spinner";
 import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
+import { ResetPassword } from './components/ResetPassword/ResetPassword';
+import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -145,6 +148,12 @@ function App() {
         <Route path="OrderSummary" element={<OrderSummary />} />
         <Route path="UsersSignUp" element={<UsersSignUp />} />
         <Route path="UsersSignIn" element={<UsersSignIn />} />
+
+        <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
+
+        <Route path="resetPassword" element={<ResetPassword />} />
+        <Route path="enterPassword" element={<EnterPassword />} />
+
       </Routes>
     </div>
   )

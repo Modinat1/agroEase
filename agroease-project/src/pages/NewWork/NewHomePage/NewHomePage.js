@@ -12,8 +12,8 @@ const NewHomePage = () => {
         <HeadphoneSection />
         <NewHeroSection />
         <NewStoreSection />
-        {/* <NewPaymentSection />
-        <NewCategorySection /> */}
+        {/* <NewPaymentSection /> */}
+        {/* <NewCategorySection /> */}
     </div>
   )
 }

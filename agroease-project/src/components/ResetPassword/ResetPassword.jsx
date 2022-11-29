@@ -32,7 +32,7 @@ export const ResetPassword = () => {
 									setSubmitting(true);
 									try {
 										await axios.post(
-											"https://agro-ease-tiidelab.herokuapp.com/v1/auth/forgot-password",
+											"https://agro-ease-backend.herokuapp.com/v1/auth/forgot-password",
 											{
 												email,
 											}

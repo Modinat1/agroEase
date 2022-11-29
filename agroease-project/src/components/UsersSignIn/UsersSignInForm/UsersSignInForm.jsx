@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Formik, useFormik } from "formik";
 import "./UsersSignInForm.css";
 import { SellerSignUpBtn } from "../../UsersButton/Seller_Btn/SellerSignUpBtn";
@@ -7,52 +7,46 @@ import { BrokerSignUpBtn } from "../../UsersButton/Broker_Btn/BrokerSignUpBtn";
 import { Link, useNavigate } from "react-router-dom";
 import LogininSchema from "../../Yup/Schema/LogininSchema";
 import UserServices from "../../../Context/user-context/user.service";
+import UserAuth from "../../../Context/user-auth/UserAuthContext";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const UsersSignInForm = () => {
+	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+		const [errorso, setErrorso] = useState("")
+		const [successo, setSuccesso] = useState("")
 
-	const [token, setToken] = useState(false)
-	const navigate = useNavigate()
+		const navigate = useNavigate()
 
 
-	
-	
-
-	
-	
-
-	const handleLoginAuth =(values)=> {
-		// get the token from the local storage
-		const getToken = JSON.parse(localStorage.getItem('token')) || {}
-	
-		//Check if a token existin the local storage
-	const tokenExist = getToken?.length > 0
-
-		UserServices.loginUser(values).then((user) => {
-			try {
-				if(tokenExist) {
-					navigate("/farmerdashboardpage")
-				} else {
-					navigate("UserSignin")
-				}
+	const handleLoginAuth = async (values)=> {
+		try {
+			const response = await axiosInstance.post("/v1/auth/login", values)
+			const accessToken = response.data.tokens.access.token
+			const refreshToken = response.data.tokens.refresh.token
+			setUserAuth({accessToken, refreshToken})
+			setUser(response.data.user)
+			// JSON.parse(localStorage.setItem('token', accessToken))
+			setSuccesso('Account Created Successfully')
+			console.log("Congratulation")
+			if (userAuth) {
+				navigate("/farmerdashboardpage")
 			}
-			catch (error){
-				return values.error
+		}
+		catch (error) {
+			if (!error.response) {
+				console.log("Server down")
+			} else if (error.response.status === 400) {
+				console.log('I don see enough shege')
+			} else if (error.response.status === 401) {
+				setErrorso("Incorrect Email or Password")
+				console.log('I don see enough')
+			} else if (error.response.status === 409) {
+				console.log('I don see ')
 			}
-		
-		})
-		
-
-	
-
-
-
-	//useEffect to alwayscheckoutfor thistoken
-	// useEffect(() => {
-	// 	if(tokenExist) {
-	// 	  setToken(true)
-	// 	}
-	//   }, [tokenExist])
+		}
 	}
+
+
 	return (
 		<div>
 			<Formik
@@ -101,6 +95,8 @@ export const UsersSignInForm = () => {
 			<div className='user_signin_form'>
 				<form>
 					<h2 className='user_signin_form_title'>Welcome to AgroEase</h2>
+					<small className="text-red-500 flex justify-center">{errorso}</small>
+						<small className="text-green-500 flex justify-center">{successo}</small>
 					<label >Email Address</label>
 					<input
 						id='email'

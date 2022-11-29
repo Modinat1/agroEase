@@ -25,7 +25,7 @@ export const FarmerProfilePage = () => {
     dob: "",
     policy_terms: ""
   };
-  const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"]
+  
   const validationSchema = Yup.object({
     seller_name: Yup.string().required("Required").max(50),
     seller_email: Yup.string().email().required("Required"),
@@ -46,19 +46,7 @@ export const FarmerProfilePage = () => {
     bank_name: Yup.string().required("Required").max(50),
     policy_terms: Yup.bool().oneOf([true], 'You need to accept the terms and conditions'),
 
-    file: Yup.mixed()
-      .nullable()
-      .required("This picture is required")
-      .test(
-        "FILE_SIZE",
-        "Uploaded file is too big",
-        (value) => !value || (value && value.size <= 1024 * 1024)
-      )
-      .test(
-        "FILE_FORMAT",
-        "Uploaded file has unsupported format",
-        (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
-      ),
+    
   });
   const formik = useFormik({
     initialValues: initialValues,
@@ -120,6 +108,8 @@ export const FarmerProfilePage = () => {
                   placeholder="chose file" 
                   id="file"
                   name="file"
+                  required
+                  multiple
                   onChange={formik.handleChange}
                   value={formik.values.file}
                   />

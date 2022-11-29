@@ -11,21 +11,28 @@ import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const UsersSignInForm = () => {
-	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+		const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+		const {accessToken, refreshToken} = userAuth
 		const [errorso, setErrorso] = useState("")
 		const [successo, setSuccesso] = useState("")
-
 		const navigate = useNavigate()
 
+		//const localToken = JSON.parse(localStorage.getItem("token"))
+		//const tokenExist = localToken?.length > 0;
+
+		// useEffect(() => {
+		// setUserAuth(localToken)
+		// }, [])
+	
 
 	const handleLoginAuth = async (values)=> {
 		try {
 			const response = await axiosInstance.post("/v1/auth/login", values)
 			const accessToken = response.data.tokens.access.token
 			const refreshToken = response.data.tokens.refresh.token
-			setUserAuth({accessToken, refreshToken})
+			//setUserAuth({accessToken, refreshToken})
 			setUser(response.data.user)
-			// JSON.parse(localStorage.setItem('token', accessToken))
+			JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso('Account Created Successfully')
 			console.log("Congratulation")
 			if (userAuth) {

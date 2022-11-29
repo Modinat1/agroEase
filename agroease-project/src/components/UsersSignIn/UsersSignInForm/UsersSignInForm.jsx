@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, useFormik } from "formik";
 import "./UsersSignInForm.css";
 import { SellerSignUpBtn } from "../../UsersButton/Seller_Btn/SellerSignUpBtn";
@@ -6,10 +6,53 @@ import { BuyerSignUpBtn } from "../../UsersButton/Buyer_Btn/BuyerSignUpBtn";
 import { BrokerSignUpBtn } from "../../UsersButton/Broker_Btn/BrokerSignUpBtn";
 import { Link, useNavigate } from "react-router-dom";
 import LogininSchema from "../../Yup/Schema/LogininSchema";
+import UserServices from "../../../Context/user-context/user.service";
 
 export const UsersSignInForm = () => {
+
+	const [token, setToken] = useState(false)
 	const navigate = useNavigate()
+
+
 	
+	
+
+	
+	
+
+	const handleLoginAuth =(values)=> {
+		// get the token from the local storage
+		const getToken = JSON.parse(localStorage.getItem('token')) || {}
+	
+		//Check if a token existin the local storage
+	const tokenExist = getToken?.length > 0
+
+		UserServices.loginUser(values).then((user) => {
+			try {
+				if(tokenExist) {
+					navigate("/farmerdashboardpage")
+				} else {
+					navigate("UserSignin")
+				}
+			}
+			catch (error){
+				return values.error
+			}
+		
+		})
+		
+
+	
+
+
+
+	//useEffect to alwayscheckoutfor thistoken
+	// useEffect(() => {
+	// 	if(tokenExist) {
+	// 	  setToken(true)
+	// 	}
+	//   }, [tokenExist])
+	}
 	return (
 		<div>
 			<Formik
@@ -40,7 +83,7 @@ export const UsersSignInForm = () => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false)
               resetForm()
-              navigate("/farmerdashboardpage")
+			  handleLoginAuth(values)
             }, 4000)
         }}
       >
@@ -100,9 +143,9 @@ export const UsersSignInForm = () => {
 					<h4 className='or'>OR</h4>
 
 					<div className='signUp_Btns'>
-						<Link to={"/UsersSignUp"}>
+						{/* <Link to={"/UsersSignUp"}>
 							<SellerSignUpBtn />
-						</Link>
+						</Link> */}
 						<Link to={"/UsersSignUp"}>
 							<BuyerSignUpBtn />
 						</Link>

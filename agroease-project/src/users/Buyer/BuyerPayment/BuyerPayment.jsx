@@ -7,42 +7,50 @@ import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import { Progress } from "./BuyerPayementComponent/Progress";
 import * as yup from "yup";
 
+import visaCard from "../../../images/visa.png";
+import masterCard from "../../../images/mastercard.png";
+import PaymentInputs from "./BuyerPayementComponent/CreditCardValidator";
 export const BuyerPayment = () => {
-	const navigate = useNavigate();
-	const { handleChange, handleBlur, handleSubmit, errors, values, touched } =
-		useFormik({
-			initialValues: {
-				fullName: "",
-				cardNumber: "",
-				expiryMonth: "",
-				expiryYear: "",
-				cvv: "",
-			},
-			validationSchema: yup.object().shape({
-				fullName: yup.string().required("Required"),
-				cardNumber: yup.string().required("Required"),
-				expiryMonth: yup.date().required("Required"),
-				expiryYear: yup.date().required("Required"),
-				cvv: yup.string().required("Required"),
-			}),
-			onSubmit: async (values) => {
-				console.log(JSON.stringify(values, null, 2));
-				setTimeout(() => {
-					console.log(JSON.stringify(values, null, 2));
-					// setSubmitting(false);
-					// resetForm();
-					//   handleUserRegistration(values)
-					navigate("/BuyerOrderreview");
-				}, 4000);
-			},
-		});
+	// const navigate = useNavigate();
+	// const { handleChange, handleBlur, handleSubmit, errors, values, touched } =
+	// 	useFormik({
+	// 		initialValues: {
+	// 			fullName: "",
+	// 			cardNumber: "",
+	// 			expiryMonth: "",
+	// 			expiryYear: "",
+	// 			cvv: "",
+	// 		},
+	// 		validationSchema: yup.object().shape({
+	// 			fullName: yup.string().required("Required"),
+	// 			cardNumber: yup.string().required("Required"),
+	// 			expiryMonth: yup.date().required("Required"),
+	// 			expiryYear: yup.date().required("Required"),
+	// 			cvv: yup.string().required("Required"),
+	// 		}),
+	// 		onSubmit: async (values) => {
+	// 			console.log(JSON.stringify(values, null, 2));
+	// 			setTimeout(() => {
+	// 				console.log(JSON.stringify(values, null, 2));
+	// 				// setSubmitting(false);
+	// 				// resetForm();
+	// 				//   handleUserRegistration(values)
+	// 				navigate("/BuyerOrderreview");
+	// 			}, 4000);
+	// 		},
+	// 	});
 
 	return (
 		<>
 			<Buyernav />
 			<div className='shipping-container'>
 				<Progress />
-				<form
+				<div className='mt-20 flex  w-2/3 md:max-w-md m-auto flex-col'>
+					<h3 className='text-center'>Payment Details</h3>
+
+					<PaymentInputs />
+				</div>
+				{/* <form
 					onSubmit={handleSubmit}
 					className='shipping-form shipping-form-step  shipping-form-active'
 					action>
@@ -57,11 +65,11 @@ export const BuyerPayment = () => {
 							onChange={handleChange}
 						/>
 						{touched.fullName && errors.fullName ? (
-							<span>{errors.fullName}</span>
+							<span className='text-red-500'>{errors.fullName}</span>
 						) : null}
 					</div>
-					<div className='shipping-form-group password'>
-						{/* <i class="fa-solid fa-eye"></i> */}
+					<div className='shipping-form-group password relative'>
+						
 						<label htmlFor='card-number'>Card Number</label>
 						<input
 							className='card-number'
@@ -70,8 +78,15 @@ export const BuyerPayment = () => {
 							value={values.cardNumber}
 							onChange={handleChange}
 						/>
+						<div style={{ width: "30px" }} className='absolute right-2 top-12'>
+							<img style={{ width: "100%" }} src={visaCard} alt='' />
+						</div>
+						<div style={{ width: "30px" }} className='absolute right-10 top-12'>
+							<img style={{ width: "100%" }} src={masterCard} alt='' />
+						</div>
+
 						{touched.cardNumber && errors.cardNumber ? (
-							<span>{errors.cardNumber}</span>
+							<span className='text-red-500'>{errors.cardNumber}</span>
 						) : null}
 					</div>
 					<div className='shipping-form-group state'>
@@ -95,7 +110,7 @@ export const BuyerPayment = () => {
 								/>
 							</div>
 							{touched.expiryYear && errors.expiryYear ? (
-								<span>{errors.expiryYear}</span>
+								<span className='text-red-500'>{errors.expiryYear}</span>
 							) : null}
 						</div>
 						<div className='state-content'>
@@ -107,20 +122,22 @@ export const BuyerPayment = () => {
 								value={values.cvv}
 								onChange={handleChange}
 							/>
-							{touched.cvv && errors.cvv ? <span>{errors.cvv}</span> : null}
+							{touched.cvv && errors.cvv ? (
+								<span className='text-red-500'>{errors.cvv}</span>
+							) : null}
 						</div>
 					</div>
 					<div className='shipping-form-group-btn'>
-						{/* <button class="shipping-proceed-btn btn-prev" type="submit">Back</button> */}
-						{/* <Link to={"/BuyerOrderreview"}> */}
+						
+						
 						<button
 							className='shipping-proceed-btn btn-next btn-payment'
 							type='submit'>
 							Next
 						</button>
-						{/* </Link> */}
+						
 					</div>
-				</form>
+				</form> */}
 			</div>
 			<Footer />
 		</>

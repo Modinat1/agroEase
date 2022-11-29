@@ -71,6 +71,7 @@ export const BuyerShipping = () => {
 							value={values.username}
 							onChange={handleChange}
 							onBlur={handleBlur}
+							placeholder='Godswill Chibuzor'
 						/>
 						{errors.username && touched.username ? (
 							<span className='text-red-500'>{errors.username}</span>
@@ -86,6 +87,7 @@ export const BuyerShipping = () => {
 							value={values.phone}
 							onChange={handleChange}
 							onBlur={handleBlur}
+							placeholder='08033456756'
 						/>
 						{errors.phone && touched.phone ? (
 							<span className='text-red-500'>{errors.phone}</span>
@@ -101,9 +103,11 @@ export const BuyerShipping = () => {
 								value={values.country}
 								onChange={handleChange}
 								onBlur={handleBlur}>
-								{countryList.map((country, index) => {
+								{/* {countryList.map((country, index) => {
 									return <option key={index}>{country}</option>;
-								})}
+								})} */}
+								<option>Select Country</option>
+								<option>Nigeria</option>
 							</select>
 							{errors.country && touched.country ? (
 								<span className='text-red-500'>{errors.country}</span>
@@ -138,6 +142,7 @@ export const BuyerShipping = () => {
 								value={values.city}
 								onChange={handleChange}
 								onBlur={handleBlur}
+								placeholder='Lagos'
 							/>
 							{errors.city && touched.city ? (
 								<span className='text-red-500'>{errors.city}</span>
@@ -153,6 +158,7 @@ export const BuyerShipping = () => {
 								value={values.zip}
 								onChange={handleChange}
 								onBlur={handleBlur}
+								placeholder='342420'
 							/>
 							{errors.zip && touched.zip ? (
 								<span className='text-red-500'>{errors.zip}</span>
@@ -168,6 +174,7 @@ export const BuyerShipping = () => {
 							value={values.address}
 							onChange={handleChange}
 							onBlur={handleBlur}
+							placeholder='Ijora'
 						/>
 						{errors.address && touched.address ? (
 							<span className='text-red-500'>{errors.address}</span>

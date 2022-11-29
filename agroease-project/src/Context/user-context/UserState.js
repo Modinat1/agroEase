@@ -1,8 +1,10 @@
 import {
 	ADD_USER,
 	EDIT_USER,
+	SIGNUP_USER,
 	SIGNUP_USER_ERROR,
 	SIGNUP_USER_SUCCESS,
+	
 } from "./UserType";
 import React, { useReducer } from "react";
 
@@ -12,6 +14,7 @@ import UserReducer from "./UserReducer";
 export const UserState = ({ children }) => {
 	const initialState = {
 		users: [],
+		user: {},
 		token: "",
 		loading: false,
 		errorMessage: null,
@@ -20,6 +23,13 @@ export const UserState = ({ children }) => {
 	const [state, dispatch] = useReducer(UserReducer, initialState);
 
 	// Creating pure functions
+
+
+	// For Add user
+	const signupUser = (addObj) => {
+		dispatch({ type: SIGNUP_USER, payload: addObj });
+	};
+
 	// For Add user
 	const addUser = (addObj) => {
 		dispatch({ type: ADD_USER, payload: addObj });
@@ -44,12 +54,14 @@ export const UserState = ({ children }) => {
 		<UserContext.Provider
 			value={{
 				users: state.users,
+				user: state.user,
 				token: state.token,
 				errorMessage: state.errorMessage,
 				addUser,
 				editUser,
 				userSuccess,
 				userError,
+				signupUser,
 				...state,
 			}}>
 			{children}

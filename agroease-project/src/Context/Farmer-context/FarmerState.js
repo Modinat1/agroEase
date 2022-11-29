@@ -13,7 +13,7 @@ export const FarmerState = ({children}) => {
     }  
     
 
-    // const [state, dispatch] = useReducer(FarmerReducer, initialState)
+    const [state, dispatch] = useReducer()
 
     // Creating pure functions
     // For Add user

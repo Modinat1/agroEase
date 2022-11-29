@@ -4,7 +4,7 @@ import './BrokerSignUpBtn.css'
 export const BrokerSignUpBtn = () => {
   return (
     <>
-    <button className='broker_signup_btn'>Create an Account as a Broker</button>
+    <button className='broker_signup_btn' disabled>Broker Features coming soon...</button>
     </>
   )
 }

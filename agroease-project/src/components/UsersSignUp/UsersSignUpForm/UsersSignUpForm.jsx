@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik } from "formik";
 import "./UsersSignUpForm.css";
 import { useNavigate } from "react-router-dom";
 import Loginschema from "../../Yup/Schema/LoginValidation";
+import UserContext from "../../../Context/user-context/UserContext";
+import UserServices from "../../../Context/user-context/user.service";
+import UserAuth from "../../../Context/user-auth/UserAuthContext";
+import AuthServices from "../../../Context/user-auth/userauth.service";
+import { useState } from "react";
+
 
 export const UsersSignUpForm = () => {
-	const navigate = useNavigate();
+	const {signupUser, userAuth, setUserAuth} = useContext(UserAuth)
+	const [error, setError] = useState("")
+	// const navigate = useNavigate();
+
+
+	//get the token
+
+
+	// handle registration function
+    const handleUserRegistration = (values)=> {
+		try {
+			AuthServices.signUpNewUser(values).then((values) => {
+				console.log(values)
+				
+			})
+		}
+		
+		catch (error) {
+			if(error.response.status === '400') {
+				// setError(values.data.message)
+				console.log(error.response.status)
+				return error.response.data.message
+				
+			}
+		}
+	}
 
 	return (
 		<div>
@@ -56,7 +87,9 @@ export const UsersSignUpForm = () => {
 						console.log(JSON.stringify(values, null, 2));
 						setSubmitting(false);
 						resetForm();
-						navigate("/UsersSignIn");
+						handleUserRegistration(values)
+						setError(error.response.data.message)
+						// navigate("/UsersSignIn");
 					}, 4000);
 				}}>
 				{({
@@ -74,6 +107,8 @@ export const UsersSignUpForm = () => {
 				<div className='broker_signup_form'>
 					<form >
 						<h2 className='broker_signup_form_title'>Create an Account</h2>
+						<small>{error}</small>
+						{console.log(error)}
 						<label>First Name</label>
 						<input
 							id='firstname'
@@ -108,6 +143,21 @@ export const UsersSignUpForm = () => {
 							onBlur={handleBlur}
 							value={values.email}
 						/>
+						{errors.email && touched.email && errors.email}
+
+
+						<label for='user_type'>User Type</label>
+							<select 
+									name="user_type"
+									type='user_type'
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.user_type}
+									>
+								<option value='Select' autofocus>Select</option>
+								<option value='Farmer(Seller)'>Farmer(Seller)</option>
+								<option value='Buyer'>Buyer</option>
+							</select>
 						{errors.email && touched.email && errors.email}
 
 						<label>Phone Number</label>

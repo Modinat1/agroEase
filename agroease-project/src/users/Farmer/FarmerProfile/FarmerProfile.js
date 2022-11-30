@@ -3,21 +3,23 @@ import React from "react";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 // import { FarmerSidebar } from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import Navbar1 from "../../../components/Navbar1/Navbar1";
 //import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 import { FarmerProfilePage } from "./FarmerProfilePage";
 
 const FarmerProfile = () => {
-  return (
-    <div>
-      {/* <FarmerSidebar />
+	return (
+		<div>
+			{/* <FarmerSidebar />
       <BrokerDashnav /> */}
-      <NewBrokerNavbar />
-      <NewFarmerSidebar />
-      {/* <NewBrokerSidebar /> */}
+			<NewBrokerNavbar />
+			{/* <Navbar1 /> */}
+			<NewFarmerSidebar />
+			{/* <NewBrokerSidebar /> */}
 
-      <FarmerProfilePage />
-    </div>
-  );
+			<FarmerProfilePage />
+		</div>
+	);
 };
 
 export default FarmerProfile;

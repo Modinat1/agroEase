@@ -7,7 +7,7 @@ import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import { useFormik } from "formik";
 
-import { countryList } from "./BuyerPayementComponent/countryModule";
+// import { countryList } from "./BuyerPayementComponent/countryModule";
 import { stateList } from "./BuyerPayementComponent/countryModule";
 // import shippingSchema from "../../../components/Yup/Schema/ShippingSchema";
 import * as yup from "yup";

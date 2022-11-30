@@ -8,32 +8,41 @@ import UserServices from "../../../Context/user-context/user.service";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import AuthServices from "../../../Context/user-auth/userauth.service";
 import { useState } from "react";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 
 export const UsersSignUpForm = () => {
-	const {signupUser, userAuth, setUserAuth} = useContext(UserAuth)
-	const [error, setError] = useState("")
-	// const navigate = useNavigate();
-
-
-	//get the token
+	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+	const [errorso, setErrorso] = useState("")
+	const [successo, setSuccesso] = useState("")
+	
+	const navigate = useNavigate();
 
 
 	// handle registration function
-    const handleUserRegistration = (values)=> {
+    const handleUserRegistration = async (values)=> {
 		try {
-			AuthServices.signUpNewUser(values).then((values) => {
-				console.log(values)
-				
-			})
+			const response = await axiosInstance.post("v1/auth/register", values)
+			const accessToken = response.data.tokens.access.token
+			setUserAuth({accessToken})
+			setUser(response.data.user)
+			// JSON.parse(localStorage.setItem('token', accessToken))
+			setSuccesso('Account Created Successfully')
+
+			if (userAuth) {
+				navigate("/UsersSignIn")
+			}
 		}
-		
 		catch (error) {
-			if(error.response.status === '400') {
-				// setError(values.data.message)
-				console.log(error.response.status)
-				return error.response.data.message
-				
+			if (!error.response) {
+				console.log("Server down")
+			} else if (error.response.status === 400) {
+				console.log('I don see enough shege')
+				setErrorso("User Already Exists")
+			} else if (error.response.status === 401) {
+				console.log('I don see enough')
+			} else if (error.response.status === 409) {
+				console.log('I don see ')
 			}
 		}
 	}
@@ -88,7 +97,7 @@ export const UsersSignUpForm = () => {
 						setSubmitting(false);
 						resetForm();
 						handleUserRegistration(values)
-						setError(error.response.data.message)
+						
 						// navigate("/UsersSignIn");
 					}, 4000);
 				}}>
@@ -107,8 +116,8 @@ export const UsersSignUpForm = () => {
 				<div className='broker_signup_form'>
 					<form >
 						<h2 className='broker_signup_form_title'>Create an Account</h2>
-						<small>{error}</small>
-						{console.log(error)}
+						<small className="text-red-500 flex justify-center">{errorso}</small>
+						<small className="text-green-500 flex justify-center">{successo}</small>
 						<label>First Name</label>
 						<input
 							id='firstname'

@@ -150,9 +150,12 @@ function App() {
         <Route path="OrderSummary" element={<OrderSummary />} />
         <Route path="UsersSignUp" element={<UsersSignUp />} />
         <Route path="UsersSignIn" element={<UsersSignIn />} />
+
         <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
+
         <Route path="resetPassword" element={<ResetPassword />} />
         <Route path="enterPassword" element={<EnterPassword />} />
+
       </Routes>
     </div>
   )

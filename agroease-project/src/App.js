@@ -25,6 +25,7 @@ import BuyerProfilePage from "./users/Buyer/BuyerProfile/BuyerProfilePage";
 import { BuyerShipping } from "./users/Buyer/BuyerPayment/BuyerShipping";
 import BuyerSigninPage from "./users/Buyer/BuyerSigninPage";
 import Contact from "./pages/Contact/Contact";
+import { EnterPassword } from './components/ResetPassword/EnterPassword';
 import { FarmerAddProduct } from "./users/Farmer/FarmerProductUpload.js/FarmerAddProduct";
 import { FarmerCurrentTaskPage } from "./users/Farmer/farmersCurrentTask/FarmerCurrentTaskPage";
 import FarmerLoginForm from "./users/Farmer/FarmerLoginPage/FarmerLoginForm";
@@ -37,15 +38,16 @@ import Help from "./pages/Help/Help";
 import Home from "./pages/Home/Home";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import { ResetPassword } from './components/ResetPassword/ResetPassword';
 import Spinner from "./components/Loader/Spinner";
 import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
-import { ResetPassword } from './components/ResetPassword/ResetPassword';
-import { EnterPassword } from './components/ResetPassword/EnterPassword';
 import Layout from './pages/Layout/Layout';
 import RequireAuth from './Context/user-auth/RequirAuth';
+
+// import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -73,7 +75,7 @@ function App() {
             <Route exact path="/UsersSignIn" element={<Account />} />
 
 
-            {/*Protect Routes */}
+            {/*Protect Routes*/}
           <Route element={<RequireAuth />}>
             <Route exact path="/buyersignup" element={<BuyerSigninPage />} />
             <Route exact path="/farmersignup" element={<FarmerSigninForm />} />

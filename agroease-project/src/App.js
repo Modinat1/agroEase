@@ -44,6 +44,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { ResetPassword } from './components/ResetPassword/ResetPassword';
 import { EnterPassword } from './components/ResetPassword/EnterPassword';
+import Layout from './pages/Layout/Layout';
+import RequireAuth from './Context/user-auth/RequirAuth';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -58,102 +60,59 @@ function App() {
   ) : (
     <div>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/blog" element={<Agroeducation />} />
-        <Route exact path="/help" element={<Help />} />
-        <Route exact path="/" element={<Account />} />
-        <Route exact path="/buyersignup" element={<BuyerSigninPage />} />
-        <Route exact path="/farmersignup" element={<FarmerSigninForm />} />
-        <Route exact path="/brokersignup" element={<BrokerSigninForm />} />
-        <Route exact path="/brokerlogin" element={<BrokerLoginForm />} />
-        <Route exact path="/buyerlogin" element={<BuyerLoginForm />} />
-        <Route exact path="/farmerlogin" element={<FarmerLoginForm />} />
-        <Route exactt path="/generateLink" element={<GenerateLink />} />
-        <Route
-          exact
-          path="/AdminTaskNotification"
-          element={<AdminTaskNotification />}
-        />
-        <Route exact path="/AdminPaymentTask" element={<AdminPaymentTask />} />
-        <Route
-          exact
-          path="/AdminLogisticsTask"
-          element={<AdminLogisticsTask />}
-        />
-        <Route
-          exact
-          path="/brokerdashboard"
-          element={<BrokerDashboardPage />}
-        />
-        <Route exact path="/brokerclientpage" element={<BrokerClientPage />} />
-        <Route
-          exact
-          path="/brokerrefferalpage"
-          element={<BrokerRefferalPage />}
-        />
-        <Route
-          exact
-          path="/brokerprofilepage"
-          element={<BrokerProfilePage />}
-        />
-        <Route
-          exact
-          path="/farmerdashboardpage"
-          element={<Farmerdashboard />}
-        />
-        <Route exact path="/farmerprofilepage" element={<FarmerProfile />} />
-        <Route
-          exact
-          path="/farmerproductpage"
-          element={<FarmerProductIndex />}
-        />
-        <Route exact path="/farmeraddproduct" element={<FarmerAddProduct />} />
-        <Route
-          exact
-          path="/farmercurrenttask"
-          element={<FarmerCurrentTaskPage />}
-        />
+        <Route path="/" element={<Layout />}>
 
-        <Route
-          exact
-          path="/buyerdashboardpage"
-          element={<BuyerDashboardPage />}
-        />
-        <Route exact path="/buyerprofilepage" element={<BuyerProfilePage />} />
-        <Route exact path="/buyerproductpage" element={<BuyerProductPage />} />
-        <Route exact path="/AdminDashIndex" element={<AdminDashIndex />} />
-        <Route
-          exact
-          path="/AdminLogisticsTask"
-          element={<AdminLogisticsTask />}
-        />
-        <Route
-          exact
-          path="/AdminLogisticsTask"
-          element={<AdminLogisticsTask />}
-        />
-        <Route
-          exact
-          path="/AdminLogisticsTask"
-          element={<AdminLogisticsTask />}
-        />
-        {/* New routes added */}
-        <Route path="BuyerPayment" element={<BuyerPayment />} />
-        <Route path="BuyerOrderreview" element={<BuyerOderreview />} />
-        {/*<Route path='PaymentProcessing' element={<PaymentProcess />} />*/}
-        <Route path="BuyerOrderSuccesful" element={<BuyerOrderSuccessful />} />
-        <Route path="BuyerShipping" element={<BuyerShipping />} />
-        <Route path="OrderSummary" element={<OrderSummary />} />
-        <Route path="UsersSignUp" element={<UsersSignUp />} />
-        <Route path="UsersSignIn" element={<UsersSignIn />} />
+            {/*Public Routes */}
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/blog" element={<Agroeducation />} />
+            <Route exact path="/help" element={<Help />} />
+            <Route exact path="/UsersSignUp" element={<UsersSignUp />} />
+            <Route exact path="/UsersSignIn" element={<UsersSignIn />} />
+            <Route exact path="/UsersSignIn" element={<Account />} />
 
-        <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
 
-        <Route path="resetPassword" element={<ResetPassword />} />
-        <Route path="enterPassword" element={<EnterPassword />} />
-
+            {/*Protect Routes */}
+          <Route element={<RequireAuth />}>
+            <Route exact path="/buyersignup" element={<BuyerSigninPage />} />
+            <Route exact path="/farmersignup" element={<FarmerSigninForm />} />
+            <Route exact path="/brokersignup" element={<BrokerSigninForm />} />
+            <Route exact path="/brokerlogin" element={<BrokerLoginForm />} />
+            <Route exact path="/buyerlogin" element={<BuyerLoginForm />} />
+            <Route exact path="/farmerlogin" element={<FarmerLoginForm />} />
+            <Route exact path="/generateLink" element={<GenerateLink />} />
+            <Route exact path="/AdminTaskNotification" element={<AdminTaskNotification />} />
+            <Route exact path="/AdminPaymentTask" element={<AdminPaymentTask />} />
+            <Route exact path="/AdminLogisticsTask" element={<AdminLogisticsTask />} />
+            <Route exact path="/brokerdashboard" element={<BrokerDashboardPage />} />
+            <Route exact path="/brokerclientpage" element={<BrokerClientPage />} />
+            <Route exact path="/brokerrefferalpage" element={<BrokerRefferalPage />} />
+            <Route exact path="/brokerprofilepage" element={<BrokerProfilePage />} />
+            <Route exact path="/farmerdashboardpage" element={<Farmerdashboard />} />
+            <Route exact path="/farmerprofilepage" element={<FarmerProfile />} />
+            <Route exact path="/farmerproductpage" element={<FarmerProductIndex />} />
+            <Route exact path="/farmeraddproduct" element={<FarmerAddProduct />} />
+            <Route exact path="/farmercurrenttask" element={<FarmerCurrentTaskPage />} />
+            <Route exact path="/buyerdashboardpage" element={<BuyerDashboardPage />} />
+            <Route exact path="/buyerprofilepage" element={<BuyerProfilePage />} />
+            <Route exact path="/buyerproductpage" element={<BuyerProductPage />} />
+            <Route exact path="/AdminDashIndex" element={<AdminDashIndex />} />
+            <Route exact path="/AdminLogisticsTask" element={<AdminLogisticsTask />} />
+            <Route exact path="/AdminLogisticsTask" element={<AdminLogisticsTask />} />
+            <Route exact path="/AdminLogisticsTask" element={<AdminLogisticsTask />} />
+            {/* New routes added */}
+            <Route path="BuyerPayment" element={<BuyerPayment />} />
+            <Route path="BuyerOrderreview" element={<BuyerOderreview />} />
+            {/*<Route path='PaymentProcessing' element={<PaymentProcess />} />*/}
+            <Route path="BuyerOrderSuccesful" element={<BuyerOrderSuccessful />} />
+            <Route path="BuyerShipping" element={<BuyerShipping />} />
+            <Route path="OrderSummary" element={<OrderSummary />} />
+            <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
+            <Route path="resetPassword" element={<ResetPassword />} />
+            <Route path="enterPassword" element={<EnterPassword />} />
+          </Route>
+        </Route>
       </Routes>
     </div>
   )

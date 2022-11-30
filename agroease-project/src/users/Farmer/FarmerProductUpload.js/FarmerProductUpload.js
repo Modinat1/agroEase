@@ -1,94 +1,96 @@
-// import { Link } from "react-router-dom";
-// import React, { useState } from "react";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
-// import { toast, ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 import "./FarmerProductUpload.css";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../../axios-config/axios-user-config";
+import UserAuth from "../../../Context/user-auth/UserAuthContext";
 
-// const submitHandler = (event) => {
-// 	event.preventDefault();
-// 	const {
-// 		name,
-// 		product_type,
-// 		unit_input,
-// 		cost,
-// 		description,
-// 		product_file,
-// 	} = event.target.elements;
-// 	const formValue = {
-// 		product_name: product_name.value,
-// 		product_type: product_type.value,
-// 		unit_input: unit_input.value,
-// 		cost: cost.value,
-// 		product_desc: product_desc.value,
-// 		product_file: product_file?.files?.[0].name,
-// 	};
 
-// 	console.table(formValue);
-// 	event.target.reset();
-// 	// displayProductUploadNotice
-// };
 
-export const FarmerProductUpload = (props) => {
-  
+export const FarmerProductUpload = () => {
+  const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
+  // const [errorso, setErrorso] = useState("")
+  const [successo, setSuccesso] = useState("");
+  const { accessToken, refreshToken } = userAuth;
+
+  const config = {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  };
+  const navigate = useNavigate();
+
+
+  const handleProductSubmit = async (values) => {
+    const {
+      name,
+      description,
+      quantity,
+      price,
+      cost,
+      actualPrice,
+      CategoryName,
+    } = values;
+    const productInfo = {
+      name,
+      description,
+      quantity,
+      price ,
+      cost: 40000,
+      actualPrice: 500,
+      CategoryName,
+    };
+    console.log(values);
+    console.log(productInfo);
+    try {
+      const response = await axiosInstance.post(
+        "v1/product",
+        productInfo,
+        config
+      );
+      const accessToken = response.data.tokens.access.token;
+      setUserAuth({ accessToken });
+      setUser(response.data.user);
+      // JSON.parse(localStorage.setItem('token', accessToken))
+      setSuccesso("Account Created Successfully");
+
+      if (userAuth) {
+        navigate("/farmerproductpage");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const initialValues = {
-
-  //   {
-  //     "name": "beans",
-  //     "description": "Iron beans",
-  //     "quantity": 8,
-  //     "cost": 596,
-  //     "price": 500000,
-  //     "actualPrice": 45000000,
-  //     "CategoryName":"plant"
-      
-      
-  // }
-
-
     name: "",
     description: "",
     quantity: "",
-    price: 596,
-    cost: "",
+    price: "",
+    cost: 500,
     actualPrice: 45000000,
     CategoryName: "",
     // unit_input: "",
     // file: [],
   };
 
-  const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 
   const validationSchema = Yup.object({
     name: Yup.string().required("product name required").max(50),
     description: Yup.string().required("Product description required").max(200),
     quantity: Yup.string().required("The quantity must not be zero").max(2),
-    // file: Yup.mixed()
-    //   .required("This picture is required")
-  //     .test({message: "Uploaded file is too big",
-        
-  //     test:(value) => value[0].size <= 2000000
-  //       // { return console.log(value) }
-  //       // !value || (value && value.size <= 1024 * 1024)
-  // })
-      // .test(
-      //   "FILE_FORMAT",
-      //   "Uploaded file has unsupported format",
-      //   (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
-      // ),
-   });
+  });
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      handleProductSubmit(values)
     },
   });
 
   return (
     <>
-     
       <section className="farmers-product">
         <h5 className="farmers-product-title">New Product</h5>
         <form action="" method="post" onSubmit={formik.handleSubmit}>
@@ -107,38 +109,35 @@ export const FarmerProductUpload = (props) => {
                 value={formik.values.name}
               />
               {formik.errors.name ? (
-                <div className="product_upload_error">
-                  {formik.errors.name}
-                </div>
+                <div className="product_upload_error">{formik.errors.name}</div>
               ) : null}
             </div>
-            
 
             <div className="product-type label_input">
               <label htmlFor="CategoryName" className="name">
                 Type of Product
               </label>
-              <select 
-							name="CategoryName" 
-							id="CategoryName"
-							onChange={formik.handleChange}
-              value={formik.values.CategoryName}
-              className="lopo"
-							>
+              <select
+                name="CategoryName"
+                id="CategoryName"
+                onChange={formik.handleChange}
+                value={formik.values.CategoryName}
+                className="lopo"
+              >
                 select
                 <option value="" disabled>
                   Select
                 </option>
                 <option value="uploaded_farm_input">Farm Input</option>
-                <option value="uploaded_crop">Crop</option>
-                <option value="uploaded_poultry">Poultry</option>
-                <option value="uploaded_livestock">LiveStock</option>
-                <option value="uploaded_farmer_quipment">Farm Equipment</option>
+                <option value="uploaded_crop">Crops</option>
+                <option value="Poultry">Poultry</option>
+                <option value="Livestock">LiveStock</option>
+                <option value="Product">Product</option>
               </select>
             </div>
           </div>
 
-					<div className="default-unit-cost">
+          <div className="default-unit-cost">
             {/* <div className="default-unit-div label_input">
               <label htmlFor="unit_input" className="name">
                 Default Unit
@@ -170,17 +169,16 @@ export const FarmerProductUpload = (props) => {
               <input
                 type="text"
                 className="unit-cost-type"
-								placeholder="0"
-								name="cost" 
-								id="cost"
-								onChange={formik.handleChange}
-								value={formik.values.cost}
-               
+                placeholder="0"
+                name="price"
+                id="price"
+                onChange={formik.handleChange}
+                value={formik.values.price}
               />
             </div>
           </div>
 
-					<div className="default-unit-cost upload_photo_qty">
+          <div className="default-unit-cost upload_photo_qty">
             {/* <div className="default-unit-div label_input">
               <label htmlFor="unit-input upload_photo" className="name">
 							Upload Photo
@@ -204,13 +202,17 @@ export const FarmerProductUpload = (props) => {
               </label>
               <input
                 type="number"
-								placeholder="0"
-								id="quantity"
-								name="quantity"
-								onChange={formik.handleChange}
-								value={formik.values.quantity}
-							/>
-							 {formik.errors.quantity ? <div className="product_upload_error">{formik.errors.quantity}</div> : null}
+                placeholder="0"
+                id="quantity"
+                name="quantity"
+                onChange={formik.handleChange}
+                value={formik.values.quantity}
+              />
+              {formik.errors.quantity ? (
+                <div className="product_upload_error">
+                  {formik.errors.quantity}
+                </div>
+              ) : null}
             </div>
           </div>
 
@@ -228,22 +230,21 @@ export const FarmerProductUpload = (props) => {
               onChange={formik.handleChange}
               value={formik.values.description}
             />
-						{formik.errors.description ? (
-                <div className="product_upload_error">
-                  {formik.errors.description}
-                </div>
-              ) : null}
+            {formik.errors.description ? (
+              <div className="product_upload_error">
+                {formik.errors.description}
+              </div>
+            ) : null}
           </div>
-          
 
           <div className="add-product-btn">
             {/* <Link to="/farmerproductpage"> */}
-              <button 
-							type="submit" 
-							// onClick={transferValue}
-							>
-                Add Product
-              </button>
+            <button
+              type="submit"
+              // onClick={transferValue}
+            >
+              Add Product
+            </button>
             {/* </Link> */}
           </div>
         </form>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./FarmerProfile.css";
 import { useFormik } from "formik";
+import Swal from "sweetalert2-react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
@@ -13,12 +14,23 @@ export const FarmerProfilePage = () => {
 	// const [errorso, setErrorso] = useState("")
 	const [successo, setSuccesso] = useState("");
 	const { accessToken, refreshToken } = userAuth;
+	const navigate = useNavigate();
+
+	// const notifySuccess = () => {
+	// 	Swal.fire({
+	// 		title: "Successfull!",
+	// 		text: "Profile updated successfully!",
+	// 		icon: "success",
+	// 		button: "Ok",
+	// 	}).then(function () {
+	// 		// Redirect the user
+	// 		navigate("/farmerdashboardpage");
+	// 	});
+	// };
 
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
-
-	const navigate = useNavigate();
 
 	const handleStoreSubmit = async (values) => {
 		const {
@@ -64,6 +76,8 @@ export const FarmerProfilePage = () => {
 			setUser(response.data.user);
 			// JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
+
+			// notifySuccess();
 
 			if (userAuth) {
 				navigate("/UsersSignIn");
@@ -115,7 +129,7 @@ export const FarmerProfilePage = () => {
 		initialValues: initialValues,
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
+			// alert(JSON.stringify(values, null, 2));
 			handleStoreSubmit(values);
 		},
 	});

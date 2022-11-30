@@ -1,35 +1,50 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Formik, useFormik } from "formik";
 import "./UsersSignInForm.css";
 import { SellerSignUpBtn } from "../../UsersButton/Seller_Btn/SellerSignUpBtn";
 import { BuyerSignUpBtn } from "../../UsersButton/Buyer_Btn/BuyerSignUpBtn";
 import { BrokerSignUpBtn } from "../../UsersButton/Broker_Btn/BrokerSignUpBtn";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LogininSchema from "../../Yup/Schema/LogininSchema";
 import UserServices from "../../../Context/user-context/user.service";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
+import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
 
 export const UsersSignInForm = () => {
-	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+		const {userAuth, setUserAuth, user, setUser} = GeneralUserAuth()
+		
 		const [errorso, setErrorso] = useState("")
 		const [successo, setSuccesso] = useState("")
 
-		const navigate = useNavigate()
 
+		const navigate = useNavigate()
+		const location = useLocation()
+		const from = location.state?.from?.pathname || "/farmerdashboardpage";
+
+
+		//const localToken = JSON.parse(localStorage.getItem("token"))
+		//const tokenExist = localToken?.length > 0;
+
+		
+	   
 
 	const handleLoginAuth = async (values)=> {
 		try {
 			const response = await axiosInstance.post("/v1/auth/login", values)
 			const accessToken = response.data.tokens.access.token
 			const refreshToken = response.data.tokens.refresh.token
-			setUserAuth({accessToken, refreshToken})
+			//const roles = response.data.
+			setUserAuth({accessToken, refreshToken, values, })
 			setUser(response.data.user)
-			// JSON.parse(localStorage.setItem('token', accessToken))
+			//JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso('Account Created Successfully')
 			console.log("Congratulation")
+			console.log(userAuth)
+			console.log(setUserAuth)
+			console.log(response.data)
 			if (userAuth) {
-				navigate("/farmerdashboardpage")
+				navigate(from, { replace: true})
 			}
 		}
 		catch (error) {
@@ -45,6 +60,7 @@ export const UsersSignInForm = () => {
 			}
 		}
 	}
+
 
 
 	return (
@@ -76,11 +92,14 @@ export const UsersSignInForm = () => {
             setTimeout(() => {
               console.log((JSON.stringify(values, null, 2)));
               setSubmitting(false)
-              resetForm()
 			  handleLoginAuth(values)
+              resetForm()
+			  
             }, 4000)
         }}
       >
+
+		
         {({
           values, 
           errors,

@@ -21,8 +21,44 @@ export const FarmerProfilePage = () => {
 	const navigate = useNavigate();
 
 	const handleStoreSubmit = async (values) => {
+		const {
+			account_name,
+			account_number,
+			bank,
+			business_email,
+			business_name,
+			business_number,
+			date_of_birth,
+			description,
+			farmer_image,
+			nin,
+		} = values;
+		const businessInfo = {
+			store: {
+				name: business_name,
+				description,
+				business_email,
+				phone_number: business_number,
+				farmer_image,
+				store_image: "sample.jpg",
+			},
+
+			wallet: {
+				account_number,
+				bank,
+				account_name,
+				nin,
+				date_of_birth,
+			},
+		};
+		console.log(values);
+		console.log(businessInfo);
 		try {
-			const response = await axiosInstance.post("v1/store", values, config);
+			const response = await axiosInstance.post(
+				"v1/store",
+				businessInfo,
+				config
+			);
 			const accessToken = response.data.tokens.access.token;
 			setUserAuth({ accessToken });
 			setUser(response.data.user);
@@ -69,7 +105,7 @@ export const FarmerProfilePage = () => {
 		business_email: Yup.string().email().required("Required"),
 		phone_number: Yup.string().required("Required").max(11),
 		date_of_birth: Yup.date().required("Required"),
-		// business_email: Yup.string().email().required("Required"),
+		business_email: Yup.string().email().required("Required"),
 		description: Yup.string().required("Required").max(200),
 		nin: Yup.string().required("Required").max(11),
 		account_name: Yup.string().required("Required").max(50),
@@ -80,7 +116,7 @@ export const FarmerProfilePage = () => {
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
 			alert(JSON.stringify(values, null, 2));
-			handleStoreSubmit(values.store, values.wallet);
+			handleStoreSubmit(values);
 		},
 	});
 	return (
@@ -357,7 +393,7 @@ export const FarmerProfilePage = () => {
 										id='bank'
 										name='bank'
 										onChange={formik.handleChange}
-										value={formik.bank}
+										value={formik.values.bank}
 									/>
 									{formik.errors.bank ? (
 										<div className='profile_error'>{formik.errors.bank}</div>

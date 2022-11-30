@@ -9,10 +9,11 @@ import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import AuthServices from "../../../Context/user-auth/userauth.service";
 import { useState } from "react";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
+import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
 
 
 export const UsersSignUpForm = () => {
-	const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+	const {userAuth, setUserAuth, user, setUser} = GeneralUserAuth()
 	const [errorso, setErrorso] = useState("")
 	const [successo, setSuccesso] = useState("")
 	

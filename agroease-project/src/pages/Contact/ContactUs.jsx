@@ -30,12 +30,15 @@ const ContactUs = () => {
       <section className="contact-container">
         <h1 className="contact-heading"> Contact Us</h1>
         <div className="contact-findUs">
+          
           <div className="contact-location">
             <div className="contact-us-page-marker">
               <HiOutlineLocationMarker />
             </div>
+            
             <h4 className=" Wuse-Zone-6"> Tech Specialist, Wuse Zone 6 </h4>
           </div>
+          
           <div className="contact-number">
             <div className="contact-us-page-phone">
               <AiOutlinePhone />
@@ -51,7 +54,10 @@ const ContactUs = () => {
 
             <h4> agroease@gmail.com</h4>
           </div>
+       
+       
         </div>
+        
         {/* Form */}
         <div className="form-container">
           <Formik

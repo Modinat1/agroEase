@@ -25,7 +25,9 @@
 .privacy-policy-header {
   color: black;
   margin-bottom: 1rem;
-  margin-left: 1.5rem;
+ 
+ 
+  font-weight: 700;
   
 }
 
@@ -33,6 +35,12 @@
   color: black;
   margin-bottom: 1rem;
   margin-top: 1rem;
+ 
+  
+  margin-left: auto;
+  font-weight: 700;
+  padding-left: 0;
+
   /* font-size: 20px; */
 }
 .privacy-policy-details-under {

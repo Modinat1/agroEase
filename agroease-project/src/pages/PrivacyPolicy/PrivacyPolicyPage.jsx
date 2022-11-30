@@ -84,7 +84,7 @@ const PrivacyPolicyPage = () => {
             <li>7. withdraw consent to our processing of your Personal Data (to the extent such processing is based on consent). </li>
           </ul>
           <p className="privacy-policy-details-under">
-            To exercise any of your rights, or if you have any other questions about our use of your Personal Data, please e-mail info@farmcrowdy.com. You may also use this contact detail if you wish to make a complaint to us relating to your privacy. If you are unhappy with the way we handled your Personal Data or any privacy query or request that you have raised with us, you also have a right to complaint to the National Information Technology Development Agency.
+            To exercise any of your rights, or if you have any other questions about our use of your Personal Data, please e-mail . You may also use this contact detail if you wish to make a complaint to us relating to your privacy. If you are unhappy with the way we handled your Personal Data or any privacy query or request that you have raised with us, you also have a right to complaint to the National Information Technology Development Agency.
           </p>
           <h4 className="subsequent-privacy-policy-details">Problem Signing In </h4>
           <p className="privacy-policy-details"> 
@@ -97,7 +97,7 @@ const PrivacyPolicyPage = () => {
           <h4 className="subsequent-privacy-policy-details">Breach/Privacy Violation </h4>
           <p className="privacy-policy-details"> In the event of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to your Personal Data, AgroEase shall within the next 72 (seventy-two) hours of having knowledge of such breach report the details of the breach to NITDA. Furthermore, Farmcrowdy shall inform the affected Data Subjects of the breach incident, the risk to the rights and freedoms resulting from such breach and any course of action to remedy the said breach.</p>
           <h4 className="subsequent-privacy-policy-details">Contacting Us </h4>
-          <p className="privacy-policy-details">Contacting Us If you have any questions, comments or requests about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at 
+          <p className="privacy-policy-details">If you have any questions, comments or requests about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at 
             agroease@gmail.com or our office at Tech Specialist, Wuse Zone 6. You can also call us at 08082957336 or 08082957336. 
           </p>
         </section>

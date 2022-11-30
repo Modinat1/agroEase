@@ -60,28 +60,28 @@ const ContactUs = () => {
               const errors = {}
 
               if (!values.name) {
-                errors.name = 'required'
+                errors.name = <span style={{color:'red'}}>required</span>
               }
 
               if (!values.email) {
-                errors.email = 'required'
+                errors.email = <span style={{color:'red'}}>required</span>
               } else if (
                 !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
               ) {
-                errors.email = 'Invalid email address'
+                errors.email = <span style={{color:'red'}}>Invalid email address</span>
               }
 
               if (!values.tel) {
-                errors.tel = 'required'
+                errors.tel = <span style={{color:'red'}}>required</span>
               } else if (
-                !/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(
+                !/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(
                   values.tel
                 )
               ) {
-                errors.email = 'Invalid number'
+                errors.email = <span style={{color:'red'}}>Invalid number</span>
               }
               if (!values.message) {
-                errors.message = 'required'
+                errors.message = <span style={{color:'red'}}>required</span>
               }
 
               return errors
@@ -121,9 +121,7 @@ const ContactUs = () => {
                   value={values.name}
                 />
 
-                {errors.name && touched.name && (
-                  <span style={{ color: 'red' }}> errors.name</span>
-                )}
+                {errors.name && touched.name &&  errors.name}
                 <input
                   type="email"
                   placeholder=" Email"
@@ -135,9 +133,7 @@ const ContactUs = () => {
                   onBlur={handleBlur}
                   value={values.email}
                 />
-                {errors.email && touched.email && (
-                  <span style={{ color: 'red' }}>errors.email</span>
-                )}
+                {errors.email && touched.email && errors.email}
                 <input
                   type="tel"
                   placeholder="Phone"
@@ -150,9 +146,7 @@ const ContactUs = () => {
                   value={values.tel}
                 />
 
-                {errors.tel && touched.tel && (
-                  <span style={{ color: 'red' }}>errors.tel</span>
-                )}
+                {errors.tel && touched.tel && errors.tel}
                 <textarea
                   id="contact-textarea"
                   name="message"
@@ -165,9 +159,7 @@ const ContactUs = () => {
                   onBlur={handleBlur}
                   value={values.message}
                 />
-                {errors.message && touched.message && (
-                  <span style={{ color: 'red' }}> errors.message</span>
-                )}
+                {errors.message && touched.message && errors.message}
                 <button
                   className="contact-button"
                   type="submit"

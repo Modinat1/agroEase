@@ -73,7 +73,7 @@ function App() {
             <Route exact path="/UsersSignUp" element={<UsersSignUp />} />
             <Route exact path="/UsersSignIn" element={<UsersSignIn />} />
             <Route exact path="/UsersSignIn" element={<Account />} />
-
+            <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
 
             {/*Protect Routes*/}
           <Route element={<RequireAuth />}>
@@ -110,8 +110,7 @@ function App() {
             <Route path="BuyerOrderSuccesful" element={<BuyerOrderSuccessful />} />
             <Route path="BuyerShipping" element={<BuyerShipping />} />
             <Route path="OrderSummary" element={<OrderSummary />} />
-            <Route path = "/PrivacyPolicy" element = {<PrivacyPolicy/>}/>
-            <Route path="resetPassword" element={<ResetPassword />} />
+             <Route path="resetPassword" element={<ResetPassword />} />
             <Route path="enterPassword" element={<EnterPassword />} />
           </Route>
         </Route>

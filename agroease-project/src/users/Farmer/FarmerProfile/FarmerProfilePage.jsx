@@ -6,35 +6,34 @@ import { useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import * as Yup from "yup";
 // import UserContext from "../../../Context/user-context/UserContext";
-import axiosInstance from "../../../axios-config/axios-user-config"; 
+import axiosInstance from "../../../axios-config/axios-user-config";
 
 export const FarmerProfilePage = () => {
-  const {userAuth, setUserAuth, user, setUser} = useContext(UserAuth)
+	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
 	// const [errorso, setErrorso] = useState("")
-	const [successo, setSuccesso] = useState("")
-  const {accessToken, refreshToken} = userAuth;
+	const [successo, setSuccesso] = useState("");
+	const { accessToken, refreshToken } = userAuth;
 
-  const config = {
-    headers: { Authorization: `Bearer ${accessToken}` }
-};
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const handleStoreSubmit = async (values) =>{
-    try {
-			const response = await axiosInstance.post("v1/store", values, config)
-			const accessToken = response.data.tokens.access.token
-			setUserAuth({accessToken})
-			setUser(response.data.user)
+	const handleStoreSubmit = async (values) => {
+		try {
+			const response = await axiosInstance.post("v1/store", values, config);
+			const accessToken = response.data.tokens.access.token;
+			setUserAuth({ accessToken });
+			setUser(response.data.user);
 			// JSON.parse(localStorage.setItem('token', accessToken))
-			setSuccesso('Account Created Successfully')
+			setSuccesso("Account Created Successfully");
 
 			if (userAuth) {
-				navigate("/UsersSignIn")
+				navigate("/UsersSignIn");
 			}
-		}
-		catch (error) {
-      console.log(error)
+		} catch (error) {
+			console.log(error);
 			// if (!error.response) {
 			// 	console.log("Server down")
 			// } else if (error.response.status === 400) {
@@ -46,110 +45,122 @@ export const FarmerProfilePage = () => {
 			// 	console.log('I don see ')
 			// }
 		}
-  }
-  const initialValues = {
-   store: {
-    name: "",
-    description: "",
-    business_email: "",
-    phone_number: "",
-    farmer_image: "",
-    },
-    
-    wallet: {
-    account_number: "",
-    bank: "",
-    account_name: "",
-    nin: "",
-    date_of_birth: "",
-    }
-    
-  };
-  
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Required").max(50),
-    business_email: Yup.string().email().required("Required"),
-    phone_number: Yup.string().required("Required").max(11),
-    date_of_birth: Yup.date().required("Required"),
-    business_email: Yup.string().email().required("Required"),
-    description: Yup.string().required("Required").max(200),
-    nin: Yup.string().required("Required").max(11),
-    account_name: Yup.string().required("Required").max(50),
-    bank: Yup.string().required("Required").max(50),
-    
-  });
-  const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      handleStoreSubmit(values)
-    },
-  });
-  return (
-    <React.Fragment>
-      <div className="farmer_profile_wrapper">
-        <div className="container-agro">
-          <div className="title-agro">Personal details</div>
-          <div className="content-agro">
-            <form action="" method="post" onSubmit={formik.handleSubmit}>
-              <div className="user-details-agro">
-                <div className="input-box-agro">
-                  <span className="details-agro">Name</span>
-                  <input
-                    type="text"
-                    placeholder="Godswill Chibuzo"
-                    id="name"
-                    name="name"
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
-                  />
-                  {formik.errors.name ? <div className="profile_error">{formik.errors.name}</div> : null}
-                </div>
-                <div className="input-box-agro">
-                  <span className="details-agro">Email</span>
-                  <input
-                    type="email"
-                    placeholder="buzor@gmail.com"
-                    id="business_email"
-                    name="business_email"
-                    onChange={formik.handleChange}
-                    value={formik.values.business_email}
-                  />
-                  {formik.errors.business_email ? <div className="profile_error">{formik.errors.business_email}</div> : null}
-                </div>
+	};
+	const initialValues = {
+		store: {
+			name: "",
+			description: "",
+			business_email: "",
+			phone_number: "",
+			farmer_image: "",
+		},
 
-                <div className="input-box-agro">
-                  <span className="details-agro">Phone Number</span>
-                  <input
-                    type="number"
-                    placeholder="08024536632"
-                    id="phone_number"
-                    name="phone_number"
-                    onChange={formik.handleChange}
-                    value={formik.values.phone_number}
-                  />
-                   {formik.errors.phone_number ? <div className="profile_error">{formik.errors.phone_number}</div> : null}
-                </div>
+		wallet: {
+			account_number: "",
+			bank: "",
+			account_name: "",
+			nin: "",
+			date_of_birth: "",
+		},
+	};
 
-                <div className="input-box-agro">
-                  <span className="details-agro">Upload Photo</span>
-                  <input 
-                  type="file" 
-                  placeholder="chose file" 
-                  id="farmer_image"
-                  name="farmer_image"
-                  required
-                  multiple
-                  onChange={formik.handleChange}
-                  value={formik.values.farmer_image}
-                  />
-                   {formik.errors.farmer_image ? <div className="profile_error">{formik.errors.farmer_image}</div> : null}
-                </div>
-              </div>
+	const validationSchema = Yup.object({
+		name: Yup.string().required("Required").max(50),
+		business_email: Yup.string().email().required("Required"),
+		phone_number: Yup.string().required("Required").max(11),
+		date_of_birth: Yup.date().required("Required"),
+		// business_email: Yup.string().email().required("Required"),
+		description: Yup.string().required("Required").max(200),
+		nin: Yup.string().required("Required").max(11),
+		account_name: Yup.string().required("Required").max(50),
+		bank: Yup.string().required("Required").max(50),
+	});
+	const formik = useFormik({
+		initialValues: initialValues,
+		validationSchema: validationSchema,
+		onSubmit: (values) => {
+			alert(JSON.stringify(values, null, 2));
+			handleStoreSubmit(values.store, values.wallet);
+		},
+	});
+	return (
+		<React.Fragment>
+			<div className='farmer_profile_wrapper'>
+				<div className='container-agro'>
+					<div className='title-agro'>Personal details</div>
+					<div className='content-agro'>
+						<form action='' method='post' onSubmit={formik.handleSubmit}>
+							<div className='user-details-agro'>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Name</span>
+									<input
+										type='text'
+										placeholder='Godswill Chibuzo'
+										id='name'
+										name='name'
+										onChange={formik.handleChange}
+										value={formik.values.name}
+									/>
+									{formik.errors.name ? (
+										<div className='profile_error'>{formik.errors.name}</div>
+									) : null}
+								</div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Email</span>
+									<input
+										type='email'
+										placeholder='buzor@gmail.com'
+										id='business_email'
+										name='business_email'
+										onChange={formik.handleChange}
+										value={formik.values.business_email}
+									/>
+									{formik.errors.business_email ? (
+										<div className='profile_error'>
+											{formik.errors.business_email}
+										</div>
+									) : null}
+								</div>
 
-              {/* Personal Address of the seller */}
-              {/* <div className="Address-input-box-agro">
+								<div className='input-box-agro'>
+									<span className='details-agro'>Phone Number</span>
+									<input
+										type='number'
+										placeholder='08024536632'
+										id='phone_number'
+										name='phone_number'
+										onChange={formik.handleChange}
+										value={formik.values.phone_number}
+									/>
+									{formik.errors.phone_number ? (
+										<div className='profile_error'>
+											{formik.errors.phone_number}
+										</div>
+									) : null}
+								</div>
+
+								<div className='input-box-agro'>
+									<span className='details-agro'>Upload Photo</span>
+									<input
+										type='file'
+										placeholder='chose file'
+										id='farmer_image'
+										name='farmer_image'
+										required
+										multiple
+										onChange={formik.handleChange}
+										value={formik.values.farmer_image}
+									/>
+									{formik.errors.farmer_image ? (
+										<div className='profile_error'>
+											{formik.errors.farmer_image}
+										</div>
+									) : null}
+								</div>
+							</div>
+
+							{/* Personal Address of the seller */}
+							{/* <div className="Address-input-box-agro">
                 <span className="details-agro">Address</span>
                 <input 
                 type="text" 
@@ -162,76 +173,94 @@ export const FarmerProfilePage = () => {
                  {formik.errors.seller_address ? <div className="profile_error">{formik.errors.seller_address}</div> : null}
               </div> */}
 
-              {/* Business Details Section */}
-              <div className="title-agro">Business details</div>
-              <div className="user-details-agro">
-                <div className="input-box-agro">
-                  <span className="details-agro">Business Name</span>
-                  <input
-                    type="text"
-                    placeholder="Godswill & Sons Enterprise"
-                    id="business_name"
-                    name="business_name"
-                    onChange={formik.handleChange}
-                    value={formik.values.business_name}
-                  />
-                   {formik.errors.business_name ? <div className="profile_error">{formik.errors.business_name}</div> : null}
-                </div>
-                <div className="input-box-agro">
-                  <span className="details-agro">Business Email</span>
-                  <input 
-                  type="email" 
-                  placeholder="buzor@gmail.com"
-                  id="business_email"
-                  name="business_email"
-                  onChange={formik.handleChange}
-                  value={formik.values.business_email}
-                   />
-                  {formik.errors.business_email ? <div className="profile_error">{formik.errors.business_email}</div> : null}
-                </div>
+							{/* Business Details Section */}
+							<div className='title-agro'>Business details</div>
+							<div className='user-details-agro'>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Business Name</span>
+									<input
+										type='text'
+										placeholder='Godswill & Sons Enterprise'
+										id='business_name'
+										name='business_name'
+										onChange={formik.handleChange}
+										value={formik.values.business_name}
+									/>
+									{formik.errors.business_name ? (
+										<div className='profile_error'>
+											{formik.errors.business_name}
+										</div>
+									) : null}
+								</div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Business Email</span>
+									<input
+										type='email'
+										placeholder='buzor@gmail.com'
+										id='business_email'
+										name='business_email'
+										onChange={formik.handleChange}
+										value={formik.values.business_email}
+									/>
+									{formik.errors.business_email ? (
+										<div className='profile_error'>
+											{formik.errors.business_email}
+										</div>
+									) : null}
+								</div>
 
-                <div className="input-box-agro">
-                  <span className="details-agro">Business Phone Number</span>
-                  <input 
-                  type="number" 
-                  placeholder="08022346464" 
-                  id="business_number"
-                  name="business_number"
-                  onChange={formik.handleChange}
-                  value={formik.values.business_number}
-                   />
-                   {formik.errors.business_number ? <div className="profile_error">{formik.errors.business_number}</div> : null}
-                </div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Business Phone Number</span>
+									<input
+										type='number'
+										placeholder='08022346464'
+										id='business_number'
+										name='business_number'
+										onChange={formik.handleChange}
+										value={formik.values.business_number}
+									/>
+									{formik.errors.business_number ? (
+										<div className='profile_error'>
+											{formik.errors.business_number}
+										</div>
+									) : null}
+								</div>
 
-                <div className="input-box-agro">
-                  <span className="details-agro">Business Description</span>
-                  <input
-                    type="text"
-                    placeholder="Deals with all diary product"
-                    id="description"
-                    name="description"
-                    onChange={formik.handleChange}
-                    value={formik.values.description}
-                  />
-                  {formik.errors.description ? <div className="profile_error">{formik.errors.description}</div> : null}
-                </div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Business Description</span>
+									<input
+										type='text'
+										placeholder='Deals with all diary product'
+										id='description'
+										name='description'
+										onChange={formik.handleChange}
+										value={formik.values.description}
+									/>
+									{formik.errors.description ? (
+										<div className='profile_error'>
+											{formik.errors.description}
+										</div>
+									) : null}
+								</div>
 
-                <div className="input-box-agro">
-                  <span className="details-agro">
-                    National Identification Number (NIN)
-                  </span>
-                  <input 
-                  type="number" 
-                  placeholder="01234567890" 
-                  id="nin"
-                  name="nin"
-                  onChange={formik.handleChange}
-                  value={formik.values.nin}
-                   />
-                   {formik.errors.nin ? <div className="profile_error">{formik.errors.nin}</div> : null}
-                </div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>
+										National Identification Number (NIN)
+									</span>
+									<input
+										type='number'
+										placeholder='01234567890'
+										id='nin'
+										name='nin'
+										onChange={formik.handleChange}
+										value={formik.values.nin}
+									/>
+									{formik.errors.nin ? (
+										<div className='profile_error'>{formik.errors.nin}</div>
+									) : null}
+								</div>
 
-                {/* <div className="input-box-agro">
+								{/* <div className="input-box-agro">
                   <span className="details-agro">Zip/Postal Code</span>
                   <input 
                   type="number" 
@@ -244,7 +273,7 @@ export const FarmerProfilePage = () => {
                    {formik.errors.zip_code ? <div className="profile_error">{formik.errors.zip_code}</div> : null}
                 </div> */}
 
-                {/* <div className="input-box-agro">
+								{/* <div className="input-box-agro">
                   <span className="details-agro">City</span>
                   <input 
                   type="text" 
@@ -256,7 +285,7 @@ export const FarmerProfilePage = () => {
                    />
                    {formik.errors.city ? <div className="profile_error">{formik.errors.city}</div> : null}
                 </div> */}
-                {/* <div className="input-box-agro">
+								{/* <div className="input-box-agro">
                   <span className="details-agro">State</span>
                   <input 
                   type="text" 
@@ -268,10 +297,10 @@ export const FarmerProfilePage = () => {
                    />
                    {formik.errors.state ? <div className="profile_error">{formik.errors.state}</div> : null}
                 </div> */}
-              </div>
+							</div>
 
-              {/*Business Address */}
-              {/* <div className="Address-input-box-agro">
+							{/*Business Address */}
+							{/* <div className="Address-input-box-agro">
                 <span className="details-agro">Business Address</span>
                 <input 
                 type="text" 
@@ -285,60 +314,74 @@ export const FarmerProfilePage = () => {
                  {formik.errors.business_address ? <div className="profile_error">{formik.errors.business_address}</div> : null}
               </div> */}
 
-              {/* Account Details Section */}
-              <div className="title-agro">Account details</div>
-              <div className="user-details-agro">
-                <div className="input-box-agro">
-                  <span className="details-agro">Account Name</span>
-                  <input
-                    type="text"
-                    placeholder="Godswill & Sons Enterprise"
-                    id="account_name"
-                    name="account_name"
-                    onChange={formik.handleChange}
-                    value={formik.values.account_name}
-                  />
-                  {formik.errors.account_name ? <div className="profile_error">{formik.errors.account_name}</div> : null}
-                </div>
-                <div className="input-box-agro">
-                  <span className="details-agro">Account Number</span>
-                  <input 
-                  type="number" 
-                  placeholder="0123456789" 
-                  id="account_number"
-                  name="account_number"
-                  onChange={formik.handleChange}
-                  value={formik.values.account_number}
-                   />
-                   {formik.errors.account_number ? <div className="profile_error">{formik.errors.account_number}</div> : null}
-                </div>
-                <div className="input-box-agro">
-                  <span className="details-agro">Bank Name</span>
-                  <input 
-                  type="text" 
-                  placeholder="First Bank" 
-                  id="bank"
-                  name="bank"
-                  onChange={formik.handleChange}
-                  value={formik.values.bank}
-                  />
-                  {formik.errors.bank ? <div className="profile_error">{formik.errors.bank}</div> : null}
-                </div>
-                <div className="input-box-agro">
-                  <span className="details-agro">Date of Birth</span>
-                  <input 
-                  type="date" 
-                  placeholder="24-11-2022" 
-                  id="date_of_birth"
-                  name="date_of_birth"
-                  onChange={formik.handleChange}
-                  value={formik.values.date_of_birth}
-                   />
-                   {formik.errors.date_of_birth ? <div className="profile_error">{formik.errors.date_of_birth}</div> : null}
-                </div>
-              </div>
+							{/* Account Details Section */}
+							<div className='title-agro'>Account details</div>
+							<div className='user-details-agro'>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Account Name</span>
+									<input
+										type='text'
+										placeholder='Godswill & Sons Enterprise'
+										id='account_name'
+										name='account_name'
+										onChange={formik.handleChange}
+										value={formik.values.account_name}
+									/>
+									{formik.errors.account_name ? (
+										<div className='profile_error'>
+											{formik.errors.account_name}
+										</div>
+									) : null}
+								</div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Account Number</span>
+									<input
+										type='number'
+										placeholder='0123456789'
+										id='account_number'
+										name='account_number'
+										onChange={formik.handleChange}
+										value={formik.values.account_number}
+									/>
+									{formik.errors.account_number ? (
+										<div className='profile_error'>
+											{formik.errors.account_number}
+										</div>
+									) : null}
+								</div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Bank Name</span>
+									<input
+										type='text'
+										placeholder='First Bank'
+										id='bank'
+										name='bank'
+										onChange={formik.handleChange}
+										value={formik.bank}
+									/>
+									{formik.errors.bank ? (
+										<div className='profile_error'>{formik.errors.bank}</div>
+									) : null}
+								</div>
+								<div className='input-box-agro'>
+									<span className='details-agro'>Date of Birth</span>
+									<input
+										type='date'
+										placeholder='24-11-2022'
+										id='date_of_birth'
+										name='date_of_birth'
+										onChange={formik.handleChange}
+										value={formik.values.date_of_birth}
+									/>
+									{formik.errors.date_of_birth ? (
+										<div className='profile_error'>
+											{formik.errors.date_of_birth}
+										</div>
+									) : null}
+								</div>
+							</div>
 
-              {/* <div className="agree-terms-agro">
+							{/* <div className="agree-terms-agro">
                 <input 
                 type="checkbox" 
                 name="policy_terms" 
@@ -355,16 +398,15 @@ export const FarmerProfilePage = () => {
                 </p>
                 <p>{formik.errors.policy_terms ? <div className="profile_error">{formik.errors.policy_terms}</div> : null}</p>
               </div> */}
-              <div className="Address-container-agro">
-                <div className="button-agro">
-                  <button type="submit">Submit</button>
-                  
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </React.Fragment>
-  );
+							<div className='Address-container-agro'>
+								<div className='button-agro'>
+									<button type='submit'>Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</React.Fragment>
+	);
 };

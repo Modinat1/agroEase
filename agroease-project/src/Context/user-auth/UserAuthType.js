@@ -3,3 +3,5 @@
 // export const SIGNUP_USER_ERROR = "SIGNUP_USER_ERROR"
 
 export const SIGNUP_USER = "SIGNUP_USER"
+
+export const DELETE_USER = "DELETE_USER"

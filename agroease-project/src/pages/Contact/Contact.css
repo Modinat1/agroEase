@@ -151,7 +151,8 @@ body {
   }
   .contact-us-page-marker {
     font-size: 1rem;
-    border: 2px solid red;
+    /* border: 2px solid red;  */
+     /* width: 70%; */
   }
 
   .contact-heading {
@@ -163,33 +164,34 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     align-items: center;
 
-    gap: 1rem;
+    gap: 0.5px;
   }
 
   .contact-location {
-    width: 70%;
-    justify-content: center;
+    width: 100%;
+    justify-content: flex-end;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     align-self: flex-end;
   }
 
   .contact-number {
-    width: 70%;
-    justify-content: center;
+    width: 100%;
+    justify-content: flex-end;
     align-items: center;
     align-self: flex-end;
+    gap: 0;
   }
 
   .contact-email {
-    width: 55%;
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: flex-end;
     align-items: center;
     align-self: flex-end;
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
 
   .form-container {

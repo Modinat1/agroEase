@@ -253,10 +253,6 @@ const Items = ({ currentItems, title, search }) => {
 	const formatter = new Intl.NumberFormat("en-NG", {
 		style: "currency",
 		currency: "NGN",
-
-		// These options are needed to round to whole numbers if that's what you want.
-		//minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 	});
 	const addNotify = () => toast.success("Item added to cart!");
 	const removeNotify = () => toast.error("Item removed from cart!");
@@ -278,7 +274,7 @@ const Items = ({ currentItems, title, search }) => {
 							})
 							.map((data, idx) => {
 								return (
-									<div className='card'>
+									<div className='card' key={idx}>
 										<div className='bag'>
 											<img src={data.image} alt='' />
 										</div>
@@ -374,7 +370,7 @@ const Items = ({ currentItems, title, search }) => {
 function PaginatedItems({ itemsPerPage, search }) {
 	const productStore = React.useContext(ProductContext);
 
-	const [products, setProducts] = useState(allProducts.default);
+	// const [products, setProducts] = useState(allProducts.default);
 
 	// We start with an empty list of items.
 	const [currentItems, setCurrentItems] = useState([]);

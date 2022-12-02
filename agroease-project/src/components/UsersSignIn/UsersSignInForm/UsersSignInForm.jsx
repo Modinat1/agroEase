@@ -10,13 +10,14 @@ import UserServices from "../../../Context/user-context/user.service";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
+import userRefreshToken from "../../../Context/user-auth/userRefreshToken";
 
 export const UsersSignInForm = () => {
 	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth();
 
 	const [errorso, setErrorso] = useState("");
 	const [successo, setSuccesso] = useState("");
-
+	
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/farmerdashboardpage";
@@ -29,8 +30,9 @@ export const UsersSignInForm = () => {
 			const response = await axiosInstance.post("/v1/auth/login", values);
 			const accessToken = response.data.tokens.access.token;
 			const refreshToken = response.data.tokens.refresh.token;
+			const allUser = response.data.user
 			//const roles = response.data.
-			setUserAuth({ accessToken, refreshToken, values });
+			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
 			//JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
@@ -151,6 +153,7 @@ export const UsersSignInForm = () => {
 									{/* <Link to={"/UsersSignUp"}>
 							<SellerSignUpBtn />
 						</Link> */}
+									
 									<Link to={"/UsersSignUp"}>
 										<BuyerSignUpBtn />
 									</Link>

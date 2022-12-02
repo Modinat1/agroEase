@@ -4,8 +4,8 @@ import "./FarmerProductUpload.css";
 import Swal from "sweetalert2";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axiosInstance from "../../../axios-config/axios-user-config";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const FarmerProductUpload = () => {
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);

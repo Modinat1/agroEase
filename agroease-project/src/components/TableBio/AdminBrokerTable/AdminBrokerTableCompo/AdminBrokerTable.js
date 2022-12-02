@@ -3,7 +3,7 @@ import { AiOutlinePauseCircle } from "react-icons/ai";
 
 import { BiEdit } from "react-icons/bi";
 import { MdOutlineCancel } from "react-icons/md";
-import axiosInstance from "../../../../axios-config/axios-user-config";
+import axiosInstance from "../../../../Context/axios-config/axios-user-config";
 import UserAuth from "../../../../Context/user-auth/UserAuthContext";
 import { adminbroker } from "./AdminBrokerModule";
 import "./AdminBrokerTable.css";
@@ -32,6 +32,17 @@ const AdminBrokerTable = () => {
 			console.log(error);
 		}
 	};
+
+	const deleteProduct = async (id) => {
+		try {
+			const response = await axiosInstance.delete("/v1/product/" + id, config)
+			console.log(response.data);
+			return response
+		}
+		catch (error){
+			console.log(error)
+		}
+	}
 	useEffect(() => {
 		getProduct();
 	}, []);
@@ -55,20 +66,21 @@ const AdminBrokerTable = () => {
 					{/* Mapping through the array to get the table details */}
 
 					{products.map((tables) => {
+						const {id, name, description, cost, quantity} = tables
 						return (
-							<tbody className={tables.tbcName}>
+							<tbody className="admin-general-tbody" key={id}>
 								<tr>
-									<td>{tables.id}</td>
-									<td>{tables.name}</td>
-									<td>{tables.description}</td>
-									<td>{tables.cost}</td>
-									<td>{tables.quantity}</td>
+									<td>{id}</td>
+									<td>{name}</td>
+									<td>{description}</td>
+									<td>{cost}</td>
+									<td>{quantity}</td>
 									{/* <td>{tables.address}</td> */}
 									<td>
-										<div className={tables.tbcIcon}>
+										<div className="styletableicon">
 											<BiEdit />
 											<AiOutlinePauseCircle />
-											<MdOutlineCancel />
+											<MdOutlineCancel  onClick={(id) => deleteProduct(id)}/>
 										</div>
 									</td>
 								</tr>

@@ -18,20 +18,25 @@ const NewFarmerSidebar = () => {
 		setIsActive(!isActive);
 	};
 
+	//Config Access token bearer
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
+
 	//Logging out a user
 	console.log(userAuth);
 	const handleLogout = async () => {
 		try {
 			const response = await axiosInstance.post(
 				"/v1/auth/logout",
-				refreshToken
+				{refreshToken: userAuth.refreshToken},
+				config
 			);
 			console.log(response);
-			// JSON.parse(localStorage.setItem('token', accessToken))
-
-			// if (userAuth) {
-			// 	navigate("/UsersSignIn")
-			// }
+			navigate("/UsersSignIn")
+			return response
+			
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");

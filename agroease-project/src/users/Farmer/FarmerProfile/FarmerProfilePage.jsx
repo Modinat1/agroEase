@@ -6,8 +6,9 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import * as Yup from "yup";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import UserContext from "../../../Context/user-context/UserContext";
-import axiosInstance from "../../../axios-config/axios-user-config";
+
 
 export const FarmerProfilePage = () => {
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);

@@ -136,8 +136,8 @@ export const FarmerProductUpload = () => {
 								<option value='' disabled>
 									Select
 								</option>
-								<option value='uploaded_farm_input'>Farm Input</option>
-								<option value='uploaded_crop'>Crops</option>
+								<option value='FarmInput'>Farm Input</option>
+								<option value='Crop'>Crops</option>
 								<option value='Poultry'>Poultry</option>
 								<option value='Livestock'>LiveStock</option>
 								<option value='Product'>Product</option>

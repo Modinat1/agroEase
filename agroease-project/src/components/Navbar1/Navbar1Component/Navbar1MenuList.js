@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import DropDown from "./DropDown";
+// import DropDown from "./DropDown";
 import "./NavbarCompo.css";
 import { navItems } from "./NavbarListModal";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -9,7 +9,7 @@ import "../Navbar1.css";
 
 const Navbar1MenuList = () => {
 	const navRef = useRef();
-	const [dropDowns, setDropDowns] = useState(false);
+	// const [dropDowns, setDropDowns] = useState(false);
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive-nav");
@@ -18,7 +18,7 @@ const Navbar1MenuList = () => {
 	return (
 		<div>
 			<ul className='navbar-menulist' ref={navRef}>
-				{navItems.map((item) => {
+				{navItems.map((item, idx) => {
 					// if (item.title === "Account") {
 					//   return (
 					//     <li key={item.id} onMouseEnter={()=> setDropDowns(true)} onMouseLeave={()=> setDropDowns(false)}>
@@ -29,7 +29,7 @@ const Navbar1MenuList = () => {
 
 					// }
 					return (
-						<li key={item.id}>
+						<li key={idx}>
 							<Link to={item.path}>{item.title}</Link>
 						</li>
 					);

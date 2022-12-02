@@ -10,7 +10,12 @@ import "./AdminBrokerTable.css";
 
 const AdminBrokerTable = () => {
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
-	const { accessToken, refreshToken } = userAuth;
+	const { accessToken, allUser } = userAuth;
+	console.log(userAuth);
+	console.log(allUser);
+	const {
+		Store: { id },
+	} = allUser;
 	const [products, setProducts] = useState([]);
 
 	const config = {
@@ -19,7 +24,10 @@ const AdminBrokerTable = () => {
 
 	const getProduct = async () => {
 		try {
-			const response = await axiosInstance.get("/v1/product/", config);
+			const response = await axiosInstance.get(
+				`/v1/product/store/${id}`,
+				config
+			);
 			console.log(response.data);
 			setProducts(response.data);
 			// .then((response) => {
@@ -35,14 +43,13 @@ const AdminBrokerTable = () => {
 
 	const deleteProduct = async (id) => {
 		try {
-			const response = await axiosInstance.delete("/v1/product/" + id, config)
+			const response = await axiosInstance.delete("/v1/product/" + id, config);
 			console.log(response.data);
-			return response
+			return response;
+		} catch (error) {
+			console.log(error);
 		}
-		catch (error){
-			console.log(error)
-		}
-	}
+	};
 	useEffect(() => {
 		getProduct();
 	}, []);
@@ -66,21 +73,21 @@ const AdminBrokerTable = () => {
 					{/* Mapping through the array to get the table details */}
 
 					{products.map((tables) => {
-						const {id, name, description, cost, quantity} = tables
+						const { id, name, description, price, quantity } = tables;
 						return (
-							<tbody className="admin-general-tbody" key={id}>
+							<tbody className='admin-general-tbody' key={id}>
 								<tr>
 									<td>{id}</td>
 									<td>{name}</td>
 									<td>{description}</td>
-									<td>{cost}</td>
+									<td>{price}</td>
 									<td>{quantity}</td>
 									{/* <td>{tables.address}</td> */}
 									<td>
-										<div className="styletableicon">
+										<div className='styletableicon'>
 											<BiEdit />
 											<AiOutlinePauseCircle />
-											<MdOutlineCancel  onClick={(id) => deleteProduct(id)}/>
+											<MdOutlineCancel onClick={(id) => deleteProduct(id)} />
 										</div>
 									</td>
 								</tr>

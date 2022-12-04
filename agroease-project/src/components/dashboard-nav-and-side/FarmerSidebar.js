@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Agroeaselogo from "../../images/agro_ease_logo.png";
 import { useState } from "react";
@@ -23,9 +23,14 @@ const NewFarmerSidebar = () => {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
 
+	
+  
+	
+
 
 	//Logging out a user
-	console.log(userAuth);
+	
+	// const isLoggedout = localStorage.removeItem("token")
 	const handleLogout = async () => {
 		try {
 			const response = await axiosInstance.post(
@@ -33,7 +38,14 @@ const NewFarmerSidebar = () => {
 				{refreshToken: userAuth.refreshToken},
 				config
 			);
+
+			const currentUser = await axiosInstance.get("/v1/auth/current", config);
+			if (currentUser === null) {
+				console.log("thank God")
+			}
+			currentUser()
 			console.log(response);
+			console.log(currentUser);
 			navigate("/UsersSignIn")
 			return response
 			
@@ -49,6 +61,14 @@ const NewFarmerSidebar = () => {
 			}
 		}
 	};
+	// useEffect(() => {
+	  
+	// 	if (isLoggedout) {
+	// 	  navigate("/UsersSignIn")
+	// 	} 
+	
+	//   }, [navigate, isLoggedout])
+
 
 	return (
 		<>

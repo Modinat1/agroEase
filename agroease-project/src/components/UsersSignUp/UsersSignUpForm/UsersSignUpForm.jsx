@@ -24,7 +24,7 @@ export const UsersSignUpForm = () => {
 	// handle registration function
     const handleUserRegistration = async (values)=> {
 		try {
-			const response = await UserAxiosPrivate.post("v1/auth/register", values)
+			const response = await axiosInstance.post("v1/auth/register", values)
 			const accessToken = response.data.tokens.access.token
 			setUserAuth({accessToken})
 			setUser(response.data.user)

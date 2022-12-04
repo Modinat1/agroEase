@@ -7,7 +7,7 @@ import UsersDashboardSearch from "./UsersDashboardSearch";
 const NewBrokerNavbar = () => {
 
 	const { userAuth } = GeneralUserAuth();
-        const {allUser} = userAuth
+    const {allUser} = userAuth
 
 
 	return (

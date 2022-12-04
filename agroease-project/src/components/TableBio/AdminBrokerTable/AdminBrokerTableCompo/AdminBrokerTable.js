@@ -13,9 +13,9 @@ const AdminBrokerTable = () => {
 	const { accessToken, allUser } = userAuth;
 	console.log(userAuth);
 	console.log(allUser);
-	const {
-		Store: { id },
-	} = allUser;
+	// const {
+	// 	Store: { id },
+	// } = allUser;
 	const [products, setProducts] = useState([]);
 
 	const config = {
@@ -25,7 +25,7 @@ const AdminBrokerTable = () => {
 	const getProduct = async () => {
 		try {
 			const response = await axiosInstance.get(
-				`/v1/product/store/${id}`,
+				`/v1/product/store/`,
 				config
 			);
 			console.log(response.data);
@@ -41,9 +41,9 @@ const AdminBrokerTable = () => {
 		}
 	};
 
-	const deleteProduct = async (id) => {
+	const deleteProduct = async () => {
 		try {
-			const response = await axiosInstance.delete("/v1/product/" + id, config);
+			const response = await axiosInstance.delete("/v1/product/", config);
 			console.log(response.data);
 			return response;
 		} catch (error) {

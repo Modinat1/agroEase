@@ -2,12 +2,13 @@ import { useEffect } from "react"
 import { axiosPrivate } from "../axios-config/axios-user-config"
 
 import GeneralUserAuth from "./GeneralUserAuth"
-import userRefreshToken from "./userRefreshToken"
+import UserRefreshToken from "./UserRefreshToken"
+
 
  
 
  const UserAxiosPrivate = () => {
-    const refresh = userRefreshToken()
+    const refresh = UserRefreshToken()
     const {userAuth} = GeneralUserAuth()
 
     useEffect(() => {
@@ -16,7 +17,8 @@ import userRefreshToken from "./userRefreshToken"
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {
                 if (!config.headers['Authorization']) {
-                    config.headers['Authorization'] = `Bearer ${userAuth?.accessToken}`
+                    const token = JSON.parse(localStorage.getItem("token"))
+                    config.headers['Authorization'] = `Bearer ${token?.accessToken}`
                 }
                 return config;
             }, (error) => Promise.reject(error)

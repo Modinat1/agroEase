@@ -162,7 +162,7 @@ const NewAdminSidebar = () => {
         {/* Component End  */}
         {/* Component Start */}
         <div className="flex flex-col items-center w-40 h-full overflow-hidden text-green-600 bg-yellow-50 border-x-emerald-300 rounded">
-          <Link className="flex items-center w-full px-1 mt-3" href="#">
+          <Link className="flex items-center w-full px-1 mt-3" to="/">
             {/* <svg
 							className='w-8 h-8 fill-current'
 							xmlns='http://www.w3.org/2000/svg'
@@ -177,7 +177,7 @@ const NewAdminSidebar = () => {
             <div className="flex flex-col items-center w-full mt-3 border-t border-gray-300">
               <Link
                 className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
-                href="#"
+                to="/AdminDashIndex"
               >
                 <svg
                   className="w-6 h-6 stroke-current"
@@ -197,14 +197,14 @@ const NewAdminSidebar = () => {
               </Link>
               <Link
                 className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
-                href="#"
+                to="/AdminLogisticsTask"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-person-circle"
+                  className="bi bi-person-circle"
                   viewBox="0 0 16 16"
                 >
                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -216,6 +216,7 @@ const NewAdminSidebar = () => {
                 <span className="ml-2 text-sm font-medium">Manage task</span>
               </Link>
               <Link
+			  	to='/adminfarmerpage'
                 className="flex items-center w-full h-12 px-3 mt-2 bg-gray-300 rounded"
                 href="#"
               >
@@ -224,7 +225,7 @@ const NewAdminSidebar = () => {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-people"
+                  className="bi bi-people"
                   viewBox="0 0 16 16"
                 >
                   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" />
@@ -233,7 +234,7 @@ const NewAdminSidebar = () => {
               </Link>
               <Link
                 className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
-                href="#"
+                
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +260,7 @@ const NewAdminSidebar = () => {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-megaphone-fill"
+                  className="bi bi-megaphone-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z" />

@@ -5,10 +5,8 @@ import UsersDashboardSearch from "./UsersDashboardSearch";
 // import Agroeaselogo from "../../images/agrologo.png";
 
 const NewBrokerNavbar = () => {
-
 	const { userAuth } = GeneralUserAuth();
-        const {allUser} = userAuth
-
+	const { allUser } = userAuth;
 
 	return (
 		<div>

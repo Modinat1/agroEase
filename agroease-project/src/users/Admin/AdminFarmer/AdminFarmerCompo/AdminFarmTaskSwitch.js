@@ -1,8 +1,8 @@
 import React from "react";
-// import "./ManageTaskSwitch.css";
+import "./AdminFarmTaskSwitch.css";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-export const TaskSwitch = () => {
+export const AdminFarmTaskSwitch = () => {
 	function CustomLink({ to, children, ...props }) {
 		const resolePath = useResolvedPath(to);
 		const isActive = useMatch({ path: resolePath.pathname });
@@ -16,10 +16,11 @@ export const TaskSwitch = () => {
 	return (
 		<>
 			<div className='TaskSwitch-wrapper'>
-				<CustomLink to={"/AdminTaskNotification"}>Notification</CustomLink>
-				<CustomLink to={"/AdminLogisticsTask"}>Logistics</CustomLink>
-				<CustomLink to={"/AdminPaymentTask"}>Payment</CustomLink>
+				<CustomLink to={"/adminfarmertable"}>Store</CustomLink>
+				{/* <CustomLink to={"/AdminLogisticsTask"}>All Products</CustomLink> */}
 			</div>
 		</>
 	);
 };
+
+ 

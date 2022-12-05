@@ -15,7 +15,7 @@ const NewBrokerNavbar = () => {
 				<div className='px-5 xl:px-12 py-6 flex w-full justify-between items-center'>
 					<Link className='hidden md:flex text-2xl font-bold font-heading pl-12 ml-20 md:ml-40'>
 						{/* <img class='h-12' src={Agroeaselogo} alt='logo' /> */}
-						Hello, {`${allUser.firstname} ${allUser.lastname}`}
+						Hello, {`${allUser?.firstname} ${allUser?.lastname}`}
 					</Link>
 					<Link className='navbar-burger self-center mr-12 xl:hidden'>
 						<svg

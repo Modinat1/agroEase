@@ -44,8 +44,8 @@ const ContactUs = () => {
               <AiOutlinePhone />
             </div>
 
-            <h4> 08082957336,</h4>
-            <h4> 08082957336</h4>
+            <h4> 08082957336, 08082957336</h4>
+            {/* <h4> </h4> */}
           </div>
           <div className="contact-email">
             <div className="contact-us-email">

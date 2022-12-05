@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./BuyerPaymentCSS/Shipping.css";
 import { Progress } from "./BuyerPayementComponent/Progress";
 import Footer from "../../../components/Footer/Footer";
@@ -11,8 +10,60 @@ import { useFormik } from "formik";
 import { stateList } from "./BuyerPayementComponent/countryModule";
 // import shippingSchema from "../../../components/Yup/Schema/ShippingSchema";
 import * as yup from "yup";
+import UserAuth from "../../../Context/user-auth/UserAuthContext";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const BuyerShipping = () => {
+
+	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
+	// const [errorso, setErrorso] = useState("")
+	const [successo, setSuccesso] = useState("");
+	const { accessToken, refreshToken } = userAuth;
+	// const navigate = useNavigate();
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
+	const handleShippingAddress = async (values) => {
+		const {
+			country,
+			state,
+			city,
+			zip,
+			address,
+		} = values;
+		const shippingAddress = {
+			country,
+			state,
+			city,
+			zip,
+			address,
+		};
+		console.log(values);
+		console.log(shippingAddress);
+		try {
+			const response = await axiosInstance.post(
+				"v1/delivery/address",
+				shippingAddress,
+				config
+			);
+			const accessToken = response.data.tokens.access.token;
+			setUserAuth({ accessToken });
+			setUser(response.data.user);
+			// JSON.parse(localStorage.setItem('token', accessToken))
+			setSuccesso("Shipping Address Created Successfully");
+
+			if (userAuth) {
+				navigate("/BuyerPayment");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+
+
+
 	const navigate = useNavigate();
 	const {
 		handleBlur,
@@ -21,7 +72,7 @@ export const BuyerShipping = () => {
 		touched,
 		values,
 		errors,
-		isSubmitting,
+		// isSubmitting,
 	} = useFormik({
 		initialValues: {
 			username: "",
@@ -46,7 +97,8 @@ export const BuyerShipping = () => {
 				console.log(JSON.stringify(values, null, 2));
 				setSubmitting(false);
 				resetForm();
-				//   handleUserRegistration(values)
+				handleShippingAddress(values)
+				// handleUserRegistration(values)
 				navigate("/BuyerPayment");
 			}, 4000);
 		},

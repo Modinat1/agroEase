@@ -79,7 +79,7 @@ export const AdminDashIndex = () => {
 					</section>
 					{/* <FarmerTable /> */}
 					<FarmerTable />
-					<AdminBrokerTable />
+					{/* <AdminBrokerTable /> */}
 					<section className='farmerdash_graph'>
 						<Thebarchart />
 

@@ -10,7 +10,7 @@ import UserServices from "../../../Context/user-context/user.service";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
-import userRefreshToken from "../../../Context/user-auth/userRefreshToken";
+import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
 
 export const UsersSignInForm = () => {
 	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth();
@@ -34,13 +34,13 @@ export const UsersSignInForm = () => {
 			//const roles = response.data.
 			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
-			//JSON.parse(localStorage.setItem('token', accessToken))
+			localStorage.setItem('token', accessToken)
 			setSuccesso("Account Created Successfully");
 			console.log("Congratulation");
 			console.log(userAuth);
 			console.log(setUserAuth);
 			console.log(response.data);
-			if (userAuth) {
+			if (UserAuth) {
 				navigate(from, { replace: true });
 			}
 		} catch (error) {

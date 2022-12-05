@@ -34,7 +34,7 @@ export const UsersSignInForm = () => {
 			//const roles = response.data.
 			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
-			// const userToken = JSON.parse(localStorage.setItem('token', accessToken))
+			localStorage.setItem('token', accessToken)
 			setSuccesso("Account Created Successfully");
 			console.log("Congratulation");
 			console.log(userAuth);

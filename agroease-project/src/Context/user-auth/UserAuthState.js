@@ -11,6 +11,8 @@ import UserAuthReducer from "./UserAuthReducer";
 export const UserAuthState = ({ children }) => {
 	const [userAuth, setUserAuth] = useState({});
 	const [user, setUser] = useState({});
+	const [currentUser, setCurrentUser] = useState(null)
+    
 
 	return (
 		<UserAuthContext.Provider
@@ -19,6 +21,8 @@ export const UserAuthState = ({ children }) => {
 				setUserAuth,
 				user,
 				setUser,
+				currentUser,
+				setCurrentUser,
 				// userAuth: state.userAuth,
 				// signupUser,
 				// ...state,

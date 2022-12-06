@@ -1,8 +1,39 @@
 import React from 'react'
 import "./AdminPaymentTable.css"
 import { adminpayment } from './AdminPaymentModule'
+import GeneralUserAuth from '../../../Context/user-auth/GeneralUserAuth';
+import { useState } from 'react';
+import axiosInstance from '../../../Context/axios-config/axios-user-config';
+import { useEffect } from 'react';
 
 const AdminPaymentTable = () => {
+    const { userAuth } = GeneralUserAuth();
+	const { accessToken} = userAuth;
+	const [users, setUsers] = useState([]);
+	const config = {
+	headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
+	const getStore = async () => {
+		try {
+			const response = await axiosInstance.get(
+				`/v1/users`,
+				config
+			);
+			console.log(response.data);
+			setUsers(response.data);
+			
+			return response;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	
+	useEffect(() => {
+		setUsers();
+	}, []);
+
   return (
     <div>
         <div className='general-table-bio-pay'>

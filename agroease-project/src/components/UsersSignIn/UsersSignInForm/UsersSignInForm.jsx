@@ -21,7 +21,7 @@ export const UsersSignInForm = () => {
 	const navigate = useNavigate();
 	const {accessToken} = userAuth
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/farmerdashboardpage";
+	const from = location.state?.from?.pathname || "/adminfarmerallproducts";
 
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },

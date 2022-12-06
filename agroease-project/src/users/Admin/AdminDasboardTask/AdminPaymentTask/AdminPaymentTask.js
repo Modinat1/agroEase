@@ -14,10 +14,7 @@ import AdminLogistcisTable from "../../../../components/TableBio/AdminManageTabl
 export const AdminPaymentTask = () => {
 	return (
 		<>
-			{/* <BrokerSidebar />
-			<BrokerDashnav /> */}
-			{/* <NewBrokerNavbar /> */}
-			{/* <NewBrokerSidebar /> */}
+			
 			<NewBrokerNavbar />
 			<NewAdminSidebar />
 

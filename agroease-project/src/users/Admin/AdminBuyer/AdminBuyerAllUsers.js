@@ -3,11 +3,10 @@ import NewAdminSidebar from "../../../components/dashboard-nav-and-side/AdminSid
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
 import { FarmerProductCard } from "../../Farmer/farmerProduct/FarmerProductCard";
+import AdminFarmerHeroPage from "../AdminFarmer/AdminFarmerCompo/AdminFarmerHeroPage";
+import { AdminBuyerTaskSwitch } from "./AdminBuyerComponent/AdminBuyerTaskSwitch";
 
-import AdminFarmerHeroPage from "./AdminFarmerCompo/AdminFarmerHeroPage";
-import { AdminFarmTaskSwitch } from "./AdminFarmerCompo/AdminFarmTaskSwitch";
-
-const AdminFarmerPage = () => {
+export const AdminBuyerAllUsers = () => {
 	return (
 		<div>
 			<NewAdminSidebar />
@@ -20,7 +19,7 @@ const AdminFarmerPage = () => {
 				</div>
 				<FarmerProductCard />
 				{/* <section className='farmer_add_product'> */}
-				<AdminFarmTaskSwitch />
+				<AdminBuyerTaskSwitch />
 
 				<AdminFarmerTable />
 				{/* </section> */}
@@ -28,5 +27,3 @@ const AdminFarmerPage = () => {
 		</div>
 	);
 };
-
-export default AdminFarmerPage;

@@ -84,7 +84,7 @@ function App() {
             
 
             {/*Protect Routes*/}
-          {/* <Route element={<RequireAuth />}> */}
+          <Route element={<RequireAuth />}>
             <Route exact path="/buyersignup" element={<BuyerSigninPage />} />
             <Route exact path="/farmersignup" element={<FarmerSigninForm />} />
             <Route exact path="/brokersignup" element={<BrokerSigninForm />} />
@@ -121,7 +121,7 @@ function App() {
             <Route path="OrderSummary" element={<OrderSummary />} />
              <Route path="resetPassword" element={<ResetPassword />} />
             <Route path="enterPassword" element={<EnterPassword />} />
-          {/* </Route> */}
+          </Route>
         </Route>
       </Routes>
     </div>

@@ -13,17 +13,30 @@ import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
 import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
 
 export const UsersSignInForm = () => {
-	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth();
+	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } = GeneralUserAuth();
 
 	const [errorso, setErrorso] = useState("");
 	const [successo, setSuccesso] = useState("");
 	
 	const navigate = useNavigate();
+	const {accessToken} = userAuth
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/farmerdashboardpage";
 
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
 	//const localToken = JSON.parse(localStorage.getItem("token"))
 	//const tokenExist = localToken?.length > 0;
+
+	// const getCurrentUser = async () => {
+	// 	const currentUser = await axiosInstance.get("/v1/auth/current", config);
+	// 	setCurrentUser(currentUser)
+	// 	console.log(currentUser)
+	// 	localStorage.setItem("user")
+	// 	return currentUser
+	// }
 
 	const handleLoginAuth = async (values) => {
 		try {
@@ -31,18 +44,29 @@ export const UsersSignInForm = () => {
 			const accessToken = response.data.tokens.access.token;
 			const refreshToken = response.data.tokens.refresh.token;
 			const allUser = response.data.user
-			//const roles = response.data.
 			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
 			localStorage.setItem('token', accessToken)
+			console.log(accessToken)
+			// localStorage.setItem('user', allUser)
+			// console.log(allUser)
 			setSuccesso("Account Created Successfully");
-			console.log("Congratulation");
-			console.log(userAuth);
-			console.log(setUserAuth);
-			console.log(response.data);
-			if (UserAuth) {
+
+			if(userAuth) {
 				navigate(from, { replace: true });
 			}
+			
+			// const currentUser = await axiosInstance.get("/v1/auth/current", config);
+			// console.log(currentUser)
+			// localStorage.setItem("user", currentUser)
+			// if(response === currentUser) {
+			// 	setCurrentUser("")
+			// }
+			// getCurrentUser()
+			// 	  // localStorage.setItem("user", )
+			// 	  console.log(response.data)
+			// 	  return response.data
+			
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -56,6 +80,20 @@ export const UsersSignInForm = () => {
 			}
 		}
 	};
+
+	// const getCurrentUser = async () => {
+	// 	try {
+	// 	  const response = await axiosInstance.get("/v1/auth/current");
+	// 	  // localStorage.setItem("user", )
+	// 	  console.log(response.data)
+	// 	  return response.data
+		  
+	// 	}
+	// 	catch(error) {
+	// 	  console.log(error)
+	// 	}
+	//   }
+	// getCurrentUser()
 
 	return (
 		<div>

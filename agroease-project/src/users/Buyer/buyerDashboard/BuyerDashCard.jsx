@@ -29,7 +29,7 @@ export const BuyerDashCard = () => {
       </section>
       {/* buyer Weather Container */}
       <section className="buyer_weather_container">
-        <p className="weather_report">Weather Report</p>
+        <p className="weather_report">Weather Report APP</p>
         <div className="weather_img">
           <img
             src={WeatherImg}

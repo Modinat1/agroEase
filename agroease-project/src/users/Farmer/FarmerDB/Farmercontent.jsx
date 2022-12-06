@@ -53,7 +53,7 @@ const Farmercontent=()=> {
                   </div>
 
                    <div className="box box3">
-                       <div className="weather-name"> Weather Report</div>
+                       <div className="weather-name"> Weather Report APP</div>
                        <div className="weather-image" > 
                            <div className="weather-cycle"></div>
                            <span></span>

@@ -23,32 +23,26 @@ const NewFarmerSidebar = () => {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
 
-	
-  
-	
-
-
 	//Logging out a user
-	
+
 	// const isLoggedout = localStorage.removeItem("token")
 	const handleLogout = async () => {
 		try {
 			const response = await axiosInstance.post(
 				"/v1/auth/logout",
-				{refreshToken: userAuth.refreshToken},
+				{ refreshToken: userAuth.refreshToken },
 				config
 			);
 
 			const currentUser = await axiosInstance.get("/v1/auth/current", config);
 			if (currentUser === null) {
-				console.log("thank God")
+				console.log("thank God");
 			}
-			currentUser()
+			currentUser();
 			console.log(response);
 			console.log(currentUser);
-			navigate("/UsersSignIn")
-			return response
-			
+			navigate("/UsersSignIn");
+			return response;
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -62,13 +56,12 @@ const NewFarmerSidebar = () => {
 		}
 	};
 	// useEffect(() => {
-	  
+
 	// 	if (isLoggedout) {
 	// 	  navigate("/UsersSignIn")
-	// 	} 
-	
-	//   }, [navigate, isLoggedout])
+	// 	}
 
+	//   }, [navigate, isLoggedout])
 
 	return (
 		<>
@@ -238,7 +231,7 @@ const NewFarmerSidebar = () => {
 					<div className='w-full px-2'>
 						<div className='flex flex-col items-center w-full mt-3 border-t border-gray-300'>
 							<Link
-								to={"/farmerprofilepage"}
+								to={"/farmerdashboardpage"}
 								className={isActive ? activeLinkStyle : linkStyle}
 								onClick={changeActive}
 								href='#'>

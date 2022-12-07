@@ -14,39 +14,39 @@ import Thepiechart from "./Thepiechart";
 // import Farmercontent from "./Farmercontent";
 
 const Farmerdashboard = () => {
-  const refresh = UserRefreshToken();
-  return (
-    <React.Fragment>
-      {/* <FarmerSidebar />
+	const refresh = UserRefreshToken();
+	return (
+		<React.Fragment>
+			{/* <FarmerSidebar />
 			<BrokerDashnav /> */}
-      <NewBrokerNavbar />
-      {/* <NewBrokerSidebar /> */}
-      <NewFarmerSidebar />
-      {/* <Farmercontent />  */}
-      <div>
-        <section className="buyer_dashboard_wrapper">
-          <section className="buyer_dash_title">
-            <h2>Dashboard </h2>
-          </section>
+			<NewBrokerNavbar />
+			{/* <NewBrokerSidebar /> */}
+			<NewFarmerSidebar />
+			{/* <Farmercontent />  */}
+			<div>
+				<section className='buyer_dashboard_wrapper'>
+					<section className='buyer_dash_title'>
+						<h2>Dashboard </h2>
+					</section>
 
-          <BuyerDashCard />
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="font-bold">SALES ANALYSIS</h1>
-              <Thepiechart />
-            </div>
+					<BuyerDashCard />
+					<div className='flex justify-between items-center'>
+						<div>
+							<h1 className='font-bold'>SALES ANALYSIS</h1>
+							<Thepiechart />
+						</div>
 
-            <Thebarchart />
-          </div>
+						<Thebarchart />
+					</div>
 
-          <FarmerTotalcat />
-          <AdminProductTable />
-          <AdminFarmerTable />
-          <AdminPaymentTable />
-        </section>
-      </div>
-    </React.Fragment>
-  );
+					<FarmerTotalcat />
+					{/* <AdminProductTable /> */}
+					<AdminFarmerTable />
+					{/* <AdminPaymentTable /> */}
+				</section>
+			</div>
+		</React.Fragment>
+	);
 };
 
 export default Farmerdashboard;

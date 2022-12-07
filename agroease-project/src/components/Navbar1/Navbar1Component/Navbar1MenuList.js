@@ -11,9 +11,9 @@ const Navbar1MenuList = () => {
 	const navRef = useRef();
 	// const [dropDowns, setDropDowns] = useState(false);
 
-	const userInfo= JSON.parse(localStorage.getItem("user"))
-	const allInfo = userInfo
-	const userDetails = (allInfo.data)
+	const userInfo = JSON.parse(localStorage.getItem("user"));
+	const allInfo = userInfo;
+	// const userDetails = (allInfo.data)
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive-nav");
@@ -23,7 +23,6 @@ const Navbar1MenuList = () => {
 		<div>
 			<ul className='navbar-menulist' ref={navRef}>
 				{navItems.map((item, idx) => {
-					
 					return (
 						<li key={idx}>
 							<Link to={item.path}>{item.title}</Link>
@@ -31,7 +30,7 @@ const Navbar1MenuList = () => {
 					);
 				})}
 				{
-					userDetails? <li className="navbar-menulist">Hi {userDetails.firstname}</li> : ""
+					// userDetails? <li className="navbar-menulist">Hi {userDetails.firstname}</li> : ""
 				}
 				<button>
 					<AiOutlineClose

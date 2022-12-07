@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .editProfile-body{
+    background-color: #f5f6f7;
+  }
+  .edit-profile-main-container {
+    padding-top: 6rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    /* border: 2px solid pink;  */
+  }
+  .profile-image-top-section {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+  }
+  .profile-avater-section-left-container {
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+  .profile-edit-image {
+    width: 200px;
+    height: 200px;
+  }
+  .profile-mail {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .profile-phone {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .profile-edit-button {
+    padding: 5px;
+    background-color: #097c0d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #097c0d;
+  }
+  .profile-edit-button:hover {
+    background-color: white;
+    color: #097c0d;
+  }
+  .farmer-profile-information-container {
+    /* border: 2px solid blue; */
+  
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    /* padding-left: 15rem; */
+    display: flex;
+    gap: 5rem;
+  }
+  .profile-personal-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .other-personal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .profile-personal-details {
+    border-bottom: 1px solid gray;
+  }
+  .personal-details-name {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .edit-profile-main-container {
+      padding: initial;
+    }
+  
+    .profile-image-top-section {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .profile-avater-section-left-container {
+      flex-direction: column;
+    }
+    .profile-edit-image {
+      align-self: center;
+    }
+    .farmer-profile-information-container {
+      padding-top: 2rem;
+      flex-direction: column;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    .profile-side-information{
+      padding-left: 3rem;
+    }
+    .pofile-edit-button{
+      padding-left: 3rem;
+    }
+  }
+  

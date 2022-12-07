@@ -1,7 +1,8 @@
 import React from "react";
 import NewAdminSidebar from "../../../components/dashboard-nav-and-side/AdminSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
+// import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
+import AdminProductTable from "../../../components/TableBio/AdminProductTable/AdminProductTable";
 import { FarmerProductCard } from "../../Farmer/farmerProduct/FarmerProductCard";
 // import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
 
@@ -22,8 +23,8 @@ export const AdminFarmerAllProducts = () => {
 				<FarmerProductCard />
 				{/* <section className='farmer_add_product'> */}
 				<AdminFarmTaskSwitch />
-
-				<AdminFarmerTable />
+				<AdminProductTable/>
+				{/* <AdminFarmerTable /> */}
 				{/* </section> */}
 			</section>
 		</div>

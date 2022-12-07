@@ -18,7 +18,7 @@ export const UsersSignIn = () => {
   useEffect(() => {
     
     if (isLoggedIn) {
-      return navigate("/farmerdashboardpage")
+      return navigate("/adminfarmerallproducts")
     } 
   }, [navigate, isLoggedIn])
   

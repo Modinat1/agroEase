@@ -84,7 +84,7 @@ const Farmercontent=()=> {
                    <div className="box box3">
                        <div className="weather-name"> Weather Report APP </div>
                        <div className="weather-image" > 
-                           {/* <div className="weather-cycle"></div> */}
+                           {/* <div className="weather-cycle"></div> 
                            <span></span>
                        </div>
 
@@ -94,8 +94,8 @@ const Farmercontent=()=> {
                    </div>
 
                 </div>
-           </div>  */}
-
+           </div>  
+*/}
            <div className="activity">
 
 

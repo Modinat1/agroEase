@@ -10,28 +10,25 @@ import { useEffect } from 'react'
 // import axiosInstance from '../../../Context/axios-config/axios-user-config'
 import axios from 'axios'
 import { useContext } from 'react'
-import UserAuth from '../../../Context/user-auth/UserAuthContext'
+import axiosInstance from '../../../Context/axios-config/axios-user-config'
+// import UserAuth from '../../../Context/user-auth/UserAuthContext'
 
 const AdminProductTable = () => {
-
-    const { userAuth} = useContext(UserAuth);
-    // const { userAuth } = GeneralUserAuth();
-	const  accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImlhdCI6MTY3MDM0NTIyOSwiZXhwIjoxNjcwMzQ3MDI5LCJ0eXBlIjoiYWNjZXNzIn0.VW-bPsvGy4vXNGtPNr3ButWjANHcTsKZu1Wmrb_evHo";
+    const { userAuth } = GeneralUserAuth();
+    const { accessToken, allUser } = userAuth;
     console.log(accessToken)
-	const [product, setProduct] = useState([]);
+	// Gets all products function starts here
+	const [allProducts, setallProducts] = useState([]);
 	const config = {
 	headers: { Authorization: `Bearer ${accessToken}` }
 	};
 
-	const getProduct = async () => {
+    const getAllProduct = async () => {
 		try {
-			const response = await axios.get(
-				`https://agro-ease-backend-production.up.railway.app/v1/product/admin`,
-				config
-			);
+			const response = await axiosInstance.get(`v1/product/admin`, config);
 			console.log(response.data);
-			setProduct(response.data);
-			
+			setallProducts(response.data);
+
 			return response;
 		} catch (error) {
 			console.log(error);
@@ -40,10 +37,8 @@ const AdminProductTable = () => {
 
 	
 	useEffect(() => {
-		getProduct();
+		getAllProduct();
 	}, []);
-
-
 
   return (
     <div>
@@ -52,11 +47,11 @@ const AdminProductTable = () => {
             <table className='adpro-general-table'>
                 <thead className='adpro-general-thead'>
                     <tr className='adpro-general-tr'>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
+                        <th>Store ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
                         <th>Quantity</th>
-                        <th>Product Description</th>
+                        <th>Price (₦)</th>
                         <th>Action</th>
                         <th>Status</th>
                     </tr>
@@ -64,17 +59,17 @@ const AdminProductTable = () => {
 
                 {/* Mapping through the array to get the table details */}
 
-                {product.map(tables => {
+                {allProducts.map(tables => {
                     return(
                     <tbody className='adpro-general-tbody'>
                     <tr>
-                        <td>{tables.id}</td>
-                        <td>{tables.acctName}</td>
-                        <td>{tables.acctNumber}</td>
-                        <td>{tables.ccv}</td>
-                        <td>{tables.balance}</td>
+                        <td>{tables.StoreId}</td>
+                        <td>{tables.name}</td>
+                        <td>{tables.description}</td>
+                        <td>{tables.quantity}</td>
+                        <td>{tables.price}</td>
                         <td>
-							<div className={tables.tbcIcon}>
+							<div className="styletableicon">
 								<BiEdit />
 								<AiOutlinePauseCircle />
 								<MdOutlineCancel />

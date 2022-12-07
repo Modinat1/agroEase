@@ -1,7 +1,7 @@
 import React from "react";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
+// import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
 // import AdminPaymentTable from "../../../components/TableBio/AdminPaymentTable/AdminPaymentTable";
 // import AdminProductTable from "../../../components/TableBio/AdminProductTable/AdminProductTable";
 import FarmerTotalcat from "../../../components/TableBio/FarmerTotalcat/FarmerTotalcat";
@@ -41,7 +41,7 @@ const Farmerdashboard = () => {
 
 					<FarmerTotalcat />
 					{/* <AdminProductTable /> */}
-					<AdminFarmerTable />
+					{/* <AdminFarmerTable /> */}
 					{/* <AdminPaymentTable /> */}
 				</section>
 			</div>

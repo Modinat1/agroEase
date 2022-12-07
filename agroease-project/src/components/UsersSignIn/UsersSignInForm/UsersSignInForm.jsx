@@ -11,38 +11,43 @@ import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
 import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
+import axios from "axios";
 
 export const UsersSignInForm = () => {
-	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth();
+	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } =
+		GeneralUserAuth();
 
 	const [errorso, setErrorso] = useState("");
 	const [successo, setSuccesso] = useState("");
-	
+
 	const navigate = useNavigate();
+	const { accessToken } = userAuth;
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/farmerdashboardpage";
+	const from = location.state?.from?.pathname || "/adminfarmerallproducts";
 
-	//const localToken = JSON.parse(localStorage.getItem("token"))
-	//const tokenExist = localToken?.length > 0;
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
 
+	
 	const handleLoginAuth = async (values) => {
 		try {
 			const response = await axiosInstance.post("/v1/auth/login", values);
 			const accessToken = response.data.tokens.access.token;
 			const refreshToken = response.data.tokens.refresh.token;
-			const allUser = response.data.user
-			//const roles = response.data.
+			const allUser = response.data.user;
 			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
-			localStorage.setItem('token', accessToken)
+			localStorage.setItem("token", accessToken);
+			console.log(accessToken);
+			// localStorage.setItem('user', allUser)
+			// console.log(allUser)
 			setSuccesso("Account Created Successfully");
-			console.log("Congratulation");
-			console.log(userAuth);
-			console.log(setUserAuth);
-			console.log(response.data);
-			if (UserAuth) {
+
+			if (userAuth) {
 				navigate(from, { replace: true });
 			}
+			
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -56,6 +61,21 @@ export const UsersSignInForm = () => {
 			}
 		}
 	};
+
+		const getCurrentUser = async () => {
+		const currentUser =  await axios.get("https://agro-ease-backend-production.up.railway.app/v1/auth/current", config)
+		.then((resp) => {
+			console.log(resp.data)
+			return resp
+		})
+		const user = currentUser
+		console.log(user)
+		setCurrentUser(user)
+		localStorage.setItem("user", JSON.stringify((user)))
+		return user
+	}
+	
+
 
 	return (
 		<div>
@@ -88,6 +108,7 @@ export const UsersSignInForm = () => {
 						console.log(JSON.stringify(values, null, 2));
 						setSubmitting(false);
 						handleLoginAuth(values);
+						getCurrentUser()
 						resetForm();
 					}, 4000);
 				}}>
@@ -153,7 +174,7 @@ export const UsersSignInForm = () => {
 									{/* <Link to={"/UsersSignUp"}>
 							<SellerSignUpBtn />
 						</Link> */}
-									
+
 									<Link to={"/UsersSignUp"}>
 										<BuyerSignUpBtn />
 									</Link>

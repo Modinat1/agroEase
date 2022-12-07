@@ -1,22 +1,24 @@
-import React from 'react'
-import AdminBrokerTable from '../../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable'
-import AdminFarmerTable from '../../../../components/TableBio/AdminFarmerTable/AdminFarmerTable'
-import { FarmerProductCard } from '../../../Farmer/farmerProduct/FarmerProductCard'
-import { AdminFarmTaskSwitch } from './AdminFarmTaskSwitch'
+import React from "react";
+// import AdminBrokerTable from "../../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable";
+import AdminFarmerTable from "../../../../components/TableBio/AdminFarmerTable/AdminStoresTable";
+import { FarmerProductCard } from "../../../Farmer/farmerProduct/FarmerProductCard";
+import { TaskSwitch } from "../../AdminDasboardTask/AdminDasboardComponent.js/ManageTaskSwitch";
+import { AdminFarmTaskSwitch } from "./AdminFarmTaskSwitch";
 
 const AdminFarmerHeroPage = () => {
-  return (
-    <section className='farmer_product_wrapper'>
-		<div className='farmer_product_title'>
-			<h3>Products</h3>
-		</div>
-		<FarmerProductCard />
-		<section className='farmer_add_product'>
-            <AdminFarmTaskSwitch />
-            <AdminFarmerTable /> 
-		</section>
-	</section>  
-  )
-}
+	return (
+		<section className='farmer_product_wrapper'>
+			<div className='farmer_product_title'>
+				<h3>Products</h3>
+			</div>
+			<FarmerProductCard />
+			{/* <section className='farmer_add_product'> */}
+			<AdminFarmTaskSwitch />
 
-export default AdminFarmerHeroPage
+			<AdminFarmerTable />
+			{/* </section> */}
+		</section>
+	);
+};
+
+export default AdminFarmerHeroPage;

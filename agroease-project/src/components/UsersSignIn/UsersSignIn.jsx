@@ -4,23 +4,32 @@ import './UsersSignIn.css'
 import { UserSignUpImage } from '../UsersSignUp/UserSignUpImage/UserSignUpImage'
 import { UsersSignInForm } from './UsersSignInForm/UsersSignInForm'
 import { useNavigate } from 'react-router-dom'
+import axiosInstance from '../../Context/axios-config/axios-user-config'
+import axios from 'axios'
 
 
 export const UsersSignIn = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+	// const {accessToken} = userAuth
+
+  
   const isLoggedIn = localStorage.getItem("token")
+	// const config = {
+	// 	headers: { Authorization: `Bearer ${accessToken}` },
+	// };
+  
+
+//   
 
   useEffect(() => {
     
     if (isLoggedIn) {
-      return navigate("/farmerdashboardpage")
-    }
-
+      navigate("/farmerdashboardpage")
+      
+    } 
   }, [navigate, isLoggedIn])
   
-	
-
 
   return (
     <React.Fragment>

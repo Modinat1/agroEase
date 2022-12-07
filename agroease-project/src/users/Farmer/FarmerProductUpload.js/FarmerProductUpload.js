@@ -26,48 +26,53 @@ export const FarmerProductUpload = () => {
 		});
 	};
 
+	const notityfailure = () => {
+		Swal.fire({
+			title: "Error",
+			text: "Product failed to upload, Enter valid details",
+			icon: "error",
+			button: "Upload",
+		});
+	};
+
 	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
+		headers: {
+			Authorization: `Bearer ${accessToken}`,
+			"Content-Type": "multipart/form-data",
+		},
 	};
 
 	const handleProductSubmit = async (values) => {
-		const {
-			name,
-			description,
-			quantity,
-			price,
-			cost,
-			actualPrice,
-			CategoryName,
-		} = values;
+		const productData = new FormData();
+
+		const { name, description, quantity, price, CategoryName, image } = values;
 		const productInfo = {
 			name,
 			description,
 			quantity,
 			price,
-			cost: 40000,
-			actualPrice: 500,
 			CategoryName,
 		};
-		console.log(values);
-		console.log(productInfo);
+		productData.append("images", image);
+		productData.append("product", JSON.stringify(productInfo));
+
 		try {
 			const response = await axiosInstance.post(
-				"v1/product",
-				productInfo,
+				"/v1/product/",
+				productData,
 				config
 			);
-			const accessToken = response.data.tokens.access.token;
-			setUserAuth({ accessToken });
-			setUser(response.data.user);
-			// JSON.parse(localStorage.setItem('token', accessToken))
-			setSuccesso("Account Created Successfully");
 
-			if (userAuth) {
+			console.log(response.data);
+			setUser(response.data.user);
+
+			if (response.data.status === "success") {
 				navigate("/farmerproductpage");
+				notifySuccess();
 			}
 		} catch (error) {
 			console.log(error);
+			notityfailure();
 		}
 	};
 
@@ -80,7 +85,7 @@ export const FarmerProductUpload = () => {
 		actualPrice: 45000000,
 		CategoryName: "",
 		// unit_input: "",
-		// file: [],
+		image: [],
 	};
 
 	const validationSchema = Yup.object({
@@ -94,7 +99,6 @@ export const FarmerProductUpload = () => {
 		onSubmit: (values) => {
 			// alert(JSON.stringify(values, null, 2));
 			handleProductSubmit(values);
-			notifySuccess();
 		},
 	});
 
@@ -136,11 +140,11 @@ export const FarmerProductUpload = () => {
 								<option value='' disabled>
 									Select
 								</option>
-								<option value='FarmInput'>Farm Input</option>
-								<option value='Crop'>Crops</option>
+								<option value='farm inputs'>Farm Input</option>
+								<option value='crops'>Crops</option>
 								<option value='Poultry'>Poultry</option>
-								<option value='Livestock'>LiveStock</option>
-								<option value='Product'>Product</option>
+								<option value='livestocks'>LiveStock</option>
+								<option value='Products'>Product</option>
 							</select>
 						</div>
 					</div>
@@ -187,29 +191,31 @@ export const FarmerProductUpload = () => {
 					</div>
 
 					<div className='default-unit-cost upload_photo_qty'>
-						{/* <div className="default-unit-div label_input">
-              <label htmlFor="unit-input upload_photo" className="name">
-							Upload Photo
-              </label>
+						<div className='default-unit-div label_input'>
+							<label htmlFor='unit-input upload_photo' className='name'>
+								Upload Photo
+							</label>
 
-              <input
-                type="file" 
-								className="choose_file"
-								id="file"
-								name="file"
+							<input
+								type='file'
+								className='choose_file'
+								id='image'
+								name='image'
 								onChange={formik.handleChange}
-								value={formik.values.file}
-                multiple
-                required
-								/>
-								 {formik.errors.file ? <div className="product_upload_error">{formik.errors.file}</div> : null}
-            </div> */}
+								value={formik.values.image}
+								multiple
+								required
+							/>
+							{formik.errors.file ? (
+								<div className='product_upload_error'>{formik.errors.file}</div>
+							) : null}
+						</div>
 						<div className='unit-cost label_input'>
 							<label htmlFor='unit-cost' className='name'>
 								Quantity of Item
 							</label>
 							<input
-								type='number'
+								type='text'
 								placeholder='0'
 								id='quantity'
 								name='quantity'

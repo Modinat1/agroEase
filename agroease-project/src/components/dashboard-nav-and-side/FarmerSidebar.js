@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Agroeaselogo from "../../images/agro_ease_logo.png";
 import { useState } from "react";
 import UserAuth from "../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../Context/axios-config/axios-user-config";
+import axios from "axios";
 
 const NewFarmerSidebar = () => {
 	const navigate = useNavigate();
@@ -23,32 +24,54 @@ const NewFarmerSidebar = () => {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
 
+	
+  
+	const userInfo= JSON.parse(localStorage.getItem("user"))
+	const userToken= JSON.parse(localStorage.getItem("user"))
+	console.log(userInfo)
+	const allInfo = userInfo
+	
 
-	//Logging out a user
-	console.log(userAuth);
+
+
 	const handleLogout = async () => {
 		try {
-			const response = await axiosInstance.post(
-				"/v1/auth/logout",
+			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
 				{refreshToken: userAuth.refreshToken},
-				config
+				userToken
 			);
-			console.log(response);
-			navigate("/UsersSignIn")
-			return response
-			
-		} catch (error) {
-			if (!error.response) {
-				console.log("Server down");
-			} else if (error.response.status === 400) {
-				console.log("I don see enough shege");
-			} else if (error.response.status === 401) {
-				console.log("I don see enough");
-			} else if (error.response.status === 409) {
-				console.log("I don see ");
+
+			if (allInfo === null) {
+				localStorage.removeItem('token')
+				localStorage.removeItem('user')
+				console.log("thank God")
+				// currentUser()
+				// console.log(response);
+				// console.log(currentUser);
+				navigate("/UsersSignIn")
+				return response
+				
 			}
+		} catch (error) {
+			console.log(error)
+			// if (!error.response) {
+			// 	console.log("Server down");
+			// } else if (error.response.status === 400) {
+			// 	console.log("I don see enough shege");
+			// } else if (error.response.status === 401) {
+			// 	console.log("I don see enough");
+			// } else if (error.response.status === 409) {
+			// 	console.log("I don see ");
+			// }
 		}
 	};
+	// useEffect(() => {
+
+	// 	if (isLoggedout) {
+	// 	  navigate("/UsersSignIn")
+	// 	}
+
+	//   }, [navigate, isLoggedout])
 
 	return (
 		<>
@@ -218,7 +241,7 @@ const NewFarmerSidebar = () => {
 					<div className='w-full px-2'>
 						<div className='flex flex-col items-center w-full mt-3 border-t border-gray-300'>
 							<Link
-								to={"/farmerprofilepage"}
+								to={"/farmerdashboardpage"}
 								className={isActive ? activeLinkStyle : linkStyle}
 								onClick={changeActive}
 								href='#'>

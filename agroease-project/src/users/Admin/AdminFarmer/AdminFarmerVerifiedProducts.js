@@ -1,17 +1,19 @@
 import React from "react";
 import NewAdminSidebar from "../../../components/dashboard-nav-and-side/AdminSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
-import AdminStoresTable from "../../../components/TableBio/AdminFarmerTable/AdminStoresTable";
 import { FarmerProductCard } from "../../Farmer/farmerProduct/FarmerProductCard";
+
+// import AdminFarmerHeroPage from "./AdminFarmerCompo/AdminFarmerHeroPage";
 import { AdminFarmTaskSwitch } from "./AdminFarmerCompo/AdminFarmTaskSwitch";
 
-const AdminFarmerPage = () => {
+export const AdminFarmerVerifiedProducts = () => {
 	return (
 		<div>
 			<NewAdminSidebar />
 			<NewBrokerNavbar />
 
 			{/* <AdminFarmerHeroPage /> */}
+
 			<section className='farmer_product_wrapper'>
 				<div className='farmer_product_title'>
 					<h3>Products</h3>
@@ -20,11 +22,9 @@ const AdminFarmerPage = () => {
 				{/* <section className='farmer_add_product'> */}
 				<AdminFarmTaskSwitch />
 
-				<AdminStoresTable />
+			
 				{/* </section> */}
 			</section>
 		</div>
 	);
 };
-
-export default AdminFarmerPage;

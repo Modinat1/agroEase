@@ -23,11 +23,11 @@ export const UsersSignInForm = () => {
 	const navigate = useNavigate();
 	const { accessToken } = userAuth;
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/adminfarmerallproducts";
+	const from = location.state?.from?.pathname || "/farmerdashboardpage";
 
-	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
-	};
+	// const config = {
+	// 	headers: { Authorization: `Bearer ${accessToken}` },
+	// };
 
 	
 	const handleLoginAuth = async (values) => {
@@ -62,7 +62,13 @@ export const UsersSignInForm = () => {
 		}
 	};
 
-		const getCurrentUser = async () => {
+	const tokenInfo= localStorage.getItem("token")
+
+	const config = {
+		headers: { Authorization: `Bearer ${tokenInfo}` },
+	};
+
+	const getCurrentUser = async () => {
 		const currentUser =  await axios.get("https://agro-ease-backend-production.up.railway.app/v1/auth/current", config)
 		.then((resp) => {
 			console.log(resp.data)
@@ -70,10 +76,13 @@ export const UsersSignInForm = () => {
 		})
 		const user = currentUser
 		console.log(user)
-		setCurrentUser(user)
 		localStorage.setItem("user", JSON.stringify((user)))
 		return user
 	}
+
+		useEffect(() => {
+				getCurrentUser()
+		}, [])
 	
 
 
@@ -108,7 +117,6 @@ export const UsersSignInForm = () => {
 						console.log(JSON.stringify(values, null, 2));
 						setSubmitting(false);
 						handleLoginAuth(values);
-						getCurrentUser()
 						resetForm();
 					}, 4000);
 				}}>

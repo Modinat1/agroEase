@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom'
 import About from "./pages/About/About";
 import Account from "./pages/Account/Account";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
+import AdminFarmerPage from './users/Admin/AdminFarmer/AdminFarmerPage';
+import AdminFarmerTable from './components/TableBio/AdminFarmerTable/AdminFarmerTable';
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTask/AdminPaymentTask";
 import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
@@ -36,18 +38,16 @@ import Farmerdashboard from "./users/Farmer/FarmerDB/Farmerdashboard";
 import { GenerateLink } from "./users/Admin/adminDashboard copy/GenerateLink";
 import Help from "./pages/Help/Help";
 import Home from "./pages/Home/Home";
+import Layout from './pages/Layout/Layout';
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import RequireAuth from './Context/user-auth/RequirAuth';
 import { ResetPassword } from './components/ResetPassword/ResetPassword';
 import Spinner from "./components/Loader/Spinner";
 import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
-import Layout from './pages/Layout/Layout';
-import RequireAuth from './Context/user-auth/RequirAuth';
-import AdminFarmerPage from './users/Admin/AdminFarmer/AdminFarmerPage';
-import AdminFarmerTable from './components/TableBio/AdminFarmerTable/AdminFarmerTable';
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 

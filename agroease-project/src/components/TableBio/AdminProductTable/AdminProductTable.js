@@ -4,8 +4,42 @@ import { BiEdit } from 'react-icons/bi'
 import { MdOutlineCancel } from 'react-icons/md'
 import "./AdminProductTable.css"
 import { adminpayment } from '../AdminPaymentTable/AdminPaymentModule'
+import GeneralUserAuth from '../../../Context/user-auth/GeneralUserAuth'
+import { useState } from 'react'
+import { useEffect } from 'react'
+// import axiosInstance from '../../../Context/axios-config/axios-user-config'
+import axios from 'axios'
+import { useContext } from 'react'
+import axiosInstance from '../../../Context/axios-config/axios-user-config'
+// import UserAuth from '../../../Context/user-auth/UserAuthContext'
 
 const AdminProductTable = () => {
+    const { userAuth } = GeneralUserAuth();
+    const { accessToken, allUser } = userAuth;
+    console.log(accessToken)
+	// Gets all products function starts here
+	const [allProducts, setallProducts] = useState([]);
+	const config = {
+	headers: { Authorization: `Bearer ${accessToken}` }
+	};
+
+    const getAllProduct = async () => {
+		try {
+			const response = await axiosInstance.get(`v1/product/admin`, config);
+			console.log(response.data);
+			setallProducts(response.data);
+
+			return response;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	
+	useEffect(() => {
+		getAllProduct();
+	}, []);
+
   return (
     <div>
         <div className='general-table-bio-adpro'>
@@ -13,11 +47,11 @@ const AdminProductTable = () => {
             <table className='adpro-general-table'>
                 <thead className='adpro-general-thead'>
                     <tr className='adpro-general-tr'>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
+                        <th>Store ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
                         <th>Quantity</th>
-                        <th>Product Description</th>
+                        <th>Price (₦)</th>
                         <th>Action</th>
                         <th>Status</th>
                     </tr>
@@ -25,17 +59,17 @@ const AdminProductTable = () => {
 
                 {/* Mapping through the array to get the table details */}
 
-                {adminpayment.map(tables => {
+                {allProducts.map(tables => {
                     return(
                     <tbody className='adpro-general-tbody'>
                     <tr>
-                        <td>{tables.id}</td>
-                        <td>{tables.acctName}</td>
-                        <td>{tables.acctNumber}</td>
-                        <td>{tables.ccv}</td>
-                        <td>{tables.balance}</td>
+                        <td>{tables.StoreId}</td>
+                        <td>{tables.name}</td>
+                        <td>{tables.description}</td>
+                        <td>{tables.quantity}</td>
+                        <td>{tables.price}</td>
                         <td>
-							<div className={tables.tbcIcon}>
+							<div className="styletableicon">
 								<BiEdit />
 								<AiOutlinePauseCircle />
 								<MdOutlineCancel />

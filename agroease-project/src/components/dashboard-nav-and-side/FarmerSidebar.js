@@ -66,13 +66,12 @@ const NewFarmerSidebar = () => {
 		}
 	};
 	// useEffect(() => {
-	  
+
 	// 	if (isLoggedout) {
 	// 	  navigate("/UsersSignIn")
-	// 	} 
-	
-	//   }, [navigate, isLoggedout])
+	// 	}
 
+	//   }, [navigate, isLoggedout])
 
 	return (
 		<>
@@ -242,7 +241,7 @@ const NewFarmerSidebar = () => {
 					<div className='w-full px-2'>
 						<div className='flex flex-col items-center w-full mt-3 border-t border-gray-300'>
 							<Link
-								to={"/farmerprofilepage"}
+								to={"/farmerdashboardpage"}
 								className={isActive ? activeLinkStyle : linkStyle}
 								onClick={changeActive}
 								href='#'>

@@ -1,6 +1,6 @@
 import React from "react";
 // import AdminBrokerTable from "../../../../components/TableBio/AdminBrokerTable/AdminBrokerTableCompo/AdminBrokerTable";
-import AdminFarmerTable from "../../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
+import AdminFarmerTable from "../../../../components/TableBio/AdminFarmerTable/AdminStoresTable";
 import { FarmerProductCard } from "../../../Farmer/farmerProduct/FarmerProductCard";
 import { TaskSwitch } from "../../AdminDasboardTask/AdminDasboardComponent.js/ManageTaskSwitch";
 import { AdminFarmTaskSwitch } from "./AdminFarmTaskSwitch";

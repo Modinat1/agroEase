@@ -14,15 +14,16 @@ import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
 import axios from "axios";
 
 export const UsersSignInForm = () => {
-	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } = GeneralUserAuth();
+	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } =
+		GeneralUserAuth();
 
 	const [errorso, setErrorso] = useState("");
 	const [successo, setSuccesso] = useState("");
-	
+
 	const navigate = useNavigate();
-	const {accessToken} = userAuth
+	const { accessToken } = userAuth;
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/farmerdashboardpage";
+	const from = location.state?.from?.pathname || "/adminfarmerallproducts";
 
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
@@ -34,16 +35,16 @@ export const UsersSignInForm = () => {
 			const response = await axiosInstance.post("/v1/auth/login", values);
 			const accessToken = response.data.tokens.access.token;
 			const refreshToken = response.data.tokens.refresh.token;
-			const allUser = response.data.user
+			const allUser = response.data.user;
 			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
-			localStorage.setItem('token', accessToken)
-			console.log(accessToken)
+			localStorage.setItem("token", accessToken);
+			console.log(accessToken);
 			// localStorage.setItem('user', allUser)
 			// console.log(allUser)
 			setSuccesso("Account Created Successfully");
 
-			if(userAuth) {
+			if (userAuth) {
 				navigate(from, { replace: true });
 			}
 			
@@ -173,7 +174,7 @@ export const UsersSignInForm = () => {
 									{/* <Link to={"/UsersSignUp"}>
 							<SellerSignUpBtn />
 						</Link> */}
-									
+
 									<Link to={"/UsersSignUp"}>
 										<BuyerSignUpBtn />
 									</Link>

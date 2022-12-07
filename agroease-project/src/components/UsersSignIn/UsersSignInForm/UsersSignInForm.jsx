@@ -10,16 +10,17 @@ import UserServices from "../../../Context/user-context/user.service";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
-import UserRefreshToken from "../../../Context/user-auth/userRefreshToken";
+import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
 
 export const UsersSignInForm = () => {
-	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } = GeneralUserAuth();
+	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } =
+		GeneralUserAuth();
 
 	const [errorso, setErrorso] = useState("");
 	const [successo, setSuccesso] = useState("");
-	
+
 	const navigate = useNavigate();
-	const {accessToken} = userAuth
+	const { accessToken } = userAuth;
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/adminfarmerallproducts";
 
@@ -43,19 +44,19 @@ export const UsersSignInForm = () => {
 			const response = await axiosInstance.post("/v1/auth/login", values);
 			const accessToken = response.data.tokens.access.token;
 			const refreshToken = response.data.tokens.refresh.token;
-			const allUser = response.data.user
+			const allUser = response.data.user;
 			setUserAuth({ accessToken, refreshToken, values, allUser });
 			setUser(response.data.user);
-			localStorage.setItem('token', accessToken)
-			console.log(accessToken)
+			localStorage.setItem("token", accessToken);
+			console.log(accessToken);
 			// localStorage.setItem('user', allUser)
 			// console.log(allUser)
 			setSuccesso("Account Created Successfully");
 
-			if(userAuth) {
+			if (userAuth) {
 				navigate(from, { replace: true });
 			}
-			
+
 			// const currentUser = await axiosInstance.get("/v1/auth/current", config);
 			// console.log(currentUser)
 			// localStorage.setItem("user", currentUser)
@@ -66,7 +67,6 @@ export const UsersSignInForm = () => {
 			// 	  // localStorage.setItem("user", )
 			// 	  console.log(response.data)
 			// 	  return response.data
-			
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -87,7 +87,7 @@ export const UsersSignInForm = () => {
 	// 	  // localStorage.setItem("user", )
 	// 	  console.log(response.data)
 	// 	  return response.data
-		  
+
 	// 	}
 	// 	catch(error) {
 	// 	  console.log(error)
@@ -191,7 +191,7 @@ export const UsersSignInForm = () => {
 									{/* <Link to={"/UsersSignUp"}>
 							<SellerSignUpBtn />
 						</Link> */}
-									
+
 									<Link to={"/UsersSignUp"}>
 										<BuyerSignUpBtn />
 									</Link>

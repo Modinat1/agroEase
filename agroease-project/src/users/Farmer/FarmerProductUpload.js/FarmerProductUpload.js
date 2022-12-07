@@ -31,6 +31,8 @@ export const FarmerProductUpload = () => {
 	};
 
 	const handleProductSubmit = async (values) => {
+		const productData = new FormData();
+
 		const {
 			name,
 			description,
@@ -49,12 +51,15 @@ export const FarmerProductUpload = () => {
 			actualPrice: 500,
 			CategoryName,
 		};
+		productData.append("images", values.image);
+		productData.append("product", productInfo);
+		productData.forEach((data) => console.log(data));
 		console.log(values);
 		console.log(productInfo);
 		try {
 			const response = await axiosInstance.post(
 				"v1/product",
-				productInfo,
+				productData,
 				config
 			);
 			const accessToken = response.data.tokens.access.token;
@@ -80,7 +85,7 @@ export const FarmerProductUpload = () => {
 		actualPrice: 45000000,
 		CategoryName: "",
 		// unit_input: "",
-		// file: [],
+		image: [],
 	};
 
 	const validationSchema = Yup.object({
@@ -187,23 +192,25 @@ export const FarmerProductUpload = () => {
 					</div>
 
 					<div className='default-unit-cost upload_photo_qty'>
-						{/* <div className="default-unit-div label_input">
-              <label htmlFor="unit-input upload_photo" className="name">
-							Upload Photo
-              </label>
+						<div className='default-unit-div label_input'>
+							<label htmlFor='unit-input upload_photo' className='name'>
+								Upload Photo
+							</label>
 
-              <input
-                type="file" 
-								className="choose_file"
-								id="file"
-								name="file"
+							<input
+								type='file'
+								className='choose_file'
+								id='image'
+								name='image'
 								onChange={formik.handleChange}
-								value={formik.values.file}
-                multiple
-                required
-								/>
-								 {formik.errors.file ? <div className="product_upload_error">{formik.errors.file}</div> : null}
-            </div> */}
+								value={formik.values.image}
+								multiple
+								required
+							/>
+							{formik.errors.file ? (
+								<div className='product_upload_error'>{formik.errors.file}</div>
+							) : null}
+						</div>
 						<div className='unit-cost label_input'>
 							<label htmlFor='unit-cost' className='name'>
 								Quantity of Item

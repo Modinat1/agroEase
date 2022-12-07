@@ -47,7 +47,7 @@ import { useState } from "react";
 import Layout from "./pages/Layout/Layout";
 import RequireAuth from "./Context/user-auth/RequirAuth";
 import AdminFarmerPage from "./users/Admin/AdminFarmer/AdminFarmerPage";
-import AdminFarmerTable from "./components/TableBio/AdminFarmerTable/AdminFarmerTable";
+import AdminFarmerTable from "./components/TableBio/AdminFarmerTable/AdminStoresTable";
 import { AdminFarmerVerifiedProducts } from "./users/Admin/AdminFarmer/AdminFarmerVerifiedProducts";
 import {
   AdminFarmerAllProducdst,

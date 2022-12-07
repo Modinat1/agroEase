@@ -4,6 +4,7 @@ import Agroeaselogo from "../../images/agro_ease_logo.png";
 import { useState } from "react";
 import UserAuth from "../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../Context/axios-config/axios-user-config";
+import axios from "axios";
 
 const NewFarmerSidebar = () => {
 	const navigate = useNavigate();
@@ -25,40 +26,43 @@ const NewFarmerSidebar = () => {
 
 	
   
+	const userInfo= JSON.parse(localStorage.getItem("user"))
+	const userToken= JSON.parse(localStorage.getItem("user"))
+	console.log(userInfo)
+	const allInfo = userInfo
 	
 
 
-	//Logging out a user
-	
-	// const isLoggedout = localStorage.removeItem("token")
+
 	const handleLogout = async () => {
 		try {
-			const response = await axiosInstance.post(
-				"/v1/auth/logout",
+			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
 				{refreshToken: userAuth.refreshToken},
-				config
+				userToken
 			);
 
-			const currentUser = await axiosInstance.get("/v1/auth/current", config);
-			if (currentUser === null) {
+			if (allInfo === null) {
+				localStorage.removeItem('token')
+				localStorage.removeItem('user')
 				console.log("thank God")
+				// currentUser()
+				// console.log(response);
+				// console.log(currentUser);
+				navigate("/UsersSignIn")
+				return response
+				
 			}
-			currentUser()
-			console.log(response);
-			console.log(currentUser);
-			navigate("/UsersSignIn")
-			return response
-			
 		} catch (error) {
-			if (!error.response) {
-				console.log("Server down");
-			} else if (error.response.status === 400) {
-				console.log("I don see enough shege");
-			} else if (error.response.status === 401) {
-				console.log("I don see enough");
-			} else if (error.response.status === 409) {
-				console.log("I don see ");
-			}
+			console.log(error)
+			// if (!error.response) {
+			// 	console.log("Server down");
+			// } else if (error.response.status === 400) {
+			// 	console.log("I don see enough shege");
+			// } else if (error.response.status === 401) {
+			// 	console.log("I don see enough");
+			// } else if (error.response.status === 409) {
+			// 	console.log("I don see ");
+			// }
 		}
 	};
 	// useEffect(() => {

@@ -11,6 +11,7 @@ import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
 import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
+import axios from "axios";
 
 export const UsersSignInForm = () => {
 	const { userAuth, setUserAuth, user, setUser, currentUser, setCurrentUser } = GeneralUserAuth();
@@ -27,17 +28,7 @@ export const UsersSignInForm = () => {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
 
-	//const localToken = JSON.parse(localStorage.getItem("token"))
-	//const tokenExist = localToken?.length > 0;
-
-	// const getCurrentUser = async () => {
-	// 	const currentUser = await axiosInstance.get("/v1/auth/current", config);
-	// 	setCurrentUser(currentUser)
-	// 	console.log(currentUser)
-	// 	localStorage.setItem("user")
-	// 	return currentUser
-	// }
-
+	
 	const handleLoginAuth = async (values) => {
 		try {
 			const response = await axiosInstance.post("/v1/auth/login", values);
@@ -56,17 +47,6 @@ export const UsersSignInForm = () => {
 				navigate(from, { replace: true });
 			}
 			
-			// const currentUser = await axiosInstance.get("/v1/auth/current", config);
-			// console.log(currentUser)
-			// localStorage.setItem("user", currentUser)
-			// if(response === currentUser) {
-			// 	setCurrentUser("")
-			// }
-			// getCurrentUser()
-			// 	  // localStorage.setItem("user", )
-			// 	  console.log(response.data)
-			// 	  return response.data
-			
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -81,19 +61,20 @@ export const UsersSignInForm = () => {
 		}
 	};
 
-	// const getCurrentUser = async () => {
-	// 	try {
-	// 	  const response = await axiosInstance.get("/v1/auth/current");
-	// 	  // localStorage.setItem("user", )
-	// 	  console.log(response.data)
-	// 	  return response.data
-		  
-	// 	}
-	// 	catch(error) {
-	// 	  console.log(error)
-	// 	}
-	//   }
-	// getCurrentUser()
+		const getCurrentUser = async () => {
+		const currentUser =  await axios.get("https://agro-ease-backend-production.up.railway.app/v1/auth/current", config)
+		.then((resp) => {
+			console.log(resp.data)
+			return resp
+		})
+		const user = currentUser
+		console.log(user)
+		setCurrentUser(user)
+		localStorage.setItem("user", JSON.stringify((user)))
+		return user
+	}
+	
+
 
 	return (
 		<div>
@@ -126,6 +107,7 @@ export const UsersSignInForm = () => {
 						console.log(JSON.stringify(values, null, 2));
 						setSubmitting(false);
 						handleLoginAuth(values);
+						getCurrentUser()
 						resetForm();
 					}, 4000);
 				}}>

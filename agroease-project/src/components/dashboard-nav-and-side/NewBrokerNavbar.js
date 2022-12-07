@@ -5,17 +5,21 @@ import UsersDashboardSearch from "./UsersDashboardSearch";
 // import Agroeaselogo from "../../images/agrologo.png";
 
 const NewBrokerNavbar = () => {
-	const { userAuth } = GeneralUserAuth();
-	const { allUser } = userAuth;
+	// const { userAuth } = GeneralUserAuth();
+	// const { allUser } = userAuth;
 
-	return (
+	const userInfo= JSON.parse(localStorage.getItem("user"))
+	const allInfo = userInfo
+	const userDetails = (allInfo.data)
+
+	 return (
 		<div>
 			{/* navbar */}
 			<nav className='flex justify-between bg-green-600 text-white w-full fixed top-0 z-20'>
 				<div className='px-5 xl:px-12 py-6 flex w-full justify-between items-center'>
 					<Link className='hidden md:flex text-2xl font-bold font-heading pl-12 ml-20 md:ml-40'>
 						{/* <img class='h-12' src={Agroeaselogo} alt='logo' /> */}
-						Hello, {`${allUser?.firstname} ${allUser?.lastname}`}
+						Hello, {`${userDetails?.firstname} ${userDetails?.lastname}`}
 					</Link>
 					<Link className='navbar-burger self-center mr-12 xl:hidden'>
 						<svg

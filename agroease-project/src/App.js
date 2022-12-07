@@ -6,7 +6,6 @@ import About from "./pages/About/About";
 import Account from "./pages/Account/Account";
 import { AdminDashIndex } from "./users/Admin/adminDashboard copy/AdminDashIndex";
 import AdminFarmerPage from "./users/Admin/AdminFarmer/AdminFarmerPage";
-// import AdminFarmerTable from "./components/TableBio/AdminFarmerTable/AdminFarmerTable";
 import { AdminLogisticsTask } from "./users/Admin/AdminDasboardTask/AdminLogisticsTask/AdminLogisticsTask";
 import { AdminPaymentTask } from "./users/Admin/AdminDasboardTask/AdminPaymentTask/AdminPaymentTask";
 import { AdminTaskNotification } from "./users/Admin/AdminTaskNotification/AdminTaskNotification";
@@ -50,10 +49,8 @@ import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
 
-// import Layout from "./pages/Layout/Layout";
 import RequireAuth from "./Context/user-auth/RequirAuth";
-// import AdminFarmerPage from "./users/Admin/AdminFarmer/AdminFarmerPage";
-// import AdminFarmerTable from "./components/TableBio/AdminFarmerTable/AdminStoresTable";
+
 import { AdminFarmerVerifiedProducts } from "./users/Admin/AdminFarmer/AdminFarmerVerifiedProducts";
 import { AdminFarmerAllProducts } from "./users/Admin/AdminFarmer/AdminFarmerAllProducts";
 import { AdminBuyerAllUsers } from "./users/Admin/AdminBuyer/AdminBuyerAllUsers";
@@ -91,11 +88,7 @@ function App() {
 						path='/AdminLogisticsTask'
 						element={<AdminLogisticsTask />}
 					/>
-					{/* <Route
-						exact
-						path='/adminfarmertable'
-						element={<AdminFarmerTable />}
-					/> */}
+
 					<Route
 						path='adminfarmerverifiedproducts'
 						element={<AdminFarmerVerifiedProducts />}

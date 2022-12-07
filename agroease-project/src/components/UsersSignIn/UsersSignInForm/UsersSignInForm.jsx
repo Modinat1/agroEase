@@ -23,11 +23,11 @@ export const UsersSignInForm = () => {
 	const navigate = useNavigate();
 	const { accessToken } = userAuth;
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/adminfarmerallproducts";
+	const from = location.state?.from?.pathname || "/farmerdashboardpage";
 
-	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
-	};
+	// const config = {
+	// 	headers: { Authorization: `Bearer ${accessToken}` },
+	// };
 
 	const handleLoginAuth = async (values) => {
 		try {
@@ -64,6 +64,12 @@ export const UsersSignInForm = () => {
 		}
 	};
 
+	const tokenInfo = localStorage.getItem("token");
+
+	const config = {
+		headers: { Authorization: `Bearer ${tokenInfo}` },
+	};
+
 	const getCurrentUser = async () => {
 		const currentUser = await axios
 			.get(
@@ -76,10 +82,13 @@ export const UsersSignInForm = () => {
 			});
 		const user = currentUser;
 		console.log(user);
-		setCurrentUser(user);
 		localStorage.setItem("user", JSON.stringify(user));
 		return user;
 	};
+
+	useEffect(() => {
+		getCurrentUser();
+	}, []);
 
 	return (
 		<div>
@@ -112,7 +121,6 @@ export const UsersSignInForm = () => {
 						// console.log(JSON.stringify(values, null, 2));
 						setSubmitting(false);
 						handleLoginAuth(values);
-						getCurrentUser();
 						resetForm();
 					}, 4000);
 				}}>

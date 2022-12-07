@@ -1,4 +1,6 @@
+import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 // import AdminFarmerTable from "../../../components/TableBio/AdminFarmerTable/AdminFarmerTable";
@@ -14,7 +16,29 @@ import Thepiechart from "./Thepiechart";
 // import Farmercontent from "./Farmercontent";
 
 const Farmerdashboard = () => {
-	const refresh = UserRefreshToken();
+	
+	const tokenInfo= localStorage.getItem("token")
+
+	const config = {
+		headers: { Authorization: `Bearer ${tokenInfo}` },
+	};
+
+	const getCurrentUser = async () => {
+		const currentUser =  await axios.get("https://agro-ease-backend-production.up.railway.app/v1/auth/current", config)
+		.then((resp) => {
+			console.log(resp.data)
+			return resp
+		})
+		const user = currentUser
+		console.log(user)
+		localStorage.setItem("user", JSON.stringify((user)))
+		return user
+	}
+
+		useEffect(() => {
+				getCurrentUser()
+		}, [])
+
 	return (
 		<React.Fragment>
 			{/* <FarmerSidebar />

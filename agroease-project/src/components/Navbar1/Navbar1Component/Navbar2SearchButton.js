@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 const Navbar2SearchButton = () => {
 	const cartContext = React.useContext(ProductContext);
 
+	// const cart = JSON.parse(localStorage.getItem("cart"));
+
 	const {
 		state: { cart },
 		// dispatch,

@@ -1,33 +1,39 @@
-import React from 'react'
-import { AiOutlinePauseCircle } from 'react-icons/ai'
-import { BiEdit } from 'react-icons/bi'
-import { MdOutlineCancel } from 'react-icons/md'
-import "./AdminProductTable.css"
-import { adminpayment } from '../AdminPaymentTable/AdminPaymentModule'
-import GeneralUserAuth from '../../../Context/user-auth/GeneralUserAuth'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import React from "react";
+import { AiOutlinePauseCircle } from "react-icons/ai";
+import { BiEdit } from "react-icons/bi";
+import { MdOutlineCancel } from "react-icons/md";
+import "./AdminProductTable.css";
+import { adminpayment } from "../AdminPaymentTable/AdminPaymentModule";
+import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
+import { useState } from "react";
+import { useEffect } from "react";
 // import axiosInstance from '../../../Context/axios-config/axios-user-config'
-import axios from 'axios'
-import { useContext } from 'react'
-import axiosInstance from '../../../Context/axios-config/axios-user-config'
+import axios from "axios";
+import { useContext } from "react";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import UserAuth from '../../../Context/user-auth/UserAuthContext'
 
 const AdminProductTable = () => {
-    const { userAuth } = GeneralUserAuth();
-    const { accessToken, allUser } = userAuth;
-    console.log(accessToken)
+	// const { userAuth } = GeneralUserAuth();
+	// const { accessToken, allUser } = userAuth;
+	// console.log(accessToken)
 	// Gets all products function starts here
 	const [allProducts, setallProducts] = useState([]);
+	const [isVerified, setIsverified] = useState(false);
+	const tokenInfo = localStorage.getItem("token");
+
 	const config = {
-	headers: { Authorization: `Bearer ${accessToken}` }
+		headers: { Authorization: `Bearer ${tokenInfo}` },
 	};
 
-    const getAllProduct = async () => {
+	const getAllProduct = async () => {
 		try {
 			const response = await axiosInstance.get(`v1/product/admin`, config);
 			console.log(response.data);
 			setallProducts(response.data);
+			if (response.data.status === true) {
+				setIsverified(true);
+			}
 
 			return response;
 		} catch (error) {
@@ -35,60 +41,97 @@ const AdminProductTable = () => {
 		}
 	};
 
-	
 	useEffect(() => {
 		getAllProduct();
 	}, []);
 
-  return (
-    <div>
-        <div className='general-table-bio-adpro'>
-        <div className='general-table-width-adpro'>
-            <table className='adpro-general-table'>
-                <thead className='adpro-general-thead'>
-                    <tr className='adpro-general-tr'>
-                        <th>Store ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price (₦)</th>
-                        <th>Action</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+	// Verify Products starts here
 
-                {/* Mapping through the array to get the table details */}
+	const verifyProduct = (id) => {
+		const config = {
+			headers: {
+				Authorization: `Bearer ${tokenInfo}`,
+				"Content-Type": "multipart/form-data",
+			},
+		};
+		const update = new FormData();
+		update.append("product", JSON.stringify({ status: false }));
+		update.forEach((data) => console.log(data));
 
-                {allProducts.map(tables => {
-                    return(
-                    <tbody className='adpro-general-tbody'>
-                    <tr>
-                        <td>{tables.StoreId}</td>
-                        <td>{tables.name}</td>
-                        <td>{tables.description}</td>
-                        <td>{tables.quantity}</td>
-                        <td>{tables.price}</td>
-                        <td>
-							<div className="styletableicon">
-								<BiEdit />
-								<AiOutlinePauseCircle />
-								<MdOutlineCancel />
-							</div>
-					    </td> 
-                        <td>
-							<div className="admin-verify">
-								<button>Verify</button>
-							</div>
-					    </td> 
-                    </tr>
-                </tbody> 
-                    )
-            })}
-            </table>
-        </div>
-    </div>
-    </div>
-  )
-}
+		try {
+			const productToUpdate = axiosInstance.patch(
+				`/v1/product/${id}`,
+				update,
+				config
+			);
+			console.log(productToUpdate);
+			console.log("I was clicked");
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-export default AdminProductTable
+	return (
+		<div>
+			<div className='general-table-bio-adpro'>
+				<div className='general-table-width-adpro'>
+					<table className='adpro-general-table'>
+						<thead className='adpro-general-thead'>
+							<tr className='adpro-general-tr'>
+								<th>Store ID</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Quantity</th>
+								<th>Price (₦)</th>
+								<th>Action</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+
+						{/* Mapping through the array to get the table details */}
+
+						{allProducts.map((tables) => {
+							return (
+								<tbody className='adpro-general-tbody'>
+									<tr>
+										<td>{tables.StoreId}</td>
+										<td>{tables.name}</td>
+										<td>{tables.description}</td>
+										<td>{tables.quantity}</td>
+										<td>{tables.price}</td>
+										<td>
+											<div className='styletableicon'>
+												<BiEdit />
+												<AiOutlinePauseCircle />
+												<MdOutlineCancel />
+											</div>
+										</td>
+										<td>
+											{tables.status ? (
+												<div
+													className='admin-verify'
+													style={{ backgroundColor: "green", color: "white" }}>
+													<button onClick={() => verifyProduct(tables.id)}>
+														Verified
+													</button>
+												</div>
+											) : (
+												<div className='admin-verify'>
+													<button onClick={() => verifyProduct(tables.id)}>
+														Verify
+													</button>
+												</div>
+											)}
+										</td>
+									</tr>
+								</tbody>
+							);
+						})}
+					</table>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default AdminProductTable;

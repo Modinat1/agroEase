@@ -6,23 +6,29 @@ import { MdOutlineCancel } from "react-icons/md";
 import { adminpayment } from "../AdminPaymentTable/AdminPaymentModule";
 import GeneralUserAuth from "../../../Context/user-auth/GeneralUserAuth";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
+import axios from "axios";
 
 const AdminStoresTable = () => {
-	const { userAuth } = GeneralUserAuth();
-	const { accessToken, allUser } = userAuth;
-	console.log(userAuth);
-	console.log(allUser);
+	// const { userAuth } = GeneralUserAuth();
+	// const { accessToken, allUser } = userAuth;
+	// console.log(userAuth);
+	// console.log(allUser);
 
+	const tokenInfo = localStorage.getItem("token");
+	console.log(tokenInfo);
 
 	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
+		headers: { Authorization: `Bearer ${tokenInfo}` },
 	};
 
 	//Get store
 	const [stores, setStores] = useState([]);
 	const getStores = async () => {
 		try {
-			const response = await axiosInstance.get(`/v1/store`, config);
+			const response = await axios.get(
+				`https://agro-ease-backend-production.up.railway.app/v1/store`,
+				config
+			);
 			console.log(response.data);
 			setStores(response.data);
 			return response;
@@ -32,7 +38,7 @@ const AdminStoresTable = () => {
 	};
 
 	useEffect(() => {
-		getStores()
+		getStores();
 	}, []);
 
 	return (
@@ -71,7 +77,7 @@ const AdminStoresTable = () => {
 										<td>{tables.Wallet.nin}</td>
 										<td>{tables.Wallet.date_of_birth}</td>
 										<td>
-											<div className= "styletableicon">
+											<div className='styletableicon'>
 												<BiEdit />
 												<AiOutlinePauseCircle />
 												<MdOutlineCancel />

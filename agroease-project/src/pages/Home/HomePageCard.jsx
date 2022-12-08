@@ -250,6 +250,8 @@ const Items = ({ currentItems, title, search }) => {
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
 
+	localStorage.setItem("cart", JSON.stringify(cart));
+
 	const formatter = new Intl.NumberFormat("en-NG", {
 		style: "currency",
 		currency: "NGN",

@@ -249,8 +249,7 @@ const Items = ({ currentItems, title, search }) => {
 	// const { cart, addToCart } = cartContext;
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
-
-	localStorage.setItem("cart", JSON.stringify(cart));
+	localStorage.setItem("cartItems", JSON.stringify(cart));
 
 	const formatter = new Intl.NumberFormat("en-NG", {
 		style: "currency",

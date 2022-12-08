@@ -20,58 +20,53 @@ const NewFarmerSidebar = () => {
 	};
 
 	//Config Access token bearer
-	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
-	};
+	// const config = {
+	// 	headers: { Authorization: `Bearer ${accessToken}` },
+	// };
 
-	
-  
-	const userInfo= JSON.parse(localStorage.getItem("user"))
-	const userToken= JSON.parse(localStorage.getItem("user"))
-	console.log(userInfo)
-	const allInfo = userInfo
-	
+	// const userInfo= JSON.parse(localStorage.getItem("user"))
+	// const userToken= JSON.parse(localStorage.getItem("user"))
+	// console.log(userInfo)
+	// const allInfo = userInfo
 
+	// const handleLogout = async () => {
+	// 	try {
+	// 		const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
+	// 			{refreshToken: userAuth.refreshToken},
+	// 			userToken
+	// 		);
 
+	// 		if (allInfo === null) {
+	// 			localStorage.removeItem('token')
+	// 			localStorage.removeItem('user')
+	// 			console.log("thank God")
+	// 			// currentUser()
+	// 			// console.log(response);
+	// 			// console.log(currentUser);
+	// 			navigate("/UsersSignIn")
+	// 			return response
 
-	const handleLogout = async () => {
-		try {
-			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
-				{refreshToken: userAuth.refreshToken},
-				userToken
-			);
-
-			if (allInfo === null) {
-				localStorage.removeItem('token')
-				localStorage.removeItem('user')
-				console.log("thank God")
-				// currentUser()
-				// console.log(response);
-				// console.log(currentUser);
-				navigate("/UsersSignIn")
-				return response
-				
-			}
-		} catch (error) {
-			console.log(error)
-			// if (!error.response) {
-			// 	console.log("Server down");
-			// } else if (error.response.status === 400) {
-			// 	console.log("I don see enough shege");
-			// } else if (error.response.status === 401) {
-			// 	console.log("I don see enough");
-			// } else if (error.response.status === 409) {
-			// 	console.log("I don see ");
-			// }
-		}
-	};
-	// useEffect(() => {
-
-	// 	if (isLoggedout) {
-	// 	  navigate("/UsersSignIn")
+	// 		}
+	// 	} catch (error) {
+	// 		console.log(error)
+	// 		// if (!error.response) {
+	// 		// 	console.log("Server down");
+	// 		// } else if (error.response.status === 400) {
+	// 		// 	console.log("I don see enough shege");
+	// 		// } else if (error.response.status === 401) {
+	// 		// 	console.log("I don see enough");
+	// 		// } else if (error.response.status === 409) {
+	// 		// 	console.log("I don see ");
+	// 		// }
 	// 	}
+	// };
+	// // useEffect(() => {
 
-	//   }, [navigate, isLoggedout])
+	// // 	if (isLoggedout) {
+	// // 	  navigate("/UsersSignIn")
+	// // 	}
+
+	// //   }, [navigate, isLoggedout])
 
 	return (
 		<>
@@ -371,9 +366,7 @@ const NewFarmerSidebar = () => {
 							<path d='M7.5 1v7h1V1h-1z' />
 							<path d='M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z' />
 						</svg>
-						<span className='ml-2 text-sm font-medium' onClick={handleLogout}>
-							Log out
-						</span>
+						<span className='ml-2 text-sm font-medium'>Log out</span>
 					</Link>
 				</div>
 				{/* Component End  */}

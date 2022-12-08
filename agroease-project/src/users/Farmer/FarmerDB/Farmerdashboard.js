@@ -16,28 +16,27 @@ import Thepiechart from "./Thepiechart";
 // import Farmercontent from "./Farmercontent";
 
 const Farmerdashboard = () => {
-	
-	const tokenInfo= localStorage.getItem("token")
+	// const tokenInfo= localStorage.getItem("token")
 
-	const config = {
-		headers: { Authorization: `Bearer ${tokenInfo}` },
-	};
+	// const config = {
+	// 	headers: { Authorization: `Bearer ${tokenInfo}` },
+	// };
 
-	const getCurrentUser = async () => {
-		const currentUser =  await axios.get("https://agro-ease-backend-production.up.railway.app/v1/auth/current", config)
-		.then((resp) => {
-			console.log(resp.data)
-			return resp
-		})
-		const user = currentUser
-		console.log(user)
-		localStorage.setItem("user", JSON.stringify((user)))
-		return user
-	}
+	// const getCurrentUser = async () => {
+	// 	const currentUser =  await axios.get("https://agro-ease-backend-production.up.railway.app/v1/auth/current", config)
+	// 	.then((resp) => {
+	// 		console.log(resp.data)
+	// 		return resp
+	// 	})
+	// 	const user = currentUser
+	// 	console.log(user)
+	// 	localStorage.setItem("user", JSON.stringify((user)))
+	// 	return user
+	// }
 
-		useEffect(() => {
-				getCurrentUser()
-		}, [])
+	// 	useEffect(() => {
+	// 			getCurrentUser()
+	// 	}, [])
 
 	return (
 		<React.Fragment>

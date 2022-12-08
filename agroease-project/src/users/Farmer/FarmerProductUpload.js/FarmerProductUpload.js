@@ -12,6 +12,14 @@ export const FarmerProductUpload = () => {
 	// const [errorso, setErrorso] = useState("")
 	const [successo, setSuccesso] = useState("");
 	const { accessToken, refreshToken } = userAuth;
+	const tokenInfo = localStorage.getItem("token");
+
+	const config = {
+		headers: {
+			Authorization: `Bearer ${tokenInfo}`,
+			"Content-Type": "multipart/form-data",
+		},
+	};
 
 	const navigate = useNavigate();
 	const notifySuccess = () => {
@@ -35,12 +43,12 @@ export const FarmerProductUpload = () => {
 		});
 	};
 
-	const config = {
-		headers: {
-			Authorization: `Bearer ${accessToken}`,
-			"Content-Type": "multipart/form-data",
-		},
-	};
+	// const config = {
+	// 	headers: {
+	// 		Authorization: `Bearer ${accessToken}`,
+	// 		"Content-Type": "multipart/form-data",
+	// 	},
+	// };
 
 	const handleProductSubmit = async (values) => {
 		const productData = new FormData();
@@ -67,8 +75,8 @@ export const FarmerProductUpload = () => {
 			setUser(response.data.user);
 
 			if (response.data.status === "success") {
-				navigate("/farmerproductpage");
 				notifySuccess();
+				// navigate("/farmerproductpage");
 			}
 		} catch (error) {
 			console.log(error);

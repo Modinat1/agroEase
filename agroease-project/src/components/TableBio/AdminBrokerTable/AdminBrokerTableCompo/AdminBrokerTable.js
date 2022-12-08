@@ -11,23 +11,29 @@ import "./AdminBrokerTable.css";
 
 const AdminBrokerTable = () => {
 	const { userAuth } = GeneralUserAuth();
-	const { accessToken, allUser } = userAuth;
-	console.log(userAuth);
+	// const { accessToken, allUser } = userAuth;
+	// console.log(userAuth);
+	// console.log(allUser);
+
+	const allUser = JSON.parse(localStorage.getItem("loginUserInfo"));
 	console.log(allUser);
+
+	const userInfo = JSON.parse(localStorage.getItem("user"));
+	console.log(userInfo);
 	const {
 		Store: { id },
 	} = allUser;
 	const [products, setProducts] = useState([]);
 
-	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
-	};
+	// const config = {
+	// 	headers: { Authorization: `Bearer ${accessToken}` },
+	// };
 
 	const getProduct = async () => {
 		try {
 			const response = await axiosInstance.get(
-				`v1/product/store/${id}`,
-				config
+				`v1/product/store/${id}`
+				// config
 			);
 			console.log(response.data);
 			setProducts(response.data);
@@ -41,8 +47,8 @@ const AdminBrokerTable = () => {
 	const deleteProduct = async () => {
 		try {
 			const response = await axiosInstance.delete(
-				"v1/product/:productId",
-				config
+				"v1/product/:productId"
+				// config
 			);
 			console.log(response.data);
 			return response;
@@ -67,6 +73,7 @@ const AdminBrokerTable = () => {
 							<th>Unit Cost/Item</th>
 							<th>Qty of item</th>
 							<th>Action</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 
@@ -89,6 +96,19 @@ const AdminBrokerTable = () => {
 											<AiOutlinePauseCircle />
 											<MdOutlineCancel onClick={(id) => deleteProduct(id)} />
 										</div>
+									</td>
+									<td>
+										{tables.status ? (
+											<div
+												className='admin-verify'
+												style={{ backgroundColor: "green", color: "white" }}>
+												<button>Verified</button>
+											</div>
+										) : (
+											<div className='admin-verify'>
+												<button>Pending</button>
+											</div>
+										)}
 									</td>
 								</tr>
 							</tbody>

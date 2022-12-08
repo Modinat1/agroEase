@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./FarmerProfile.css";
 import { useFormik } from "formik";
 import Swal from "sweetalert2-react";
@@ -9,7 +9,6 @@ import * as Yup from "yup";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import UserContext from "../../../Context/user-context/UserContext";
 
-
 export const FarmerProfilePage = () => {
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
 	// const [errorso, setErrorso] = useState("")
@@ -17,17 +16,25 @@ export const FarmerProfilePage = () => {
 	const { accessToken, refreshToken } = userAuth;
 	const navigate = useNavigate();
 
-	// const notifySuccess = () => {
-	// 	Swal.fire({
-	// 		title: "Successfull!",
-	// 		text: "Profile updated successfully!",
-	// 		icon: "success",
-	// 		button: "Ok",
-	// 	}).then(function () {
-	// 		// Redirect the user
-	// 		navigate("/farmerdashboardpage");
-	// 	});
-	// };
+	const [banks, setBanks] = useState([]);
+
+	// Get State Function
+
+	useEffect(() => {
+		const getState = () => {
+			try {
+				const response = axiosInstance.get("/v1/wallet/banks").then((res) => {
+					setBanks(res.data);
+					return res.data;
+				});
+				return response;
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		getState();
+	}, []);
 
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
@@ -120,7 +127,6 @@ export const FarmerProfilePage = () => {
 		business_email: Yup.string().email().required("Required"),
 		phone_number: Yup.string().required("Required").max(11),
 		date_of_birth: Yup.date().required("Required"),
-		business_email: Yup.string().email().required("Required"),
 		description: Yup.string().required("Required").max(200),
 		nin: Yup.string().required("Required").max(11),
 		account_name: Yup.string().required("Required").max(50),
@@ -402,14 +408,29 @@ export const FarmerProfilePage = () => {
 								</div>
 								<div className='input-box-agro'>
 									<span className='details-agro'>Bank Name</span>
-									<input
+									<select
+										type='text'
+										id='bank'
+										className='p-2 border-gray-700 w-full outline-gray-700'
+										name='bank'
+										onChange={formik.handleChange}
+										value={formik.values.bank}>
+										{banks.map((bank, idx) => {
+											return (
+												<option key={idx} value={bank}>
+													{bank}
+												</option>
+											);
+										})}
+									</select>
+									{/* <input
 										type='text'
 										placeholder='First Bank'
 										id='bank'
 										name='bank'
 										onChange={formik.handleChange}
 										value={formik.values.bank}
-									/>
+									/> */}
 									{formik.errors.bank ? (
 										<div className='profile_error'>{formik.errors.bank}</div>
 									) : null}

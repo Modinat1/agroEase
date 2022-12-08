@@ -19,8 +19,10 @@ const AdminProductTable = () => {
 	// console.log(accessToken)
 	// Gets all products function starts here
 	const [allProducts, setallProducts] = useState([]);
-	const [isVerified, setIsverified] = useState(false);
+
 	const tokenInfo = localStorage.getItem("token");
+
+	console.log(tokenInfo);
 
 	const config = {
 		headers: { Authorization: `Bearer ${tokenInfo}` },
@@ -31,9 +33,6 @@ const AdminProductTable = () => {
 			const response = await axiosInstance.get(`v1/product/admin`, config);
 			console.log(response.data);
 			setallProducts(response.data);
-			if (response.data.status === true) {
-				setIsverified(true);
-			}
 
 			return response;
 		} catch (error) {
@@ -55,7 +54,7 @@ const AdminProductTable = () => {
 			},
 		};
 		const update = new FormData();
-		update.append("product", JSON.stringify({ status: false }));
+		update.append("product", JSON.stringify({ status: true }));
 		update.forEach((data) => console.log(data));
 
 		try {

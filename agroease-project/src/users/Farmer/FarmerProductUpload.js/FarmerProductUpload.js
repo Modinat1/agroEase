@@ -2,17 +2,15 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./FarmerProductUpload.css";
 import Swal from "sweetalert2";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const FarmerProductUpload = () => {
-	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
-	// const [errorso, setErrorso] = useState("")
-	const [successo, setSuccesso] = useState("");
-	const { accessToken, refreshToken } = userAuth;
 	const tokenInfo = localStorage.getItem("token");
+
+	// Config
 
 	const config = {
 		headers: {
@@ -21,6 +19,7 @@ export const FarmerProductUpload = () => {
 		},
 	};
 
+	// SweetAlert
 	const navigate = useNavigate();
 	const notifySuccess = () => {
 		Swal.fire({
@@ -43,12 +42,7 @@ export const FarmerProductUpload = () => {
 		});
 	};
 
-	// const config = {
-	// 	headers: {
-	// 		Authorization: `Bearer ${accessToken}`,
-	// 		"Content-Type": "multipart/form-data",
-	// 	},
-	// };
+	// Upload Product function
 
 	const handleProductSubmit = async (values) => {
 		const productData = new FormData();
@@ -72,7 +66,7 @@ export const FarmerProductUpload = () => {
 			);
 
 			console.log(response.data);
-			setUser(response.data.user);
+			// setUser(response.data.user);
 
 			if (response.data.status === "success") {
 				notifySuccess();

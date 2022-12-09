@@ -24,12 +24,6 @@ export const navItems = [
 		cName: "navbar-menulist",
 	},
 	{
-		id: 5,
-		title: "Account",
-		path: "/UsersSignIn",
-		cName: "navbar-menulist",
-	},
-	{
 		navName: "landing-nav-btn nav-close-btn",
 	},
 ];
@@ -37,20 +31,15 @@ export const navItems = [
 export const accountDropdown = [
 	{
 		id: 1,
-		title: "Buyer",
+		title: "Dashboard",
 		path: "/buyersignup",
 		cName: "account-submenu",
 	},
 	{
 		id: 2,
-		title: "Farmer",
+		title: "Logout",
 		path: "/farmersignup",
 		cName: "account-submenu",
 	},
-	{
-		id: 3,
-		title: "Broker",
-		path: "/brokersignup",
-		cName: "account-submenu",
-	},
+	
 ];

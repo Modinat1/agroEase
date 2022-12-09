@@ -10,10 +10,45 @@ import { TopPicks } from "./TopPicks";
 import { Seller } from "./SellerHome";
 import { Payment } from "./Payment";
 import Footer from "../../components/Footer/Footer";
+import { useEffect } from "react";
+import axios from "axios";
+import GeneralUserAuth from "../../Context/user-auth/GeneralUserAuth";
 // import { ProductProvider } from "../../Context/Store/ProductContext";
 
 const Home = () => {
 	const [search, setSearch] = useState("");
+
+	const { userAuth, setUserAuth} =
+		GeneralUserAuth();
+	const { accessToken } = userAuth;
+
+
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
+	const getCurrentUser = async () => {
+		const currentUser = await axios
+			.get(
+				"https://agro-ease-backend-production.up.railway.app/v1/auth/current",
+				config
+			)
+			.then((resp) => {
+				console.log(resp.data);
+				return resp;
+			});
+		const user = currentUser;
+
+		console.log(user);
+		localStorage.setItem("user", JSON.stringify(user));
+		return user;
+	};
+
+	useEffect(() => {
+		getCurrentUser();
+	}, []);
+
+
 	return (
 		<>
 			<Navbar1 search={search} setSearch={setSearch} />

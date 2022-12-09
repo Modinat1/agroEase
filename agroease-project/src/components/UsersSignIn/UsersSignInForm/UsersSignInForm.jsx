@@ -23,11 +23,13 @@ export const UsersSignInForm = () => {
 	const navigate = useNavigate();
 	const { accessToken } = userAuth;
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/farmerdashboardpage";
+	const from = location.state?.from?.pathname || "/";
 
-	// const config = {
-	// 	headers: { Authorization: `Bearer ${accessToken}` },
-	// };
+	// const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
+
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
 
 	const handleLoginAuth = async (values) => {
 		try {
@@ -45,13 +47,12 @@ export const UsersSignInForm = () => {
 			localStorage.setItem("token", accessToken);
 			console.log(accessToken);
 
-			// localStorage.setItem('user', allUser)
-			// console.log(allUser)
-			setSuccesso("Account Created Successfully");
-
-			if (userAuth) {
+			if (allUser) {
 				navigate(from, { replace: true });
 			}
+			setSuccesso("Account Created Successfully");
+
+
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -72,26 +73,26 @@ export const UsersSignInForm = () => {
 	// 	headers: { Authorization: `Bearer ${tokenInfo}` },
 	// };
 
-	// const getCurrentUser = async () => {
-	// 	const currentUser = await axios
-	// 		.get(
-	// 			"https://agro-ease-backend-production.up.railway.app/v1/auth/current",
-	// 			config
-	// 		)
-	// 		.then((resp) => {
-	// 			console.log(resp.data);
-	// 			return resp;
-	// 		});
-	// 	const user = currentUser;
+	const getCurrentUser = async () => {
+		const currentUser = await axios
+			.get(
+				"https://agro-ease-backend-production.up.railway.app/v1/auth/current",
+				config
+			)
+			.then((resp) => {
+				console.log(resp.data);
+				return resp;
+			});
+		const user = currentUser;
 
-	// 	console.log(user);
-	// 	localStorage.setItem("user", JSON.stringify(user));
-	// 	return user;
-	// };
+		console.log(user);
+		localStorage.setItem("user", JSON.stringify(user));
+		return user;
+	};
 
-	// useEffect(() => {
-	// 	getCurrentUser();
-	// }, []);
+	useEffect(() => {
+		getCurrentUser();
+	}, []);
 
 	return (
 		<div>

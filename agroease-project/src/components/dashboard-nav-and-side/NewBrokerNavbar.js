@@ -22,6 +22,7 @@ const NewBrokerNavbar = () => {
 	}, []);
 
 	const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
+	console.log(userInfo)
 
 	// const allInfo = userInfo;
 	// const userDetails = allInfo.data;

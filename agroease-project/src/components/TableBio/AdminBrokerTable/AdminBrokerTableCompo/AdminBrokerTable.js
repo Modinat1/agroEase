@@ -15,7 +15,7 @@ const AdminBrokerTable = () => {
 	// console.log(userAuth);
 	// console.log(allUser);
 
-	const allUser = JSON.parse(localStorage.getItem("loginUserInfo"));
+	const allUser = JSON.parse(localStorage.getItem("loginUserInfo")) || [];
 	console.log(allUser);
 
 	const userInfo = JSON.parse(localStorage.getItem("user"));
@@ -24,16 +24,17 @@ const AdminBrokerTable = () => {
 		Store: { id },
 	} = allUser;
 	const [products, setProducts] = useState([]);
+	const accessToken = localStorage.getItem("token");
 
-	// const config = {
-	// 	headers: { Authorization: `Bearer ${accessToken}` },
-	// };
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
 
 	const getProduct = async () => {
 		try {
 			const response = await axiosInstance.get(
-				`v1/product/store/${id}`
-				// config
+				`v1/product/store/${id}`,
+				config
 			);
 			console.log(response.data);
 			setProducts(response.data);

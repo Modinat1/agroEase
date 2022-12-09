@@ -13,7 +13,7 @@ export const FarmerProfilePage = () => {
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
 	// const [errorso, setErrorso] = useState("")
 	const [successo, setSuccesso] = useState("");
-	const { accessToken, refreshToken } = userAuth;
+	// const { accessToken, refreshToken } = userAuth;
 	const navigate = useNavigate();
 
 	const [banks, setBanks] = useState([]);
@@ -36,6 +36,7 @@ export const FarmerProfilePage = () => {
 		getState();
 	}, []);
 
+	const accessToken = localStorage.getItem("token");
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};

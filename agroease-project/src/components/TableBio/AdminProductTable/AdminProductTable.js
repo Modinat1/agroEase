@@ -46,7 +46,7 @@ const AdminProductTable = () => {
 
 	// Verify Products starts here
 
-	const verifyProduct = (id) => {
+	const verifyProduct = async (id) => {
 		const config = {
 			headers: {
 				Authorization: `Bearer ${tokenInfo}`,
@@ -58,13 +58,9 @@ const AdminProductTable = () => {
 		update.forEach((data) => console.log(data));
 
 		try {
-			const productToUpdate = axiosInstance.patch(
-				`/v1/product/${id}`,
-				update,
-				config
-			);
-			console.log(productToUpdate);
-			console.log("I was clicked");
+			await axiosInstance.patch(`/v1/product/${id}`, update, config);
+
+			window.location.reload();
 		} catch (error) {
 			console.log(error);
 		}
@@ -110,9 +106,7 @@ const AdminProductTable = () => {
 												<div
 													className='admin-verify'
 													style={{ backgroundColor: "green", color: "white" }}>
-													<button onClick={() => verifyProduct(tables.id)}>
-														Verified
-													</button>
+													<button>Verified</button>
 												</div>
 											) : (
 												<div className='admin-verify'>

@@ -8,243 +8,246 @@ import { ProductContext } from "../../Context/Store/productContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-export const allProducts = {
-	default: [
-		{
-			id: 1,
-			name: "Beans",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: beans,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 2,
-			name: "Garri",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: garri,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 3,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: rice,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 4,
-			name: "Beans",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: beans,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 5,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: garri,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 6,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: rice,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 7,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: rice,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 8,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: beans,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 9,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: garri,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 10,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: rice,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 11,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: beans,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 12,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: garri,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 13,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: rice,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 14,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: beans,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 15,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: garri,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 16,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: rice,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 17,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: beans,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-		{
-			id: 18,
-			name: "Rice",
-			desc: "Better than Foreing Rice",
-			price: 29000,
-			image: garri,
-			isInStock: false,
-			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-		},
-	],
+import axiosInstance from "../../Context/axios-config/axios-user-config";
+// export const allProducts = {
+// 	default: [
+// 		{
+// 			id: 1,
+// 			name: "Beans",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: beans,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 2,
+// 			name: "Garri",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: garri,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 3,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: rice,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 4,
+// 			name: "Beans",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: beans,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 5,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: garri,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 6,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: rice,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 7,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: rice,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 8,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: beans,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 9,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: garri,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 10,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: rice,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 11,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: beans,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 12,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: garri,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 13,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: rice,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 14,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: beans,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 15,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: garri,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 16,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: rice,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 17,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: beans,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 		{
+// 			id: 18,
+// 			name: "Rice",
+// 			desc: "Better than Foreing Rice",
+// 			price: 29000,
+// 			image: garri,
+// 			isInStock: false,
+// 			inStock: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+// 		},
+// 	],
 
-	livestocks: [
-		{
-			name: "Cockrel",
-			desc: "Home trained chicken",
-			price: 5000,
-			image: "/assets/chickens.png",
-			isInStock: false,
-		},
-		{
-			name: "Broilers",
-			desc: "3 months broilers",
-			price: "700",
-			image: "/assets/broilers.jpg",
-			isInStock: false,
-		},
-		{
-			name: "Chicks",
-			desc: "Day old chilcks of all sizes",
-			price: "20,000",
-			image: "/assets/day-old.jpg",
-			isInStock: false,
-		},
-		{
-			name: "Cow",
-			desc: "Cows are available",
-			price: "150,000",
-			image: "/assets/cows.png",
-			isInStock: false,
-		},
-		{
-			name: "Pigs",
-			desc: "Home trained pigs",
-			price: "75,000",
-			image: "/assets/pigs.jpg",
-			isInStock: false,
-		},
-		{
-			name: "Goat",
-			desc: "Home trained goats",
-			price: "29,000",
-			image: "/assets/goat.jpg",
-			isInStock: false,
-		},
-		{
-			name: "Turkey<",
-			desc: "Turkey birds available",
-			price: "15,000",
-			image: "/assets/turkey.jpg",
-			isInStock: false,
-		},
-		{
-			name: "Eggs",
-			desc: "Sets of Eggs available",
-			price: "3,000",
-			image: "/assets/eggs.jpg",
-			isInStock: false,
-		},
-		{
-			name: "Live Fish",
-			desc: "Live fresh fish from pond",
-			price: "7,000",
-			image: "/assets/fish.jpg",
-			isInStock: false,
-		},
-	],
-};
+// 	livestocks: [
+// 		{
+// 			name: "Cockrel",
+// 			desc: "Home trained chicken",
+// 			price: 5000,
+// 			image: "/assets/chickens.png",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Broilers",
+// 			desc: "3 months broilers",
+// 			price: "700",
+// 			image: "/assets/broilers.jpg",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Chicks",
+// 			desc: "Day old chilcks of all sizes",
+// 			price: "20,000",
+// 			image: "/assets/day-old.jpg",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Cow",
+// 			desc: "Cows are available",
+// 			price: "150,000",
+// 			image: "/assets/cows.png",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Pigs",
+// 			desc: "Home trained pigs",
+// 			price: "75,000",
+// 			image: "/assets/pigs.jpg",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Goat",
+// 			desc: "Home trained goats",
+// 			price: "29,000",
+// 			image: "/assets/goat.jpg",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Turkey<",
+// 			desc: "Turkey birds available",
+// 			price: "15,000",
+// 			image: "/assets/turkey.jpg",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Eggs",
+// 			desc: "Sets of Eggs available",
+// 			price: "3,000",
+// 			image: "/assets/eggs.jpg",
+// 			isInStock: false,
+// 		},
+// 		{
+// 			name: "Live Fish",
+// 			desc: "Live fresh fish from pond",
+// 			price: "7,000",
+// 			image: "/assets/fish.jpg",
+// 			isInStock: false,
+// 		},
+// 	],
+// };
 
 // const farmerDB = "db101";
 // let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
 
 const Items = ({ currentItems, title, search }) => {
+	// Get all verified Products
+
 	const cartContext = React.useContext(ProductContext);
 	// const { cart, addToCart } = cartContext;
 	const { state, dispatch } = cartContext;
@@ -370,8 +373,30 @@ const Items = ({ currentItems, title, search }) => {
 
 function PaginatedItems({ itemsPerPage, search }) {
 	const productStore = React.useContext(ProductContext);
+	console.log(productStore);
+
+	const [allProducts, setallProducts] = useState([]);
+
+	const getVerifiedProducts = async () => {
+		try {
+			const verifiedProducts = await axiosInstance.get("/v1/product/");
+			console.log(verifiedProducts);
+			setallProducts(verifiedProducts.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		getVerifiedProducts();
+	}, []);
 
 	// const [products, setProducts] = useState(allProducts.default);
+
+	console.log(productStore.category);
+	const productCategory = allProducts.map((products) => {
+		return products.Category.name;
+	});
 
 	// We start with an empty list of items.
 	const [currentItems, setCurrentItems] = useState([]);
@@ -380,18 +405,12 @@ function PaginatedItems({ itemsPerPage, search }) {
 	// following the API or data you're working with.
 	const [itemOffset, setItemOffset] = useState(0);
 
-	// useEffect(() => {
-	// 	console.log(
-	// 		"allProducts[productStore.category]",
-	// 		allProducts[productStore.category]
-	// 	);
-	// 	setProducts(allProducts[productStore.category]);
-	// }, [productStore.category]);
+	// [productStore.category || "crops"];
 
 	useEffect(() => {
 		// Fetch items from another resources.
 		const endOffset = itemOffset + itemsPerPage;
-		const products = allProducts[productStore.category || "default"] || [];
+		const products = allProducts || [];
 		// const products = allProducts[productStore.category || "default"] || [];
 		// console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
@@ -403,7 +422,8 @@ function PaginatedItems({ itemsPerPage, search }) {
 	const handlePageClick = (event) => {
 		const newOffset =
 			(event.selected * itemsPerPage) %
-				allProducts[productStore.category || "default"] || [].length;
+				allProducts[productStore.category || "crops"] || [].length;
+		// allProducts[productCategory || "crops"] || [].length;
 		// console.log(
 		//   `User requested page number ${event.selected}, which is offset ${newOffset}`
 		// );

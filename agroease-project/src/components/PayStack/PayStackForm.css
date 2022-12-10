@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.paystack-form-container{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.paystack-form-container form{
+    box-shadow: 0 2px 3px gray;
+    width: 500px;
+    padding: 1rem;
+    /* margin-top: -1rem; */
+}
+.paystack-form-container h3{
+    font-weight: 900;
+    text-align: center;
+    /* margin: 0.5rem 0; */
+}
+.paystack-form-container label{
+    display: block;
+    margin: 0.5rem 0;
+}
+.paystack-form-container input{
+    padding: 0.5rem;
+    width: 100%;
+}
+.paystack-form-container input:focus{
+    outline: none;
+}
+.paystack-btn{
+    background-color: #065709;
+    color: #fff;
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 2rem;
+}

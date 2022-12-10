@@ -5,23 +5,26 @@
   }
   .editProfile-body{
     background-color: #f5f6f7;
+    /* border :2px solid red; */
   }
   .edit-profile-main-container {
     padding-top: 6rem;
-    padding-left: 15rem;
-    padding-right: 15rem;
-    /* border: 2px solid pink;  */
+    padding-left: 5rem; 
+    padding-right: 5rem;
+    /* border: 2px solid pink;   */
   }
   .profile-image-top-section {
-    /* border: 2px solid red; */
+     /* border: 2px solid black;  */
     display: flex;
     justify-content: space-between;
   }
   .profile-avater-section-left-container {
-    /* border: 2px solid green; */
+    /* border: 2px solid green;  */
     display: flex;
     justify-content: space-around;
     gap: 2rem;
+    width: 50%;
+    
   }
   .profile-edit-image {
     width: 200px;
@@ -29,10 +32,15 @@
   }
   .profile-mail {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
     gap: 0.5rem;
+    /* border: 1px solid red; */
   }
   .profile-phone {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
     gap: 0.5rem;
   }
   
@@ -49,13 +57,13 @@
     color: #097c0d;
   }
   .farmer-profile-information-container {
-    /* border: 2px solid blue; */
+    /* border: 5px solid blue;  */
   
     padding-top: 5rem;
     padding-bottom: 5rem;
-    /* padding-left: 15rem; */
+     /* padding-left: 15rem;  */
     display: flex;
-    gap: 5rem;
+    gap: 1rem;
   }
   .profile-personal-details-container {
     display: flex;
@@ -66,13 +74,16 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    /* border: 2px solid white; */
   }
   .profile-personal-details {
     border-bottom: 1px solid gray;
   }
   .personal-details-name {
     display: flex;
+    justify-content:flex start;
     gap: 2rem;
+
   }
   
   @media screen and (max-width: 600px) {

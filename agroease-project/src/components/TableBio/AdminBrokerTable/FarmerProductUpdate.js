@@ -1,13 +1,13 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "./FarmerProductUpload.css";
+// import "./FarmerProductUpload.css";
 import Swal from "sweetalert2";
 import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
-export const FarmerProductUpload = () => {
+export const FarmerProductUpdate = ({ setUpdateMode }) => {
 	const tokenInfo = localStorage.getItem("token");
 
 	// Config
@@ -24,7 +24,7 @@ export const FarmerProductUpload = () => {
 	const notifySuccess = () => {
 		Swal.fire({
 			title: "Products!",
-			text: "Product uploaded successfully!",
+			text: "Product updated successfully!",
 			icon: "success",
 			button: "Ok",
 		}).then(function () {
@@ -47,7 +47,7 @@ export const FarmerProductUpload = () => {
 
 	console.log(images);
 
-	const handleProductSubmit = async (values) => {
+	const handleProductSubmit = async (values, id) => {
 		const productData = new FormData();
 
 		const { name, description, quantity, price, CategoryName, file } = values;
@@ -69,7 +69,7 @@ export const FarmerProductUpload = () => {
 
 		try {
 			const response = await axiosInstance.post(
-				"/v1/product/",
+				`v1/product/${id}`,
 				productData,
 				config
 			);
@@ -110,6 +110,7 @@ export const FarmerProductUpload = () => {
 		onSubmit: (values) => {
 			// alert(JSON.stringify(values, null, 2));
 			handleProductSubmit(values);
+			setUpdateMode(false);
 		},
 	});
 
@@ -270,7 +271,7 @@ export const FarmerProductUpload = () => {
 							type='submit'
 							// onClick={transferValue}
 						>
-							Add Product
+							Update Product
 						</button>
 						{/* </Link> */}
 					</div>

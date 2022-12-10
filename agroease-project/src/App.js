@@ -55,6 +55,7 @@ import { AdminFarmerVerifiedProducts } from "./users/Admin/AdminFarmer/AdminFarm
 import { AdminFarmerAllProducts } from "./users/Admin/AdminFarmer/AdminFarmerAllProducts";
 import { AdminBuyerAllUsers } from "./users/Admin/AdminBuyer/AdminBuyerAllUsers";
 import Unauthorized from "./pages/Unauthorized/Unauthorized";
+import { PayStack } from "./components/PayStack/PayStack";
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
@@ -199,6 +200,7 @@ function App() {
 						<Route path='OrderSummary' element={<OrderSummary />} />
 					</Route>
 				</Route>
+				<Route path='paystackPayment' element={<PayStack/>}></Route>
 			</Routes>
 		</div>
 	);

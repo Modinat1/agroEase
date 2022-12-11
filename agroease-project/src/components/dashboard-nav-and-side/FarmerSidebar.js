@@ -5,68 +5,52 @@ import { useState } from "react";
 import UserAuth from "../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../Context/axios-config/axios-user-config";
 import axios from "axios";
+import GeneralUserAuth from "../../Context/user-auth/GeneralUserAuth";
 
 const NewFarmerSidebar = () => {
 	const navigate = useNavigate();
-	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
-	const { accessToken, refreshToken } = userAuth;
+	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth;
+	// const {  refreshToken } = userAuth;
 	const [isActive, setIsActive] = useState(false);
-	const linkStyle =
-		"flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300";
-	const activeLinkStyle =
-		"flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-300 hover:bg-gray-300";
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+	const linkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300";
+	const activeLinkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-300 hover:bg-gray-300";
 	const changeActive = () => {
 		setIsActive(!isActive);
 	};
 
+	const aToken = localStorage.getItem('token')
+	const rToken = localStorage.getItem('rtoken')
+
 	//Config Access token bearer
-	// const config = {
-	// 	headers: { Authorization: `Bearer ${accessToken}` },
-	// };
+	const config = {
+		headers: { Authorization: `Bearer ${aToken}` },
+	};
 
-	// const userInfo= JSON.parse(localStorage.getItem("user"))
-	// const userToken= JSON.parse(localStorage.getItem("user"))
-	// console.log(userInfo)
-	// const allInfo = userInfo
 
-	// const handleLogout = async () => {
-	// 	try {
-	// 		const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
-	// 			{refreshToken: userAuth.refreshToken},
-	// 			userToken
-	// 		);
+	 const handleLogout = async () => {
+		try {
+			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
+				{refreshToken: rToken},
+				config
+			);
 
-	// 		if (allInfo === null) {
-	// 			localStorage.removeItem('token')
-	// 			localStorage.removeItem('user')
-	// 			console.log("thank God")
-	// 			// currentUser()
-	// 			// console.log(response);
-	// 			// console.log(currentUser);
-	// 			navigate("/UsersSignIn")
-	// 			return response
+				localStorage.removeItem('token')
+				localStorage.removeItem('rtoken')
+				localStorage.removeItem('user')
+				localStorage.removeItem('loginUserInfo')
+				setIsLoggedIn(false)
+				navigate("/UsersSignIn")
+				return response
 
-	// 		}
-	// 	} catch (error) {
-	// 		console.log(error)
-	// 		// if (!error.response) {
-	// 		// 	console.log("Server down");
-	// 		// } else if (error.response.status === 400) {
-	// 		// 	console.log("I don see enough shege");
-	// 		// } else if (error.response.status === 401) {
-	// 		// 	console.log("I don see enough");
-	// 		// } else if (error.response.status === 409) {
-	// 		// 	console.log("I don see ");
-	// 		// }
-	// 	}
-	// };
-	// // useEffect(() => {
-
-	// // 	if (isLoggedout) {
-	// // 	  navigate("/UsersSignIn")
-	// // 	}
-
-	// //   }, [navigate, isLoggedout])
+			}
+				catch (error) {
+				console.log(error)
+		
+		}
+	};
+	
 
 	return (
 		<>
@@ -366,7 +350,7 @@ const NewFarmerSidebar = () => {
 							<path d='M7.5 1v7h1V1h-1z' />
 							<path d='M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z' />
 						</svg>
-						<span className='ml-2 text-sm font-medium'>Log out</span>
+						<span className='ml-2 text-sm font-medium' onClick={handleLogout}>Log out</span>
 					</Link>
 				</div>
 				{/* Component End  */}

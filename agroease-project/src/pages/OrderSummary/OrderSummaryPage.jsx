@@ -120,9 +120,9 @@ const OrderSummaryPage = () => {
 												},
 											})
 										}>
-										{prod.quantity.map((x) => (
+										{/* {prod?.quantity.map((x) => (
 											<option key={x}>{x}</option>
-										))}
+										))} */}
 									</select>
 								</div>
 								<div

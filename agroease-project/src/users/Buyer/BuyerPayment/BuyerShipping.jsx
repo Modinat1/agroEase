@@ -14,24 +14,20 @@ import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const BuyerShipping = () => {
-
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
 	// const [errorso, setErrorso] = useState("")
 	const [successo, setSuccesso] = useState("");
-	const { accessToken, refreshToken } = userAuth;
+	// const { accessToken, refreshToken } = userAuth;
+	const [address, setAddress] = useState([]);
 	// const navigate = useNavigate();
+
+	const accessToken = localStorage.getItem("token");
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
 
 	const handleShippingAddress = async (values) => {
-		const {
-			country,
-			state,
-			city,
-			zip,
-			address,
-		} = values;
+		const { country, state, city, zip, address } = values;
 		const shippingAddress = {
 			country,
 			state,
@@ -47,22 +43,19 @@ export const BuyerShipping = () => {
 				shippingAddress,
 				config
 			);
-			const accessToken = response.data.tokens.access.token;
-			setUserAuth({ accessToken });
-			setUser(response.data.user);
-			// JSON.parse(localStorage.setItem('token', accessToken))
-			setSuccesso("Shipping Address Created Successfully");
+			// const accessToken = response.data.tokens.access.token;
 
-			if (userAuth) {
+			localStorage.setItem("deliveryAddress", JSON.stringify(response.data));
+			setAddress(response.data);
+			console.log(response.data);
+
+			if (response.status === 200) {
 				navigate("/BuyerPayment");
 			}
 		} catch (error) {
 			console.log(error);
 		}
 	};
-
-
-
 
 	const navigate = useNavigate();
 	const {
@@ -97,7 +90,7 @@ export const BuyerShipping = () => {
 				console.log(JSON.stringify(values, null, 2));
 				setSubmitting(false);
 				resetForm();
-				handleShippingAddress(values)
+				handleShippingAddress(values);
 				// handleUserRegistration(values)
 				navigate("/BuyerPayment");
 			}, 4000);

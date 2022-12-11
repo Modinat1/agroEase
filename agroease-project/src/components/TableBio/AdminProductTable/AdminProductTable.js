@@ -66,6 +66,17 @@ const AdminProductTable = () => {
 		}
 	};
 
+	const deleteProduct = async (id) => {
+		try {
+			const response = await axiosInstance.delete(`v1/product/${id}`, config);
+			console.log(response.data);
+			window.location.reload();
+			return response;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<div>
 			<div className='general-table-bio-adpro'>
@@ -98,7 +109,9 @@ const AdminProductTable = () => {
 											<div className='styletableicon'>
 												<BiEdit />
 												<AiOutlinePauseCircle />
-												<MdOutlineCancel />
+												<MdOutlineCancel
+													onClick={() => deleteProduct(tables.id)}
+												/>
 											</div>
 										</td>
 										<td>

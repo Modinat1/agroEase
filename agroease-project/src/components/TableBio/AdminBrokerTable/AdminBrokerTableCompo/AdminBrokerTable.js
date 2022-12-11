@@ -126,7 +126,7 @@ const AdminBrokerTable = () => {
 
 		try {
 			const response = await axiosInstance.post(
-				`v1/product/46`,
+				`v1/product/`,
 				productData,
 				config1
 			);
@@ -166,7 +166,7 @@ const AdminBrokerTable = () => {
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
 			// alert(JSON.stringify(values, null, 2));
-			handleProductSubmit(values, id);
+			handleProductSubmit(values);
 			setUpdateMode(false);
 		},
 	});

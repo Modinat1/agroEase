@@ -36,7 +36,12 @@ export const BuyerOderreview = () => {
 			cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
 		);
 	}, [cart]);
-
+	const order = {
+		total: subTotal,
+	};
+	const handleOrder = () => {
+		localStorage.setItem("order", JSON.stringify(order));
+	};
 	return (
 		<>
 			<Buyernav />
@@ -137,7 +142,7 @@ export const BuyerOderreview = () => {
 							</h4>
 						</div>
 					</section>
-					<Link to={"/paystackPayment"}>
+					<Link to={"/paystackPayment"} onClick={() => handleOrder()}>
 						<button className='confirm-order'>Confirm Order</button>
 					</Link>
 				</div>

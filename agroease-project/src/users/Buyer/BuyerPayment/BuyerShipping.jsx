@@ -69,7 +69,7 @@ export const BuyerShipping = () => {
 		touched,
 		values,
 		errors,
-		// isSubmitting,
+		isSubmitting,
 	} = useFormik({
 		initialValues: {
 			username: "",
@@ -96,7 +96,7 @@ export const BuyerShipping = () => {
 				resetForm();
 				handleShippingAddress(values);
 				// handleUserRegistration(values)
-				navigate("/BuyerPayment");
+				navigate("/BuyerOrderreview");
 			}, 4000);
 		},
 	});
@@ -267,8 +267,8 @@ export const BuyerShipping = () => {
 								<button
 									className='shipping-proceed-btn '
 									type='submit'
-									isSubmitting>
-									Next
+									disabled={isSubmitting}>
+									{isSubmitting ? "submitting" : "Next"}
 								</button>
 								{/* </Link> */}
 							</div>

@@ -37,6 +37,8 @@ const Navbar1MenuList = () => {
 			navigate("/buyerdashboardpage")
 		} else if (userDetails?.data?.type === "admin") {
 			navigate("/AdminDashIndex")
+		} else if (userDetails?.data?.type === "farmer") {
+			navigate("/farmerdashboardpage")
 		} else {
 			return true
 		}

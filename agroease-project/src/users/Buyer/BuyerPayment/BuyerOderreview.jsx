@@ -38,6 +38,7 @@ export const BuyerOderreview = () => {
 	}, [cart]);
 	const order = {
 		total: subTotal,
+		cart,
 	};
 	const handleOrder = () => {
 		localStorage.setItem("order", JSON.stringify(order));

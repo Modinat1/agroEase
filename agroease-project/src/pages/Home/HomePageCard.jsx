@@ -409,15 +409,15 @@ function PaginatedItems({ itemsPerPage, search }) {
 	useEffect(() => {
 		// Fetch items from another resources.
 		const endOffset = itemOffset + itemsPerPage;
-		// const products = allProducts || [];
+		const products = allProducts;
 		// const products = allProducts[productStore.category || "default"] || [];
 		// console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
-		setCurrentItems(allProducts.slice(itemOffset, endOffset));
-		setPageCount(Math.ceil(allProducts.length / itemsPerPage));
+		// setCurrentItems(allProducts.slice(itemOffset, endOffset));
+		// setPageCount(Math.ceil(allProducts.length / itemsPerPage));
 
-		// setCurrentItems(products.slice(itemOffset, endOffset));
-		// setPageCount(Math.ceil(products.length / itemsPerPage));
+		setCurrentItems(products.slice(itemOffset, endOffset));
+		setPageCount(Math.ceil(products.length / itemsPerPage));
 	}, [itemOffset, itemsPerPage, productStore.category]);
 
 	// Invoke when user click to request another page.

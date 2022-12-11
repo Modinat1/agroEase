@@ -27,8 +27,9 @@ export const PayStack = () => {
 			amount: order.total * 100,
 			onSuccess(transaction) {
 				let message = `Payment Successful! Reference ${transaction.reference}`;
+				localStorage.removeItem("cartItems");
 				alert(message);
-				navigate("/");
+				// navigate("/");
 				// setFirstName("");
 				// setLastName("");
 				// setEmail("");

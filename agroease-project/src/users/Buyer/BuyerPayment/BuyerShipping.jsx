@@ -107,9 +107,11 @@ export const BuyerShipping = () => {
 			<div className='shipping-container'>
 				<Progress />
 				<>
-					{userAddress ? (
+					{userAddress || localStorage.getItem("deliveryAddress") ? (
 						<>
-							<section className=' mt-20 w-1/2 flex flex-col bg-gray-300  text-2xl py-5 px-10'>
+							<section className=' mt-20 w-1/2 flex flex-col bg-green-50  text-2xl py-5 px-10'>
+								<h3 className='text-center'>Shipping Details</h3>
+
 								<div className='flex justify-between'>
 									<p>Country:</p>
 									<span>{userAddress.country}</span>

@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
-export const FarmerProductUpdate = ({ setUpdateMode }) => {
+export const FarmerProductUpdate = ({ setUpdateMode, id }) => {
 	const tokenInfo = localStorage.getItem("token");
 
 	// Config

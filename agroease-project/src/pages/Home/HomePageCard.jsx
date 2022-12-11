@@ -277,10 +277,11 @@ const Items = ({ currentItems, title, search }) => {
 									return post;
 							})
 							.map((data, idx) => {
+								console.log(data);
 								return (
 									<div className='card' key={idx}>
 										<div className='bag'>
-											<img src={data.image} alt='' />
+											<img src={data?.Product_Images[0]?.url} alt='' />
 										</div>
 										<div className='price'>
 											<h3>{data.name}</h3>

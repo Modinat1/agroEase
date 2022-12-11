@@ -1,8 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Agroeaselogo from "../../../src/images/agro_ease_logo.png"
+import axiosInstance from "../../Context/axios-config/axios-user-config";
+import GeneralUserAuth from "../../Context/user-auth/GeneralUserAuth";
+import UserAuth from "../../Context/user-auth/UserAuthContext";
 
 export default function NewBuySidebar() {
+
+  const navigate = useNavigate();
+	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth;
+	// const {  refreshToken } = userAuth;
+	const [isActive, setIsActive] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+	const linkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300";
+	const activeLinkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-300 hover:bg-gray-300";
+	const changeActive = () => {
+		setIsActive(!isActive);
+	};
+
+	const aToken = localStorage.getItem('token')
+	const rToken = localStorage.getItem('rtoken')
+
+	//Config Access token bearer
+	const config = {
+		headers: { Authorization: `Bearer ${aToken}` },
+	};
+
+
+	 const handleLogout = async () => {
+		try {
+			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
+				{refreshToken: rToken},
+				config
+			);
+
+				localStorage.removeItem('token')
+				localStorage.removeItem('rtoken')
+				localStorage.removeItem('user')
+				localStorage.removeItem('loginUserInfo')
+				setIsLoggedIn(false)
+				navigate("/UsersSignIn")
+				return response
+
+			}
+				catch (error) {
+				console.log(error)
+		
+		}
+	};
+  
   return (
     <>
       <div className="hidden md:flex items-center justify-left w-auto h-screen  space-x-6 bg-white border-x-emerald-300 fixed top-0 z-40">
@@ -162,7 +210,7 @@ export default function NewBuySidebar() {
         {/* Component End  */}
         {/* Component Start */}
         <div className="flex flex-col items-center w-40 h-full overflow-hidden text-green-600 bg-yellow-50 border-x-emerald-300 rounded">
-          <Link className="flex items-center w-full px-1 mt-3" href="#">
+          <Link className="flex items-center w-full px-1 mt-3" to="/">
             {/* <svg
                     className='w-8 h-8 fill-current'
                     xmlns='http://www.w3.org/2000/svg'
@@ -177,7 +225,7 @@ export default function NewBuySidebar() {
             <div className="flex flex-col items-center w-full mt-3 border-t border-gray-300">
               <Link
                 className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
-                href="#"
+                to="/buyerdashboardpage"
               >
                 <svg
                   className="w-6 h-6 stroke-current"
@@ -197,7 +245,7 @@ export default function NewBuySidebar() {
               </Link>
               <Link
                 className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300"
-                href="#"
+                to="/buyerprofilepage"
               >
                 <svg
                   className="w-6 h-6 stroke-current"
@@ -217,7 +265,7 @@ export default function NewBuySidebar() {
               </Link>
               <Link
                 className="flex items-center w-full h-12 px-3 mt-2 bg-gray-300 rounded"
-                href="#"
+                to="/buyerproductpage"
               >
                 <svg
                   className="w-6 h-6 stroke-current"
@@ -275,26 +323,23 @@ export default function NewBuySidebar() {
                     </Link>
                 </div> */}
           </div>
+          <div className='flex flex-col items-center w-full mt-2 border-t border-gray-300'></div>
           <Link
-            className="flex items-center justify-center w-full h-16 mt-auto bg-gray-200 hover:bg-gray-300"
-            href="#"
-          >
-            <svg
-              className="w-6 h-6 stroke-current"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span className="ml-2 text-sm font-medium">Account</span>
-          </Link>
+						className={isActive ? activeLinkStyle : (linkStyle) }
+						onClick={changeActive}
+						href='#'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='16'
+							height='16'
+							fill='currentColor'
+							className='bi bi-power'
+							viewBox='0 0 16 16'>
+							<path d='M7.5 1v7h1V1h-1z' />
+							<path d='M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z' />
+						</svg>
+						<span className='ml-2 text-sm font-medium' onClick={handleLogout}>Log out</span>
+					</Link>
         </div>
         {/* Component End  */}
       </div>

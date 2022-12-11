@@ -1,8 +1,56 @@
 import Agroeaselogo from "../../images/agro_ease_logo.png";
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "axios";
+import GeneralUserAuth from "../../Context/user-auth/GeneralUserAuth";
 
 const NewAdminSidebar = () => {
+
+
+	const navigate = useNavigate();
+	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth();
+	// const {  refreshToken } = userAuth;
+	const [isActive, setIsActive] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+	const linkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300";
+	const activeLinkStyle ="flex items-center w-full h-12 px-3 mt-2 rounded bg-gray-300 hover:bg-gray-300";
+	const changeActive = () => {
+		setIsActive(!isActive);
+	};
+
+	const aToken = localStorage.getItem('token')
+	const rToken = localStorage.getItem('rtoken')
+
+	//Config Access token bearer
+	const config = {
+		headers: { Authorization: `Bearer ${aToken}` },
+	};
+
+	const handleLogout = async () => {
+		try {
+			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
+				{refreshToken: rToken},
+				config
+			);
+
+				localStorage.removeItem('token')
+				localStorage.removeItem('rtoken')
+				localStorage.removeItem('user')
+				localStorage.removeItem('loginUserInfo')
+				setIsLoggedIn(false)
+				navigate("/UsersSignIn")
+				return response
+
+			}
+				catch (error) {
+				console.log(error)
+		
+		}
+	};
+	
+
+
 	return (
 		<>
 			<div className='hidden md:flex items-center justify-left w-auto h-screen  space-x-6 bg-white border-x-emerald-300 fixed top-0 z-40'>
@@ -242,40 +290,23 @@ const NewAdminSidebar = () => {
 								<span className='ml-2 text-sm font-medium'>Buyer</span>
 							</Link>
 						</div>
-						<div className='flex flex-col items-center w-full mt-2 border-t border-gray-300'>
-							<Link
-								className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-300'
-								href='#'>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									width='16'
-									height='16'
-									fill='currentColor'
-									className='bi bi-megaphone-fill'
-									viewBox='0 0 16 16'>
-									<path d='M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z' />
-								</svg>
-								<span className='ml-2 text-sm font-medium'>Broker</span>
-							</Link>
-						</div>
 					</div>
-					<Link
-						className='flex items-center justify-center w-full h-16 mt-auto bg-gray-200 hover:bg-gray-300'
+					<div className='flex flex-col items-center w-full mt-2 border-t border-gray-300'></div>
+          			<Link
+						className={isActive ? activeLinkStyle : (linkStyle) }
+						onClick={changeActive}
 						href='#'>
 						<svg
-							className='w-6 h-6 stroke-current'
 							xmlns='http://www.w3.org/2000/svg'
-							fill='none'
-							viewBox='0 0 24 24'
-							stroke='currentColor'>
-							<path
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth={2}
-								d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
-							/>
+							width='16'
+							height='16'
+							fill='currentColor'
+							className='bi bi-power'
+							viewBox='0 0 16 16'>
+							<path d='M7.5 1v7h1V1h-1z' />
+							<path d='M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z' />
 						</svg>
-						<span className='ml-2 text-sm font-medium'>Account</span>
+						<span className='ml-2 text-sm font-medium' onClick={handleLogout}>Log out</span>
 					</Link>
 				</div>
 				{/* Component End  */}

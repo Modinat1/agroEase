@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import "../Navbar1.css";
 import { useState } from "react";
+import axios from "axios";
 
 
 const Navbar1MenuList = () => {
@@ -21,8 +22,17 @@ const Navbar1MenuList = () => {
 	const navigate = useNavigate()
 	const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
 	const userDetails = JSON.parse(localStorage.getItem("user"));
+	const rToken = localStorage.getItem('rtoken')
+	const aToken = localStorage.getItem('token')
 
-	const handleSubmit = () => {
+	//Config Access token bearer
+	const config = {
+		headers: { Authorization: `Bearer ${aToken}` },
+	};
+
+
+	//Function to navigate between dashboards
+	const handlePageNavigation = () => {
 		if(userDetails?.data?.type === "user") {
 			navigate("/buyerdashboardpage")
 		} else if (userDetails?.data?.type === "admin") {
@@ -31,6 +41,28 @@ const Navbar1MenuList = () => {
 			return true
 		}
 	}
+
+	// Logout function
+	const handleLogout = async () => {
+		try {
+			const response = await axios.post("https://agro-ease-backend-production.up.railway.app/v1/auth/logout",
+				{refreshToken: rToken},
+				config
+			);
+
+				localStorage.removeItem('token')
+				localStorage.removeItem('rtoken')
+				localStorage.removeItem('user')
+				localStorage.removeItem('loginUserInfo')
+				navigate("/UsersSignIn")
+				return response
+
+			}
+				catch (error) {
+				console.log(error)
+		
+		}
+	};
 
 	return (
 		<div>
@@ -58,10 +90,10 @@ const Navbar1MenuList = () => {
 						Hi {userInfo.firstname}
 						{dropDowns && 
 							 <ul className={dropDown ? "submenu-item clicked" : "submenu-item"}>
-								<li className='account-submenu' onClick={handleSubmit}>
+								<li className='account-submenu' onClick={handlePageNavigation}>
 									 Dashboard
 								</li>
-								<li className='account-submenu' onClick={() => setDropDown(false)}>
+								<li className='account-submenu' onClick={handleLogout}>
 									 Logout
 								</li>
 						 	</ul>

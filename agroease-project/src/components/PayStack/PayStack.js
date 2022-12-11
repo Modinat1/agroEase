@@ -9,34 +9,32 @@ export const PayStack = () => {
 	const user = JSON.parse(localStorage.getItem("loginUserInfo"));
 	const order = JSON.parse(localStorage.getItem("order"));
 	console.log(user);
+	const navigate = useNavigate();
 
-	const [firstName, setFirstName] = useState(user?.firstname);
-	const [lastName, setLastName] = useState(user?.lastname);
-	const [email, setEmail] = useState(user?.email);
-	const [amount, setAmount] = useState("");
+	// const [firstName, setFirstName] = useState("");
+	// const [lastName, setLastName] = useState("");
+	// const [email, setEmail] = useState("");
+	// const [amount, setAmount] = useState("");
 
 	const PayByPaystack = (e) => {
-		const navigate = useNavigate();
 		e.preventDefault();
 		const paystack = new PaystackPop();
 		paystack.newTransaction({
 			key: "pk_test_b298d476e79aa55787cdc691ef704bac014c6524",
-			firstName,
-			lastName,
-			email,
-
-			amount: amount * 100,
+			firstName: user.firstname,
+			lastName: user.lastname,
+			email: user.email,
+			amount: order.total * 100,
 			onSuccess(transaction) {
 				let message = `Payment Successful! Reference ${transaction.reference}`;
 				alert(message);
-				setFirstName("");
-				setLastName("");
-				setEmail("");
-				setAmount("");
-			},
-			if(onSuccess) {
 				navigate("/");
+				// setFirstName("");
+				// setLastName("");
+				// setEmail("");
+				// setAmount("");
 			},
+
 			onCancel() {
 				alert("Transaction Canceled");
 			},
@@ -54,7 +52,7 @@ export const PayStack = () => {
 							type='text'
 							value={user?.firstname}
 							// placeholder='Enter First Name'
-							onChange={(e) => setFirstName(e.target.value)}
+							// onChange={(e) => setFirstName(e.target.value)}
 						/>
 					</div>
 
@@ -64,7 +62,7 @@ export const PayStack = () => {
 							type='text'
 							value={user?.lastname}
 							placeholder='Enter Last Name'
-							onChange={(e) => setLastName(e.target.value)}
+							// onChange={(e) => setLastName(e.target.value)}
 						/>
 					</div>
 
@@ -73,7 +71,7 @@ export const PayStack = () => {
 						<input
 							type='text'
 							value={user?.email}
-							onChange={(e) => setEmail(e.target.value)}
+							// onChange={(e) => setEmail(e.target.value)}
 							placeholder='Enter Email'
 						/>
 					</div>
@@ -83,7 +81,7 @@ export const PayStack = () => {
 						<input
 							type='text'
 							value={order.total}
-							onChange={(e) => setAmount(e.target.value)}
+							// onChange={(e) => setAmount(e.target.value)}
 							placeholder='Enter Amount'
 						/>
 					</div>

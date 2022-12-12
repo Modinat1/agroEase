@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "./FarmerProfile.css";
 import { useFormik } from "formik";
-import Swal from "sweetalert2-react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import UserContext from "../../../Context/user-context/UserContext";
 
@@ -40,6 +40,31 @@ export const FarmerProfilePage = () => {
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
 	};
+
+	// SweetAlert
+	
+	const notifySuccess = () => {
+		Swal.fire({
+			title: "Profile!",
+			text: "Profile Updated Successfully!",
+			icon: "success",
+			button: "Ok",
+		}).then(function () {
+			// Redirect the user
+			navigate("/farmerdashboardpage");
+		});
+	};
+
+	// const notityfailure = () => {
+	// 	Swal.fire({
+	// 		title: "Error",
+	// 		text: "Product failed to upload, Enter valid details",
+	// 		icon: "error",
+	// 		button: "Upload",
+	// 	});
+	// };
+
+
 
 	const handleStoreSubmit = async (values) => {
 		const {
@@ -87,23 +112,14 @@ export const FarmerProfilePage = () => {
 			// JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
 
-			// notifySuccess();
+			if(response.status === 201) {
+				notifySuccess()
+			} else {
 
-			if (response.status === 200) {
-				navigate("/farmerdashboardpage");
 			}
 		} catch (error) {
 			console.log(error);
-			// if (!error.response) {
-			// 	console.log("Server down")
-			// } else if (error.response.status === 400) {
-			// 	console.log('I don see good things')
-			// 	setErrorso("User Already Exists")
-			// } else if (error.response.status === 401) {
-			// 	console.log('I don see enough')
-			// } else if (error.response.status === 409) {
-			// 	console.log('I don see ')
-			// }
+			
 		}
 	};
 	const initialValues = {

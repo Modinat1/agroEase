@@ -25,9 +25,7 @@ const AdminBrokerTable = () => {
 
 	const userInfo = JSON.parse(localStorage.getItem("user"));
 	console.log(userInfo);
-	const {
-		Store: { id },
-	} = allUser;
+	const {id} = allUser;
 	const [products, setProducts] = useState([]);
 	const accessToken = localStorage.getItem("token");
 

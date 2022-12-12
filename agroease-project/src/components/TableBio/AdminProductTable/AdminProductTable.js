@@ -11,42 +11,77 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
+import Swal from "sweetalert2";
 // import UserAuth from '../../../Context/user-auth/UserAuthContext'
 
 const AdminProductTable = () => {
-	// const { userAuth } = GeneralUserAuth();
-	// const { accessToken, allUser } = userAuth;
-	// console.log(accessToken)
-	// Gets all products function starts here
 	const [allProducts, setallProducts] = useState([]);
-
 	const tokenInfo = localStorage.getItem("token");
-
+	// const allUser = localStorage.getItem("loginUserInfo");
+	
+	// const {id} = allUser
+	// console.log(id)
 	console.log(tokenInfo);
-
 	const config = {
 		headers: { Authorization: `Bearer ${tokenInfo}` },
 	};
 
+
+	// Getting all products
 	const getAllProduct = async () => {
 		try {
 			const response = await axiosInstance.get(`v1/product/admin`, config);
 			console.log(response.data);
 			setallProducts(response.data);
 
+
 			return response;
 		} catch (error) {
 			console.log(error);
 		}
 	};
-
 	useEffect(() => {
 		getAllProduct();
 	}, []);
 
-	// Verify Products starts here
 
-	const verifyProduct = async (id) => {
+	// SweetAlert
+	const notifySuccess = (id) => {
+		Swal.fire({
+			title: "Verify!",
+			text: "Do you want to Verify this Product?!",
+			showDenyButton: true,
+			showCancelButton: true,
+			confirmButtonText: 'Yes',
+			confirmButtonColor: "#097c0d",
+			denyButtonText: 'No',
+			customClass: {
+			actions: 'my-actions',
+			cancelButton: 'order-1 right-gap',
+			confirmButton: 'order-2',
+			denyButton: 'order-3',
+			}
+		}).then(function(result){
+			if(result.value){
+				productVerification(id)
+			}else if(result.dismiss === 'cancel'){
+			   console.log('cancel');
+			}
+	
+		});
+	};
+	
+	const notityfailure = () => {
+		Swal.fire({
+			title: "Error",
+			text: "Product failed to upload, Enter valid details",
+			icon: "error",
+			button: "Upload",
+		});
+	}
+
+	// productVerification
+	const productVerification = async (id) => {
 		const config = {
 			headers: {
 				Authorization: `Bearer ${tokenInfo}`,
@@ -64,6 +99,31 @@ const AdminProductTable = () => {
 		} catch (error) {
 			console.log(error);
 		}
+	}
+
+	// Verify Products starts here
+	const verifyProduct = async (id) => {
+		notifySuccess(id)
+		
+	// };
+
+		// const config = {
+		// 	headers: {
+		// 		Authorization: `Bearer ${tokenInfo}`,
+		// 		"Content-Type": "multipart/form-data",
+		// 	},
+		// };
+		// const update = new FormData();
+		// update.append("product", JSON.stringify({ status: true }));
+		// update.forEach((data) => console.log(data));
+
+		// try {
+		// 	await axiosInstance.patch(`/v1/product/${id}`, update, config);
+
+		// 	window.location.reload();
+		// } catch (error) {
+		// 	console.log(error);
+		// }
 	};
 
 	const deleteProduct = async (id) => {

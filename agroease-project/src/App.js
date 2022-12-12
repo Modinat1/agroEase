@@ -52,13 +52,6 @@ import { UsersSignIn } from "./components/UsersSignIn/UsersSignIn";
 import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
-
-import RequireAuth from "./Context/user-auth/RequirAuth";
-
-import { AdminFarmerVerifiedProducts } from "./users/Admin/AdminFarmer/AdminFarmerVerifiedProducts";
-import { AdminFarmerAllProducts } from "./users/Admin/AdminFarmer/AdminFarmerAllProducts";
-import { AdminBuyerAllUsers } from "./users/Admin/AdminBuyer/AdminBuyerAllUsers";
-import Unauthorized from "./pages/Unauthorized/Unauthorized";
 import { PayStack } from "./components/PayStack/PayStack";
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
@@ -90,6 +83,8 @@ function App() {
 					<Route path='resetPassword' element={<ResetPassword />} />
 					<Route path='enterPassword' element={<EnterPassword />} />
 					<Route path='/unauthorized' element={<Unauthorized />} />
+					<Route path='/farmereditprofile' element={<FarmerEditProfile />} />
+
 
 					{/*Protect Routes*/}
 					<Route element={<RequireAuth />}>

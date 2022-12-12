@@ -23,6 +23,12 @@ export const BuyerOderreview = () => {
 		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 	});
 
+	const user = JSON.parse(localStorage.getItem("user"));
+	const newAddress = JSON.parse(localStorage.getItem("deliveryAddress"));
+	const userAddress = user?.data?.Delivery_address;
+	console.log(user);
+	console.log(userAddress);
+
 	const [subTotal, setsubTotal] = useState(0);
 
 	useEffect(() => {
@@ -30,7 +36,13 @@ export const BuyerOderreview = () => {
 			cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
 		);
 	}, [cart]);
-
+	const order = {
+		total: subTotal,
+		cart,
+	};
+	const handleOrder = () => {
+		localStorage.setItem("order", JSON.stringify(order));
+	};
 	return (
 		<>
 			<Buyernav />
@@ -112,17 +124,26 @@ export const BuyerOderreview = () => {
 						</div>
 
 						<div className='user-review'>
-							<h4 className='user-review-name'>Gbenga Oyewale</h4>
-							<h4 className='user-review-number'>+2347032352157</h4>
-							<h4 className='user-review-State'>Lagos, State</h4>
-							<h4 className='user-review-lga'>Eti, Osa LGA</h4>
+							<h4 className='user-review-name'>
+								{user?.data?.firstname} {user?.data?.lastname}
+							</h4>
+							<h4 className='user-review-number'>{user?.data?.phone_number}</h4>
+							<h4 className='user-review-lga'>
+								{newAddress?.city || userAddress?.city}
+							</h4>
+							<h4 className='user-review-State'>
+								{newAddress?.state || userAddress?.state}, State
+							</h4>
+							<h4 className='user-review-State'>
+								{newAddress?.country || userAddress?.country}
+							</h4>
 							<h4 className='user-review-des'>
 								Kindly check our return policy page for more information on how
 								to resolve issues concerning bad goods
 							</h4>
 						</div>
 					</section>
-					<Link to={"/BuyerOrderSuccesful"}>
+					<Link to={"/paystackPayment"} onClick={() => handleOrder()}>
 						<button className='confirm-order'>Confirm Order</button>
 					</Link>
 				</div>

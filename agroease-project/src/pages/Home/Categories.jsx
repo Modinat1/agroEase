@@ -17,21 +17,21 @@ export const Categories = () => {
 	// 	getCategories();
 	// }, []);
 
-	const [allProducts, setallProducts] = useState([]);
+	// const [allProducts, setallProducts] = useState([]);
 
-	const getVerifiedProducts = async () => {
-		try {
-			const verifiedProducts = await axiosInstance.get("/v1/product/");
-			console.log(verifiedProducts);
-			setallProducts(verifiedProducts.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	// const getVerifiedProducts = async () => {
+	// 	try {
+	// 		const verifiedProducts = await axiosInstance.get("/v1/product/");
+	// 		console.log(verifiedProducts);
+	// 		setallProducts(verifiedProducts.data);
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 
-	useEffect(() => {
-		getVerifiedProducts();
-	}, []);
+	// useEffect(() => {
+	// 	getVerifiedProducts();
+	// }, []);
 
 	const categories = [
 		{
@@ -55,8 +55,8 @@ export const Categories = () => {
 			body: [],
 		},
 		{
-			title: "Equipments",
-			action: "Equipments",
+			title: "Product",
+			action: "product",
 			body: [],
 		},
 	];

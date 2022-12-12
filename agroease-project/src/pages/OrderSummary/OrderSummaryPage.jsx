@@ -20,9 +20,13 @@ const OrderSummaryPage = () => {
 		//minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
 		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 	});
-	const cart = JSON.parse(localStorage.getItem("cartItems"));
 
-	const { dispatch } = cartContext;
+	// const cart = JSON.parse(localStorage.getItem("cartItems"));
+	// const cart = cartContext.state.cart;
+
+	const { dispatch, state } = cartContext;
+	const { cart } = state;
+	console.log(cart);
 
 	const [subTotal, setsubTotal] = useState(0);
 
@@ -100,7 +104,11 @@ const OrderSummaryPage = () => {
 						return (
 							<div key={prod.id} className='summary-order-box-2'>
 								<div className='summary-empty' style={{ width: "200px" }}>
-									<img src={prod.image} alt='' style={{ width: "100%" }} />
+									<img
+										src={prod?.Product_Images[0]}
+										alt=''
+										style={{ width: "100%" }}
+									/>
 								</div>
 								<div className='summary-order-total'>
 									<h5>{prod.name}</h5>
@@ -120,9 +128,9 @@ const OrderSummaryPage = () => {
 												},
 											})
 										}>
-										{prod.quantity.map((x) => (
+										{/* {prod?.quantity.map((x) => (
 											<option key={x}>{x}</option>
-										))}
+										))} */}
 									</select>
 								</div>
 								<div

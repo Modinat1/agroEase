@@ -242,9 +242,6 @@ import axiosInstance from "../../Context/axios-config/axios-user-config";
 // 	],
 // };
 
-// const farmerDB = "db101";
-// let todoDBInstance = JSON.parse(localStorage.getItem(farmerDB)) || [];
-
 const Items = ({ currentItems, title, search }) => {
 	// Get all verified Products
 
@@ -252,6 +249,7 @@ const Items = ({ currentItems, title, search }) => {
 	// const { cart, addToCart } = cartContext;
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
+	// localStorage.setItem("cartItems", JSON.stringify(cart));
 	localStorage.setItem("cartItems", JSON.stringify(cart));
 
 	const formatter = new Intl.NumberFormat("en-NG", {
@@ -265,6 +263,7 @@ const Items = ({ currentItems, title, search }) => {
 		<section id='marketplace'>
 			<div className='containers-product'>
 				<h2>{title || "Products"}</h2>
+
 				<div className='container-card'>
 					{currentItems.length > 0 ? (
 						currentItems
@@ -394,10 +393,10 @@ function PaginatedItems({ itemsPerPage, search }) {
 
 	// const [products, setProducts] = useState(allProducts.default);
 
-	console.log(productStore.category);
-	const productCategory = allProducts.map((products) => {
-		return products.Category.name;
-	});
+	// console.log(productStore.category);
+	// const productCategory = allProducts.map((products) => {
+	// 	return products.Category.name;
+	// });
 
 	// We start with an empty list of items.
 	const [currentItems, setCurrentItems] = useState([]);
@@ -412,8 +411,11 @@ function PaginatedItems({ itemsPerPage, search }) {
 		// Fetch items from another resources.
 		const endOffset = itemOffset + itemsPerPage;
 		const products = allProducts || [];
-		// const products = allProducts[productStore.category || "default"] || [];
+		// const products = allProducts[productStore.category || allProducts] || [];
 		// console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+
+		// setCurrentItems(allProducts.slice(itemOffset, endOffset));
+		// setPageCount(Math.ceil(allProducts.length / itemsPerPage));
 
 		setCurrentItems(products.slice(itemOffset, endOffset));
 		setPageCount(Math.ceil(products.length / itemsPerPage));
@@ -423,8 +425,8 @@ function PaginatedItems({ itemsPerPage, search }) {
 	const handlePageClick = (event) => {
 		const newOffset =
 			(event.selected * itemsPerPage) %
-				allProducts[productStore.category || "crops"] || [].length;
-		// allProducts[productCategory || "crops"] || [].length;
+				allProducts[productStore.category || allProducts] || [].length;
+		// allProducts || [].length;
 		// console.log(
 		//   `User requested page number ${event.selected}, which is offset ${newOffset}`
 		// );

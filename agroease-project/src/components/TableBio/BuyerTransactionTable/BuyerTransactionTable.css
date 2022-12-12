@@ -1,0 +1,105 @@
+.general-table-bio-trans {
+    display: flex;
+    justify-content: center;
+    background: #F5F6F7;
+}
+
+.general-table-width-trans {
+    width: 95%; 
+    height: auto; 
+    overflow-y: hidden;
+    margin-top: 20px;
+}
+
+.styletableicon {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    color: #097c0d;
+}
+
+
+.trans-general-table {
+    width: 1350px;
+    text-align: left;
+    overflow: scroll;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.trans-general-thead {
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+.trans-general-thead .trans-general-tr {
+  background: #999999;
+}
+
+.trans-general-tr th {
+    width: 200px;
+    height: 50px;
+    z-index: -1;
+    text-align: center;
+}
+
+.trans-general-tbody tr{
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.trans-general-tbody td {
+    width: 200px;
+    border-bottom: 1px solid #ccc;
+    height: 40px; 
+    text-align: center;
+}
+
+.trans-general-tbody tr:nth-child(odd) {
+    background-color: white;;
+}
+
+.trans-general-tbody tr:hover {
+    background: #bebdbd;
+    color: white;
+}
+
+/* fix 1st td and scroll */
+
+.trans-general-tr th:nth-child(1) {
+    width: 120px;
+    height: 50px;
+    text-align: left;
+    position: absolute;
+    z-index: 10;
+    background: inherit;
+    padding: 10px;
+    padding-left: 55px;
+}
+
+.trans-general-tbody td:nth-child(1) {
+    box-shadow: 5px 0 3px -2px #ccc;
+    width: 120px;
+    /* position: fixed; */
+    position: absolute;
+    z-index: 1;
+    background: inherit;
+    padding: 10px;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 55px;
+    font-weight: bold;
+}
+
+/* .admin-general-tbody td:nth-child(2) {
+    width: 100px;
+}
+
+.admin-general-tbody td:nth-child(3) {
+    width: 400px;
+} */
+
+

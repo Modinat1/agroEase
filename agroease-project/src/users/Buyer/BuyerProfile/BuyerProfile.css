@@ -11,7 +11,9 @@
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
+	gap: 7rem;
 	font-family: "Poppins", sans-serif;
+	position: relative;
 	/* background: linear-gradient(135deg, #e5e5e5, #e5e5e5); */
 }
 
@@ -132,6 +134,23 @@ form .button-agro input:hover {
 	/* transform: scale(0.99); */
 	background: linear-gradient(-135deg, #097c0d, #097c0d);
 }
+
+.view-profile-btn {
+	
+	position: absolute;
+	padding: 0.5rem 0.9rem;
+	background-color: #15294B;
+	color: white;
+	border-radius: 5px;
+	display: flex;
+	justify-content: right;
+	right: 39px;
+	top: 0;
+}
+
+
+
+
 @media (max-width: 584px) {
 	.container-agro {
 		max-width: 100%;

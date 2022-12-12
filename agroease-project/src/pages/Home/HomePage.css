@@ -90,6 +90,7 @@
   color: #097c0d;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #097c0d;
+  background-color: transparent;
 }
 .containers-product h6 {
   margin: 0 auto;
@@ -226,11 +227,14 @@
   margin: auto 0;
   padding-left: 8rem;
   padding-right: 8rem;
+  text-align: center;
+  display: flex;
 }
 .broker-write p {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+  
 }
 .broker-info #broker-btn {
   padding: 10px;
@@ -241,7 +245,7 @@
   border: #097c0d;
   border-radius: 5px;
   margin-top: -15rem;
-  cursor: pointer;
+  cursor:not-allowed;
 }
 
 .broker-info #broker-btn:hover {
@@ -251,8 +255,8 @@
 }
 
 .broker-btn {
-  padding-top: 4rem;
-  margin-left: 12rem;
+  padding-top: 2rem;
+  
 }
 
 /* seller */

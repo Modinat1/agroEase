@@ -11,7 +11,7 @@ const NewHeroFirstImg = () => {
                         <h1>Come and buy cheap farm <br />
                             products oooo</h1>
                         <div className='newhero1-btn'>
-                              <button>View Menu</button>
+                              <button>View Products</button>
                         </div>
                     </div>
                 </div>

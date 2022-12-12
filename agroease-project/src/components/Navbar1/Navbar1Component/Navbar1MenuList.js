@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./DropDown.css"
 // import DropDown from "./DropDown";
 import "./NavbarCompo.css";
 import { navItems } from "./NavbarListModal";
@@ -89,7 +90,7 @@ const Navbar1MenuList = () => {
 					userInfo? 
 					
 					<li onMouseEnter={()=> setDropDowns(true)} onMouseLeave={()=> setDropDowns(false)} className="navbar-menulist">
-						Hi {userInfo.firstname}
+						<p className="name-lo">Hi! {userInfo.firstname}</p>
 						{dropDowns && 
 							 <ul className={dropDown ? "submenu-item clicked" : "submenu-item"}>
 								<li className='account-submenu' onClick={handlePageNavigation}>
@@ -102,7 +103,7 @@ const Navbar1MenuList = () => {
 						}
 					</li>
 					:
-					<Link to="/UsersSignIn"><li className="navbar-menulist">Account</li></Link>
+					<Link to="/UsersSignIn"><li className="navbar-menulist name-lo">Account</li></Link>
 				}
 				
 				

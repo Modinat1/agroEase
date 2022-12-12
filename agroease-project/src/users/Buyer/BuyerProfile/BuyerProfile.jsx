@@ -73,6 +73,9 @@ export const BuyerProfile = () => {
 						</form>
 					</div>
 				</div>
+				<div className="view-profile-btn">
+					<button>View Profile</button>
+				</div>
 			</div>
 		</React.Fragment>
 	);

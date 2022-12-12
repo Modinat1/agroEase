@@ -9,7 +9,7 @@ import UserAuth from "../../Context/user-auth/UserAuthContext";
 export default function NewBuySidebar() {
 
   const navigate = useNavigate();
-	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth;
+	const { userAuth, setUserAuth, user, setUser } = GeneralUserAuth();
 	// const {  refreshToken } = userAuth;
 	const [isActive, setIsActive] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState(true);

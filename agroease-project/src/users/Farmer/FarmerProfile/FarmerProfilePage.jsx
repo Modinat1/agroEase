@@ -80,16 +80,17 @@ export const FarmerProfilePage = () => {
 				businessInfo,
 				config
 			);
-			const accessToken = response.data.tokens.access.token;
-			setUserAuth({ accessToken });
+			// const accessToken = response.data.tokens.access.token;
+			// setUserAuth({ accessToken });
 			setUser(response.data.user);
+			console.log(response.data);
 			// JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
 
 			// notifySuccess();
 
-			if (userAuth) {
-				navigate("/UsersSignIn");
+			if (response.status === 200) {
+				navigate("/farmerdashboardpage");
 			}
 		} catch (error) {
 			console.log(error);

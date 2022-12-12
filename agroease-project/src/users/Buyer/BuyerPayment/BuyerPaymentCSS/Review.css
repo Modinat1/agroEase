@@ -34,10 +34,13 @@
 
 .product-review-img {
 	width: 100px;
+	height: 100px;
+	padding-bottom: 1rem;
 }
 
 .product-review-img img {
 	width: 100%;
+	height: 100%;
 }
 
 .cart-total {

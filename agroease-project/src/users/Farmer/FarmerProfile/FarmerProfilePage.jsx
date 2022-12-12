@@ -42,7 +42,7 @@ export const FarmerProfilePage = () => {
 	};
 
 	// SweetAlert
-	
+
 	const notifySuccess = () => {
 		Swal.fire({
 			title: "Profile!",
@@ -55,16 +55,14 @@ export const FarmerProfilePage = () => {
 		});
 	};
 
-	// const notityfailure = () => {
-	// 	Swal.fire({
-	// 		title: "Error",
-	// 		text: "Product failed to upload, Enter valid details",
-	// 		icon: "error",
-	// 		button: "Upload",
-	// 	});
-	// };
-
-
+	const notityfailure = () => {
+		Swal.fire({
+			title: "Error",
+			text: "Profile update failed",
+			icon: "error",
+			button: "Re upload again",
+		});
+	};
 
 	const handleStoreSubmit = async (values) => {
 		const {
@@ -112,14 +110,13 @@ export const FarmerProfilePage = () => {
 			// JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
 
-			if(response.status === 201) {
-				notifySuccess()
+			if (response.status === 201) {
+				notifySuccess();
 			} else {
-
 			}
 		} catch (error) {
+			notityfailure();
 			console.log(error);
-			
 		}
 	};
 	const initialValues = {

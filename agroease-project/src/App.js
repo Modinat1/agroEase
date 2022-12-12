@@ -53,6 +53,7 @@ import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
 import { PayStack } from "./components/PayStack/PayStack";
+import { ContinueShopping } from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/ContinueShopping";
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
@@ -84,7 +85,6 @@ function App() {
 					<Route path='enterPassword' element={<EnterPassword />} />
 					<Route path='/unauthorized' element={<Unauthorized />} />
 					<Route path='/farmereditprofile' element={<FarmerEditProfile />} />
-
 
 					{/*Protect Routes*/}
 					<Route element={<RequireAuth />}>
@@ -199,7 +199,8 @@ function App() {
 						<Route path='OrderSummary' element={<OrderSummary />} />
 					</Route>
 				</Route>
-				<Route path='paystackPayment' element={<PayStack/>}></Route>
+				<Route path='paystackPayment' element={<PayStack />}></Route>
+				<Route path='continueShopping' element={<ContinueShopping />} />
 			</Routes>
 		</div>
 	);

@@ -101,13 +101,22 @@ const OrderSummaryPage = () => {
 				<div className='summarry-order-box2-biggestContainer'>
 					{/* <div class="summary-order-box2-biggestContainerInner"></div> */}
 					{cart.map((prod) => {
+						// creating an array from the product quantity
+						const prodqty = Array.from(
+							{ length: prod.quantity },
+							(_, i) => i + 1
+						);
+
+						// mapping the product details
 						return (
 							<div key={prod.id} className='summary-order-box-2'>
-								<div className='summary-empty' style={{ width: "200px" }}>
+								<div
+									className='summary-empty'
+									style={{ width: "200px", height: "100px" }}>
 									<img
-										src={prod?.Product_Images[0]}
+										src={prod?.Product_Images[0].url}
 										alt=''
-										style={{ width: "100%" }}
+										style={{ width: "100%", height: "100%" }}
 									/>
 								</div>
 								<div className='summary-order-total'>
@@ -128,9 +137,9 @@ const OrderSummaryPage = () => {
 												},
 											})
 										}>
-										{/* {prod?.quantity.map((x) => (
+										{prodqty.map((x) => (
 											<option key={x}>{x}</option>
-										))} */}
+										))}
 									</select>
 								</div>
 								<div

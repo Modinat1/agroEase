@@ -263,6 +263,7 @@ const Items = ({ currentItems, title, search }) => {
 		<section id='marketplace'>
 			<div className='containers-product'>
 				<h2>{title || "Products"}</h2>
+
 				<div className='container-card'>
 					{currentItems.length > 0 ? (
 						currentItems
@@ -409,8 +410,8 @@ function PaginatedItems({ itemsPerPage, search }) {
 	useEffect(() => {
 		// Fetch items from another resources.
 		const endOffset = itemOffset + itemsPerPage;
-		const products = allProducts;
-		// const products = allProducts[productStore.category || "default"] || [];
+		const products = allProducts || [];
+		// const products = allProducts[productStore.category || allProducts] || [];
 		// console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
 		// setCurrentItems(allProducts.slice(itemOffset, endOffset));
@@ -424,8 +425,8 @@ function PaginatedItems({ itemsPerPage, search }) {
 	const handlePageClick = (event) => {
 		const newOffset =
 			(event.selected * itemsPerPage) %
-				// allProducts[productStore.category || "crops"] || [].length;
-				allProducts || [].length;
+				allProducts[productStore.category || allProducts] || [].length;
+		// allProducts || [].length;
 		// console.log(
 		//   `User requested page number ${event.selected}, which is offset ${newOffset}`
 		// );

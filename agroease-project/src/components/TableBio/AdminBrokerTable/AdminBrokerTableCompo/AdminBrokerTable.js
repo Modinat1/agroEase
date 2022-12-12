@@ -365,12 +365,12 @@ const AdminBrokerTable = () => {
 
 							{/* Mapping through the array to get the table details */}
 
-							{products.map((tables) => {
+							{products.map((tables, idx) => {
 								const { id, name, description, price, quantity } = tables;
 								return (
 									<tbody className='admin-general-tbody' key={id}>
 										<tr>
-											<td>{id}</td>
+											<td>{idx + 1}</td>
 											<td>{name}</td>
 											<td>{description}</td>
 											<td>{price}</td>

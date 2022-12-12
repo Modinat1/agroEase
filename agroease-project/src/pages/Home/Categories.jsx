@@ -55,8 +55,8 @@ export const Categories = () => {
 			body: [],
 		},
 		{
-			title: "Equipments",
-			action: "Equipments",
+			title: "Product",
+			action: "product",
 			body: [],
 		},
 	];

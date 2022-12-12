@@ -83,7 +83,7 @@ export const FarmerProfilePage = () => {
 			// const accessToken = response.data.tokens.access.token;
 			// setUserAuth({ accessToken });
 			setUser(response.data.user);
-			console.log(response.data);
+			console.log(response);
 			// JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
 

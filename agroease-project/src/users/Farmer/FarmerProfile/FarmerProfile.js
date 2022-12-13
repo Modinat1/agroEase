@@ -3,17 +3,15 @@ import React from "react";
 import NewFarmerSidebar from "../../../components/dashboard-nav-and-side/FarmerSidebar";
 
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
+import FarmerFinishProfile from "../FarmerFinishProfile/FarmerFinishProfile";
 
-import { FarmerProfilePage } from "./FarmerProfilePage";
 
 const FarmerProfile = () => {
 	return (
 		<div>
 			<NewBrokerNavbar />
-
 			<NewFarmerSidebar />
-
-			<FarmerProfilePage />
+			<FarmerFinishProfile />
 		</div>
 	);
 };

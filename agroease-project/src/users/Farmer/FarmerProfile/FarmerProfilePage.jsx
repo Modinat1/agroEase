@@ -50,7 +50,7 @@ export const FarmerProfilePage = () => {
 			icon: "success",
 			button: "Ok",
 		}).then(function () {
-			// Redirect the user
+			
 			navigate("/farmerdashboardpage");
 		});
 	};
@@ -158,6 +158,7 @@ export const FarmerProfilePage = () => {
 	return (
 		<React.Fragment>
 			<div className='farmer_profile_wrapper'>
+				{/* <h1>Farmer Profile Page</h1> */}
 				<div className='container-agro'>
 					<div className='title-agro'>Personal details</div>
 					<div className='content-agro'>

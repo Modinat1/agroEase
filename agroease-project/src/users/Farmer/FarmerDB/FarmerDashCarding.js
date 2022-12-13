@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "./BuyerDashCard.css";
+import React, { useEffect, useState } from 'react'
+import "../../Buyer/BuyerDashboard/BuyerDashboard.css";
 import WeatherImg from "../../../images/farmer_img_circle.png";
-// import CloudImg from "../../../images/farmer_cloud_img.png";
-// import  { useEffect, useState } from "react";
-// import axios from "axios";
+import NewHeroFirstImg from '../../../pages/NewWork/NewHeroSection/NewHeroFirstImg';
 
-export const BuyerDashCard = () => {
-	const [lat, setLat] = useState([]);
+const FarmerDashCarding = () => {
+
+    const [lat, setLat] = useState([]);
 	const [long, setLong] = useState([]);
 	const [data, setData] = useState([]);
 	const [iconID, setIconID] = useState([]);
@@ -36,46 +35,30 @@ export const BuyerDashCard = () => {
 		<div>
 			<section className='buyer_dash_summary'>
 				<section className='today_weather_card_container'>
-					<h4>Order Details</h4>
+					<h4>Product Details</h4>
 					<div className='buyer_summary_card_wrapper'>
 						{/* card 1 */}
 						<div className='buyer_dash_category_card buyer_active farmer_buyer_card-1'>
-							<p className='farmer_buyer_title'>Orders</p>
+							<p className='farmer_buyer_title'>Total Products</p>
 							<p className='farmer_buyer_price'>0</p>
 						</div>
 						{/* card 2 */}
 						<div className='buyer_dash_category_card farmer_buyer_card-2'>
-							<p className='farmer_buyer_title'>Pending Orders</p>
+							<p className='farmer_buyer_title'>Pending Products</p>
 							<p className='farmer_buyer_price'>0</p>
 						</div>
 						{/* card 3 */}
 						<div className='buyer_dash_category_card farmer_buyer_card-3'>
-							<p className='farmer_buyer_title'>Successful Orders</p>
+							<p className='farmer_buyer_title'>Successful Products</p>
 							<p className='farmer_buyer_price'>0</p>
 						</div>
 					</div>
 				</section>
-				{/* buyer Weather Container */}
-				<section className='buyer_weather_container'>
-					<p className='weather_report'>Weather Report of {data.name} </p>
-					<div className='weather_img'>
-						<img src={WeatherImg} alt='weather img' id='weather_circle' />
-						<img
-							src={"https://openweathermap.org/img/wn/" + iconID + ".png"}
-							alt='weather pictures'
-							id='weather_cloud_icon'
-						/>
-					</div>
-					<p>
-						Today:
-						<span>
-							{/* {Math.round(data.main.temp)} */}
-
-							<sup> ℃ </sup>
-						</span>
-					</p>
-				</section>
+				<NewHeroFirstImg />
 			</section>
 		</div>
 	);
-};
+   
+}
+
+export default FarmerDashCarding

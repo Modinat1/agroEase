@@ -1,0 +1,68 @@
+
+.farmer-finish {
+    width: 89%;
+    margin: 0 auto;
+    padding-left: 8rem;
+}
+
+.personal-prof-width {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 7rem;
+}
+
+.personal-prof-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.farmer-finish-details {
+    display: flex;
+}
+
+.personal-prof-img img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.business-prof-width {
+   border-right: 10px solid #d2d3d6;
+   width: fit-content;
+   padding-right: 1rem;
+   margin: 3rem 1rem 3rem 0;
+}
+
+
+.farmer-finish-title {
+   font-size: 1.5rem;
+   font-weight: 500;
+   margin-bottom: 2rem;
+}
+
+.personal-finish-title {
+   font-size: 1.2rem;
+   font-weight: 500;
+   
+}
+
+.business-prof-details {
+    display: flex;
+    gap: 4rem;
+    line-height: 2.4rem;
+}
+
+.account-prof-width {
+    width: fit-content;
+   padding-left: 2rem;
+   margin: 3rem 0;
+}
+
+.account-prof-details {
+    display: flex;
+    gap: 6rem;
+    line-height: 2.4rem;
+}

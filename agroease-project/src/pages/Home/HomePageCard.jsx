@@ -10,14 +10,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import axiosInstance from "../../Context/axios-config/axios-user-config";
 
-
 const Items = ({ currentItems, search }) => {
 	// Get all verified Products
 
 	const cartContext = React.useContext(ProductContext);
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
-	
+
 	localStorage.setItem("cartItems", JSON.stringify(cart));
 
 	const formatter = new Intl.NumberFormat("en-NG", {
@@ -44,7 +43,6 @@ const Items = ({ currentItems, search }) => {
 									return post;
 							})
 							.map((data, idx) => {
-								console.log(data);
 								return (
 									<div className='card' key={idx}>
 										<div className='bag'>
@@ -140,7 +138,6 @@ const Items = ({ currentItems, search }) => {
 };
 
 function PaginatedItems({ itemsPerPage, search }) {
-
 	const [allProducts, setallProducts] = useState([]);
 	const [currentItems, setCurrentItems] = useState([]);
 	const [pageCount, setPageCount] = useState(0);
@@ -149,7 +146,7 @@ function PaginatedItems({ itemsPerPage, search }) {
 	const getVerifiedProducts = async () => {
 		try {
 			const verifiedProducts = await axiosInstance.get("/v1/product/");
-			console.log(verifiedProducts.data);
+			// console.log(verifiedProducts.data);
 			setallProducts(verifiedProducts.data);
 		} catch (error) {
 			console.log(error);
@@ -160,27 +157,22 @@ function PaginatedItems({ itemsPerPage, search }) {
 		// Fetch items from another resources.
 		const endOffset = itemOffset + itemsPerPage;
 		const products = allProducts;
-	
+
 		setCurrentItems(products.slice(itemOffset, endOffset));
 		setPageCount(Math.ceil(products.length / itemsPerPage));
 		getVerifiedProducts();
 	}, [itemOffset, itemsPerPage, allProducts]);
 
-
 	// Invoke when user click to request another page.
 	const handlePageClick = (event) => {
-		const newOffset =
-			(event.selected * itemsPerPage) % allProducts.length
-		
+		const newOffset = (event.selected * itemsPerPage) % allProducts.length;
+
 		setItemOffset(newOffset);
 	};
 
 	return (
 		<>
-			<Items
-				currentItems={currentItems}
-				search={search}
-			/>
+			<Items currentItems={currentItems} search={search} />
 
 			<ReactPaginate
 				className='pages'

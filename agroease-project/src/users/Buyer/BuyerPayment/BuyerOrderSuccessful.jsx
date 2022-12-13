@@ -1,170 +1,67 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const BuyerOrderSuccessful = () => {
-	return (
-		<>
-			<div id='review-overlay-successfull'>
-				<div class='processing-container'>
-					<div class='processing-succesful-text'>
-						<span class='s-text'>
-							Your Order has been processed Successfully
-						</span>
-					</div>
-					<div class='processing-successful-circle circle2'>
-						<span>Success</span>
-						<div>
-							<img src='/assets/mark-Icon.png' alt='' />
-						</div>
-					</div>
-					<Link to={"/"}>
-						<button class='proceed-btn'>Proceed to Dasboard</button>
-					</Link>
-				</div>
-			</div>
-			<div className='shipping-form shipping-form-active'>
-				<h3 className='order-h3'>Order Review</h3>
-				<section className='overview-container'>
-					<div>
-						<div className='cart-review'>
-							<div className='product-review'>
-								<div className='product-review-container'>
-									<div className='product-review-img'>
-										<img src='/assets/goat.jpg' alt='' />
-									</div>
-									<div>
-										<h4 className='product-review-text'>Fulani Cow</h4>
-										<p>Special Breed</p>
-									</div>
-								</div>
-								<div className='product-review-price'>#26,000</div>
-							</div>
-							<div className='product-review'>
-								<div className='product-review-container'>
-									<div className='product-review-img'>
-										<img src='/assets/goat.jpg' alt='' />
-									</div>
-									<div>
-										<h4 className='product-review-text'>Fulani Cow</h4>
-										<p>Special Breed</p>
-									</div>
-								</div>
-								<div className='product-review-price'>#26,000</div>
-							</div>
-							<div className='product-review'>
-								<div className='product-review-container'>
-									<div className='product-review-img'>
-										<img src='/assets/goat.jpg' alt='' />
-									</div>
-									<div>
-										<h4 className='product-review-text'>Fulani Cow</h4>
-										<p>Special Breed</p>
-									</div>
-								</div>
-								<div className='product-review-price'>#26,000</div>
-							</div>
-							<div className='product-review'>
-								<div className='product-review-container'>
-									<div className='product-review-img'>
-										<img src='/assets/goat.jpg' alt='' />
-									</div>
-									<div>
-										<h4 className='product-review-text'>Fulani Cow</h4>
-										<p>Special Breed</p>
-									</div>
-								</div>
-								<div className='product-review-price'>#26,000</div>
-							</div>
-						</div>
-						<div className='cart-review-total'>
-							<div className='cart-total'>
-								<p>Subtotal</p>
-								<p>N173,500</p>
-							</div>
-							<div className='cart-total'>
-								<p>VAT</p>
-								<p>N1340</p>
-							</div>
-							<div className='cart-total'>
-								<p>Shipping</p>
-								<p>00</p>
-							</div>
-							<div className='cart-total'>
-								<p>Total</p>
-								<p>N174,840</p>
-							</div>
-						</div>
-					</div>
-					<div className='user-review'>
-						<h4 className='user-review-name'>Gbenga Oyewale</h4>
-						<h4 className='user-review-number'>+2347032352157</h4>
-						<h4 className='user-review-State'>Lagos, State</h4>
-						<h4 className='user-review-lga'>Eti, Osa LGA</h4>
-						<h4 className='user-review-des'>
-							Kindly check our return policy page for more information on how to
-							resolve issues concerning bad goods
-						</h4>
-					</div>
-					<div className='payment-review-container'>
-						<div className='card-details'>
-							<div className='payment-review'>
-								<div className='card-img-wrapper'>
-									<div className='check-box check-box-active' />
-									<div className='card-img'>
-										<img src='/assets/mastercard.png' alt='' />
-										<div>
-											<h5 className='review-mask'>************1234</h5>
-											<h5 className='expiry'>11/4</h5>
-										</div>
-									</div>
-								</div>
-								<div className='card-btn'>
-									<button className='btn-green border-green'>
-										<img src='/assets/Vectorsettings.png' alt='' />
-										Edit
-									</button>
-								</div>
-							</div>
-							<div className='payment-review'>
-								<div className='card-img-wrapper'>
-									<div className='check-box' />
-									<div className='card-img'>
-										<img src='/assets/mastercard.png' alt='' />
-										<div>
-											<h5 className='review-mask'>************1234</h5>
-											<h5 className='expiry'>11/4</h5>
-										</div>
-									</div>
-								</div>
-								<div className='card-btn'>
-									<button className='btn-green border-green'>
-										<img src='/assets/Vectorsettings.png' alt='' />
-										Edit
-									</button>
-								</div>
-							</div>
-							<button className='add-card'>Add Card</button>
-						</div>
-						<div className='add-shipping'>
-							<h4>Available Shipping Methods</h4>
-							<div className='fedex-shipping'>
-								<div className='fedEx'>
-									<img src='/assets/FedExfedex.png' alt='' />
-								</div>
-								<div className='fedEx-des'>
-									<h5>FedEx Delivery</h5>
-									<p>Delivery within 2-3 working days</p>
-								</div>
-								<div className='add-shipping-btn'>
-									<p>Free</p>
-									<div className='check-box check-box-active' />
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<button className='confirm-order'>Confirm Order</button>
-			</div>
-		</>
-	);
+	const [searchParams, setSearchParams] = useSearchParams();
+	const payment_reference = searchParams.get("tx_ref");
+	const transaction_id = searchParams.get("transaction_id");
+	const newOrder = JSON.parse(localStorage.getItem("order"));
+	const navigate = useNavigate();
+
+	console.log(newOrder);
+	const orderRow = newOrder.cart.map(({ qty, id, StoreId, price }) => {
+		return {
+			ProductId: id,
+			quantity: qty,
+			total_price: parseInt(qty) * parseInt(price),
+			price_pcs: price,
+			comment: "",
+			StoreId,
+		};
+	});
+
+	console.log(orderRow);
+
+	const payload = {
+		order: {
+			comment: "",
+			total: newOrder.total,
+			payment_reference: payment_reference,
+			transaction_id: transaction_id,
+		},
+
+		orderRow,
+	};
+	const accessToken = localStorage.getItem("token");
+	const config = {
+		headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
+	const confirmPayment = async () => {
+		try {
+			const response = await axiosInstance.post("v1/orders", payload, config);
+
+			console.log(response.data);
+
+			if (response.status === 200) {
+				localStorage.removeItem("order");
+				localStorage.removeItem("cartItems");
+				navigate("/");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	Swal.fire({
+		position: "top-center",
+		icon: "success",
+		title: "Payment Succsessful",
+		showConfirmButton: true,
+		confirmButtonColor: "#3085d6",
+	}).then(() => {
+		confirmPayment();
+	});
 };

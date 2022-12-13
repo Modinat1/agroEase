@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 // import { Buyernav } from "./Buyernav";
 // import Footer from "./Footer";
 import { Progress } from "./BuyerPayementComponent/Progress";
@@ -9,6 +9,8 @@ import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import cow from "../../../images/cows.png";
 import { ProductContext } from "../../../Context/Store/productContext";
+import { data } from "autoprefixer";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const BuyerOderreview = () => {
 	const productContext = React.useContext(ProductContext);
@@ -28,6 +30,7 @@ export const BuyerOderreview = () => {
 	const userAddress = user?.data?.Delivery_address;
 	console.log(user);
 	console.log(userAddress);
+	const navigate = useNavigate();
 
 	const [subTotal, setsubTotal] = useState(0);
 
@@ -36,12 +39,28 @@ export const BuyerOderreview = () => {
 			cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
 		);
 	}, [cart]);
-	const order = {
-		total: subTotal,
-		cart,
+	// const order = {
+	// 	total: subTotal,
+	// 	cart,
+	// };
+
+	const flutterwaveOrder = {
+		amount: subTotal,
+		customer: {
+			email: user?.data?.email,
+		},
 	};
-	const handleOrder = () => {
-		localStorage.setItem("order", JSON.stringify(order));
+	const handleOrder = async () => {
+		const flutter = await axiosInstance.post(
+			"/v1/flutterwave",
+			flutterwaveOrder
+		);
+
+		localStorage.setItem("key", flutter.data);
+		if (flutter) {
+			window.location.href = flutter.data;
+		}
+		console.log(flutter.data);
 	};
 	return (
 		<>
@@ -144,9 +163,11 @@ export const BuyerOderreview = () => {
 							</h4>
 						</div>
 					</section>
-					<Link to={"/paystackPayment"} onClick={() => handleOrder()}>
-						<button className='confirm-order'>Confirm Order</button>
-					</Link>
+					{/* <Link to={"/paystackPayment"} onClick={() => handleOrder()}> */}
+					<button className='confirm-order' onClick={() => handleOrder()}>
+						Pay Now
+					</button>
+					{/* </Link> */}
 				</div>
 			</div>
 			<Footer />

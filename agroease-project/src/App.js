@@ -53,6 +53,7 @@ import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
 import { PayStack } from "./components/PayStack/PayStack";
+import FarmerSingleProfile from "./users/Farmer/FarmerSingleProfile/FarmerSingleProfile";
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
@@ -128,6 +129,8 @@ function App() {
 						<Route exact path='/buyerlogin' element={<BuyerLoginForm />} />
 						<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
 						<Route exact path='/generateLink' element={<GenerateLink />} />
+						<Route exact path='/farmersprofile' element={<FarmerSingleProfile />} />
+						
 						<Route
 							exact
 							path='/brokerdashboard'

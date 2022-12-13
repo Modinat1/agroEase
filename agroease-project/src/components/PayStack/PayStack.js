@@ -51,9 +51,9 @@ export const PayStack = () => {
 						<label htmlFor=''>First Name</label>
 						<input
 							type='text'
-							value={user?.firstname}
+							defaultValue={user?.firstname}
 							// placeholder='Enter First Name'
-							// onChange={(e) => setFirstName(e.target.value)}
+							// onChange={(e) => setFirstName(e.target.defaultValue)}
 						/>
 					</div>
 
@@ -61,9 +61,9 @@ export const PayStack = () => {
 						<label htmlFor=''>Last Name</label>
 						<input
 							type='text'
-							value={user?.lastname}
+							defaultValue={user?.lastname}
 							placeholder='Enter Last Name'
-							// onChange={(e) => setLastName(e.target.value)}
+							// onChange={(e) => setLastName(e.target.defaultValue)}
 						/>
 					</div>
 
@@ -71,8 +71,8 @@ export const PayStack = () => {
 						<label htmlFor=''>Email</label>
 						<input
 							type='text'
-							value={user?.email}
-							// onChange={(e) => setEmail(e.target.value)}
+							defaultValue={user?.email}
+							// onChange={(e) => setEmail(e.target.defaultValue)}
 							placeholder='Enter Email'
 						/>
 					</div>
@@ -81,8 +81,8 @@ export const PayStack = () => {
 						<label htmlFor=''>Amount</label>
 						<input
 							type='text'
-							value={order.total}
-							// onChange={(e) => setAmount(e.target.value)}
+							defaultValue={order.total}
+							// onChange={(e) => setAmount(e.target.defaultValue)}
 							placeholder='Enter Amount'
 						/>
 					</div>

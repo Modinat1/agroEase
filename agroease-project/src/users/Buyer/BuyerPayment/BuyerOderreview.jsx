@@ -53,11 +53,12 @@ export const BuyerOderreview = () => {
 					<section className='overview-container'>
 						<div className='cart-review'>
 							{cart.map((prod, index) => {
+								console.log(prod);
 								return (
 									<div className='product-review'>
 										<div className='product-review-container'>
 											<div className='product-review-img'>
-												<img src={prod.image} alt='' />
+												<img src={prod.Product_Images[0].url} alt='' />
 											</div>
 											<div className='flex flex-col items-center '>
 												<h4>{prod.name}</h4>

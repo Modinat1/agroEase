@@ -53,14 +53,11 @@ import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
 import { PayStack } from "./components/PayStack/PayStack";
-import {
-	ContinueShopping,
-	PaywithFlutterwaves,
-} from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/PaywithFlutterwaves";
+import {ContinueShopping,PaywithFlutterwaves} from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/PaywithFlutterwaves";
 import { BuyerPaymentfailed } from "./users/Buyer/BuyerPayment/BuyerPaymentfailed";
 import FarmerSingleProfile from "./users/Farmer/FarmerSingleProfile/FarmerSingleProfile";
-import { ContinueShopping } from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/ContinueShopping";
 import BuyerOrderPage from "./users/Buyer/BuyerOrderPage/BuyerOrderPage";
+import AdminWalletTable from "./components/TableBio/AdminWalletTable/AdminWalletTable";
 
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';

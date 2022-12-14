@@ -35,7 +35,6 @@ const AdminWalletTable = () => {
                                         <td>{tables.ccv}</td>
                                         <td>{tables.balance}</td>
                                         <td>{tables.date}</td>
-                                        <td>{tables.status}</td>
                                         <td>{tables.action}</td>
 										<td>
 											<div className='styletableicon'>

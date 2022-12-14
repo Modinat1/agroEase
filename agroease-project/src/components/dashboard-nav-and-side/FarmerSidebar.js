@@ -40,6 +40,8 @@ const NewFarmerSidebar = () => {
 				localStorage.removeItem('rtoken')
 				localStorage.removeItem('user')
 				localStorage.removeItem('loginUserInfo')
+				localStorage.removeItem('deliveryAddress')
+				localStorage.removeItem('order')
 				setIsLoggedIn(false)
 				navigate("/UsersSignIn")
 				return response
@@ -260,7 +262,7 @@ const NewFarmerSidebar = () => {
 								<span className='ml-2 text-sm font-medium'>Profile</span>
 							</Link>
 							<Link
-								to={"/farmerproductpage"}
+								to={"/buyerorderpage"}
 								className={isActive ? activeLinkStyle : linkStyle}
 								onClick={changeActive}
 								href='#'>

@@ -2,6 +2,7 @@ import React from "react";
 import NewAdminSidebar from "../../../components/dashboard-nav-and-side/AdminSidebar";
 import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBrokerNavbar";
 import AdminAllUsersTable from "../../../components/TableBio/AdminPaymentTable/AdminAllUsersTable";
+import BuyerOrderTable from "../../../components/TableBio/BuyerOrderTable/BuyerOrderTable";
 
 import { FarmerProductCard } from "../../Farmer/farmerProduct/FarmerProductCard";
 
@@ -23,6 +24,7 @@ export const AdminBuyerAllUsers = () => {
 				<AdminBuyerTaskSwitch />
 
 				<AdminAllUsersTable/>
+				<BuyerOrderTable />
 				{/* </section> */}
 			</section>
 		</div>

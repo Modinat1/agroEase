@@ -55,6 +55,7 @@ import { useState } from "react";
 import { PayStack } from "./components/PayStack/PayStack";
 import FarmerSingleProfile from "./users/Farmer/FarmerSingleProfile/FarmerSingleProfile";
 import { ContinueShopping } from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/ContinueShopping";
+import BuyerOrderPage from "./users/Buyer/BuyerOrderPage/BuyerOrderPage";
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
@@ -130,6 +131,7 @@ function App() {
 						<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
 						<Route exact path='/generateLink' element={<GenerateLink />} />
 						<Route exact path='/farmersprofile' element={<FarmerSingleProfile />} />
+						<Route exact path='/buyerorderpage' element={<BuyerOrderPage />} />
 						
 						<Route
 							exact

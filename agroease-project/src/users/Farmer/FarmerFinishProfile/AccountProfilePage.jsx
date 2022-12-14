@@ -14,12 +14,14 @@ const AccountProfilePage = () => {
                     <p>Account Number</p>
                     <p>Bank</p>
                     <p>Date of Birth</p>
+                    <p>National Identification Number</p>
                 </div>
                 <div>
                     <p>Cynthia Nwankwo</p>
                     <p>07234567</p>
                     <p>Access Bank</p>
                     <p>21/02/2000</p>
+                    <p>22289878987</p>
                 </div>
             </div>
         </div>

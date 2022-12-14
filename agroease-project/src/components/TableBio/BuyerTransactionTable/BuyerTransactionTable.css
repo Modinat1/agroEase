@@ -59,7 +59,7 @@
 }
 
 .trans-general-tbody tr:nth-child(odd) {
-    background-color: white;;
+    background-color: white;
 }
 
 .trans-general-tbody tr:hover {
@@ -86,6 +86,7 @@
     /* position: fixed; */
     position: absolute;
     z-index: 1;
+    border-bottom: 1px solid #ccc;
     background: inherit;
     padding: 10px;
     text-align: left;

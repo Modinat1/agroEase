@@ -19,7 +19,7 @@ const BuyerProductPage = () => {
 				</section>
 				<CurrentTaskMainCard />
 				<div className='buyer_uploaded_product'>
-					<h5 className="text-xl">Current Task</h5>
+					<h5>Current Task</h5>
 				</div>
 				<NewStoreSection />
 			</section>

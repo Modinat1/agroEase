@@ -107,7 +107,7 @@ export const BuyerShipping = () => {
 			<div className='shipping-container'>
 				<Progress />
 				<>
-					{userAddress || localStorage.getItem("deliveryAddress") ? (
+					{userAddress ? (
 						<>
 							<section className=' mt-20 w-1/2 flex flex-col bg-green-50  text-2xl py-5 px-10'>
 								<h3 className='text-center'>Shipping Details</h3>

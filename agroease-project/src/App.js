@@ -53,9 +53,15 @@ import { UsersSignUp } from "./components/UsersSignUp/UsersSignUp";
 import { useEffect } from "react";
 import { useState } from "react";
 import { PayStack } from "./components/PayStack/PayStack";
+import {
+	ContinueShopping,
+	PaywithFlutterwaves,
+} from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/PaywithFlutterwaves";
+import { BuyerPaymentfailed } from "./users/Buyer/BuyerPayment/BuyerPaymentfailed";
 import FarmerSingleProfile from "./users/Farmer/FarmerSingleProfile/FarmerSingleProfile";
 import { ContinueShopping } from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/ContinueShopping";
 import BuyerOrderPage from "./users/Buyer/BuyerOrderPage/BuyerOrderPage";
+
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
@@ -200,12 +206,13 @@ function App() {
 							path='BuyerOrderSuccesful'
 							element={<BuyerOrderSuccessful />}
 						/>
+						<Route path='BuyerOrderfailed' element={<BuyerPaymentfailed />} />
 						<Route path='BuyerShipping' element={<BuyerShipping />} />
 						<Route path='OrderSummary' element={<OrderSummary />} />
 					</Route>
 				</Route>
 				<Route path='paystackPayment' element={<PayStack />}></Route>
-				<Route path='continueShopping' element={<ContinueShopping />} />
+				<Route path='paywithflutterwaves' element={<PaywithFlutterwaves />} />
 			</Routes>
 		</div>
 	);

@@ -16,7 +16,6 @@ const Items = ({ currentItems, search }) => {
 	const cartContext = React.useContext(ProductContext);
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
-
 	localStorage.setItem("cartItems", JSON.stringify(cart));
 
 	const formatter = new Intl.NumberFormat("en-NG", {

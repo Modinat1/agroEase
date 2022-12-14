@@ -43,6 +43,7 @@ export const BuyerOderreview = () => {
 	// 	total: subTotal,
 	// 	cart,
 	// };
+	console.log(subTotal);
 
 	const flutterwaveOrder = {
 		amount: subTotal,
@@ -57,6 +58,7 @@ export const BuyerOderreview = () => {
 		);
 
 		localStorage.setItem("key", flutter.data);
+		localStorage.setItem("flutterorder", JSON.stringify(flutterwaveOrder));
 		if (flutter) {
 			window.location.href = flutter.data;
 		}

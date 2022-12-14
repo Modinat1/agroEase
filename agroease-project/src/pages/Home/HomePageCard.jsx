@@ -16,6 +16,7 @@ const Items = ({ currentItems, search }) => {
 	const cartContext = React.useContext(ProductContext);
 	const { state, dispatch } = cartContext;
 	const { cart } = state;
+	localStorage.setItem("cartItems", JSON.stringify(cart));
 
 	const formatter = new Intl.NumberFormat("en-NG", {
 		style: "currency",
@@ -80,10 +81,6 @@ const Items = ({ currentItems, search }) => {
 																		type: "ADD_TO_CART",
 																		payload: data,
 																	});
-																	localStorage.setItem(
-																		"cartItems",
-																		JSON.stringify(cart)
-																	);
 																	addNotify();
 																}}>
 																<svg

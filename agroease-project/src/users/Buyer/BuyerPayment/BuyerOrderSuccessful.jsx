@@ -17,14 +17,15 @@ export const BuyerOrderSuccessful = () => {
 		return {
 			ProductId: id,
 			quantity: qty,
-			total_price: parseInt(qty) * parseInt(price),
+			total_price: qty * parseInt(price),
 			price_pcs: price,
 			comment: "",
 			StoreId,
 		};
 	});
 
-	console.log(orderRow);
+	console.log(orderRow.total_price);
+	console.log(total.amount);
 
 	const payload = {
 		order: {

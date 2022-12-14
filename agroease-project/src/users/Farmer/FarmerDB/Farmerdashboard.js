@@ -9,8 +9,11 @@ import NewBrokerNavbar from "../../../components/dashboard-nav-and-side/NewBroke
 import FarmerTotalcat from "../../../components/TableBio/FarmerTotalcat/FarmerTotalcat";
 import UserRefreshToken from "../../../Context/user-auth/UserRefreshToken";
 import userRefreshToken from "../../../Context/user-auth/UserRefreshToken";
+import Thelinechart from "../../Broker/BrokerDashboard/Thelinechart";
 // import NewBrokerSidebar from "../../../components/dashboard-nav-and-side/NewBrokerSidebar";
 import { BuyerDashCard } from "../../Buyer/BuyerDashboard/BuyerDashCard";
+import BuyerTransaction from "../../Buyer/BuyerDashboard/BuyerTransaction";
+import FarmerDashCarding from "./FarmerDashCarding";
 import Thebarchart from "./Thebarchart";
 import Thepiechart from "./Thepiechart";
 // import Farmercontent from "./Farmercontent";
@@ -53,19 +56,17 @@ const Farmerdashboard = () => {
 					</section>
 
 					<BuyerDashCard />
-					<div className='flex justify-between items-center'>
-						<div>
-							<h1 className='font-bold'>SALES ANALYSIS</h1>
-							<Thepiechart />
+					<FarmerDashCarding />
+
+					<div>
+						<h2 className="bold text-2xl">Sales Analysis</h2>
+						<div className='activity'>
+							<Thelinechart />
 						</div>
-
-						<Thebarchart />
 					</div>
-
+					<BuyerTransaction />
 					<FarmerTotalcat />
-					{/* <AdminProductTable /> */}
-					{/* <AdminFarmerTable /> */}
-					{/* <AdminPaymentTable /> */}
+					
 				</section>
 			</div>
 		</React.Fragment>

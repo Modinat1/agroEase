@@ -58,6 +58,9 @@ import {
 	PaywithFlutterwaves,
 } from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/PaywithFlutterwaves";
 import { BuyerPaymentfailed } from "./users/Buyer/BuyerPayment/BuyerPaymentfailed";
+import FarmerSingleProfile from "./users/Farmer/FarmerSingleProfile/FarmerSingleProfile";
+import { ContinueShopping } from "./users/Buyer/BuyerPayment/BuyerPaymentCSS/ContinueShopping";
+
 
 // import { EnterPassword } from './components/ResetPassword/EnterPassword';
 
@@ -132,6 +135,8 @@ function App() {
 						<Route exact path='/buyerlogin' element={<BuyerLoginForm />} />
 						<Route exact path='/farmerlogin' element={<FarmerLoginForm />} />
 						<Route exact path='/generateLink' element={<GenerateLink />} />
+						<Route exact path='/farmersprofile' element={<FarmerSingleProfile />} />
+						
 						<Route
 							exact
 							path='/brokerdashboard'

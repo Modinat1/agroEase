@@ -26,6 +26,7 @@ const AdminBrokerTable = () => {
 	const userInfo = JSON.parse(localStorage.getItem("user"));
 	console.log(userInfo);
 	const {id} = allUser;
+	
 	const [products, setProducts] = useState([]);
 	const accessToken = localStorage.getItem("token");
 
@@ -363,12 +364,12 @@ const AdminBrokerTable = () => {
 
 							{/* Mapping through the array to get the table details */}
 
-							{products.map((tables, idx) => {
+							{products.map((tables) => {
 								const { id, name, description, price, quantity } = tables;
 								return (
 									<tbody className='admin-general-tbody' key={id}>
 										<tr>
-											<td>{idx + 1}</td>
+											<td>{id}</td>
 											<td>{name}</td>
 											<td>{description}</td>
 											<td>{price}</td>

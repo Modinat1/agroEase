@@ -15,7 +15,7 @@ const BuyerTransactionTable = () => {
 							<th>Category</th>
 							<th>Quantity</th>
 							<th>Price</th>
-							<th>Status</th>
+							
 						</tr>
 					</thead>
 
@@ -31,7 +31,7 @@ const BuyerTransactionTable = () => {
 									<td>{tables.ccv}</td>
 									<td>{tables.balance}</td>
 									<td>{tables.date}</td>
-									<td>{tables.status}</td>
+									
 								</tr>
 							</tbody>
 						);

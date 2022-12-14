@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BuyerDashCard.css";
 import WeatherImg from "../../../images/farmer_img_circle.png";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import CloudImg from "../../../images/farmer_cloud_img.png";
 // import  { useEffect, useState } from "react";
 // import axios from "axios";
@@ -10,6 +11,8 @@ export const BuyerDashCard = () => {
 	const [long, setLong] = useState([]);
 	const [data, setData] = useState([]);
 	const [iconID, setIconID] = useState([]);
+
+	
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -32,6 +35,7 @@ export const BuyerDashCard = () => {
 		fetchData();
 	}, [lat, long]);
 
+	
 	return (
 		<div>
 			<section className='buyer_dash_summary'>

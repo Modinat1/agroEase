@@ -3,6 +3,9 @@ import "./FarmerFinishProfile.css"
 import profimage from "../../../images/cynthia.png"
 
 const PersonalProfilePage = () => {
+
+    const userInfo = JSON.parse(localStorage.getItem("user"));
+	const userDetails = userInfo.data
   return (
     <div>
         <div className='personal-prof-width'>
@@ -10,9 +13,9 @@ const PersonalProfilePage = () => {
                 <img src={profimage} alt="" />
             </div>
             <div>
-                <h2 className='personal-finish-title'>Cynthia Nwankwo</h2>
-                <h3>nwacynti25@gmail.com</h3>
-                <h3>08162222284</h3>
+                <h2 className='personal-finish-title'>{`${userDetails?.firstname}  ${userDetails?.lastname}`}</h2>
+                <h3>{userDetails?.email}</h3>
+                <h3>{userDetails?.phone_number}</h3>
             </div>
         </div>
     </div>

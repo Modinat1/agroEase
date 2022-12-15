@@ -39,10 +39,10 @@ export const BuyerOderreview = () => {
 			cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
 		);
 	}, [cart]);
-	// const order = {
-	// 	total: subTotal,
-	// 	cart,
-	// };
+	const order = {
+		total: subTotal,
+		cart,
+	};
 	console.log(subTotal);
 
 	const flutterwaveOrder = {
@@ -58,7 +58,7 @@ export const BuyerOderreview = () => {
 		);
 
 		localStorage.setItem("key", flutter.data);
-		localStorage.setItem("flutterorder", JSON.stringify(flutterwaveOrder));
+		localStorage.setItem("order", JSON.stringify(order));
 		if (flutter) {
 			window.location.href = flutter.data;
 		}

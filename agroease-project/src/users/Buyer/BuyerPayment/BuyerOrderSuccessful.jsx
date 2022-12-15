@@ -10,9 +10,9 @@ export const BuyerOrderSuccessful = () => {
 	const transaction_id = searchParams.get("transaction_id");
 	const newOrder = JSON.parse(localStorage.getItem("cartItems"));
 	const navigate = useNavigate();
-	const total = JSON.parse(localStorage.getItem("flutterorder"));
+	const order = JSON.parse(localStorage.getItem("order"));
 
-	console.log(newOrder);
+	console.log(order);
 	const orderRow = newOrder.map(({ qty, id, StoreId, price }) => {
 		return {
 			ProductId: id,
@@ -25,12 +25,12 @@ export const BuyerOrderSuccessful = () => {
 	});
 
 	console.log(orderRow.total_price);
-	console.log(total.amount);
+	// console.log(total.amount);
 
 	const payload = {
 		order: {
 			comment: "",
-			total: total.amount,
+			total: order.total,
 			payment_reference: payment_reference,
 			transaction_id: transaction_id,
 		},
@@ -38,7 +38,7 @@ export const BuyerOrderSuccessful = () => {
 		orderRow,
 	};
 
-	console.log(total);
+	// console.log(total);
 
 	const accessToken = localStorage.getItem("token");
 	const config = {

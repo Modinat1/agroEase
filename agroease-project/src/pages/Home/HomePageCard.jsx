@@ -67,7 +67,7 @@ const Items = ({ currentItems, search }) => {
 																	});
 																	removeNotify();
 																}}>
-																Remove from Cart
+																Remove
 															</button>
 															{/* <ToastContainer /> */}
 														</>

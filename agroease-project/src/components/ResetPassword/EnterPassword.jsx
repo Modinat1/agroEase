@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +7,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar1 from "../Navbar1/Navbar1";
 import { useSearchParams } from "react-router-dom";
+import axiosInstance from "../../Context/axios-config/axios-user-config";
 
 const SignupSchema = Yup.object().shape({
 	password: Yup.string()
@@ -51,10 +51,9 @@ export const EnterPassword = () => {
 					const { password } = values;
 					setSubmitting(true);
 					try {
-						await axios.post(
-							`https://agro-ease-backend.herokuapp.com/v1/auth/reset-password?token=${token}`,
-							{ password }
-						);
+						await axiosInstance.post(`/v1/auth/reset-password?token=${token}`, {
+							password,
+						});
 						// console.log(response.data);
 
 						notifySuccess();

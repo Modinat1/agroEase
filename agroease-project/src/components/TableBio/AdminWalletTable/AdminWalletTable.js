@@ -19,51 +19,51 @@ const AdminWalletTable = () => {
 	};
 
 
-    // SweetAlert
-	const notifySuccess = (id) => {
-		Swal.fire({
-			title: "Verify!",
-			text: "Do you want to Verify this Product?!",
-			showDenyButton: true,
-			showCancelButton: true,
-			confirmButtonText: 'Yes',
-			confirmButtonColor: "#097c0d",
-			denyButtonText: 'No',
-			customClass: {
-			actions: 'my-actions',
-			cancelButton: 'order-1 right-gap',
-			confirmButton: 'order-2',
-			denyButton: 'order-3',
-			}
-		}).then(function(result){
-			if(result.value){
-				walletUpdate(id)
-			}else if(result.dismiss === 'cancel'){
-			   console.log('cancel');
-			}
+    // // SweetAlert
+	// const notifySuccess = (id) => {
+	// 	Swal.fire({
+	// 		title: "Verify!",
+	// 		text: "Do you want to Verify this Product?!",
+	// 		showDenyButton: true,
+	// 		showCancelButton: true,
+	// 		confirmButtonText: 'Yes',
+	// 		confirmButtonColor: "#097c0d",
+	// 		denyButtonText: 'No',
+	// 		customClass: {
+	// 		actions: 'my-actions',
+	// 		cancelButton: 'order-1 right-gap',
+	// 		confirmButton: 'order-2',
+	// 		denyButton: 'order-3',
+	// 		}
+	// 	}).then(function(result){
+	// 		if(result.value){
+	// 			walletUpdate(id)
+	// 		}else if(result.dismiss === 'cancel'){
+	// 		   console.log('cancel');
+	// 		}
 	
-		});
-	};
+	// 	});
+	// };
 
     // walletUpdate
-	const walletUpdate = async (id) => {
-		const config = {
-			headers: {
-				Authorization: `Bearer ${tokenInfo}`,
-			},
-		};
+	// const walletUpdate = async (id) => {
+	// 	const config = {
+	// 		headers: {
+	// 			Authorization: `Bearer ${tokenInfo}`,
+	// 		},
+	// 	};
 
-		try {
-			await axiosInstance.patch(`/v1/wallet/${id}`, 
-            // {
-            //     "balance": 
-            // }, 
-            config);
-			window.location.reload();
-		} catch (error) {
-			console.log(error);
-		}
-	}
+	// 	try {
+	// 		await axiosInstance.patch(`/v1/wallet/${id}`, 
+    //         // {
+    //         //     "balance": 
+    //         // }, 
+    //         config);
+	// 		window.location.reload();
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// }
 
     // Getting all Order
 	const getWallets = async () => {

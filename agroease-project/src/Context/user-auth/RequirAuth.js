@@ -1,13 +1,17 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
-import GeneralUserAuth from "./GeneralUserAuth";
+// import GeneralUserAuth from "./GeneralUserAuth";
 
 
 const RequireAuth = () => {
-    const { userAuth } = GeneralUserAuth()
+
+
+    // const { userAuth } = GeneralUserAuth()
     const location = useLocation()
+
+    const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
     
     return (
-        userAuth?.values
+        userInfo?.email
         ? <Outlet />
         : <Navigate to="/UsersSignIn" state={{ from: location }} replace />
     )

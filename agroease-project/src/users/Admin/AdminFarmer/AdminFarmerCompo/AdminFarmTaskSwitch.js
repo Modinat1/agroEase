@@ -19,7 +19,7 @@ export const AdminFarmTaskSwitch = () => {
 				<CustomLink to={"/adminfarmerpage"}>Store</CustomLink>
 				<CustomLink to={"/adminfarmerallproducts"}>All Products</CustomLink>
 				<CustomLink to={"/adminfarmerverifiedproducts"}>
-					Verified Products
+					Wallet Details
 				</CustomLink>
 				{/* <CustomLink to={"/AdminLogisticsTask"}>All Products</CustomLink> */}
 			</div>

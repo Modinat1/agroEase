@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 // import { Buyernav } from "./Buyernav";
 // import Footer from "./Footer";
 import { Progress } from "./BuyerPayementComponent/Progress";
@@ -9,6 +9,8 @@ import Footer from "../../../components/Footer/Footer";
 import { Buyernav } from "./BuyerPayementComponent/Buyernav";
 import cow from "../../../images/cows.png";
 import { ProductContext } from "../../../Context/Store/productContext";
+import { data } from "autoprefixer";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 
 export const BuyerOderreview = () => {
 	const productContext = React.useContext(ProductContext);
@@ -23,6 +25,13 @@ export const BuyerOderreview = () => {
 		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 	});
 
+	const user = JSON.parse(localStorage.getItem("user"));
+	const newAddress = JSON.parse(localStorage.getItem("deliveryAddress"));
+	const userAddress = user?.data?.Delivery_address;
+	console.log(user);
+	console.log(userAddress);
+	const navigate = useNavigate();
+
 	const [subTotal, setsubTotal] = useState(0);
 
 	useEffect(() => {
@@ -30,7 +39,31 @@ export const BuyerOderreview = () => {
 			cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
 		);
 	}, [cart]);
+	// const order = {
+	// 	total: subTotal,
+	// 	cart,
+	// };
+	console.log(subTotal);
 
+	const flutterwaveOrder = {
+		amount: subTotal,
+		customer: {
+			email: user?.data?.email,
+		},
+	};
+	const handleOrder = async () => {
+		const flutter = await axiosInstance.post(
+			"/v1/flutterwave",
+			flutterwaveOrder
+		);
+
+		localStorage.setItem("key", flutter.data);
+		localStorage.setItem("flutterorder", JSON.stringify(flutterwaveOrder));
+		if (flutter) {
+			window.location.href = flutter.data;
+		}
+		console.log(flutter.data);
+	};
 	return (
 		<>
 			<Buyernav />
@@ -41,11 +74,12 @@ export const BuyerOderreview = () => {
 					<section className='overview-container'>
 						<div className='cart-review'>
 							{cart.map((prod, index) => {
+								console.log(prod);
 								return (
 									<div className='product-review'>
 										<div className='product-review-container'>
 											<div className='product-review-img'>
-												<img src={prod.image} alt='' />
+												<img src={prod.Product_Images[0].url} alt='' />
 											</div>
 											<div className='flex flex-col items-center '>
 												<h4>{prod.name}</h4>
@@ -112,19 +146,30 @@ export const BuyerOderreview = () => {
 						</div>
 
 						<div className='user-review'>
-							<h4 className='user-review-name'>Gbenga Oyewale</h4>
-							<h4 className='user-review-number'>+2347032352157</h4>
-							<h4 className='user-review-State'>Lagos, State</h4>
-							<h4 className='user-review-lga'>Eti, Osa LGA</h4>
+							<h4 className='user-review-name'>
+								{user?.data?.firstname} {user?.data?.lastname}
+							</h4>
+							<h4 className='user-review-number'>{user?.data?.phone_number}</h4>
+							<h4 className='user-review-lga'>
+								{newAddress?.city || userAddress?.city}
+							</h4>
+							<h4 className='user-review-State'>
+								{newAddress?.state || userAddress?.state}, State
+							</h4>
+							<h4 className='user-review-State'>
+								{newAddress?.country || userAddress?.country}
+							</h4>
 							<h4 className='user-review-des'>
 								Kindly check our return policy page for more information on how
 								to resolve issues concerning bad goods
 							</h4>
 						</div>
 					</section>
-					<Link to={"/BuyerOrderSuccesful"}>
-						<button className='confirm-order'>Confirm Order</button>
-					</Link>
+					{/* <Link to={"/paystackPayment"} onClick={() => handleOrder()}> */}
+					<button className='confirm-order' onClick={() => handleOrder()}>
+						Pay Now
+					</button>
+					{/* </Link> */}
 				</div>
 			</div>
 			<Footer />

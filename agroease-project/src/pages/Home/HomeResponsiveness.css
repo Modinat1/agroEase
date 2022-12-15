@@ -26,10 +26,9 @@
 	.broker-info {
 		padding-left: 3rem;
 		padding-right: 3rem;
+		text-align: center;
 	}
-	.broker-btn {
-		margin-left: 8rem;
-	}
+	
 	.seller-child1 .seller-content {
 		padding: 4rem;
 	}
@@ -103,10 +102,9 @@
 	.broker-info {
 		padding-left: 2rem;
 		padding-right: 2rem;
+		text-align: center;
 	}
-	/* .broker-btn {
-    margin-left: 8rem;
-  } */
+	
 }
 
 @media screen and (max-width: 935px) {
@@ -126,6 +124,7 @@
 	.broker-info {
 		padding-left: 1rem;
 		padding-right: 1rem;
+		text-align: center;
 	}
 }
 
@@ -243,11 +242,9 @@
 	.broker-info {
 		margin-top: 2rem;
 		padding-left: 3rem;
-		/* padding-right: 3rem; */
+		text-align: center;
 	}
-	.broker-info #broker-btn {
-		margin-left: 4rem;
-	}
+	
 	.seller-child2 {
 		display: none;
 	}
@@ -365,6 +362,7 @@
 		/* margin-left: -4rem; */
 		margin-right: 0.5rem;
 		width: 100%;
+		text-align: center;
 	}
 	.card-info p {
 		margin-top: 1rem;
@@ -376,19 +374,23 @@
 
 	.broker-image img {
 		height: 40vh;
-		width: 100%;
+		width: 99%;
+		margin: 0 auto;
+
+	}
+
+	.broker-info {
+		text-align: center;
 	}
 
 	.broker-write p {
-		margin-left: -2rem;
+		/* margin-left: -2rem; */
 		font-size: 17.8px;
 	}
-	.broker-btn {
+	/* .broker-btn {
 		margin-top: -2rem;
 	}
-	.broker-info #broker-btn {
-		margin-left: -4rem;
-	}
+	 */
 
 	.seller-main-conatiner {
 		height: 40vh;

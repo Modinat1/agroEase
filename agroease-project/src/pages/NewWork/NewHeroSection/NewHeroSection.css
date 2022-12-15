@@ -2,7 +2,7 @@
 .newherosec-width {
     max-width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -112,7 +112,7 @@
 .newhero1-image-overlay .newhero1-btn {
     padding: 0.7rem;
     display: flex;
-    width: 104px;
+    width: auto;
     color: black;
     background-color: white;
     font-weight: 600;

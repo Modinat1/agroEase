@@ -23,11 +23,24 @@ export const UsersSignInForm = () => {
 	const navigate = useNavigate();
 	const { accessToken } = userAuth;
 	const location = useLocation();
-	const from = location.state?.from?.pathname || "/farmerdashboardpage";
+	const from = location.state?.from?.pathname || "/";
+
+	// const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
 
 	// const config = {
 	// 	headers: { Authorization: `Bearer ${accessToken}` },
 	// };
+
+	const userDetail= JSON.parse(localStorage.getItem("user"))
+	const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"))
+	const aToken = localStorage.getItem('token')
+	//Config Access token bearer
+	const config = {
+		headers: { Authorization: `Bearer ${aToken}` },
+	};
+
+	
+
 
 	const handleLoginAuth = async (values) => {
 		try {
@@ -43,15 +56,16 @@ export const UsersSignInForm = () => {
 			setUser(response.data.user);
 			localStorage.setItem("loginUserInfo", JSON.stringify(allUser));
 			localStorage.setItem("token", accessToken);
+			localStorage.setItem("rtoken", refreshToken);
+			console.log(refreshToken)
 			console.log(accessToken);
 
-			// localStorage.setItem('user', allUser)
-			// console.log(allUser)
-			setSuccesso("Account Created Successfully");
-
-			if (userAuth) {
+			if (allUser) {
 				navigate(from, { replace: true });
 			}
+			setSuccesso("Account Created Successfully");
+
+
 		} catch (error) {
 			if (!error.response) {
 				console.log("Server down");
@@ -72,27 +86,7 @@ export const UsersSignInForm = () => {
 	// 	headers: { Authorization: `Bearer ${tokenInfo}` },
 	// };
 
-	// const getCurrentUser = async () => {
-	// 	const currentUser = await axios
-	// 		.get(
-	// 			"https://agro-ease-backend-production.up.railway.app/v1/auth/current",
-	// 			config
-	// 		)
-	// 		.then((resp) => {
-	// 			console.log(resp.data);
-	// 			return resp;
-	// 		});
-	// 	const user = currentUser;
-
-	// 	console.log(user);
-	// 	localStorage.setItem("user", JSON.stringify(user));
-	// 	return user;
-	// };
-
-	// useEffect(() => {
-	// 	getCurrentUser();
-	// }, []);
-
+	
 	return (
 		<div>
 			<Formik

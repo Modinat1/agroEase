@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "./FarmerProfile.css";
 import { useFormik } from "formik";
-import Swal from "sweetalert2-react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserAuth from "../../../Context/user-auth/UserAuthContext";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import UserContext from "../../../Context/user-context/UserContext";
 
@@ -13,7 +13,7 @@ export const FarmerProfilePage = () => {
 	const { userAuth, setUserAuth, user, setUser } = useContext(UserAuth);
 	// const [errorso, setErrorso] = useState("")
 	const [successo, setSuccesso] = useState("");
-	const { accessToken, refreshToken } = userAuth;
+	// const { accessToken, refreshToken } = userAuth;
 	const navigate = useNavigate();
 
 	const [banks, setBanks] = useState([]);
@@ -36,8 +36,32 @@ export const FarmerProfilePage = () => {
 		getState();
 	}, []);
 
+	const accessToken = localStorage.getItem("token");
 	const config = {
 		headers: { Authorization: `Bearer ${accessToken}` },
+	};
+
+	// SweetAlert
+
+	const notifySuccess = () => {
+		Swal.fire({
+			title: "Profile!",
+			text: "Profile Updated Successfully!",
+			icon: "success",
+			button: "Ok",
+		}).then(function () {
+			
+			navigate("/farmerdashboardpage");
+		});
+	};
+
+	const notityfailure = () => {
+		Swal.fire({
+			title: "Error",
+			text: "Profile update failed",
+			icon: "error",
+			button: "Re upload again",
+		});
 	};
 
 	const handleStoreSubmit = async (values) => {
@@ -79,29 +103,20 @@ export const FarmerProfilePage = () => {
 				businessInfo,
 				config
 			);
-			const accessToken = response.data.tokens.access.token;
-			setUserAuth({ accessToken });
+			// const accessToken = response.data.tokens.access.token;
+			// setUserAuth({ accessToken });
 			setUser(response.data.user);
+			console.log(response);
 			// JSON.parse(localStorage.setItem('token', accessToken))
 			setSuccesso("Account Created Successfully");
 
-			// notifySuccess();
-
-			if (userAuth) {
-				navigate("/UsersSignIn");
+			if (response.status === 201) {
+				notifySuccess();
+			} else {
 			}
 		} catch (error) {
+			notityfailure();
 			console.log(error);
-			// if (!error.response) {
-			// 	console.log("Server down")
-			// } else if (error.response.status === 400) {
-			// 	console.log('I don see good things')
-			// 	setErrorso("User Already Exists")
-			// } else if (error.response.status === 401) {
-			// 	console.log('I don see enough')
-			// } else if (error.response.status === 409) {
-			// 	console.log('I don see ')
-			// }
 		}
 	};
 	const initialValues = {
@@ -145,6 +160,7 @@ export const FarmerProfilePage = () => {
 	return (
 		<React.Fragment>
 			<div className='farmer_profile_wrapper'>
+				{/* <h1>Farmer Profile Page</h1> */}
 				<div className='container-agro'>
 					<div className='title-agro'>Personal details</div>
 					<div className='content-agro'>

@@ -13,7 +13,7 @@ const UserAxiosPrivate = () => {
 			(config) => {
 				if (!config.headers["Authorization"]) {
 					const token = JSON.parse(localStorage.getItem("token"));
-					config.headers["Authorization"] = `Bearer ${token?.accessToken}`;
+					config.headers["Authorization"] = `Bearer ${token}`;
 				}
 				return config;
 			},

@@ -4,15 +4,24 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { AiOutlinePhone } from 'react-icons/ai'
 import React from 'react'
 import emeka from '../../images/emeka.png'
-
+import { useState } from 'react'
+import axiosInstance from "../../Context/axios-config/axios-user-config";
 const FarmerEditProfilePage = () => {
+  const [renderProfile, setrenderProfile] = useState([])
+
+  const renderFarmerProfile = async () => {
+    try {
+      const getProfile = await axiosInstance.get('/v1/store')
+      console.log(getProfile)
+    } catch (error) {}
+  }
   return (
-    <div className='editProfile-body'>
-       <main className="edit-profile-main-container">
+    <div className="editProfile-body">
+      <main className="edit-profile-main-container">
         <section className="profile-image-top-section">
           <div className="profile-avater-section-left-container">
             <div className="profile-edit-image">
-            <img src={emeka} className ="profile-edit-image" alt="Emeka"/>
+              <img src={emeka} className="profile-edit-image" alt="Emeka" />
               {/* <img src="profile_avater.PNG" alt="profile-image" className="profile-edit-image" /> */}
             </div>
             {/*another container beside image container  */}
@@ -24,7 +33,8 @@ const FarmerEditProfilePage = () => {
                 {/* <img src="mail-line.png" alt="profile email" /> */}
                 <AiOutlineMail />
                 <h4 className="profile-email">mekus@gmail.com</h4>
-              </div><br />
+              </div>
+              <br />
               <div className="profile-phone">
                 {/* <img src="phone-line.png" alt="profile phone number" /> */}
                 <AiOutlinePhone />
@@ -42,9 +52,7 @@ const FarmerEditProfilePage = () => {
         <section className="farmer-profile-information-container">
           {/* personal details */}
           <div className="profile-personal-details-container">
-            <h3 className="profile-personal-details">
-              Personal Details
-            </h3>
+            <h3 className="profile-personal-details">Personal Details</h3>
             <div className="other-personal-details">
               <div className="personal-details-name">
                 <h4>Name</h4>
@@ -64,9 +72,7 @@ const FarmerEditProfilePage = () => {
           </div>
           {/* busines details */}
           <div className="profile-personal-details-container">
-            <h3 className="profile-personal-details">
-              Business Details
-            </h3>
+            <h3 className="profile-personal-details">Business Details</h3>
             <div className="other-personal-details">
               <div className="personal-details-name">
                 <h4>Business Name</h4>
@@ -80,19 +86,17 @@ const FarmerEditProfilePage = () => {
               {/* number */}
               <div className="personal-details-name">
                 <h4>Description</h4>
-                <h4>Banana and Plantain dealer</h4>
+                <h4> Plantain dealer</h4>
               </div>
               <div className="personal-details-name">
                 <h4>NIN Number</h4>
-                <h5>4123678992</h5>
+                <h4>4123678992</h4>
               </div>
             </div>
           </div>
           {/* Accout details */}
           <div className="profile-personal-details-container">
-            <h3 className="profile-personal-details">
-              Account Details
-            </h3>
+            <h3 className="profile-personal-details">Account Details</h3>
             <div className="other-personal-details">
               <div className="personal-details-name">
                 <h4>Account Name</h4>

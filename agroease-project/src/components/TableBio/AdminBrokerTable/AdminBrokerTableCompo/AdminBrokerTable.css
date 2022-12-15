@@ -1,14 +1,14 @@
 .general-table-bio {
     display: flex;
     justify-content: center;
-    background: white;
+    background: #F5F6F7;
 }
 
 .general-table-width {
     width: 95%; 
     height: auto; 
     overflow-y: hidden;
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 .styletableicon {
@@ -53,12 +53,13 @@
 
 .admin-general-tbody td {
     width: 200px;
+    border-bottom: 1px solid #ccc;
     height: 40px;
     text-align: center;
 }
 
 .admin-general-tbody tr:nth-child(odd) {
-    background: #f2f2f2;
+    background: white;;
 }
 
 .admin-general-tbody tr:hover {

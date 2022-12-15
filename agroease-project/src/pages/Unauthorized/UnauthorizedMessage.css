@@ -1,0 +1,21 @@
+.unauthorized-width {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.unauthorized-width h1 {
+    font-size: 2rem;
+}
+
+.unauthorized-btn {
+    padding: 0.5rem 0.8rem;
+    color: green;
+    border: 1px solid green;
+    margin-top: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}

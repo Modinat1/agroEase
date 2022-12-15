@@ -1,12 +1,12 @@
 
 .farmer_profile_wrapper {
-	margin-top: 6rem;
+	
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 3rem;
 	font-family: "Poppins", sans-serif;
-	background: linear-gradient(135deg, #e5e5e5, #e5e5e5);
+	/* background: linear-gradient(135deg, #e5e5e5, #e5e5e5); */
 }
 
 .container-agro {
@@ -18,7 +18,7 @@
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 .container-agro .title-agro {
-	font-size: 25px;
+	font-size: 19px;
 	font-weight: 700;
   margin-top: 3rem;
   margin-bottom: 1rem;

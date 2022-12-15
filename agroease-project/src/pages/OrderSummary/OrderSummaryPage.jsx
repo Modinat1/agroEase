@@ -21,10 +21,12 @@ const OrderSummaryPage = () => {
 		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 	});
 
-	const {
-		state: { cart },
-		dispatch,
-	} = cartContext;
+	// const cart = JSON.parse(localStorage.getItem("cartItems"));
+	// const cart = cartContext.state.cart;
+
+	const { dispatch, state } = cartContext;
+	const { cart } = state;
+	console.log(cart);
 
 	const [subTotal, setsubTotal] = useState(0);
 
@@ -99,10 +101,23 @@ const OrderSummaryPage = () => {
 				<div className='summarry-order-box2-biggestContainer'>
 					{/* <div class="summary-order-box2-biggestContainerInner"></div> */}
 					{cart.map((prod) => {
+						// creating an array from the product quantity
+						const prodqty = Array.from(
+							{ length: prod.quantity },
+							(_, i) => i + 1
+						);
+
+						// mapping the product details
 						return (
 							<div key={prod.id} className='summary-order-box-2'>
-								<div className='summary-empty' style={{ width: "200px" }}>
-									<img src={prod.image} alt='' style={{ width: "100%" }} />
+								<div
+									className='summary-empty'
+									style={{ width: "200px", height: "100px" }}>
+									<img
+										src={prod?.Product_Images[0].url}
+										alt=''
+										style={{ width: "100%", height: "100%" }}
+									/>
 								</div>
 								<div className='summary-order-total'>
 									<h5>{prod.name}</h5>
@@ -122,7 +137,7 @@ const OrderSummaryPage = () => {
 												},
 											})
 										}>
-										{prod.inStock.map((x) => (
+										{prodqty.map((x) => (
 											<option key={x}>{x}</option>
 										))}
 									</select>

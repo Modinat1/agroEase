@@ -1,14 +1,14 @@
 .general-table-bio-adpro {
     display: flex;
     justify-content: center;
-    background: white;
+    background: #F5F6F7;
 }
 
 .general-table-width-adpro {
     width: 95%; 
     height: auto; 
     overflow-y: hidden;
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 .styletableicon {
@@ -66,12 +66,13 @@
 
 .adpro-general-tbody td {
     width: 200px;
+    border-bottom: 1px solid #ccc;
     height: 40px;
     text-align: center;
 }
 
 .adpro-general-tbody tr:nth-child(odd) {
-    background: #f2f2f2;
+    background-color: white;
 }
 
 .adpro-general-tbody tr:hover {
@@ -98,6 +99,7 @@
     /* position: fixed; */
     position: absolute;
     z-index: 1;
+    border-bottom: 1px solid #ccc;
     background: inherit;
     padding: 10px;
     text-align: left;
@@ -105,6 +107,17 @@
     padding-left: 25px;
     font-weight: bold;
 }
+
+/* .my-actions { 
+
+} */
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+
+/* .right-gap {
+  margin-right: auto;
+} */
 
 /* .admin-general-tbody td:nth-child(2) {
     width: 100px;

@@ -43,11 +43,14 @@ export const FarmerProductUpload = () => {
 	};
 
 	// Upload Product function
+	const [images, setImages] = useState([]);
+
+	console.log(images);
 
 	const handleProductSubmit = async (values) => {
 		const productData = new FormData();
 
-		const { name, description, quantity, price, CategoryName, image } = values;
+		const { name, description, quantity, price, CategoryName, file } = values;
 		const productInfo = {
 			name,
 			description,
@@ -55,8 +58,14 @@ export const FarmerProductUpload = () => {
 			price,
 			CategoryName,
 		};
-		productData.append("images", image);
+
+		productData.append("images", file);
+		Array.from(images).forEach((item) => {
+			productData.append("images", item);
+		});
 		productData.append("product", JSON.stringify(productInfo));
+
+		productData.forEach((item) => console.log(item));
 
 		try {
 			const response = await axiosInstance.post(
@@ -87,7 +96,7 @@ export const FarmerProductUpload = () => {
 		actualPrice: 45000000,
 		CategoryName: "",
 		// unit_input: "",
-		image: [],
+		file: [],
 	};
 
 	const validationSchema = Yup.object({
@@ -144,9 +153,9 @@ export const FarmerProductUpload = () => {
 								</option>
 								<option value='farm inputs'>Farm Input</option>
 								<option value='crops'>Crops</option>
-								<option value='Poultry'>Poultry</option>
+								<option value='poultry'>Poultry</option>
 								<option value='livestocks'>LiveStock</option>
-								<option value='Products'>Product</option>
+								<option value='products'>Product</option>
 							</select>
 						</div>
 					</div>
@@ -202,9 +211,11 @@ export const FarmerProductUpload = () => {
 								type='file'
 								className='choose_file'
 								id='image'
-								name='image'
-								onChange={formik.handleChange}
-								value={formik.values.image}
+								name='file'
+								onChange={(e) => {
+									setImages(e.target.files);
+								}}
+								// value={formik.values.file}
 								multiple
 								required
 							/>

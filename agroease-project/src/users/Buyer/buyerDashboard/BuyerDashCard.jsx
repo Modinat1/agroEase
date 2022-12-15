@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BuyerDashCard.css";
 import WeatherImg from "../../../images/farmer_img_circle.png";
+import axiosInstance from "../../../Context/axios-config/axios-user-config";
 // import CloudImg from "../../../images/farmer_cloud_img.png";
 // import  { useEffect, useState } from "react";
 // import axios from "axios";
@@ -10,6 +11,8 @@ export const BuyerDashCard = () => {
 	const [long, setLong] = useState([]);
 	const [data, setData] = useState([]);
 	const [iconID, setIconID] = useState([]);
+
+	
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -32,26 +35,27 @@ export const BuyerDashCard = () => {
 		fetchData();
 	}, [lat, long]);
 
+	
 	return (
 		<div>
 			<section className='buyer_dash_summary'>
 				<section className='today_weather_card_container'>
-					<h4>Today</h4>
+					<h4>Order Details</h4>
 					<div className='buyer_summary_card_wrapper'>
 						{/* card 1 */}
 						<div className='buyer_dash_category_card buyer_active farmer_buyer_card-1'>
-							<p className='farmer_buyer_title'>Total Product</p>
-							<p className='farmer_buyer_price'>600</p>
+							<p className='farmer_buyer_title'>Orders</p>
+							<p className='farmer_buyer_price'>0</p>
 						</div>
 						{/* card 2 */}
 						<div className='buyer_dash_category_card farmer_buyer_card-2'>
-							<p className='farmer_buyer_title'>Sold Product</p>
-							<p className='farmer_buyer_price'>260</p>
+							<p className='farmer_buyer_title'>Pending Orders</p>
+							<p className='farmer_buyer_price'>0</p>
 						</div>
 						{/* card 3 */}
 						<div className='buyer_dash_category_card farmer_buyer_card-3'>
-							<p className='farmer_buyer_title'>Total revenue</p>
-							<p className='farmer_buyer_price'>0.00</p>
+							<p className='farmer_buyer_title'>Successful Orders</p>
+							<p className='farmer_buyer_price'>0</p>
 						</div>
 					</div>
 				</section>

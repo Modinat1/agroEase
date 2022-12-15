@@ -137,24 +137,35 @@ const AdminProductTable = () => {
 		}
 	};
 
-	return (
-		<div>
-			<div className='general-table-bio-adpro'>
-				<div className='general-table-width-adpro'>
-					<table className='adpro-general-table'>
-						<thead className='adpro-general-thead'>
-							<tr className='adpro-general-tr'>
-								<th>Store ID</th>
-								<th>Name</th>
-								<th>Description</th>
-								<th>Quantity</th>
-								<th>Price (₦)</th>
-								<th>Action</th>
-								<th>Status</th>
-							</tr>
-						</thead>
+  // const deleteProductById = async (id) => {
+  //   console.log("i was clicked");
+  //   try {
+  //     await axiosInstance.delete(`/v1/product/${id}`, config);
+  //     window.location.reload();
+  //   } catch (error){
+	// 		console.log(error)
+	// 	}
+  // };
 
-						{/* Mapping through the array to get the table details */}
+
+  return (
+    <div>
+      <div className="general-table-bio-adpro">
+        <div className="general-table-width-adpro">
+          <table className="adpro-general-table">
+            <thead className="adpro-general-thead">
+              <tr className="adpro-general-tr">
+                <th>Store ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price (₦)</th>
+                <th>Action</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            {/* Mapping through the array to get the table details */}
 
 						{allProducts.map((tables) => {
 							return (

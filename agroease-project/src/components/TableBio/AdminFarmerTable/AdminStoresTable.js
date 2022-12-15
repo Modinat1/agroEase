@@ -9,11 +9,6 @@ import axiosInstance from "../../../Context/axios-config/axios-user-config";
 import axios from "axios";
 
 const AdminStoresTable = () => {
-	// const { userAuth } = GeneralUserAuth();
-	// const { accessToken, allUser } = userAuth;
-	// console.log(userAuth);
-	// console.log(allUser);
-
 	const tokenInfo = localStorage.getItem("token");
 	console.log(tokenInfo);
 
@@ -36,6 +31,28 @@ const AdminStoresTable = () => {
 			console.log(error);
 		}
 	};
+ 
+  const deleteStoreById =  async (id)=>{
+		console.log("You clicked me")
+    try {
+    await  axiosInstance.delete(
+				`/v1/store/${id}`, config);
+				window.location.reload();
+    } catch (error) {
+      
+    }
+  }
+
+	 const updateStoreById =  async (id)=>{
+		console.log("You opened me")
+   try {
+   await  axiosInstance.patch(
+			`/v1/store/${id}`, config);
+			window.location.reload();
+   } catch (error) {
+      
+  }
+  }
 
 	useEffect(() => {
 		getStores();
@@ -78,9 +95,11 @@ const AdminStoresTable = () => {
 										<td>{tables.Wallet.date_of_birth}</td>
 										<td>
 											<div className='styletableicon'>
-												<BiEdit />
+												<BiEdit 
+												 onClick={() => updateStoreById(tables.id)}
+												 />
 												<AiOutlinePauseCircle />
-												<MdOutlineCancel />
+												<MdOutlineCancel onClick={() => deleteStoreById(tables.id)}/>
 											</div>
 										</td>
 									</tr>

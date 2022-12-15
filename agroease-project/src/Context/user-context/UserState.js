@@ -1,6 +1,7 @@
 import {
 	ADD_USER,
 	EDIT_USER,
+	// DELETE_STORE,
 	SIGNUP_USER,
 	SIGNUP_USER_ERROR,
 	SIGNUP_USER_SUCCESS,
@@ -18,6 +19,7 @@ export const UserState = ({ children }) => {
 		token: "",
 		loading: false,
 		errorMessage: null,
+		// deleteStore: ""
 	};
 
 	const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -49,7 +51,10 @@ export const UserState = ({ children }) => {
 	const userError = (userObj) => {
 		dispatch({ type: SIGNUP_USER_ERROR, payload: userObj });
 	};
-
+//For delete store
+//  const deleteStore = (store) => {
+//  	dispatch({ type: DELETE_STORE, payload: store });
+// };
 	return (
 		<UserContext.Provider
 			value={{
@@ -59,6 +64,7 @@ export const UserState = ({ children }) => {
 				errorMessage: state.errorMessage,
 				addUser,
 				editUser,
+				// deleteStore,
 				userSuccess,
 				userError,
 				signupUser,

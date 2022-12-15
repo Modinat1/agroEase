@@ -67,6 +67,12 @@ form .input-box-agro span.details-agro {
 .user-details-agro .input-box-agro input:valid {
 	border-color: #045e0a;
 }
+#bank{
+	border-color: #045e0a;
+	border-radius: 5px;
+	border-bottom-width: 2px;
+	height: 45px;
+}
 .gender-details-agro {
 	margin-right: 50px;
 }

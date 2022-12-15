@@ -44,18 +44,18 @@ const AdminBrokerTable = () => {
 		}
 	};
 
-	const deleteProduct = async () => {
-		try {
-			const response = await axiosInstance.delete(
-				"v1/product/:productId"
-				// config
-			);
-			console.log(response.data);
-			return response;
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	// const deleteProduct = async () => {
+	// 	try {
+	// 		const response = await axiosInstance.delete(
+	// 			"v1/product/:productId"
+	// 			// config
+	// 		);
+	// 		console.log(response.data);
+	// 		return response;
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 	useEffect(() => {
 		getProduct();
 	}, []);
@@ -94,7 +94,9 @@ const AdminBrokerTable = () => {
 										<div className='styletableicon'>
 											<BiEdit />
 											<AiOutlinePauseCircle />
-											<MdOutlineCancel onClick={(id) => deleteProduct(id)} />
+											<MdOutlineCancel 
+											// onClick={(id) => deleteProduct(id)} 
+											/>
 										</div>
 									</td>
 									<td>

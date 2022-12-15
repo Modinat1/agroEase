@@ -135,9 +135,11 @@ export const FarmerProfilePage = () => {
 	const formik = useFormik({
 		initialValues: initialValues,
 		validationSchema: validationSchema,
-		onSubmit: (values) => {
+		onSubmit: (values, {resetForm}) => {
 			// alert(JSON.stringify(values, null, 2));
+			console.log(values)
 			handleStoreSubmit(values);
+			resetForm({values: ""})
 		},
 	});
 	return (
@@ -411,7 +413,7 @@ export const FarmerProfilePage = () => {
 									<select
 										type='text'
 										id='bank'
-										className='p-2 border-gray-700 w-full outline-gray-700'
+										className='border border-indigo-600 p-3 w-full'
 										name='bank'
 										onChange={formik.handleChange}
 										value={formik.values.bank}>

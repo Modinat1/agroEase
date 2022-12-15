@@ -8,7 +8,7 @@ const BuyerClientOrderTable = () => {
     const allUser = JSON.parse(localStorage.getItem("loginUserInfo")) || [];
 	const userInfo = JSON.parse(localStorage.getItem("user"));
 	const {id} = allUser;
-	const [products, setProducts] = useState([]);
+	const [order, setOrder] = useState([]);
 	const accessToken = localStorage.getItem("token");
 
 	const config = {
@@ -17,12 +17,9 @@ const BuyerClientOrderTable = () => {
 
 	const getOrders = async () => {
 		try {
-			const response = await axiosInstance.get(
-				`v1/orders/${id}`,
-				config
-			);
+			const response = await axiosInstance.get(`v1/orders/${id}`,config);
 			console.log(response.data);
-			setProducts(response.data);
+			setOrder([response.data]);
 
 			return response;
 		} catch (error) {
@@ -49,14 +46,15 @@ const BuyerClientOrderTable = () => {
     
                             {/* Mapping through the array to get the table details */}
     
-                            {products.map((tables) => {
+                            {order.map((tables) => {
+                                const { UserId, total, Status} = tables
                                 return (
-                                    <tbody className='adpro-general-tbody'>
+                                    <tbody className='adpro-general-tbody' key={UserId}>
                                         <tr>
-                                            <td>{tables.UserId}</td>
-                                            <td>{tables.total}</td>
+                                            <td>{UserId}</td>
+                                            <td>{total}</td>
                                             <td>
-                                            {tables.Status === 'delivered' ? (
+                                            {Status === 'delivered' ? (
 													<div
 														className='admin-verify'
 														style={{

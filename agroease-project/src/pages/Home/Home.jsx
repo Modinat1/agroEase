@@ -18,13 +18,14 @@ import GeneralUserAuth from "../../Context/user-auth/GeneralUserAuth";
 const Home = () => {
 	const [search, setSearch] = useState("");
 
-	const { userAuth, setUserAuth} =
-		GeneralUserAuth();
-	const { accessToken } = userAuth;
+	// const { userAuth, setUserAuth} =
+		// GeneralUserAuth();
+	// const { accessToken } = userAuth;
+	const getToken = localStorage.getItem('token')
 
 
 	const config = {
-		headers: { Authorization: `Bearer ${accessToken}` },
+		headers: { Authorization: `Bearer ${getToken}` },
 	};
 
 	const getCurrentUser = async () => {

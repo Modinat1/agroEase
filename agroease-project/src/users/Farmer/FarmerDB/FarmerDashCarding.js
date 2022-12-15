@@ -81,13 +81,10 @@ const FarmerDashCarding = () => {
 						<div className='buyer_dash_category_card farmer_buyer_card-2'>
 							<p className='farmer_buyer_title'>Successful Products</p>
 							{
-								products[0].status ? 
+								products.status ? 
 								<p className='farmer_buyer_price'>{products?.length}</p>
 								:
 								<p className='farmer_buyer_price'>0</p>
-
-								
-
 							}
 						</div>
 						{/* card 3 */}

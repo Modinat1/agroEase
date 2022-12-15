@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GeneralUserAuth from "../../Context/user-auth/GeneralUserAuth";
 import { getCurrentUser } from "../GetCurrentUser/GetCurrentUser";
+import Navbar2SearchButton from "../Navbar1/Navbar1Component/Navbar2SearchButton";
 import UsersDashboardSearch from "./UsersDashboardSearch";
 // import Agroeaselogo from "../../images/agrologo.png";
 
@@ -22,7 +23,7 @@ const NewBrokerNavbar = () => {
 	}, []);
 
 	const userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
-	console.log(userInfo)
+	console.log(userInfo);
 
 	// const allInfo = userInfo;
 	// const userDetails = allInfo.data;
@@ -55,6 +56,7 @@ const NewBrokerNavbar = () => {
 					{/* Header Icons */}
 					<div className='hidden xl:flex items-center space-x-5 items-center'>
 						<UsersDashboardSearch />
+						<Navbar2SearchButton />
 
 						{/* <Link className='flex items-center hover:text-gray-200'>
 							<svg
